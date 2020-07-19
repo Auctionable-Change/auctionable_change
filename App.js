@@ -6,17 +6,37 @@ import Welcome from "./screens/Welcome";
 import CurrentListings from "./screens/CurrentListings";
 import ListingDetails from "./screens/ListingDetails";
 import PurchaseItem from "./screens/PurchaseItem";
+import LogoTitle from "./components/LogoTitle"
+import PostItem from "./screens/PostItem"
 
 const Stack = createStackNavigator();
+
 
 export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="Welcome Friend" component={Welcome} />
-        <Stack.Screen name="Current Listings" component={CurrentListings} />
-        <Stack.Screen name="Listing Details" component={ListingDetails} />
-        <Stack.Screen name="Purchase Item" component={PurchaseItem} />
+        <Stack.Screen name="Home" component={Welcome} />
+        <Stack.Screen
+          name="Current Listings"
+          component={CurrentListings}
+          options={{ headerTitle: () => <LogoTitle /> }}
+        />
+        <Stack.Screen
+          name="Listing Details"
+          component={ListingDetails}
+          options={{ headerTitle: () => <LogoTitle /> }}
+        />
+        <Stack.Screen
+          name="Purchase Item"
+          component={PurchaseItem}
+          options={{ headerTitle: () => <LogoTitle /> }}
+        />
+        <Stack.Screen
+          name="Post Item"
+          component={PostItem}
+          options={{ headerTitle: () => <LogoTitle /> }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -3,25 +3,25 @@ const mockListings = [
     name: "BBQ Grill",
     price: 50,
     imageSource: "./grill.jpg",
-    category: 'Home'
+    category: 'home'
   },
   {
     name: "Stroller",
     price: 50,
     imageSource: "./grill.jpg",
-    category: 'Baby/Kids'  
+    category: 'baby'  
   },
   {
     name: "Coffee Table",
     price: 50,
     imageSource: "./grill.jpg",
-    category: 'Furniture'  
+    category: 'furniture'  
   },
   {
     name: "Fridge",
     price: 50,
     imageSource: "./grill.jpg",
-    category: 'Home'  
+    category: 'home'  
   }
 
 ]

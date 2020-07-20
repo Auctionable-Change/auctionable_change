@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { View, Text, Button, Image, StyleSheet, ScrollView, Animated } from "react-native";
+import { View, Text, Button, Image, StyleSheet, ScrollView } from "react-native";
 import mockListings from '../mockData/mockListings';
 import { Picker } from '@react-native-community/picker';
 

@@ -8,7 +8,7 @@ const ListingDetails = ({ navigation }) => {
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView>
-        <Text>Item Name</Text>
+        <Text style={styles.title}>Item Name</Text>
         <Image
           source={require("../assets/compact_logo.png")}
           style={styles.image}
@@ -33,7 +33,11 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: "center",
-    justifyContent: "flex-start",
+    justifyContent: "center",
+  },
+  title: {
+    fontSize: 30,
+    margin: 10,
   },
   image: {
     width: "95%",
@@ -45,7 +49,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     width: 200,
     padding: 10,
-    margin: 15,
+    margin: 10,
     alignItems: "center",
     shadowOffset: {
       width: 0,

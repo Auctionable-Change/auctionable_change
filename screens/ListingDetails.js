@@ -1,21 +1,31 @@
 import * as React from "react";
-import { View, Button, Image, Text } from "react-native";
+import { SafeAreaView, Image, Text } from "react-native";
 import NavBar from "../components/NavBar";
 import { StyleSheet } from "react-native";
-import { TouchableOpacity } from "react-native-gesture-handler";
+import { TouchableOpacity, ScrollView } from "react-native-gesture-handler";
 
 const ListingDetails = ({ navigation }) => {
   return (
-    <View style={styles.container}>
-      <Text>Listing Details</Text>
-      <TouchableOpacity
-        onPress=
-        {() => navigation.navigate("Purchase Item")}
-        style={styles.button}>
-        <Text>Purchase Item</Text>
-      </TouchableOpacity>
+    <SafeAreaView style={styles.container}>
+      <ScrollView>
+        <Text>Item Name</Text>
+        <Image
+          source={require("../assets/compact_logo.png")}
+          style={styles.image}
+        />
+        <Text>Item Description</Text>
+        <Text>Your purchase of this item supports:</Text>
+        <Text>Charity Name</Text>
+        <Text>Charity Score</Text>
+        <TouchableOpacity
+          onPress={() => navigation.navigate("Purchase Item")}
+          style={styles.button}
+        >
+          <Text>Donate For Item</Text>
+        </TouchableOpacity>
+      </ScrollView>
       <NavBar navigation={navigation} />
-    </View>
+    </SafeAreaView>
   );
 };
 
@@ -23,7 +33,12 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: "center",
-    justifyContent: "center",
+    justifyContent: "flex-start",
+  },
+  image: {
+    width: "95%",
+    height: 200,
+    resizeMode: "contain",
   },
   button: {
     backgroundColor: "#FFFFFF",

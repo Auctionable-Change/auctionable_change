@@ -3,8 +3,11 @@ import { SafeAreaView, Image, Text } from "react-native";
 import NavBar from "../components/NavBar";
 import { StyleSheet } from "react-native";
 import { TouchableOpacity, ScrollView } from "react-native-gesture-handler";
+import { useStore } from "../store";
+
 
 const ListingDetails = ({ navigation }) => {
+  const { state } = useStore()
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView>

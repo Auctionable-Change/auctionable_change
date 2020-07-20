@@ -2,8 +2,10 @@ import React, { useState, useEffect } from "react";
 import { View, Text, Button, Image, StyleSheet, ScrollView } from "react-native";
 import mockListings from '../mockData/mockListings';
 import { Picker } from '@react-native-community/picker';
+import { useStore } from "../store"
 
 const CurrentListings = ({ navigation }) => {
+  const { dispatch } = useStore()
   const [listings, setListings] = useState(mockListings);
   const [filterCategory, setFilterCategory] = useState('');
 
@@ -16,6 +18,13 @@ const CurrentListings = ({ navigation }) => {
         setListings(filteredListings)
         setFilterCategory(filterCriteria)
     }
+  }
+
+  const pressHandler = (name) => {
+    navigation.navigate("Listing Details");
+    let currentListing = listings.filter(listing => listing.name === name)[0]
+    console.log(currentListing);
+    dispatch({ type: "ADD_CURRENT_LISTING", currentListing: currentListing })
   }
 
   return (
@@ -48,7 +57,7 @@ const CurrentListings = ({ navigation }) => {
                 <Text>{`Current Price: $${listing.price}`}</Text>
                 <Button
                   title="Listing Details"
-                  onPress={() => navigation.navigate("Listing Details")}
+                  onPress={() => pressHandler(listing.name)}
                 />
               </View>
             )

@@ -8,37 +8,40 @@ import ListingDetails from "./screens/ListingDetails";
 import PurchaseItem from "./screens/PurchaseItem";
 import LogoTitle from "./components/LogoTitle"
 import PostItem from "./screens/PostItem"
+import { StoreProvider } from "./store"
 
 const Stack = createStackNavigator();
 
 
 export default function App() {
   return (
-    <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="Home" component={Welcome} />
-        <Stack.Screen
-          name="Current Listings"
-          component={CurrentListings}
-          options={{ headerTitle: () => <LogoTitle /> }}
-        />
-        <Stack.Screen
-          name="Listing Details"
-          component={ListingDetails}
-          options={{ headerTitle: () => <LogoTitle /> }}
-        />
-        <Stack.Screen
-          name="Purchase Item"
-          component={PurchaseItem}
-          options={{ headerTitle: () => <LogoTitle /> }}
-        />
-        <Stack.Screen
-          name="Post Item"
-          component={PostItem}
-          options={{ headerTitle: () => <LogoTitle /> }}
-        />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <StoreProvider>
+      <NavigationContainer>
+        <Stack.Navigator>
+          <Stack.Screen name="Home" component={Welcome} />
+          <Stack.Screen
+            name="Current Listings"
+            component={CurrentListings}
+            options={{ headerTitle: () => <LogoTitle /> }}
+          />
+          <Stack.Screen
+            name="Listing Details"
+            component={ListingDetails}
+            options={{ headerTitle: () => <LogoTitle /> }}
+          />
+          <Stack.Screen
+            name="Purchase Item"
+            component={PurchaseItem}
+            options={{ headerTitle: () => <LogoTitle /> }}
+          />
+          <Stack.Screen
+            name="Post Item"
+            component={PostItem}
+            options={{ headerTitle: () => <LogoTitle /> }}
+          />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </StoreProvider>
   );
 }
 

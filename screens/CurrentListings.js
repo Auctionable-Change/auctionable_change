@@ -52,6 +52,7 @@ const CurrentListings = ({ navigation }) => {
     const fetchData = async () => {
       const items = await fetchItems()
       setAllListings(items)
+      setListings(items)
     }
     fetchData()
   }, [])

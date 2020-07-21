@@ -1,16 +1,16 @@
 import * as React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from "@react-navigation/native";
+import { StoreProvider } from "./store";
 import { StyleSheet } from "react-native";
+import LogoTitle from "./components/LogoTitle";
 import Welcome from "./screens/Welcome";
 import CurrentListings from "./screens/CurrentListings";
 import ListingDetails from "./screens/ListingDetails";
 import PurchaseItem from "./screens/PurchaseItem";
-import LogoTitle from "./components/LogoTitle";
 import PostItem from "./screens/PostItem";
 import ChooseCharity from "./screens/ChooseCharity";
 import PostConfirmation from "./screens/PostConfirmation";
-import { StoreProvider } from "./store";
 
 const Stack = createStackNavigator();
 

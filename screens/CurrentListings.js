@@ -30,7 +30,6 @@ const CurrentListings = ({ navigation }) => {
   }
 
   const displayListings = () => {
-    
     return listings.map((listing) => {
       return (
         <View key={listing.name} style={styles.container}>
@@ -60,9 +59,9 @@ const CurrentListings = ({ navigation }) => {
   return (
     <View style={{ flex: 1, flexDirection: "column", alignItems: "center", justifyContent: "space-between"}}>
       {/* <Text style={styles.pageTitle}>Browse Listings:</Text> */}
-      <View style={{flex: 1, flexDirection: 'row'}}>
         <Picker
             style={styles.picker}
+            itemStyle={styles.pickerItem}
             selectedValue={filterCategory}
             onValueChange={(itemValue) => {
               filterListings(itemValue)
@@ -72,9 +71,7 @@ const CurrentListings = ({ navigation }) => {
           <Picker.Item label='Home' value="home" />
           <Picker.Item label='Furniture' value="furniture" />
           <Picker.Item label='Baby/Kids' value="baby" />
-
         </Picker>
-      </View>
       <ScrollView style={styles.scrollView}>
        {displayListings()}
       </ScrollView>
@@ -84,7 +81,6 @@ const CurrentListings = ({ navigation }) => {
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: 10,
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
@@ -104,13 +100,15 @@ const styles = StyleSheet.create({
     padding: 20
   },
   picker: {
-    height: 20, 
+    height: 15, 
     width: 100, 
-    marginTop: 0
   },
   scrollView: {
     width: 400, 
-    marginTop: 200
+    marginTop: 120
+  },
+  pickerItem: {
+    height: 150
   }
 })
 

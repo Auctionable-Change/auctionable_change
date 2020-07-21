@@ -2,19 +2,21 @@ import React, { useState, useEffect } from "react";
 import { View, Text, Button, Image, StyleSheet, ScrollView } from "react-native";
 import mockListings from '../mockData/mockListings';
 import { Picker } from '@react-native-community/picker';
-import { useStore } from "../store"
+import { useStore } from "../store";
+import { fetchItems } from './apiCalls';
 
 const CurrentListings = ({ navigation }) => {
   const { dispatch } = useStore()
-  const [listings, setListings] = useState(mockListings);
+  const [listings, setListings] = useState([]);
   const [filterCategory, setFilterCategory] = useState('');
+  const [allListings, setAllListings] = useState([])
 
   const filterListings = (filterCriteria) => {
     if(filterCriteria === 'all') {
-      setListings(mockListings)
+      setListings(allListings)
       setFilterCategory(filterCriteria)
     } else {
-        const filteredListings = mockListings.filter(listing => listing.category === filterCriteria)
+        const filteredListings = listings.filter(listing => listing.category === filterCriteria)
         setListings(filteredListings)
         setFilterCategory(filterCriteria)
     }
@@ -22,10 +24,37 @@ const CurrentListings = ({ navigation }) => {
 
   const pressHandler = (name) => {
     navigation.navigate("Listing Details");
-    let currentListing = listings.filter(listing => listing.name === name)[0]
+    let currentListing = listings.find(listing => listing.name === name)
     console.log(currentListing);
     dispatch({ type: "ADD_CURRENT_LISTING", currentListing: currentListing })
   }
+
+  const displayListings = () => {
+    
+    return listings.map((listing) => {
+      return (
+        <View key={listing.name} style={styles.container}>
+          <Text style={styles.pageTitle}>{listing.name}</Text>
+          <Image source={ require('./grill.jpg') } 
+                style={ styles.image }
+          />
+          <Text>{`Current Price: $${listing.price}`}</Text>
+          <Button
+            title="Listing Details"
+            onPress={() => pressHandler(listing.name)}
+          />
+        </View>
+      )
+    })
+  }
+  
+  useEffect(() => {
+    const fetchData = async () => {
+      const items = await fetchItems()
+      setAllListings(items)
+    }
+    fetchData()
+  }, [])
 
   return (
     <View style={{ flex: 1, flexDirection: "column", alignItems: "center", justifyContent: "space-between"}}>
@@ -46,23 +75,7 @@ const CurrentListings = ({ navigation }) => {
         </Picker>
       </View>
       <ScrollView style={styles.scrollView}>
-        { 
-          listings.map((listing) => {
-            return (
-              <View key={listing.name} style={styles.container}>
-                <Text style={styles.pageTitle}>{listing.name}</Text>
-                <Image source={ require('./grill.jpg') } 
-                      style={ styles.image }
-                />
-                <Text>{`Current Price: $${listing.price}`}</Text>
-                <Button
-                  title="Listing Details"
-                  onPress={() => pressHandler(listing.name)}
-                />
-              </View>
-            )
-          })
-        }
+       {displayListings()}
       </ScrollView>
     </View>
   );

@@ -6,12 +6,12 @@ import Welcome from "./screens/Welcome";
 import CurrentListings from "./screens/CurrentListings";
 import ListingDetails from "./screens/ListingDetails";
 import PurchaseItem from "./screens/PurchaseItem";
-import LogoTitle from "./components/LogoTitle"
-import PostItem from "./screens/PostItem"
-import { StoreProvider } from "./store"
+import LogoTitle from "./components/LogoTitle";
+import PostItem from "./screens/PostItem";
+import ChooseCharity from "./screens/ChooseCharity";
+import { StoreProvider } from "./store";
 
 const Stack = createStackNavigator();
-
 
 export default function App() {
   return (
@@ -37,6 +37,11 @@ export default function App() {
           <Stack.Screen
             name="Post Item"
             component={PostItem}
+            options={{ headerTitle: () => <LogoTitle /> }}
+          />
+          <Stack.Screen
+            name="Choose Charity"
+            component={ChooseCharity}
             options={{ headerTitle: () => <LogoTitle /> }}
           />
         </Stack.Navigator>

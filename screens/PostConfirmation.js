@@ -4,16 +4,16 @@ import { StyleSheet } from "react-native";
 import { TouchableOpacity, ScrollView } from "react-native-gesture-handler";
 import { useStore } from "../store";
 
-const ChooseCharity = ({ navigation }) => {
+const PostConfirmation = ({ navigation }) => {
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView>
-        <Text>Choose Charity</Text>
+        <Text>Your Item Has Been Listed</Text>
         <TouchableOpacity
           onPress={() => navigation.navigate("Confirmation")}
           style={styles.button}
         >
-          <Text>Confirm Post</Text>
+          <Text>View Listing</Text>
         </TouchableOpacity>
       </ScrollView>
     </SafeAreaView>
@@ -42,4 +42,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ChooseCharity;
+export default PostConfirmation;

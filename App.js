@@ -9,6 +9,7 @@ import PurchaseItem from "./screens/PurchaseItem";
 import LogoTitle from "./components/LogoTitle";
 import PostItem from "./screens/PostItem";
 import ChooseCharity from "./screens/ChooseCharity";
+import PostConfirmation from "./screens/PostConfirmation";
 import { StoreProvider } from "./store";
 
 const Stack = createStackNavigator();
@@ -42,6 +43,11 @@ export default function App() {
           <Stack.Screen
             name="Choose Charity"
             component={ChooseCharity}
+            options={{ headerTitle: () => <LogoTitle /> }}
+          />
+          <Stack.Screen
+            name="Confirmation"
+            component={PostConfirmation}
             options={{ headerTitle: () => <LogoTitle /> }}
           />
         </Stack.Navigator>

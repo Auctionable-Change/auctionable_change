@@ -21,7 +21,7 @@ const ListingDetails = ({ navigation }) => {
         <Text>Charity Name</Text>
         <Text>Charity Score</Text>
         <TouchableOpacity
-          onPress={() => navigation.navigate("Purchase Item")}
+          onPress={() => navigation.navigate("Purchase")}
           style={styles.button}
         >
           <Text>Donate For Item</Text>

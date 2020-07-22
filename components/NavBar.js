@@ -10,7 +10,7 @@ const NavBar = ({ navigation }) => {
   return (
     <View style={styles.navBar}>
       <TouchableWithoutFeedback
-        onPress={() => navigation.navigate("Current Listings")}
+        onPress={() => navigation.navigate("Listings")}
       >
         <Image
           accessibilityRole="button"

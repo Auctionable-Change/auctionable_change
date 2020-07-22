@@ -7,8 +7,10 @@ import LogoTitle from "./components/LogoTitle";
 import Welcome from "./screens/Welcome";
 import CurrentListings from "./screens/CurrentListings";
 import ListingDetails from "./screens/ListingDetails";
-import PostItem from "./screens/PostItem"
-import PaymentInstructions from "./screens/PaymentInstructions"
+import PostItem from "./screens/PostItem";
+import PaymentInstructions from "./screens/PaymentInstructions";
+import ChooseCharity from "./screens/ChooseCharity";
+import PostConfirmation from "./screens/PostConfirmation";
 
 const Stack = createStackNavigator();
 

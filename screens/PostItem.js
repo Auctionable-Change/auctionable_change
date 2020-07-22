@@ -50,15 +50,27 @@ const PostItem = ({ navigation }) => {
     <SafeAreaView style={styles.container}>
       <ScrollView contentContainerStyle={styles.scroll}>
         <Text style={styles.title}>Post an Item</Text>
-        <TextInput style={styles.textInput} 
-        accessibilityLabel="Your Name"
-        autoCapitalize="words"
-        autoCompleteType="name" />
-        <TextInput style={styles.textInput} placeholder="Your Email"
-        autoCompleteType="email" />
-        <TextInput style={styles.textInput} placeholder="Item Name" />
+        <TextInput
+          style={styles.textInput}
+          placeholder="Your Name"
+          accessibilityLabel="Your Name"
+          autoCapitalize="words"
+          autoCompleteType="name"
+        />
+        <TextInput
+          style={styles.textInput}
+          placeholder="Your Email"
+          accessibilityLabel="Your Email"
+          autoCompleteType="email"
+        />
+        <TextInput
+          style={styles.textInput}
+          placeholder="Item Name"
+          accessibilityLabel="Item Name"
+        />
         <Button
           title="Pick an image from camera roll"
+          accessibilityLabel="Pick an image from camera roll"
           color="#2cb833"
           onPress={_pickImage}
         />
@@ -72,13 +84,19 @@ const PostItem = ({ navigation }) => {
             />
           </TouchableWithoutFeedback>
         )}
-        <TextInput style={styles.textInput} placeholder="Item Description" />
+        <TextInput
+          style={styles.textInput}
+          placeholder="Item Description"
+          accessibilityLabel="Item Description"
+        />
         <TextInput
           style={styles.textInput}
           placeholder="Minimum Donation for Item"
+          accessibilityLabel="Minimum Donation for Item"
           keyboardType="numeric"
         />
         <TouchableOpacity
+          accessibilityRole="button"
           onPress={() => navigation.navigate("Choose Charity")}
           style={styles.button}
         >
@@ -92,7 +110,7 @@ const PostItem = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: 20,
+    marginTop: 10,
   },
   scroll: {
     display: "flex",
@@ -101,7 +119,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 25,
     textAlign: "center",
-    margin: 20,
+    margin: 10,
   },
   textInput: {
     height: 30,

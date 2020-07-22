@@ -106,23 +106,20 @@ const PaymentInstructions = () => {
         </Text>
         <TextInput
           style={styles.textInput}
-          value={emailObject.name}
-          onChange={(event) => handleChange(event, "name")}
           placeholder="Your Name"
           autoCapitalize="words"
-          autoCompleteType="name"
+          value={emailObject.name}
+          onChange={(event) => handleChange(event, "name")}
         />
         <TextInput
           style={styles.textInput}
           placeholder="Your Email"
-          autoCompleteType="email"
           value={emailObject.email}
           onChange={(event) => handleChange(event, "email")}
         />
         <TextInput
           style={styles.textInput}
           placeholder="Street Address"
-          autoCompleteType="street-address"
           value={emailObject.streetAddress}
           onChange={(event) => handleChange(event, "streetAddress")}
         />
@@ -135,7 +132,6 @@ const PaymentInstructions = () => {
         <TextInput
           style={styles.textInput}
           placeholder="Zipcode"
-          autoCompleteType="postal-code"
           value={emailObject.zipCode}
           onChange={(event) => handleChange(event, "zipCode")}
         />

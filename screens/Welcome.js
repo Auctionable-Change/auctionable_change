@@ -10,7 +10,7 @@ const Welcome = ({ navigation }) => {
     <View style={styles.container}>
       <Image source={require('../assets/stacked_logo.png')} style={styles.logo} />
       <TouchableOpacity
-        onPress={() => navigation.navigate("Current Listings")}
+        onPress={() => navigation.navigate("Listings")}
         style={styles.button}
       >
         <Text>Current Listings</Text>

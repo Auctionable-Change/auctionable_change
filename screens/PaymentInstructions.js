@@ -139,7 +139,7 @@ const PaymentInstructions = () => {
           value={emailObject.zipCode}
           onChange={(event) => handleChange(event, "zipCode")}
         />
-        <TouchableOpacity onPress={() => submitHandler()} style={styles.button}>
+        <TouchableOpacity accessibilityRole="button" onPress={() => submitHandler()} style={styles.button}>
           <Text>Submit</Text>
         </TouchableOpacity>
       </ScrollView>
@@ -150,7 +150,7 @@ const PaymentInstructions = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: 20,
+    marginTop: 10,
   },
   subheader: {
     fontSize: 15,
@@ -163,7 +163,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 25,
     textAlign: "center",
-    margin: 20,
+    margin: 10,
   },
   listItem: {
     textAlign: "left",

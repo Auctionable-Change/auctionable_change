@@ -1,6 +1,6 @@
 import * as React from "react";
 import { SafeAreaView, Image, Text } from "react-native";
-import NavBar from "../components/NavBar";
+import NavBar from "../components/NavBar/NavBar";
 import { StyleSheet } from "react-native";
 import { TouchableOpacity, ScrollView } from "react-native-gesture-handler";
 import { useStore } from "../store";

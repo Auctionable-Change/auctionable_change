@@ -5,16 +5,29 @@ import { TouchableOpacity, ScrollView } from "react-native-gesture-handler";
 import { useStore } from "../store";
 
 const PostItem = ({ navigation }) => {
-  const [value, onChangeText] = React.useState("title");
-
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView>
         <Text>Post an Item</Text>
         <TextInput
           style={{ height: 40, borderColor: "gray", borderWidth: 1 }}
-          onChangeText={(text) => onChangeText(text)}
-          value={value}
+          placeholder="Your Name"
+        />
+        <TextInput
+          style={{ height: 40, borderColor: "gray", borderWidth: 1 }}
+          placeholder="Your Email"
+        />
+        <TextInput
+          style={{ height: 40, borderColor: "gray", borderWidth: 1 }}
+          placeholder="Name of Item"
+        />
+        <TextInput
+          style={{ height: 40, borderColor: "gray", borderWidth: 1 }}
+          placeholder="Item Description"
+        />
+        <TextInput
+          style={{ height: 40, borderColor: "gray", borderWidth: 1 }}
+          placeholder="Minimum Donation for Item"
         />
         <TouchableOpacity
           onPress={() => navigation.navigate("Choose Charity")}

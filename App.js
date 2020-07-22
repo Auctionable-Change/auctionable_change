@@ -7,10 +7,8 @@ import LogoTitle from "./components/LogoTitle";
 import Welcome from "./screens/Welcome";
 import CurrentListings from "./screens/CurrentListings";
 import ListingDetails from "./screens/ListingDetails";
-import LogoTitle from "./components/LogoTitle"
 import PostItem from "./screens/PostItem"
 import PaymentInstructions from "./screens/PaymentInstructions"
-import { StoreProvider } from "./store"
 
 const Stack = createStackNavigator();
 

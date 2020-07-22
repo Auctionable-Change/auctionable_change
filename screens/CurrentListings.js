@@ -25,7 +25,7 @@ const CurrentListings = ({ navigation }) => {
   }
 
   const pressHandler = (name) => {
-    navigation.navigate("Listing Details");
+    navigation.navigate("Details");
     let currentListing = listings.find(listing => listing.name === name)
     console.log(currentListing);
     dispatch({ type: "ADD_CURRENT_LISTING", currentListing: currentListing })

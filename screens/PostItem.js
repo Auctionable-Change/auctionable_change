@@ -14,10 +14,21 @@ import { cloudinaryPost } from "./apiCalls";
 const PostItem = ({ navigation }) => {
   const [image, uploadImage] = useState(null);
   const [imageObj, setImageObj] = useState(null);
+  const [listingObj, setListingObj] = useState({});
 
   useEffect(() => {
     getPermissionAsync();
   });
+
+  const submitHandler = async () => {
+    const imageUrl = await cloudinaryPost(imageObj);
+    console.log("img", imageObj);
+  };
+
+  const handleChange = (event, name) => {
+    setListingObj({ ...listingObj, [name]: event.nativeEvent.text });
+    console.log("listing", listingObj);
+  };
 
   const getPermissionAsync = async () => {
     if (Constants.platform.ios) {
@@ -55,18 +66,22 @@ const PostItem = ({ navigation }) => {
           placeholder="Your Name"
           accessibilityLabel="Your Name"
           autoCapitalize="words"
-          autoCompleteType="name"
+          value={listingObj.name}
+          onChange={(event) => handleChange(event, "name")}
         />
         <TextInput
           style={styles.textInput}
           placeholder="Your Email"
           accessibilityLabel="Your Email"
-          autoCompleteType="email"
+          value={listingObj.email}
+          onChange={(event) => handleChange(event, "email")}
         />
         <TextInput
           style={styles.textInput}
           placeholder="Item Name"
           accessibilityLabel="Item Name"
+          value={listingObj.itemName}
+          onChange={(event) => handleChange(event, "itemName")}
         />
         <Button
           title="Pick an image from camera roll"
@@ -88,16 +103,21 @@ const PostItem = ({ navigation }) => {
           style={styles.textInput}
           placeholder="Item Description"
           accessibilityLabel="Item Description"
+          value={listingObj.description}
+          onChange={(event) => handleChange(event, "description")}
         />
         <TextInput
           style={styles.textInput}
           placeholder="Minimum Donation for Item"
           accessibilityLabel="Minimum Donation for Item"
-          keyboardType="numeric"
+          value={listingObj.minBid}
+          onChange={(event) => handleChange(event, "minBid")}
         />
         <TouchableOpacity
           accessibilityRole="button"
-          onPress={() => navigation.navigate("Choose Charity")}
+          onPress={() =>
+            submitHandler() && navigation.navigate("Choose Charity")
+          }
           style={styles.button}
         >
           <Text>Choose Charity</Text>

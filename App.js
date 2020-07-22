@@ -9,7 +9,6 @@ import CurrentListings from "./screens/CurrentListings";
 import ListingDetails from "./screens/ListingDetails";
 import PostItem from "./screens/PostItem"
 import PaymentInstructions from "./screens/PaymentInstructions"
-import { StoreProvider } from "./store"
 
 const Stack = createStackNavigator();
 

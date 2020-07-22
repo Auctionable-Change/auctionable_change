@@ -12,6 +12,7 @@ import PaymentInstructions from "./screens/PaymentInstructions";
 import ChooseCharity from "./screens/ChooseCharity";
 import PostConfirmation from "./screens/PostConfirmation";
 
+
 const Stack = createStackNavigator();
 
 export default function App() {

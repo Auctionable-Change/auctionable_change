@@ -25,7 +25,7 @@ export default function App() {
             options={{ headerTitle: () => <LogoTitle /> }}
           />
           <Stack.Screen
-            name="Listing Details"
+            name="Details"
             component={ListingDetails}
             options={{ headerTitle: () => <LogoTitle /> }}
           />

@@ -7,10 +7,10 @@ import LogoTitle from "./components/LogoTitle";
 import Welcome from "./screens/Welcome";
 import CurrentListings from "./screens/CurrentListings";
 import ListingDetails from "./screens/ListingDetails";
-import PurchaseItem from "./screens/PurchaseItem";
-import PostItem from "./screens/PostItem";
-import ChooseCharity from "./screens/ChooseCharity";
-import PostConfirmation from "./screens/PostConfirmation";
+import LogoTitle from "./components/LogoTitle"
+import PostItem from "./screens/PostItem"
+import PaymentInstructions from "./screens/PaymentInstructions"
+import { StoreProvider } from "./store"
 
 const Stack = createStackNavigator();
 
@@ -21,23 +21,23 @@ export default function App() {
         <Stack.Navigator>
           <Stack.Screen name="Home" component={Welcome} />
           <Stack.Screen
-            name="Current Listings"
+            name="Listings"
             component={CurrentListings}
             options={{ headerTitle: () => <LogoTitle /> }}
           />
           <Stack.Screen
-            name="Listing Details"
+            name="Details"
             component={ListingDetails}
-            options={{ headerTitle: () => <LogoTitle /> }}
-          />
-          <Stack.Screen
-            name="Purchase Item"
-            component={PurchaseItem}
             options={{ headerTitle: () => <LogoTitle /> }}
           />
           <Stack.Screen
             name="Post Item"
             component={PostItem}
+            options={{ headerTitle: () => <LogoTitle /> }}
+          />
+          <Stack.Screen
+            name="Purchase"
+            component={PaymentInstructions}
             options={{ headerTitle: () => <LogoTitle /> }}
           />
           <Stack.Screen

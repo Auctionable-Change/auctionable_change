@@ -12,18 +12,21 @@ import * as ImagePicker from "expo-image-picker";
 import Constants from "expo-constants";
 import * as Permissions from "expo-permissions";
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { cloudinaryPost } from './apiCalls'
 // import { preventAutoHide } from 'expo/build/launch/SplashScreen';
 
 
 const PaymentInstructions = () => {
   const [emailObject, updateEmailObject] = useState({})
   const [image, uploadImage] = useState(null)
+  const [imageObj, setImageObj] = useState(null)
   
   useEffect(() => {
     getPermissionAsync();
   })
   
-  const submitHandler = () => {
+  const submitHandler = async () => {
+    const imageUrl = await cloudinaryPost(imageObj)
     MailComposer.composeAsync({
       recipients: [/*we want to add seller email here*/"allyjarjour@gmail.com"],
       subject: "Time to ship your item from Auctionable Change",
@@ -32,7 +35,9 @@ const PaymentInstructions = () => {
       
       Name: ${emailObject.name}
       Email: ${emailObject.email}
-      Address: ${emailObject.streetAddress}, ${emailObject.cityState}, ${emailObject.zipCode}` 
+      Address: ${emailObject.streetAddress}, ${emailObject.cityState}, ${emailObject.zipCode}
+      Image: ${imageUrl}
+      `
     });
     updateEmailObject({})
   }
@@ -57,9 +62,11 @@ const PaymentInstructions = () => {
          allowsEditing: true,
          aspect: [4, 3],
          quality: 1,
+         base64: true
        });
        if (!result.cancelled) {
          uploadImage(result.uri);
+         setImageObj(result)
        }
      } catch (E) {
        console.log(E);

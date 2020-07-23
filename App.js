@@ -32,13 +32,13 @@ export default function App() {
             options={{ headerTitle: () => <LogoTitle /> }}
           />
           <Stack.Screen
-            name="Post Item"
-            component={PostItem}
+            name="Purchase"
+            component={PaymentInstructions}
             options={{ headerTitle: () => <LogoTitle /> }}
           />
           <Stack.Screen
-            name="Purchase"
-            component={PaymentInstructions}
+            name="Post Item"
+            component={PostItem}
             options={{ headerTitle: () => <LogoTitle /> }}
           />
           <Stack.Screen

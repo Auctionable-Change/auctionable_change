@@ -2,7 +2,6 @@ import * as React from "react";
 import { SafeAreaView, Text } from "react-native";
 import { StyleSheet } from "react-native";
 import { TouchableOpacity, ScrollView } from "react-native-gesture-handler";
-import { useStore } from "../store";
 
 const ChooseCharity = ({ navigation }) => {
   return (

@@ -4,6 +4,8 @@ import NavBar from "../components/NavBar";
 import { StyleSheet } from "react-native";
 import { TouchableOpacity, ScrollView } from "react-native-gesture-handler";
 import { useStore } from "../store";
+import * as Linking from "expo-linking";
+
 
 
 const ListingDetails = ({ navigation }) => {
@@ -30,8 +32,11 @@ const ListingDetails = ({ navigation }) => {
           <Text style={styles.charityDescription}>
             Purchase of this item supports {state.currentListing.charity}
           </Text>
-          <Text>Charity Score: </Text>
-          <Text>Read more about their mission here.</Text>
+          <Text>Charity Score: {state.currentListing.charity_score}</Text>
+          <View style={{flexDirection: "row", flexWrap: "wrap"}}>
+            <Text>Read more about their mission </Text>
+            <Text style={{ fontWeight: "bold"}} onPress={() => Linking.openURL(state.currentListing.charity_url)}>here.</Text>
+          </View>
         </View>
         <TouchableOpacity
           onPress={() => navigation.navigate("Purchase")}
@@ -80,7 +85,6 @@ const styles = StyleSheet.create({
   scroll: {
     display: "flex",
     alignItems: "center",
-    // width: "85%"
   },
   image: {
     width: 225,

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Text, StyleSheet, TextInput, Button, Image } from "react-native";
+import { Text, StyleSheet, TextInput, Button, Image, View } from "react-native";
 import {
   TouchableOpacity,
   ScrollView,
@@ -11,38 +11,66 @@ import Constants from "expo-constants";
 import * as Permissions from "expo-permissions";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { cloudinaryPost } from "./apiCalls";
-// import { preventAutoHide } from 'expo/build/launch/SplashScreen';
+import { useStore } from "../store";
+import * as Linking from "expo-linking";
+
 
 const PaymentInstructions = () => {
   const [emailObject, updateEmailObject] = useState({});
   const [image, uploadImage] = useState(null);
   const [imageObj, setImageObj] = useState(null);
+  const [receiptUrl, setReceiptUrl] = useState(null);
+  const { state } = useStore()
 
   useEffect(() => {
     getPermissionAsync();
   });
 
+  const _pickImage = async () => {
+    try {
+      let result = await ImagePicker.launchImageLibraryAsync({
+        mediaTypes: ImagePicker.MediaTypeOptions.Image,
+        allowsEditing: true,
+        aspect: [4, 3],
+        quality: 1,
+        base64: true,
+      });
+      if (!result.cancelled) {
+        await uploadImage(result.uri);
+        await setImageObj(result);
+      }
+    } catch (E) {
+      console.log(E);
+    }
+  };
+
   const submitHandler = async () => {
-    const imageUrl = await cloudinaryPost(imageObj);
-    MailComposer.composeAsync({
-      recipients: [
-        /*we want to add seller email here*/ "allyjarjour@gmail.com",
-      ],
-      subject: "Time to ship your item from Auctionable Change",
-      body:
-        "Hello," /*add seller.name*/ +
-        `Your item has sold! Thank you for fundraising 
-      for` /*add item.charity*/ +
-        `Together, we can make A.change. Find the buyer's info below:
-      
-      Name: ${emailObject.name}
-      Email: ${emailObject.email}
-      Address: ${emailObject.streetAddress}, ${emailObject.cityState}, ${emailObject.zipCode}
-      Image: ${imageUrl}
-      `,
-    });
+    await cloudinaryPost(imageObj, sendEmail)
+   
     updateEmailObject({});
   };
+
+  const sendEmail = (photoData) => {
+    MailComposer.composeAsync({
+      recipients: [
+        // `${state.currentListing.donor_email}`,
+        "allyjarjour@gmail.com",
+      ],
+      subject: "Time to ship your item from Auctionable Change",
+      body: `Hello ${state.currentListing.donor}, 
+
+      I just made my donation to ${state.currentListing.charity}. Excited to have made A.change with you. Find my info below for shipping.
+
+    Thank you,
+    ${emailObject.name}
+
+    Email: ${emailObject.email}
+    Address: ${emailObject.streetAddress}, ${emailObject.cityState}, ${emailObject.zipCode}
+    Donation Receipt: ${photoData} 
+      `
+      ,
+    });
+  }
 
   const handleChange = (event, name) => {
     updateEmailObject({ ...emailObject, [name]: event.nativeEvent.text });
@@ -57,32 +85,21 @@ const PaymentInstructions = () => {
     }
   };
 
-  const _pickImage = async () => {
-    try {
-      let result = await ImagePicker.launchImageLibraryAsync({
-        mediaTypes: ImagePicker.MediaTypeOptions.Image,
-        allowsEditing: true,
-        aspect: [4, 3],
-        quality: 1,
-        base64: true,
-      });
-      if (!result.cancelled) {
-        uploadImage(result.uri);
-        setImageObj(result);
-      }
-    } catch (E) {
-      console.log(E);
-    }
-  };
-
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView contentContainerStyle={styles.scroll}>
         <Text style={styles.title}>Thank you for your contribution!</Text>
         <Text style={styles.subheader}>Instructions to complete order:</Text>
-        <Text style={styles.listItem}>
-          1. Follow this [link] to donate at least $[price]
-        </Text>
+        <View style={styles.stepOne}>
+          <Text>1. Follow this </Text>
+          <Text
+            style={{fontWeight: "bold"}}
+            onPress={() => Linking.openURL(state.currentListing.charity_url)}
+          >
+            link
+          </Text>
+          <Text> to donate at least ${state.currentListing.price}</Text>
+        </View>
         <Text style={styles.listItem}>
           2. Screenshot your receipt to confirm with seller
         </Text>
@@ -135,7 +152,11 @@ const PaymentInstructions = () => {
           value={emailObject.zipCode}
           onChange={(event) => handleChange(event, "zipCode")}
         />
-        <TouchableOpacity accessibilityRole="button" onPress={() => submitHandler()} style={styles.button}>
+        <TouchableOpacity
+          accessibilityRole="button"
+          onPress={() => submitHandler()}
+          style={styles.button}
+        >
           <Text>Submit</Text>
         </TouchableOpacity>
       </ScrollView>
@@ -162,7 +183,6 @@ const styles = StyleSheet.create({
     margin: 10,
   },
   listItem: {
-    textAlign: "left",
     fontSize: 15,
     margin: 5,
   },
@@ -188,6 +208,11 @@ const styles = StyleSheet.create({
     },
     shadowOpacity: 0.18,
     shadowRadius: 1.0,
+  },
+  stepOne: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+    marginTop: 10,
   },
 });
 

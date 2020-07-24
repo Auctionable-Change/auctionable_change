@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { View, Text, Button, Image, StyleSheet, FlatList, SafeAreaView } from "react-native";
-import mockListings from '../mockData/mockListings';
 import { Picker } from '@react-native-community/picker';
 import { useStore } from "../store";
 import { fetchItems } from './apiCalls';
@@ -25,10 +24,9 @@ const CurrentListings = ({ navigation }) => {
   }
 
   const pressHandler = (name) => {
-    navigation.navigate("Details");
-    let currentListing = listings.filter(listing => listing.name === name)[0]
-    console.log(currentListing);
+    let currentListing = listings.filter(listing => listing.title === name)[0]
     dispatch({ type: "ADD_CURRENT_LISTING", currentListing: currentListing })
+    navigation.navigate("Details");
   }
 
   useEffect(() => {
@@ -41,42 +39,56 @@ const CurrentListings = ({ navigation }) => {
   }, [])
 
   return (
-    <SafeAreaView style={{ flex: 1, flexDirection: "column", alignItems: "center", justifyContent: "space-between"}}>
+    <SafeAreaView
+      style={{
+        flex: 1,
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "space-between",
+      }}
+    >
       {/* <Text style={styles.pageTitle}>Browse Listings:</Text> */}
-        <Picker
-            style={styles.picker}
-            itemStyle={styles.pickerItem}
-            selectedValue={filterCategory}
-            onValueChange={(itemValue) => {
-              filterListings(itemValue)
-            }
-            }>
-          <Picker.Item label='All' value="all" />
-          <Picker.Item label='Electronics' value="electronics" />
-          <Picker.Item label='Home' value="home" />
-          <Picker.Item label='Furniture' value="furniture" />
-          <Picker.Item label='Baby/Kids' value="baby" />
-        </Picker>
-      <FlatList 
-          data={listings} 
-          style={styles.scrollView}
-          keyExtractor={item => item.id}
-          renderItem={( { item }) => (
-            <View style={styles.itemContainer}>
-              <Text style={styles.pageTitle}>{item.title}</Text>
-              <Image source={ require('./grill.jpg') } 
-                    style={ styles.image }
-              />
-              <Text>{`Current Price: $${item.price}`}</Text>
-              <TouchableOpacity
-                title="Listing Details"
-                onPress={() => pressHandler(item.name)}
-                style={styles.button}
-              >
+      <Picker
+        style={styles.picker}
+        itemStyle={styles.pickerItem}
+        selectedValue={filterCategory}
+        onValueChange={(itemValue) => {
+          filterListings(itemValue);
+        }}
+      >
+        <Picker.Item label="All" value="all" />
+        <Picker.Item label="Electronics" value="electronics" />
+        <Picker.Item label="Home" value="home" />
+        <Picker.Item label="Furniture" value="furniture" />
+        <Picker.Item label="Baby/Kids" value="baby" />
+      </Picker>
+      <FlatList
+        data={listings}
+        style={styles.scrollView}
+        keyExtractor={(item) => item.id}
+        renderItem={({ item }) => (
+          <View style={styles.itemContainer}>
+            <Text style={styles.pageTitle}>{item.title}</Text>
+            <Image
+              source={
+                item.image
+                  ? { uri: item.image }
+                  : require("../assets/icons/no-photo-selected.png")
+              }
+              style={styles.image}
+            />
+            <Text
+              style={{ marginTop: 10 }}
+            >{`Current Price: $${item.price}`}</Text>
+            <TouchableOpacity
+              title="Listing Details"
+              onPress={() => pressHandler(item.title)}
+              style={styles.button}
+            >
               <Text>Listing Details:</Text>
-              </TouchableOpacity>
-            </View>
-          )}
+            </TouchableOpacity>
+          </View>
+        )}
       />
     </SafeAreaView>
   );
@@ -89,14 +101,14 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   image: {
-    width: 200,
+    width: 225,
     height: 200,
-    resizeMode: 'stretch'
+    resizeMode: "cover"
   },
   pageTitle: {
-    marginBottom: 5,
+    marginBottom: 10,
     fontSize: 25,
-    justifyContent: "center"
+    justifyContent: "center",
   },
   listing: {
     marginTop: 5,
@@ -121,7 +133,8 @@ const styles = StyleSheet.create({
     marginTop: 10,
     borderColor:  '#2cb833',
     borderWidth: 2,
-    borderRadius: 10
+    borderRadius: 10,
+    padding: 10
   },
   button: {
     backgroundColor: "#FFF",

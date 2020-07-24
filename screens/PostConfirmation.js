@@ -2,12 +2,15 @@ import * as React from "react";
 import { SafeAreaView, Text } from "react-native";
 import { StyleSheet } from "react-native";
 import { TouchableOpacity, ScrollView } from "react-native-gesture-handler";
+import { useStore } from '../store'
 
 const PostConfirmation = ({ navigation }) => {
+  const { state } = useStore()
+  console.log(state)
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView>
-        <Text>Your Item Has Been Listed</Text>
+        <Text>{state.selectedCharity.name}</Text>
         <TouchableOpacity
           // onPress={() => navigation.navigate("Confirmation")}
           style={styles.button}

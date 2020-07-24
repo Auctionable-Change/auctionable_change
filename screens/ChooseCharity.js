@@ -187,8 +187,22 @@ const styles = StyleSheet.create({
     marginTop: 10,
     borderRadius: 10
   },
-  charityDefault: { flex: 1, backgroundColor: '#FFF', padding: 20, width: '100%', marginTop: 15 },
-  charityActive: { flex: 1, backgroundColor: '#2cb833', padding: 20, width: '100%', marginTop: 15 }
+  charityDefault: { 
+    flex: 1, 
+    backgroundColor: '#FFF', 
+    padding: 20, 
+    width: '100%', 
+    marginTop: 15 
+  },
+  charityActive: { 
+    flex: 1, 
+    backgroundColor: '#FFF', 
+    borderWidth: 2,
+    borderColor: 'black',
+    padding: 20, 
+    width: '100%', 
+    marginTop: 15 
+  }
 
 });
 

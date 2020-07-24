@@ -23,6 +23,11 @@ const reducer = (state, action) => {
         ...state,
         currentListing: action.currentListing,
       };
+    case "ADD_SELECTED_CHARITY": 
+      return {
+        ...state, 
+        selectedCharity: action.selectedCharity,
+      };
     
       default:
       throw new Error(`Unhandled action type: ${action.type}`);

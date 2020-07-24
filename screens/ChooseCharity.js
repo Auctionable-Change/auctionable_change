@@ -29,6 +29,11 @@ const ChooseCharity = ({ navigation }) => {
     setCharitySelected(charity)
   }
 
+  const confirmCharity = () => {
+    navigation.navigate("Confirmation")
+    dispatch({ type: "ADD_SELECTED_CHARITY", selectedCharity: charitySelected })
+  }
+
   return (
     <SafeAreaView style={{flex: 1, alignItems: 'center' }}>
         <Text>Choose Charity</Text>
@@ -73,7 +78,7 @@ const ChooseCharity = ({ navigation }) => {
         {charitySelected && (
           <TouchableOpacity
           title="Confirm Post"
-          onPress={() => navigation.navigate("Confirmation")}
+          onPress={() => confirmCharity()}
           style={styles.confirmButton}
         >
           <Text>Confirm Charity</Text>

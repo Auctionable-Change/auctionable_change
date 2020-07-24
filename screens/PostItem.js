@@ -10,11 +10,11 @@ import * as ImagePicker from "expo-image-picker";
 import Constants from "expo-constants";
 import * as Permissions from "expo-permissions";
 import { cloudinaryPost } from "./apiCalls";
+import SellerForm from "../components/SellerForm";
 
 const PostItem = ({ navigation }) => {
   const [image, uploadImage] = useState(null);
   const [imageObj, setImageObj] = useState(null);
-  const [listingObj, setListingObj] = useState({});
 
   useEffect(() => {
     getPermissionAsync();
@@ -23,11 +23,6 @@ const PostItem = ({ navigation }) => {
   const submitHandler = async () => {
     const imageUrl = await cloudinaryPost(imageObj);
     console.log("img", imageObj);
-  };
-
-  const handleChange = (event, name) => {
-    setListingObj({ ...listingObj, [name]: event.nativeEvent.text });
-    console.log("listing", listingObj);
   };
 
   const getPermissionAsync = async () => {
@@ -58,31 +53,10 @@ const PostItem = ({ navigation }) => {
   };
 
   return (
-    <SafeAreaView style={styles.container}>
-      <ScrollView contentContainerStyle={styles.scroll}>
+    <SafeAreaView style={{ flex: 1 }}>
+      <ScrollView>
         <Text style={styles.title}>Post an Item</Text>
-        <TextInput
-          style={styles.textInput}
-          placeholder="Your Name"
-          accessibilityLabel="Your Name"
-          autoCapitalize="words"
-          value={listingObj.name}
-          onChange={(event) => handleChange(event, "name")}
-        />
-        <TextInput
-          style={styles.textInput}
-          placeholder="Your Email"
-          accessibilityLabel="Your Email"
-          value={listingObj.email}
-          onChange={(event) => handleChange(event, "email")}
-        />
-        <TextInput
-          style={styles.textInput}
-          placeholder="Item Name"
-          accessibilityLabel="Item Name"
-          value={listingObj.itemName}
-          onChange={(event) => handleChange(event, "itemName")}
-        />
+        <SellerForm navigation={navigation} />
         <Button
           title="Pick an image from camera roll"
           accessibilityLabel="Pick an image from camera roll"
@@ -99,29 +73,6 @@ const PostItem = ({ navigation }) => {
             />
           </TouchableWithoutFeedback>
         )}
-        <TextInput
-          style={styles.textInput}
-          placeholder="Item Description"
-          accessibilityLabel="Item Description"
-          value={listingObj.description}
-          onChange={(event) => handleChange(event, "description")}
-        />
-        <TextInput
-          style={styles.textInput}
-          placeholder="Minimum Donation for Item"
-          accessibilityLabel="Minimum Donation for Item"
-          value={listingObj.minBid}
-          onChange={(event) => handleChange(event, "minBid")}
-        />
-        <TouchableOpacity
-          accessibilityRole="button"
-          onPress={() =>
-            submitHandler() && navigation.navigate("Choose Charity")
-          }
-          style={styles.button}
-        >
-          <Text>Choose Charity</Text>
-        </TouchableOpacity>
       </ScrollView>
     </SafeAreaView>
   );

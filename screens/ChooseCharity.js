@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Text, TextInput, View } from "react-native";
 import { SafeAreaView } from 'react-native-safe-area-context'
-import { StyleSheet, Linking } from "react-native";
+import { StyleSheet, Linking, ActivityIndicator } from "react-native";
 import { TouchableOpacity, ScrollView, FlatList} from "react-native-gesture-handler";
 import { useStore } from "../store";
 import { fetchCharities } from "./apiCalls"
@@ -19,8 +19,10 @@ const ChooseCharity = ({ navigation }) => {
   }
 
   const returnCharities = async () => {
+    setCharities([])
     setIsLoading(true)
     const data = await fetchCharities(search)
+    setIsLoading(false)
     setCharities(data.charities)
   }
 
@@ -49,6 +51,11 @@ const ChooseCharity = ({ navigation }) => {
             >
             <Text>Search!</Text>
           </TouchableOpacity>
+          {isLoading && (
+            <View style={{flex: 1, justifyContent: 'center'}}>
+              <ActivityIndicator size="large" color="#00ff00"/>
+            </View>
+          )}
         <FlatList
           data={charities}
           style={styles.scrollView}
@@ -142,7 +149,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center'
   },
   textInput: {
-    height: 75,
+    height: 50,
     borderColor: "gray",
     borderWidth: 1,
     margin: 10,

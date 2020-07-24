@@ -28,13 +28,19 @@ const SellerForm = ({ navigation }) => {
   };
 
   const validateForm = () => {
-    let values = Object.values(listingObj);
-    if (values.includes(null || "")) {
-      console.log("input error");
+    let keys = Object.keys(listingObj)
+    let result = []
+    keys.forEach(key => {
+      if(listingObj[key] === null || listingObj[key] === '') {
+        result.push(key)
+      } 
+    })
+    if(result.length === 0) {
+      console.log('navigate')
     } else {
-      navigation.navigate("Choose Charity");
+      console.log('denied')
     }
-  };
+   }
 
   return (
     <Container>

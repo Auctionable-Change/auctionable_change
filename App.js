@@ -1,4 +1,7 @@
-import * as React from "react";
+import React, { useEffect } from "react";
+import { AppLoading } from "expo";
+import * as Font from "expo-font";
+import { Ionicons } from "@expo/vector-icons";
 import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from "@react-navigation/native";
 import { StoreProvider } from "./store";
@@ -12,10 +15,21 @@ import PaymentInstructions from "./screens/PaymentInstructions";
 import ChooseCharity from "./screens/ChooseCharity";
 import PostConfirmation from "./screens/PostConfirmation";
 
-
 const Stack = createStackNavigator();
 
 export default function App() {
+
+  useEffect(() => {
+    const loadFonts = async () => {
+      await Font.loadAsync({
+        Roboto: require("native-base/Fonts/Roboto.ttf"),
+        Roboto_medium: require("native-base/Fonts/Roboto_medium.ttf"),
+        ...Ionicons.font,
+      });
+    };
+    loadFonts();
+  });
+
   return (
     <StoreProvider>
       <NavigationContainer>

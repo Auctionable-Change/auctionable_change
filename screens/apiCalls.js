@@ -39,3 +39,27 @@ export const cloudinaryPost = (pickerResult) => {
 }
 
 
+export const postItem = async (listing) => {
+  const response = await fetch(url, {
+    method: 'POST', 
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(listing)
+  })
+  return response.json()
+}
+
+
+export const fetchCharities = async (search) => {
+  try {
+    const response = await fetch(`https://auctionable-change-api.herokuapp.com/charities/${search}`)
+    if(!response.ok) {
+      throw new Error(error);
+    }
+    const data = await response.json();
+    return data;
+  } catch(error) {
+    return false
+  }
+}

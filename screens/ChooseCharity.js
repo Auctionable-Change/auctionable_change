@@ -1,21 +1,84 @@
-import * as React from "react";
-import { SafeAreaView, Text } from "react-native";
-import { StyleSheet } from "react-native";
-import { TouchableOpacity, ScrollView } from "react-native-gesture-handler";
+import React, { useState, useEffect } from "react";
+import { Text, TextInput, View } from "react-native";
+import { SafeAreaView } from 'react-native-safe-area-context'
+import { StyleSheet, Linking } from "react-native";
+import { TouchableOpacity, ScrollView, FlatList} from "react-native-gesture-handler";
 import { useStore } from "../store";
+import { fetchCharities } from "./apiCalls"
 
 const ChooseCharity = ({ navigation }) => {
+  const { dispatch } = useStore();
+  const [search, setSearch] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
+  const [charitySelected, setCharitySelected] = useState(false)
+  const [charities, setCharities] = useState([])
+  
+
+  const handleChange = (event) => {
+    setSearch(event.nativeEvent.text)
+  }
+
+  const returnCharities = async () => {
+    setIsLoading(true)
+    const data = await fetchCharities(search)
+    setCharities(data.charities)
+  }
+
+  const charitySelect = (name) => {
+    let charity = charities.find(charity => charity.name === name)
+    setCharitySelected(charity)
+  }
+
   return (
-    <SafeAreaView style={styles.container}>
-      <ScrollView>
+    <SafeAreaView style={{flex: 1, alignItems: 'center' }}>
         <Text>Choose Charity</Text>
-        <TouchableOpacity
+            <TextInput
+              style={styles.textInput}
+              placeholder="Search Charities"
+              value={search}
+              onChange={(event) => handleChange(event)}
+            />
+            <TouchableOpacity
+              onPress={() => returnCharities()}
+              style={styles.button}
+            >
+            <Text>Search!</Text>
+          </TouchableOpacity>
+        <FlatList
+          data={charities}
+          style={styles.scrollView}
+          keyExtractor={item => item.name}
+          renderItem={( {item} ) => (
+            <View style={(item.name == charitySelected.name) ? styles.charityActive : styles.charityDefault}>
+                <Text style={{textAlign: 'center'}}>{item.name}</Text>
+                <Text style={{textAlign: 'center'}}>{`Rating: ${item.rating}`}</Text>
+                <View style={{flex: 1, flexDirection: 'row', justifyContent: 'space-evenly'}}>
+                  <TouchableOpacity
+                    onPress={() => Linking.openURL(item.url)}
+                    style={styles.charityButton}
+                  >
+                  <Text>View Website</Text>
+                  </TouchableOpacity>
+                  <TouchableOpacity
+                    style={styles.charityButton}
+                    onPress={() => charitySelect(item.name)}
+                  >
+                  <Text>Select Charity</Text>
+                  </TouchableOpacity>
+                </View>
+            </View>
+          )}
+        />
+      
+        {charitySelected && (
+          <TouchableOpacity
+          title="Confirm Post"
           onPress={() => navigation.navigate("Confirmation")}
-          style={styles.button}
+          style={styles.confirmButton}
         >
-          <Text>Confirm Post</Text>
+          <Text>Confirm Charity</Text>
         </TouchableOpacity>
-      </ScrollView>
+        )}
     </SafeAreaView>
   );
 };
@@ -23,15 +86,73 @@ const ChooseCharity = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    position: 'absolute',
     alignItems: "center",
     justifyContent: "center",
   },
+  search: {
+    width: '100%',
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  scroll: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#FFF',
+    marginTop: 10,
+    borderRadius: 10
+  },
   button: {
-    backgroundColor: "#FFFFFF",
+    backgroundColor: "lightgrey",
     borderRadius: 10,
-    width: 200,
+    height: 40, 
+    width: 150,
     padding: 10,
+    marginBottom: 10,
+    marginTop: 10,
+    alignItems: "center",
+    shadowOffset: {
+      width: 0,
+      height: 1,
+    },
+    shadowOpacity: 0.18,
+    shadowRadius: 1.0,
+    alignSelf: 'center'
+  },
+  confirmButton: {
+    backgroundColor: "purple",
+    borderRadius: 10,
+    height: 40, 
+    width: 150,
+    padding: 10,
+    marginBottom: 10,
+    marginTop: 10,
+    alignItems: "center",
+    shadowOffset: {
+      width: 0,
+      height: 1,
+    },
+    shadowOpacity: 0.18,
+    shadowRadius: 1.0,
+    alignSelf: 'center'
+  },
+  textInput: {
+    height: 75,
+    borderColor: "gray",
+    borderWidth: 1,
     margin: 10,
+    borderRadius: 10,
+    padding: 5,
+    width: '90%',
+    fontSize: 30
+  },
+  charityButton: {
+    backgroundColor: "lightgrey",
+    borderRadius: 10,
+    height: 40, 
+    width: 125,
+    padding: 10,
+    margin: 5,
     alignItems: "center",
     shadowOffset: {
       width: 0,
@@ -40,6 +161,23 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.18,
     shadowRadius: 1.0,
   },
+  scrollView: {
+    flex: 1,
+    width: '90%', 
+  },
+  itemContainer: {
+    width: '100%',
+    flex: 1,
+    flexDirection: 'column',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    backgroundColor: '#FFF',
+    marginTop: 10,
+    borderRadius: 10
+  },
+  charityDefault: { flex: 1, backgroundColor: '#FFF', padding: 20, width: '100%', marginTop: 15 },
+  charityActive: { flex: 1, backgroundColor: '#2cb833', padding: 20, width: '100%', marginTop: 15 }
+
 });
 
 export default ChooseCharity;

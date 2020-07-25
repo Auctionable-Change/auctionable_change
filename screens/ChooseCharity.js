@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { Text, TextInput, View } from "react-native";
+import { View, Text } from "react-native";
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { StyleSheet, Linking, ActivityIndicator } from "react-native";
 import { TouchableOpacity, ScrollView, FlatList} from "react-native-gesture-handler";
 import { useStore } from "../store";
 import { fetchCharities } from "./apiCalls"
+import { Icon, CardItem, Card, Body, CheckBox, Item, Input, Label, Button, ListItem } from 'native-base';
 
 const ChooseCharity = ({ navigation }) => {
   const { dispatch } = useStore();
@@ -38,19 +39,12 @@ const ChooseCharity = ({ navigation }) => {
 
   return (
     <SafeAreaView style={{flex: 1, alignItems: 'center' }}>
-        <Text>Choose Charity</Text>
-            <TextInput
-              style={styles.textInput}
-              placeholder="Search Charities"
-              value={search}
-              onChange={(event) => handleChange(event)}
-            />
-            <TouchableOpacity
-              onPress={() => returnCharities()}
-              style={styles.button}
-            >
-            <Text>Search!</Text>
-          </TouchableOpacity>
+      <Item>
+        <Input placeholder="Search Charities" onChange={(event) => handleChange(event)}></Input>
+        </Item>
+      <Button block onPress={() => returnCharities()}>
+        <Text style={{color: 'white'}}>Search</Text>
+      </Button>
           {isLoading && (
             <View style={{flex: 1, justifyContent: 'center'}}>
               <ActivityIndicator size="large" color="#00ff00"/>
@@ -61,35 +55,28 @@ const ChooseCharity = ({ navigation }) => {
           style={styles.scrollView}
           keyExtractor={item => item.name}
           renderItem={( {item} ) => (
-            <View style={(item.name == charitySelected.name) ? styles.charityActive : styles.charityDefault}>
-                <Text style={{textAlign: 'center'}}>{item.name}</Text>
-                <Text style={{textAlign: 'center'}}>{`Rating: ${item.rating}`}</Text>
-                <View style={{flex: 1, flexDirection: 'row', justifyContent: 'space-evenly'}}>
-                  <TouchableOpacity
-                    onPress={() => Linking.openURL(item.url)}
-                    style={styles.charityButton}
-                  >
-                  <Text>View Website</Text>
-                  </TouchableOpacity>
-                  <TouchableOpacity
-                    style={styles.charityButton}
-                    onPress={() => charitySelect(item.name)}
-                  >
-                  <Text>Select Charity</Text>
-                  </TouchableOpacity>
-                </View>
-            </View>
+            <Card style={(item.name == charitySelected.name) ? styles.charityActive : styles.charityDefault}>
+              <CardItem header bordered style={{alignSelf: 'center', flexDirection: 'row'}}>
+                <Button small transparent onPress={() => Linking.openURL(item.url)} style={{borderBottomWidth: 1, borderBottomColor: '#065EFE', color: '#065EFE'}}>
+                  <Text style={{alignSelf: 'center', flexDirection: 'row', color: '#065EFE'}} numberOfLines={2}>{item.name}</Text>
+                </Button>
+              </CardItem>
+              <Card bordered >
+                <ListItem style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+                  <View>
+                    <Text>Select Charity</Text>
+                  </View>
+                  <CheckBox onPress={() => charitySelect(item.name)} checked={(item.name == charitySelected.name) ? true : false} />
+                </ListItem>
+              </Card> 
+            </Card>
           )}
         />
       
         {charitySelected && (
-          <TouchableOpacity
-          title="Confirm Post"
-          onPress={() => confirmCharity()}
-          style={styles.confirmButton}
-        >
-          <Text>Confirm Charity</Text>
-        </TouchableOpacity>
+          <Button block onPress={() => confirmCharity()}>
+            <Text style={{color: 'white'}}>Comfirm Charity</Text>
+          </Button>
         )}
     </SafeAreaView>
   );
@@ -190,8 +177,8 @@ const styles = StyleSheet.create({
   charityDefault: { 
     flex: 1, 
     backgroundColor: '#FFF', 
-    padding: 20, 
-    width: '100%', 
+    padding: 15, 
+    width: '98%', 
     marginTop: 15 
   },
   charityActive: { 
@@ -199,8 +186,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFF', 
     borderWidth: 2,
     borderColor: 'black',
-    padding: 20, 
-    width: '100%', 
+    padding: 15, 
+    width: '98%', 
     marginTop: 15 
   }
 

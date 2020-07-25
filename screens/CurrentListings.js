@@ -57,6 +57,7 @@ const CurrentListings = ({ navigation }) => {
          filterListings(event)
         }
       >
+        <Picker.Item label="All" value="all" />
         <Picker.Item label="Electronics" value="electronics" />
         <Picker.Item label="Home" value="home" />
         <Picker.Item label="Furniture" value="furniture" />

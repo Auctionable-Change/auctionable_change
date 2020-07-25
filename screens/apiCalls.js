@@ -41,7 +41,7 @@ export const fetchCharities = async (search) => {
 let CLOUDINARY_URL = 'https://api.cloudinary.com/v1_1/djk5anakm/upload';
 
 
-export const cloudinaryPost = (pickerResult, sendEmail) => {
+export const cloudinaryPost = (pickerResult, updateStore) => {
   let photoData;
     let base64Img = `data:image/jpg;base64,${pickerResult.base64}`;
     let data = {
@@ -59,6 +59,6 @@ export const cloudinaryPost = (pickerResult, sendEmail) => {
       .then(async (res) => await res.json())
       .then((res) => (photoData = res.url))
       .then(() => console.log("photo data", photoData))
-      .then(() => sendEmail(photoData));
+      .then(() => updateStore(photoData));
   };
 

@@ -1,7 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { Picker } from "@react-native-community/picker";
-import { useStore } from "../store";
-import { fetchItems } from "./apiCalls";
 import {
   View,
   Text,

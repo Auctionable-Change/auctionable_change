@@ -4,10 +4,10 @@ const StoreContext = createContext();
 
 const initialState = {
   currentListing: {
-    id: 0,
+    id: null,
     title: "",
     description: "",
-    price: 0,
+    price: null,
     donor: "",
     status: "",
     category: "",

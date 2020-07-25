@@ -67,7 +67,7 @@ export default function App() {
             options={{ headerTitle: () => <LogoTitle /> }}
           />
           <Stack.Screen
-            name="Camera Upload"
+            name="Camera"
             options={{ headerTitle: () => <LogoTitle /> }}
           >
             {() => <Camera cameraType="launchCameraAsync" user="seller" prompt="Time to take a photo of your item to donate!"/>}

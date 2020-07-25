@@ -11,8 +11,10 @@ import { StyleSheet } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
-// for buyer, arguments will be cameraType=launchImageLibraryAsync, user="buyer",
-// prompt = "Upload photo screen shot from camera roll"
+// for buyer, arguments will be:
+// cameraType=launchImageLibraryAsync
+// user="buyer"
+// prompt="Upload photo screen shot from camera roll"
 
 const Camera = ({ cameraType, user, prompt, title }) => {
   const [image, uploadImage] = useState(null);
@@ -40,7 +42,13 @@ const Camera = ({ cameraType, user, prompt, title }) => {
         listingToPost: { image: photoData },
       });
     }
-    // for buyer route , add in dispatch
+    // for buyer route
+    if (user === "buyer") {
+      dispatch({
+        type: "ADD_BUYER_DETAILS",
+        buyerDetails: { receipt: photoData },
+      });
+    }
   };
 
   const getPermissionAsync = async () => {

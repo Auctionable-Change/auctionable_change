@@ -7,24 +7,27 @@ import { useStore } from "../store";
 import { TouchableWithoutFeedback } from "react-native-gesture-handler";
 import { Image, View } from "react-native";
 import { Button, Text } from "native-base";
+import { StyleSheet } from "react-native";
+import { useNavigation } from "@react-navigation/native";
+
 
 // for buyer, arguments will be cameraType=launchImageLibraryAsync, user="buyer", 
 // prompt = "Upload photo screen shot from camera roll"
 
-const Camera = ({cameraType, user, prompt}) => {
+const Camera = ({ cameraType, user, prompt, title }) => {
   const [image, uploadImage] = useState(null);
   const [imageObj, setImageObj] = useState(null);
   const { state, dispatch } = useStore();
+  const navigation = useNavigation();
 
   useEffect(() => {
     getPermissionAsync();
-    console.log(state.listingToPost);
   });
 
   const submitHandler = async () => {
-    console.log("img", imageObj);
     if (imageObj) {
       await cloudinaryPost(imageObj, updatePhotoInStore)
+      navigation.navigate("Choose Charity");
     }
     console.log(state.listingToPost);
   };
@@ -73,29 +76,53 @@ const Camera = ({cameraType, user, prompt}) => {
     }
   };
   return (
-    <View style={{ flex: 1, alignItems: "center" }}>
-      <Text
-        accessibilityLabel="Pick an image from camera roll"
-        color="#2cb833"
-        onPress={_pickImage}
-      >
-        {prompt}
-      </Text>
-      {image ? (
-        <Image source={{ uri: image }} style={{ width: 200, height: 200 }} />
-      ) : (
-        <TouchableWithoutFeedback onPress={_pickImage}>
-          <Image
-            source={require("../assets/icons/camera.png")}
-            style={{ width: 150, height: 150 }}
-          />
-        </TouchableWithoutFeedback>
-      )}
-      <Button block success onPress={() => submitHandler()}>
-        <Text>Continue</Text>
-      </Button>
+    <View style={styles.mainContainer}>
+      <Text style={styles.title}>{title}</Text>
+      <View style={styles.container}>
+        <Text accessibilityLabel={prompt} color="#2cb833" onPress={_pickImage}>
+          {prompt}
+        </Text>
+        {image ? (
+          <Image source={{ uri: image }} style={{ width: 200, height: 200 }} />
+        ) : (
+          <TouchableWithoutFeedback onPress={_pickImage}>
+            <Image
+              source={require("../assets/icons/camera.png")}
+              style={{ width: 150, height: 150 }}
+            />
+          </TouchableWithoutFeedback>
+        )}
+        <Button block success onPress={() => submitHandler()}>
+          <Text>Continue</Text>
+        </Button>
+      </View>
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  mainContainer: {
+    flex: 1,
+    alignItems: "center",
+    padding: 20,
+  },
+  container: {
+    alignItems: "center",
+    backgroundColor: "white",
+    padding: 20,
+    borderRadius: 10,
+    shadowOffset: {
+      width: 0,
+      height: 1,
+    },
+    shadowOpacity: 0.18,
+    shadowRadius: 1.0,
+  },
+  title: {
+    fontSize: 25,
+    textAlign: "center",
+    marginBottom: 20,
+  },
+});
 
 export default Camera

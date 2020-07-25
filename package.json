@@ -38,6 +38,8 @@
   "private": true,
   "jest": {
     "preset": "jest-expo",
+    "timers": "fake",
+    "testEnvironment": "jsdom",
     "transformIgnorePatterns": [
       "/node_modules/(?!native-base)/"
     ]

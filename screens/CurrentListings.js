@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import { View, Text, Image, StyleSheet, FlatList, SafeAreaView, ActivityIndicator } from "react-native";
 import { useStore } from "../store";
 import { fetchItems } from './apiCalls';
-import { Picker, Icon, CardItem, Card,  Left, Body, Button } from 'native-base'
+import { Picker, Icon, CardItem, Card, Left, Body, Button } from 'native-base'
+import NavBar from "../components/NavBar"
 
 const CurrentListings = ({ navigation }) => {
   const { dispatch } = useStore()
@@ -55,9 +56,7 @@ const CurrentListings = ({ navigation }) => {
         style={{ width: 300 }}
         placeholder="Item Category"
         selectedValue={filterCategory}
-        onValueChange={(event) =>
-         filterListings(event)
-        }
+        onValueChange={(event) => filterListings(event)}
       >
         <Picker.Item label="All" value="all" />
         <Picker.Item label="Electronics" value="electronics" />
@@ -68,8 +67,8 @@ const CurrentListings = ({ navigation }) => {
       </Picker>
 
       {isLoading && (
-        <View style={{flex: 1, justifyContent: 'center'}}>
-          <ActivityIndicator size="large" color="#2CB833"/>
+        <View style={{ flex: 1, justifyContent: "center" }}>
+          <ActivityIndicator size="large" color="#2CB833" />
         </View>
       )}
 
@@ -83,7 +82,7 @@ const CurrentListings = ({ navigation }) => {
               <Left>
                 <Body>
                   <Text style={styles.cardTitle}>{item.title}</Text>
-                </Body>  
+                </Body>
               </Left>
             </CardItem>
             <CardItem cardBody>
@@ -96,17 +95,20 @@ const CurrentListings = ({ navigation }) => {
                 style={styles.image}
               />
             </CardItem>
-            <CardItem style={{ justifyContent: 'space-between'  }}>
+            <CardItem style={{ justifyContent: "space-between" }}>
               <Text>{`Current Price: $${item.price}`}</Text>
-              <Button transparent title="Listing Details"
+              <Button
+                transparent
+                title="Listing Details"
                 onPress={() => pressHandler(item.title)}
               >
-              <Text style={styles.button}>Listing Details</Text>
+                <Text style={styles.button}>Listing Details</Text>
               </Button>
-            </CardItem>  
+            </CardItem>
           </Card>
         )}
       />
+      <NavBar navigation={navigation} />
     </SafeAreaView>
   );
 };

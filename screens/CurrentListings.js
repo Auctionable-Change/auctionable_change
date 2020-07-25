@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from "react";
-import { View, Text, Image, StyleSheet, FlatList, SafeAreaView } from "react-native";
+import { View, Text, Image, StyleSheet, FlatList, SafeAreaView, ActivityIndicator } from "react-native";
 import { useStore } from "../store";
 import { fetchItems } from './apiCalls';
-import { TouchableOpacity } from "react-native-gesture-handler";
-import { Picker, Icon, CardItem, Card, Thumbnail, Left, Body, Button } from 'native-base'
+import { Picker, Icon, CardItem, Card,  Left, Body, Button } from 'native-base'
 
 const CurrentListings = ({ navigation }) => {
   const { dispatch } = useStore()
   const [listings, setListings] = useState([]);
   const [filterCategory, setFilterCategory] = useState('');
   const [allListings, setAllListings] = useState([])
+  const [isLoading, setIsLoading] = useState(true)
 
   const filterListings = (filterCriteria) => {
     
@@ -31,9 +31,11 @@ const CurrentListings = ({ navigation }) => {
 
   useEffect(() => {
     const fetchData = async () => {
+      setIsLoading(true)
       const items = await fetchItems()
       setAllListings(items.items)
       setListings(items.items)
+      setIsLoading(false)
     }
     fetchData()
   }, [])
@@ -64,6 +66,13 @@ const CurrentListings = ({ navigation }) => {
         <Picker.Item label="Baby/Kids" value="baby" />
         <Picker.Item label="Other" value="other" />
       </Picker>
+
+      {isLoading && (
+        <View style={{flex: 1, justifyContent: 'center'}}>
+          <ActivityIndicator size="large" color="#2CB833"/>
+        </View>
+      )}
+
       <FlatList
         data={listings}
         style={styles.scrollView}

@@ -5,14 +5,15 @@ import { StyleSheet, Linking, ActivityIndicator } from "react-native";
 import { TouchableOpacity, ScrollView, FlatList} from "react-native-gesture-handler";
 import { useStore } from "../store";
 import { fetchCharities } from "./apiCalls"
-import { Icon, CardItem, Card, Body, CheckBox, Item, Input, Label, Button, ListItem } from 'native-base';
+import { Icon, CardItem, Card, Body, CheckBox, Item, Input, Label, Button, ListItem, Content } from 'native-base';
+import { Header } from "react-native/Libraries/NewAppScreen";
 
 const ChooseCharity = ({ navigation }) => {
   const { dispatch } = useStore();
   const [search, setSearch] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [charitySelected, setCharitySelected] = useState(false)
-  const [charities, setCharities] = useState([])
+  const [charities, setCharities] = useState(null)
   
 
   const handleChange = (event) => {
@@ -38,18 +39,31 @@ const ChooseCharity = ({ navigation }) => {
   }
 
   return (
-    <SafeAreaView style={{flex: 1, alignItems: 'center' }}>
-      <Item>
-        <Input placeholder="Search Charities" onChange={(event) => handleChange(event)}></Input>
-        </Item>
-      <Button block onPress={() => returnCharities()}>
-        <Text style={{color: 'white'}}>Search</Text>
-      </Button>
-          {isLoading && (
-            <View style={{flex: 1, justifyContent: 'center'}}>
-              <ActivityIndicator size="large" color="#00ff00"/>
-            </View>
-          )}
+    <SafeAreaView style={{flex: 1, alignItems: 'center'}}>
+      <View style={{flexDirection: 'row'}}>
+          <Item style={{width: '75%'}}>
+            <Icon name='ios-search' />
+            <Input placeholder="Search Charities" onChange={(event) => handleChange(event)}></Input>
+          </Item>
+          <Button transparent onPress={() => returnCharities()}>
+            <Text style={{color: '#065EFE', fontSize: 20}}>Search</Text>
+          </Button>
+      </View>
+      {!charities && (
+        <Card style={{width: '90%', height: 150, marginTop: 50}}>
+            <Text style={{alignSelf: 'center', paddingTop: 50}}>Search For Your Favorite Charity Above!</Text>
+            <Button transparent style={{alignSelf: 'center'}} onPress={() => returnCharities()}>
+              <Text style={{color: '#065EFE', fontSize: 20}}>Or Browse Our Featured Charities</Text>
+            </Button>
+        </Card>
+      )
+      }
+        {isLoading && (
+          <View style={{flex: 1, justifyContent: 'center'}}>
+            <ActivityIndicator size="large" color="#2CB833"/>
+          </View>
+        )}
+
         <FlatList
           data={charities}
           style={styles.scrollView}
@@ -61,12 +75,12 @@ const ChooseCharity = ({ navigation }) => {
                   <Text style={{alignSelf: 'center', flexDirection: 'row', color: '#065EFE'}} numberOfLines={2}>{item.name}</Text>
                 </Button>
               </CardItem>
-              <Card bordered >
+              <Card bordered style={{backgroundColor: '#f8f8ff'}}>
                 <ListItem style={{flexDirection: 'row', justifyContent: 'space-between'}}>
                   <View>
                     <Text>Select Charity</Text>
                   </View>
-                  <CheckBox onPress={() => charitySelect(item.name)} checked={(item.name == charitySelected.name) ? true : false} />
+                  <CheckBox color='#2CB833' onPress={() => charitySelect(item.name)} checked={(item.name == charitySelected.name) ? true : false} />
                 </ListItem>
               </Card> 
             </Card>
@@ -75,7 +89,7 @@ const ChooseCharity = ({ navigation }) => {
       
         {charitySelected && (
           <Button block onPress={() => confirmCharity()}>
-            <Text style={{color: 'white'}}>Comfirm Charity</Text>
+            <Text style={{color: 'white'}}>Comfirm Charity & Continue</Text>
           </Button>
         )}
     </SafeAreaView>

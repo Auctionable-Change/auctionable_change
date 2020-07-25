@@ -14,7 +14,8 @@ const initialState = {
     charity: "",
     image: "",
     bids: []
-  }
+  },
+  listingToPost: {}
 }
 
 const reducer = (state, action) => {
@@ -24,10 +25,15 @@ const reducer = (state, action) => {
         ...state,
         currentListing: action.currentListing,
       };
-    case "ADD_SELECTED_CHARITY": 
+    case "ADD_SELECTED_CHARITY":
       return {
-        ...state, 
+        ...state,
         selectedCharity: action.selectedCharity,
+      };
+    case "ADD_TO_LISTING":
+      return {
+        ...state,
+        listingToPost: { ...state.listingToPost , ...action.listingToPost }
       };
     
       default:

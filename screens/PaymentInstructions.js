@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { Text, StyleSheet, TextInput, Button, Image, View } from "react-native";
+import { Text, StyleSheet, Button, Image, View } from "react-native";
 import {
-  TouchableOpacity,
   ScrollView,
   TouchableWithoutFeedback,
 } from "react-native-gesture-handler";
@@ -13,14 +12,14 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { cloudinaryPost } from "./apiCalls";
 import { useStore } from "../store";
 import * as Linking from "expo-linking";
-
+import BuyerForm from "../components/BuyerForm";
 
 const PaymentInstructions = () => {
   const [emailObject, updateEmailObject] = useState({});
   const [image, uploadImage] = useState(null);
   const [imageObj, setImageObj] = useState(null);
   const [receiptUrl, setReceiptUrl] = useState(null);
-  const { state } = useStore()
+  const { state } = useStore();
 
   useEffect(() => {
     getPermissionAsync();
@@ -45,8 +44,7 @@ const PaymentInstructions = () => {
   };
 
   const submitHandler = async () => {
-    await cloudinaryPost(imageObj, sendEmail)
-   
+    await cloudinaryPost(imageObj, sendEmail);
     updateEmailObject({});
   };
 
@@ -67,10 +65,9 @@ const PaymentInstructions = () => {
     Email: ${emailObject.email}
     Address: ${emailObject.streetAddress}, ${emailObject.cityState}, ${emailObject.zipCode}
     Donation Receipt: ${photoData} 
-      `
-      ,
+      `,
     });
-  }
+  };
 
   const handleChange = (event, name) => {
     updateEmailObject({ ...emailObject, [name]: event.nativeEvent.text });
@@ -86,14 +83,14 @@ const PaymentInstructions = () => {
   };
 
   return (
-    <SafeAreaView style={styles.container}>
-      <ScrollView contentContainerStyle={styles.scroll}>
+    <SafeAreaView style={{ flex: 1 }}>
+      <ScrollView>
         <Text style={styles.title}>Thank you for your contribution!</Text>
         <Text style={styles.subheader}>Instructions to complete order:</Text>
         <View style={styles.stepOne}>
           <Text>1. Follow this </Text>
           <Text
-            style={{fontWeight: "bold"}}
+            style={{ fontWeight: "bold", textDecorationLine: "underline" }}
             onPress={() => Linking.openURL(state.currentListing.charity_url)}
           >
             link
@@ -119,46 +116,9 @@ const PaymentInstructions = () => {
           </TouchableWithoutFeedback>
         )}
         <Text style={styles.listItem}>
-          3. Please provide name and mailing address:
+          3. Please enter your name, email and mailing address:
         </Text>
-        <TextInput
-          style={styles.textInput}
-          placeholder="Your Name"
-          autoCapitalize="words"
-          value={emailObject.name}
-          onChange={(event) => handleChange(event, "name")}
-        />
-        <TextInput
-          style={styles.textInput}
-          placeholder="Your Email"
-          value={emailObject.email}
-          onChange={(event) => handleChange(event, "email")}
-        />
-        <TextInput
-          style={styles.textInput}
-          placeholder="Street Address"
-          value={emailObject.streetAddress}
-          onChange={(event) => handleChange(event, "streetAddress")}
-        />
-        <TextInput
-          style={styles.textInput}
-          placeholder="City, State"
-          value={emailObject.cityState}
-          onChange={(event) => handleChange(event, "cityState")}
-        />
-        <TextInput
-          style={styles.textInput}
-          placeholder="Zipcode"
-          value={emailObject.zipCode}
-          onChange={(event) => handleChange(event, "zipCode")}
-        />
-        <TouchableOpacity
-          accessibilityRole="button"
-          onPress={() => submitHandler()}
-          style={styles.button}
-        >
-          <Text>Submit</Text>
-        </TouchableOpacity>
+        <BuyerForm navigation={navigation} />
       </ScrollView>
     </SafeAreaView>
   );

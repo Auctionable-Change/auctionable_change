@@ -9,9 +9,7 @@ const NavBar = ({ navigation }) => {
 
   return (
     <View style={styles.navBar}>
-      <TouchableWithoutFeedback
-        onPress={() => navigation.navigate("Listings")}
-      >
+      <TouchableWithoutFeedback onPress={() => navigation.navigate("Listings")}>
         <Image
           accessibilityRole="button"
           id="search"
@@ -29,11 +27,13 @@ const NavBar = ({ navigation }) => {
           style={styles.icons}
         />
       </TouchableWithoutFeedback>
-      <TouchableWithoutFeedback>
+      <TouchableWithoutFeedback
+        onPress={() => navigation.navigate("Home")}
+      >
         <Image
           accessibilityRole="button"
           id="profile"
-          source={require("../assets/icons/profile.png")}
+          source={require("../assets/icons/home.png")}
           style={styles.icons}
         />
       </TouchableWithoutFeedback>
@@ -47,15 +47,15 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
     position: "absolute",
     bottom: "0%",
-    height: "11%",
+    height: "8%",
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-around",
-    padding: 10,
+    padding: 8,
   },
   icons: {
-    width: 45,
-    height: 45,
+    width: 30,
+    height: 30,
   },
 });
 

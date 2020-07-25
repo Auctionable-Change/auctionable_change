@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { View, Text, Button, Image, StyleSheet, FlatList, SafeAreaView } from "react-native";
-import { Picker } from '@react-native-community/picker';
+import { View, Text, Image, StyleSheet, FlatList, SafeAreaView } from "react-native";
 import { useStore } from "../store";
 import { fetchItems } from './apiCalls';
 import { TouchableOpacity } from "react-native-gesture-handler";
+import { Picker, Icon, CardItem, Card, Thumbnail, Left, Body, Button } from 'native-base'
 
 const CurrentListings = ({ navigation }) => {
   const { dispatch } = useStore()
@@ -47,47 +47,54 @@ const CurrentListings = ({ navigation }) => {
         justifyContent: "space-between",
       }}
     >
-      {/* <Text style={styles.pageTitle}>Browse Listings:</Text> */}
       <Picker
-        style={styles.picker}
-        itemStyle={styles.pickerItem}
+        mode="dropdown"
+        iosIcon={<Icon name="arrow-down" />}
+        style={{ width: 300 }}
+        placeholder="Item Category"
         selectedValue={filterCategory}
-        onValueChange={(itemValue) => {
-          filterListings(itemValue);
-        }}
+        onValueChange={(event) =>
+         filterListings(event)
+        }
       >
-        <Picker.Item label="All" value="all" />
         <Picker.Item label="Electronics" value="electronics" />
         <Picker.Item label="Home" value="home" />
         <Picker.Item label="Furniture" value="furniture" />
         <Picker.Item label="Baby/Kids" value="baby" />
+        <Picker.Item label="Other" value="other" />
       </Picker>
       <FlatList
         data={listings}
         style={styles.scrollView}
-        keyExtractor={(item) => item.id}
+        keyExtractor={(item) => item.id.toString()}
         renderItem={({ item }) => (
-          <View style={styles.itemContainer}>
-            <Text style={styles.pageTitle}>{item.title}</Text>
-            <Image
-              source={
-                item.image
-                  ? { uri: item.image }
-                  : require("../assets/icons/no-photo-selected.png")
-              }
-              style={styles.image}
-            />
-            <Text
-              style={{ marginTop: 10 }}
-            >{`Current Price: $${item.price}`}</Text>
-            <TouchableOpacity
-              title="Listing Details"
-              onPress={() => pressHandler(item.title)}
-              style={styles.button}
-            >
-              <Text>Listing Details:</Text>
-            </TouchableOpacity>
-          </View>
+          <Card>
+            <CardItem style={styles.cardItem}>
+              <Left>
+                <Body>
+                  <Text style={styles.cardTitle}>{item.title}</Text>
+                </Body>  
+              </Left>
+            </CardItem>
+            <CardItem cardBody>
+              <Image
+                source={
+                  item.image
+                    ? { uri: item.image }
+                    : require("../assets/icons/no-photo-selected.png")
+                }
+                style={styles.image}
+              />
+            </CardItem>
+            <CardItem style={{ justifyContent: 'space-between'  }}>
+              <Text>{`Current Price: $${item.price}`}</Text>
+              <Button transparent title="Listing Details"
+                onPress={() => pressHandler(item.title)}
+              >
+              <Text style={styles.button}>Listing Details</Text>
+              </Button>
+            </CardItem>  
+          </Card>
         )}
       />
     </SafeAreaView>
@@ -101,14 +108,14 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   image: {
-    width: 225,
+    width: '100%',
     height: 200,
     resizeMode: "cover"
   },
-  pageTitle: {
+  cardTitle: {
     marginBottom: 10,
     fontSize: 25,
-    justifyContent: "center",
+    alignSelf: "center",
   },
   listing: {
     marginTop: 5,
@@ -120,10 +127,18 @@ const styles = StyleSheet.create({
   },
   scrollView: {
     width: '90%', 
-    marginTop: 140
+    // marginTop: 140
   },
   pickerItem: {
     height: 150
+  },
+  cardItem: {
+    shadowOffset: {
+    width: 0,
+    height: 1, },
+    shadowOpacity: 0.18,
+    shadowRadius: 1.0,
+    borderRadius: 3
   },
   itemContainer: {
     flex: 1,
@@ -137,17 +152,26 @@ const styles = StyleSheet.create({
     padding: 10
   },
   button: {
-    backgroundColor: "#FFF",
-    borderRadius: 10,
-    width: 200,
-    margin: 10,
-    padding: 10,
-    alignItems: "center",
-    shadowOffset: {
-      width: 0,
-      height: 1,
-    }
+   color: 'blue',
+    
   }
 })
 
 export default CurrentListings;
+
+
+   {/* <Text style={styles.pageTitle}>Browse Listings:</Text> */}
+      {/* <Picker
+        style={styles.picker}
+        itemStyle={styles.pickerItem}
+        selectedValue={filterCategory}
+        onValueChange={(itemValue) => {
+          filterListings(itemValue);
+        }}
+      >
+        <Picker.Item label="All" value="all" />
+        <Picker.Item label="Electronics" value="electronics" />
+        <Picker.Item label="Home" value="home" />
+        <Picker.Item label="Furniture" value="furniture" />
+        <Picker.Item label="Baby/Kids" value="baby" />
+      </Picker> */}

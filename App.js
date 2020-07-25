@@ -15,6 +15,7 @@ import PaymentInstructions from "./screens/PaymentInstructions";
 import ChooseCharity from "./screens/ChooseCharity";
 import PostConfirmation from "./screens/PostConfirmation";
 import EmailForm from "./screens/EmailForm";
+import Camera from "./screens/Camera";
 
 const Stack = createStackNavigator();
 
@@ -70,6 +71,15 @@ export default function App() {
             component={PostConfirmation}
             options={{ headerTitle: () => <LogoTitle /> }}
           />
+          <Stack.Screen
+            name="Camera"
+            options={{ headerTitle: () => <LogoTitle /> }}
+          >
+            {() => <Camera cameraType="launchCameraAsync"
+              user="seller"
+              prompt="Time to take a photo of your item to donate!"
+              title="Upload a Photo"/>}
+          </Stack.Screen>
         </Stack.Navigator>
       </NavigationContainer>
     </StoreProvider>

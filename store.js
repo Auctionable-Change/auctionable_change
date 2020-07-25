@@ -16,7 +16,6 @@ const initialState = {
     bids: [],
   },
   buyerDetails: {
-    id: null,
     item_id: null,
     bidder_name: "",
     bidder_email: "",
@@ -27,6 +26,7 @@ const initialState = {
     zip_code: "",
     receipt: "",
   },
+  listingToPost: {},
 };
 
 const reducer = (state, action) => {
@@ -45,6 +45,11 @@ const reducer = (state, action) => {
       return {
         ...state,
         buyerDetails: { ...state.buyerDetails, ...action.buyerDetails },
+      };
+    case "ADD_TO_LISTING":
+      return {
+        ...state,
+        listingToPost: { ...state.listingToPost, ...action.listingToPost },
       };
 
     default:

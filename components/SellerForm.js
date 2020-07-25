@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import {
   Button,
   Container,
-  Header,
   Content,
   Form,
   Item,
@@ -12,8 +11,12 @@ import {
   Icon,
   Text,
 } from "native-base";
+import { Alert } from "react-native";
+import { useStore } from "../store";
+
 
 const SellerForm = ({ navigation }) => {
+  const { dispatch, state } = useStore();
   const [listingObj, setListingObj] = useState({
     donor: null,
     donor_email: null,
@@ -35,16 +38,22 @@ const SellerForm = ({ navigation }) => {
         result.push(key)
       } 
     })
-    if(result.length === 0) {
-      console.log('navigate')
+    if (result.length === 0) {
+      dispatch({
+        type: "ADD_TO_LISTING",
+        listingToPost: listingObj,
+      });
+      navigation.navigate("Camera")
     } else {
-      console.log('denied')
+      Alert.alert(
+        "Missing Input",
+        "Please fill out all fields before proceeding"
+      )
     }
    }
 
   return (
     <Container>
-      <Header />
       <Content>
         <Form>
           <Item floatingLabel>
@@ -71,7 +80,7 @@ const SellerForm = ({ navigation }) => {
             <Picker
               mode="dropdown"
               iosIcon={<Icon name="arrow-down" />}
-              style={{ width: 300 }}
+              style={{ width: 300, marginTop: 20 }}
               placeholder="Item Category"
               selectedValue={listingObj.category}
               onValueChange={(event) =>
@@ -88,7 +97,7 @@ const SellerForm = ({ navigation }) => {
               <Picker.Item label="Other" value="other" />
             </Picker>
           </Item>
-          <Button block onPress={() => validateForm()}>
+          <Button block success onPress={() => validateForm()}>
             <Text>Continue</Text>
           </Button>
         </Form>

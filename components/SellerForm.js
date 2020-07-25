@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import {
   Button,
   Container,
-  Header,
   Content,
   Form,
   Item,
@@ -11,8 +10,8 @@ import {
   Picker,
   Icon,
   Text,
-  Toast
 } from "native-base";
+import { Alert } from "react-native";
 import { useStore } from "../store";
 
 
@@ -26,7 +25,6 @@ const SellerForm = ({ navigation }) => {
     description: null,
     price: null,
   });
-  // const [showToast, updateShowToast] = useState(false)
 
   const handleChange = (event, name) => {
     setListingObj({ ...listingObj, [name]: event.nativeEvent.text });
@@ -40,18 +38,17 @@ const SellerForm = ({ navigation }) => {
         result.push(key)
       } 
     })
-    if(result.length === 0) {
+    if (result.length === 0) {
       dispatch({
         type: "ADD_TO_LISTING",
         listingToPost: listingObj,
       });
       navigation.navigate("Camera")
     } else {
-      // Toast.show({
-      //   text: "Wrong password!",
-      //   buttonText: "Okay",
-      //   duration: 3000,
-      // })
+      Alert.alert(
+        "Missing Input",
+        "Please fill out all fields before proceeding"
+      )
     }
    }
 
@@ -83,7 +80,7 @@ const SellerForm = ({ navigation }) => {
             <Picker
               mode="dropdown"
               iosIcon={<Icon name="arrow-down" />}
-              style={{ width: 300 }}
+              style={{ width: 300, marginTop: 20 }}
               placeholder="Item Category"
               selectedValue={listingObj.category}
               onValueChange={(event) =>

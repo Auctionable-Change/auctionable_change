@@ -70,7 +70,10 @@ export default function App() {
             name="Camera"
             options={{ headerTitle: () => <LogoTitle /> }}
           >
-            {() => <Camera cameraType="launchCameraAsync" user="seller" prompt="Time to take a photo of your item to donate!"/>}
+            {() => <Camera cameraType="launchCameraAsync"
+              user="seller"
+              prompt="Time to take a photo of your item to donate!"
+              title="Upload a Photo"/>}
           </Stack.Screen>
         </Stack.Navigator>
       </NavigationContainer>

@@ -29,9 +29,7 @@ const Camera = ({ cameraType, user, prompt, title }) => {
   const submitHandler = async () => {
     if (imageObj) {
       await cloudinaryPost(imageObj, updatePhotoInStore);
-      navigation.navigate("Choose Charity");
     }
-    console.log(state.listingToPost);
   };
 
   const updatePhotoInStore = (photoData) => {
@@ -41,6 +39,7 @@ const Camera = ({ cameraType, user, prompt, title }) => {
         type: "ADD_TO_LISTING",
         listingToPost: { image: photoData },
       });
+      navigation.navigate("Choose Charity");
     }
     // for buyer route
     if (user === "buyer") {
@@ -48,6 +47,7 @@ const Camera = ({ cameraType, user, prompt, title }) => {
         type: "ADD_BUYER_DETAILS",
         buyerDetails: { receipt: photoData },
       });
+      navigation.navigate("Email");
     }
   };
 

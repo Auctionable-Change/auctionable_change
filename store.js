@@ -13,9 +13,21 @@ const initialState = {
     category: "",
     charity: "",
     image: "",
-    bids: []
-  }
-}
+    bids: [],
+  },
+  buyerDetails: {
+    id: null,
+    item_id: null,
+    bidder_name: "",
+    bidder_email: "",
+    amount: null,
+    street_address: "",
+    city: "",
+    state: "",
+    zip_code: "",
+    receipt: "",
+  },
+};
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -24,17 +36,21 @@ const reducer = (state, action) => {
         ...state,
         currentListing: action.currentListing,
       };
-    case "ADD_SELECTED_CHARITY": 
+    case "ADD_SELECTED_CHARITY":
       return {
-        ...state, 
+        ...state,
         selectedCharity: action.selectedCharity,
       };
-    
-      default:
+    case "ADD_BUYER_DETAILS":
+      return {
+        ...state,
+        buyerDetails: { ...state.buyerDetails, ...action.buyerDetails },
+      };
+
+    default:
       throw new Error(`Unhandled action type: ${action.type}`);
-    
   }
-}
+};
 
 export const StoreProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);

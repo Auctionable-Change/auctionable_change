@@ -11,9 +11,13 @@ import {
   Picker,
   Icon,
   Text,
+  Toast
 } from "native-base";
+import { useStore } from "../store";
+
 
 const SellerForm = ({ navigation }) => {
+  const { dispatch, state } = useStore();
   const [listingObj, setListingObj] = useState({
     donor: null,
     donor_email: null,
@@ -22,6 +26,7 @@ const SellerForm = ({ navigation }) => {
     description: null,
     price: null,
   });
+  // const [showToast, updateShowToast] = useState(false)
 
   const handleChange = (event, name) => {
     setListingObj({ ...listingObj, [name]: event.nativeEvent.text });
@@ -36,15 +41,22 @@ const SellerForm = ({ navigation }) => {
       } 
     })
     if(result.length === 0) {
-      console.log('navigate')
+      dispatch({
+        type: "ADD_TO_LISTING",
+        listingToPost: listingObj,
+      });
+      navigation.navigate("Camera")
     } else {
-      console.log('denied')
+      // Toast.show({
+      //   text: "Wrong password!",
+      //   buttonText: "Okay",
+      //   duration: 3000,
+      // })
     }
    }
 
   return (
     <Container>
-      <Header />
       <Content>
         <Form>
           <Item floatingLabel>
@@ -88,7 +100,7 @@ const SellerForm = ({ navigation }) => {
               <Picker.Item label="Other" value="other" />
             </Picker>
           </Item>
-          <Button block onPress={() => validateForm()}>
+          <Button block success onPress={() => validateForm()}>
             <Text>Continue</Text>
           </Button>
         </Form>

@@ -6,10 +6,8 @@ import { TouchableOpacity, ScrollView } from "react-native-gesture-handler";
 import { useStore } from "../store";
 import * as Linking from "expo-linking";
 
-
-
 const ListingDetails = ({ navigation }) => {
-  const { state } = useStore()
+  const { state } = useStore();
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView contentContainerStyle={styles.scroll}>
@@ -33,9 +31,14 @@ const ListingDetails = ({ navigation }) => {
             Purchase of this item supports {state.currentListing.charity}
           </Text>
           <Text>Charity Score: {state.currentListing.charity_score}</Text>
-          <View style={{flexDirection: "row", flexWrap: "wrap"}}>
+          <View style={{ flexDirection: "row", flexWrap: "wrap" }}>
             <Text>Read more about their mission </Text>
-            <Text style={{ fontWeight: "bold"}} onPress={() => Linking.openURL(state.currentListing.charity_url)}>here.</Text>
+            <Text
+              style={{ fontWeight: "bold" }}
+              onPress={() => Linking.openURL(state.currentListing.charity_url)}
+            >
+              here.
+            </Text>
           </View>
         </View>
         <TouchableOpacity
@@ -80,7 +83,7 @@ const styles = StyleSheet.create({
     margin: 10,
     fontSize: 30,
     textAlign: "center",
-    fontWeight: "bold"
+    fontWeight: "bold",
   },
   scroll: {
     display: "flex",
@@ -90,14 +93,14 @@ const styles = StyleSheet.create({
     width: 225,
     height: 225,
     resizeMode: "cover",
-    alignSelf: "center"
+    alignSelf: "center",
   },
   description: {
     marginTop: 15,
-    marginBottom: 15
+    marginBottom: 15,
   },
   charityDescription: {
-    marginTop: 15
+    marginTop: 15,
   },
   button: {
     backgroundColor: "#FFFFFF",
@@ -119,14 +122,14 @@ const styles = StyleSheet.create({
     textAlign: "center",
     color: "#336799",
     marginTop: 5,
-    marginBottom: 30
+    marginBottom: 30,
   },
   charityContainer: {
     flexWrap: "wrap",
     flexDirection: "row",
     marginTop: 15,
-    height: 120
-  }
+    height: 120,
+  },
 });
 
 export default ListingDetails;

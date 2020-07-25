@@ -33,7 +33,10 @@ const EmailForm = ({ navigation }) => {
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <ScrollView>
-        <Text>Please enter your contact and shipping information to send an email to the seller.</Text>
+        <Text>
+          Please enter your contact and shipping information to send an email to
+          the seller.
+        </Text>
         <BuyerForm navigation={navigation} sendEmail={sendEmail} />
       </ScrollView>
     </SafeAreaView>

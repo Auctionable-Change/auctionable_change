@@ -65,7 +65,7 @@ const CurrentListings = ({ navigation }) => {
       <FlatList
         data={listings}
         style={styles.scrollView}
-        keyExtractor={(item) => item.id}
+        keyExtractor={(item) => item.id.toString()}
         renderItem={({ item }) => (
           <View style={styles.itemContainer}>
             <Text style={styles.pageTitle}>{item.title}</Text>

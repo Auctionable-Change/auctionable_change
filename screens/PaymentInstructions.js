@@ -5,6 +5,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { Button, Text } from "native-base";
 import { useStore } from "../store";
 import * as Linking from "expo-linking";
+import Camera from "./Camera";
 
 const PaymentInstructions = ({ navigation }) => {
   const { dispatch, state } = useStore();
@@ -23,10 +24,12 @@ const PaymentInstructions = ({ navigation }) => {
         </Text>
         <Text> to donate at least ${state.currentListing.price}</Text>
         <Text>Screenshot and upload your receipt.</Text>
-        {/* camera component */}
-        <Button block onPress={() => navigation.navigate("Email")}>
-          <Text>Continue</Text>
-        </Button>
+        <Camera
+          cameraType="launchImageLibraryAsync"
+          user="buyer"
+          prompt="Upload a screenshot of your receipt from camera roll."
+          title="Upload a Photo"
+        />
       </ScrollView>
     </SafeAreaView>
   );

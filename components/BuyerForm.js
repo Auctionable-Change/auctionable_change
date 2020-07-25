@@ -10,8 +10,10 @@ import {
   Label,
   Text,
 } from "native-base";
+import { useStore } from "../store";
 
-const BuyerForm = ({ navigation }) => {
+const BuyerForm = ({ navigation, sendEmail }) => {
+  const { dispatch, state } = useStore();
   const [buyerObj, setBuyerObj] = useState({
     bidder_name: null,
     bidder_email: null,
@@ -19,7 +21,6 @@ const BuyerForm = ({ navigation }) => {
     city: null,
     state: null,
     zip_code: null,
-    receipt: null,
   });
 
   const handleChange = (event, name) => {
@@ -27,6 +28,7 @@ const BuyerForm = ({ navigation }) => {
   };
 
   const validateForm = () => {
+    console.log("buyerObj", buyerObj);
     let keys = Object.keys(buyerObj);
     let result = [];
     keys.forEach((key) => {
@@ -35,7 +37,9 @@ const BuyerForm = ({ navigation }) => {
       }
     });
     if (result.length === 0) {
-      console.log("navigate");
+      dispatch({ type: "ADD_BUYER_DETAILS", buyerDetails: buyerObj });
+      console.log("navigate", state.buyerDetails);
+      sendEmail();
     } else {
       console.log("denied");
     }
@@ -48,7 +52,7 @@ const BuyerForm = ({ navigation }) => {
         <Form>
           <Item floatingLabel>
             <Label>Your Name</Label>
-            <Input onChange={(event) => handleChange(event, "bidder")} />
+            <Input onChange={(event) => handleChange(event, "bidder_name")} />
           </Item>
           <Item floatingLabel>
             <Label>Email</Label>

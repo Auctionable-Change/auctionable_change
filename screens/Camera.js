@@ -5,7 +5,7 @@ import * as Permissions from "expo-permissions";
 import { cloudinaryPost } from "./apiCalls";
 import { useStore } from "../store";
 import { TouchableWithoutFeedback } from "react-native-gesture-handler";
-import { Image, View } from "react-native";
+import { Alert, Image, View } from "react-native";
 import { Button, Text } from "native-base";
 import { StyleSheet } from "react-native";
 import { useNavigation } from "@react-navigation/native";
@@ -24,6 +24,8 @@ const Camera = ({ cameraType, user, prompt, title }) => {
   const submitHandler = async () => {
     if (imageObj) {
       await cloudinaryPost(imageObj, updatePhotoInStore);
+    } else {
+      Alert.alert("Photo Required", "You must upload photo to continue");
     }
   };
 
@@ -120,9 +122,9 @@ const styles = StyleSheet.create({
     shadowRadius: 1.0,
   },
   title: {
-    fontSize: 25,
+    fontSize: 20,
     textAlign: "center",
-    marginBottom: 20,
+    marginBottom: 10,
   },
 });
 

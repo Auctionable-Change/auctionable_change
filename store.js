@@ -4,16 +4,18 @@ const StoreContext = createContext();
 
 const initialState = {
   currentListing: {
-    title: "",
-    price: 0,
-    description: "",
     id: 0,
-    itemCategory: "",
-    charityCategory: "",
-    imageURL: "",
-    seller: "",
-    status: ""
-  }
+    title: "",
+    description: "",
+    price: 0,
+    donor: "",
+    status: "",
+    category: "",
+    charity: "",
+    image: "",
+    bids: []
+  },
+  listingToPost: {}
 }
 
 const reducer = (state, action) => {
@@ -22,6 +24,16 @@ const reducer = (state, action) => {
       return {
         ...state,
         currentListing: action.currentListing,
+      };
+    case "ADD_SELECTED_CHARITY":
+      return {
+        ...state,
+        selectedCharity: action.selectedCharity,
+      };
+    case "ADD_TO_LISTING":
+      return {
+        ...state,
+        listingToPost: { ...state.listingToPost , ...action.listingToPost }
       };
     
       default:

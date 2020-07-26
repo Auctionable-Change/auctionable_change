@@ -1,4 +1,7 @@
-import * as React from "react";
+import React, { useEffect } from "react";
+import { AppLoading } from "expo";
+import * as Font from "expo-font";
+import { Ionicons } from "@expo/vector-icons";
 import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from "@react-navigation/native";
 import { StoreProvider } from "./store";
@@ -11,11 +14,23 @@ import PostItem from "./screens/PostItem";
 import PaymentInstructions from "./screens/PaymentInstructions";
 import ChooseCharity from "./screens/ChooseCharity";
 import PostConfirmation from "./screens/PostConfirmation";
-
+import Camera from "./screens/Camera";
 
 const Stack = createStackNavigator();
 
 export default function App() {
+
+  useEffect(() => {
+    const loadFonts = async () => {
+      await Font.loadAsync({
+        Roboto: require("native-base/Fonts/Roboto.ttf"),
+        Roboto_medium: require("native-base/Fonts/Roboto_medium.ttf"),
+        ...Ionicons.font,
+      });
+    };
+    loadFonts();
+  });
+
   return (
     <StoreProvider>
       <NavigationContainer>
@@ -32,13 +47,13 @@ export default function App() {
             options={{ headerTitle: () => <LogoTitle /> }}
           />
           <Stack.Screen
-            name="Post Item"
-            component={PostItem}
+            name="Purchase"
+            component={PaymentInstructions}
             options={{ headerTitle: () => <LogoTitle /> }}
           />
           <Stack.Screen
-            name="Purchase"
-            component={PaymentInstructions}
+            name="Post Item"
+            component={PostItem}
             options={{ headerTitle: () => <LogoTitle /> }}
           />
           <Stack.Screen
@@ -51,6 +66,15 @@ export default function App() {
             component={PostConfirmation}
             options={{ headerTitle: () => <LogoTitle /> }}
           />
+          <Stack.Screen
+            name="Camera"
+            options={{ headerTitle: () => <LogoTitle /> }}
+          >
+            {() => <Camera cameraType="launchCameraAsync"
+              user="seller"
+              prompt="Time to take a photo of your item to donate!"
+              title="Upload a Photo"/>}
+          </Stack.Screen>
         </Stack.Navigator>
       </NavigationContainer>
     </StoreProvider>

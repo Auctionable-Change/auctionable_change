@@ -10,4 +10,4 @@
 
 ### Where should the reviewer start? How can this be tested?
 
-### Link pull requests
+### Link issues

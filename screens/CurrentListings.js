@@ -1,16 +1,15 @@
 import React, { useState, useEffect } from "react";
-import { View, Text, Button, Image, StyleSheet, FlatList, SafeAreaView } from "react-native";
-import mockListings from '../mockData/mockListings';
-import { Picker } from '@react-native-community/picker';
+import { View, Text, Image, StyleSheet, FlatList, SafeAreaView, ActivityIndicator } from "react-native";
 import { useStore } from "../store";
 import { fetchItems } from './apiCalls';
-import { TouchableOpacity } from "react-native-gesture-handler";
+import { Picker, Icon, CardItem, Card,  Left, Body, Button } from 'native-base'
 
 const CurrentListings = ({ navigation }) => {
   const { dispatch } = useStore()
   const [listings, setListings] = useState([]);
   const [filterCategory, setFilterCategory] = useState('');
   const [allListings, setAllListings] = useState([])
+  const [isLoading, setIsLoading] = useState(true)
 
   const filterListings = (filterCriteria) => {
     
@@ -25,58 +24,88 @@ const CurrentListings = ({ navigation }) => {
   }
 
   const pressHandler = (name) => {
-    navigation.navigate("Details");
-    let currentListing = listings.filter(listing => listing.name === name)[0]
-    console.log(currentListing);
+    let currentListing = listings.filter(listing => listing.title === name)[0]
     dispatch({ type: "ADD_CURRENT_LISTING", currentListing: currentListing })
+    navigation.navigate("Details");
   }
 
   useEffect(() => {
     const fetchData = async () => {
+      setIsLoading(true)
       const items = await fetchItems()
       setAllListings(items.items)
       setListings(items.items)
+      setIsLoading(false)
     }
     fetchData()
   }, [])
 
   return (
-    <SafeAreaView style={{ flex: 1, flexDirection: "column", alignItems: "center", justifyContent: "space-between"}}>
-      {/* <Text style={styles.pageTitle}>Browse Listings:</Text> */}
-        <Picker
-            style={styles.picker}
-            itemStyle={styles.pickerItem}
-            selectedValue={filterCategory}
-            onValueChange={(itemValue) => {
-              filterListings(itemValue)
-            }
-            }>
-          <Picker.Item label='All' value="all" />
-          <Picker.Item label='Electronics' value="electronics" />
-          <Picker.Item label='Home' value="home" />
-          <Picker.Item label='Furniture' value="furniture" />
-          <Picker.Item label='Baby/Kids' value="baby" />
-        </Picker>
-      <FlatList 
-          data={listings} 
-          style={styles.scrollView}
-          keyExtractor={item => item.id}
-          renderItem={( { item }) => (
-            <View style={styles.itemContainer}>
-              <Text style={styles.pageTitle}>{item.title}</Text>
-              <Image source={ require('./grill.jpg') } 
-                    style={ styles.image }
+    <SafeAreaView
+      style={{
+        flex: 1,
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "space-between",
+      }}
+    >
+      <Picker
+        mode="dropdown"
+        iosIcon={<Icon name="arrow-down" />}
+        style={{ width: 300 }}
+        placeholder="Item Category"
+        selectedValue={filterCategory}
+        onValueChange={(event) =>
+         filterListings(event)
+        }
+      >
+        <Picker.Item label="All" value="all" />
+        <Picker.Item label="Electronics" value="electronics" />
+        <Picker.Item label="Home" value="home" />
+        <Picker.Item label="Furniture" value="furniture" />
+        <Picker.Item label="Baby/Kids" value="baby" />
+        <Picker.Item label="Other" value="other" />
+      </Picker>
+
+      {isLoading && (
+        <View style={{flex: 1, justifyContent: 'center'}}>
+          <ActivityIndicator size="large" color="#2CB833"/>
+        </View>
+      )}
+
+      <FlatList
+        data={listings}
+        style={styles.scrollView}
+        keyExtractor={(item) => item.id.toString()}
+        renderItem={({ item }) => (
+          <Card>
+            <CardItem style={styles.cardItem}>
+              <Left>
+                <Body>
+                  <Text style={styles.cardTitle}>{item.title}</Text>
+                </Body>  
+              </Left>
+            </CardItem>
+            <CardItem cardBody>
+              <Image
+                source={
+                  item.image
+                    ? { uri: item.image }
+                    : require("../assets/icons/no-photo-selected.png")
+                }
+                style={styles.image}
               />
+            </CardItem>
+            <CardItem style={{ justifyContent: 'space-between'  }}>
               <Text>{`Current Price: $${item.price}`}</Text>
-              <TouchableOpacity
-                title="Listing Details"
-                onPress={() => pressHandler(item.name)}
-                style={styles.button}
+              <Button transparent title="Listing Details"
+                onPress={() => pressHandler(item.title)}
               >
-              <Text>Listing Details:</Text>
-              </TouchableOpacity>
-            </View>
-          )}
+              <Text style={styles.button}>Listing Details</Text>
+              </Button>
+            </CardItem>  
+          </Card>
+        )}
       />
     </SafeAreaView>
   );
@@ -89,14 +118,14 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   image: {
-    width: 200,
+    width: '100%',
     height: 200,
-    resizeMode: 'stretch'
+    resizeMode: "cover"
   },
-  pageTitle: {
-    marginBottom: 5,
+  cardTitle: {
+    marginBottom: 10,
     fontSize: 25,
-    justifyContent: "center"
+    alignSelf: "center",
   },
   listing: {
     marginTop: 5,
@@ -108,10 +137,18 @@ const styles = StyleSheet.create({
   },
   scrollView: {
     width: '90%', 
-    marginTop: 140
+    // marginTop: 140
   },
   pickerItem: {
     height: 150
+  },
+  cardItem: {
+    shadowOffset: {
+    width: 0,
+    height: 1, },
+    shadowOpacity: 0.18,
+    shadowRadius: 1.0,
+    borderRadius: 3
   },
   itemContainer: {
     flex: 1,
@@ -121,20 +158,30 @@ const styles = StyleSheet.create({
     marginTop: 10,
     borderColor:  '#2cb833',
     borderWidth: 2,
-    borderRadius: 10
+    borderRadius: 10,
+    padding: 10
   },
   button: {
-    backgroundColor: "#FFF",
-    borderRadius: 10,
-    width: 200,
-    margin: 10,
-    padding: 10,
-    alignItems: "center",
-    shadowOffset: {
-      width: 0,
-      height: 1,
-    }
+   color: 'blue',
+    
   }
 })
 
 export default CurrentListings;
+
+
+   {/* <Text style={styles.pageTitle}>Browse Listings:</Text> */}
+      {/* <Picker
+        style={styles.picker}
+        itemStyle={styles.pickerItem}
+        selectedValue={filterCategory}
+        onValueChange={(itemValue) => {
+          filterListings(itemValue);
+        }}
+      >
+        <Picker.Item label="All" value="all" />
+        <Picker.Item label="Electronics" value="electronics" />
+        <Picker.Item label="Home" value="home" />
+        <Picker.Item label="Furniture" value="furniture" />
+        <Picker.Item label="Baby/Kids" value="baby" />
+      </Picker> */}

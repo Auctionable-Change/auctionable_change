@@ -5,21 +5,16 @@ import * as Permissions from "expo-permissions";
 import { cloudinaryPost } from "./apiCalls";
 import { useStore } from "../store";
 import { TouchableWithoutFeedback } from "react-native-gesture-handler";
-import { Image, View } from "react-native";
+import { Alert, Image, View } from "react-native";
 import { Button, Text } from "native-base";
 import { StyleSheet } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
-// for buyer, arguments will be:
-// cameraType=launchImageLibraryAsync
-// user="buyer"
-// prompt="Upload photo screen shot from camera roll"
-
 const Camera = ({ cameraType, user, prompt, title }) => {
   const [image, uploadImage] = useState(null);
   const [imageObj, setImageObj] = useState(null);
-  const { state, dispatch } = useStore();
+  const { dispatch } = useStore();
   const navigation = useNavigation();
 
   useEffect(() => {
@@ -29,11 +24,12 @@ const Camera = ({ cameraType, user, prompt, title }) => {
   const submitHandler = async () => {
     if (imageObj) {
       await cloudinaryPost(imageObj, updatePhotoInStore);
+    } else {
+      Alert.alert("Photo Required", "You must upload photo to continue");
     }
   };
 
   const updatePhotoInStore = (photoData) => {
-    // for seller route
     if (user === "seller") {
       dispatch({
         type: "ADD_TO_LISTING",
@@ -41,7 +37,6 @@ const Camera = ({ cameraType, user, prompt, title }) => {
       });
       navigation.navigate("Choose Charity");
     }
-    // for buyer route
     if (user === "buyer") {
       dispatch({
         type: "ADD_BUYER_DETAILS",
@@ -84,9 +79,9 @@ const Camera = ({ cameraType, user, prompt, title }) => {
     }
   };
   return (
-    <SafeAreaView style={styles.mainContainer}>
+    <SafeAreaView style={styles.container}>
       <Text style={styles.title}>{title}</Text>
-      <View style={styles.container}>
+      {/* <View style={styles.subcontainer}> */}
         <Text accessibilityLabel={prompt} color="#2cb833" onPress={_pickImage}>
           {prompt}
         </Text>
@@ -103,33 +98,34 @@ const Camera = ({ cameraType, user, prompt, title }) => {
         <Button block success onPress={() => submitHandler()}>
           <Text>Continue</Text>
         </Button>
-      </View>
+      {/* </View> */}
     </SafeAreaView>
   );
 };
 
+// let me know what you think of the camera not on the card
 const styles = StyleSheet.create({
-  mainContainer: {
+  container: {
     flex: 1,
     alignItems: "center",
     padding: 20,
   },
-  container: {
-    alignItems: "center",
-    backgroundColor: "white",
-    padding: 20,
-    borderRadius: 10,
-    shadowOffset: {
-      width: 0,
-      height: 1,
-    },
-    shadowOpacity: 0.18,
-    shadowRadius: 1.0,
-  },
+  // subcontainer: {
+  //   alignItems: "center",
+    // backgroundColor: "white",
+    // padding: 20,
+    // borderRadius: 10,
+    // shadowOffset: {
+    //   width: 0,
+    //   height: 1,
+    // },
+    // shadowOpacity: 0.18,
+    // shadowRadius: 1.0,
+  // },
   title: {
-    fontSize: 25,
+    fontSize: 20,
     textAlign: "center",
-    marginBottom: 20,
+    marginBottom: 10,
   },
 });
 

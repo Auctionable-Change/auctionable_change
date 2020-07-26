@@ -26,20 +26,24 @@ const ListingDetails = ({ navigation }) => {
           <Text style={styles.description}>
             {state.currentListing.description}
           </Text>
-          <Text style={{ fontSize: 20 }}>
-            Listed Price: ${state.currentListing.price}
+          <Text style={styles.description}>
+            Minimum Donation: ${state.currentListing.price}
           </Text>
-          <Text style={styles.charityDescription}>
-            Purchase of this item supports {state.currentListing.charity}
+          <Text style={styles.description}>
+            This item supports {state.currentListing.charity}
           </Text>
-          <Text>Charity Score: {state.currentListing.charity_score}</Text>
+          <Text style={styles.description}>
+            Charity Score: {state.currentListing.charity_score}
+          </Text>
           <View style={{ flexDirection: "row", flexWrap: "wrap" }}>
-            <Text>Read more about their mission </Text>
+            <Text style={{ fontSize: 15, marginLeft: 5 }}>
+              Read more about their mission{" "}
+            </Text>
             <Text
-              style={{ fontWeight: "bold" }}
+              style={{ fontWeight: "bold", textDecorationLine: "underline" }}
               onPress={() => Linking.openURL(state.currentListing.charity_url)}
             >
-              here.
+              here
             </Text>
           </View>
         </View>
@@ -67,8 +71,9 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   itemContainer: {
-    backgroundColor: "white",
-    padding: 15,
+    backgroundColor: "#FFFFFF",
+    margin: 10,
+    padding: 10,
     borderRadius: 10,
     shadowOffset: {
       width: 0,
@@ -79,9 +84,8 @@ const styles = StyleSheet.create({
   },
   title: {
     margin: 10,
-    fontSize: 30,
+    fontSize: 25,
     textAlign: "center",
-    fontWeight: "bold",
   },
   scroll: {
     display: "flex",
@@ -89,30 +93,26 @@ const styles = StyleSheet.create({
     padding: 15,
   },
   image: {
-    width: 225,
-    height: 225,
+    width: 300,
+    height: 300,
     resizeMode: "cover",
     alignSelf: "center",
   },
   description: {
-    marginTop: 15,
-    marginBottom: 15,
-  },
-  charityDescription: {
-    marginTop: 15,
+    margin: 5,
+    fontSize: 15,
   },
   charityAttribution: {
     fontStyle: "italic",
     width: 140,
     textAlign: "center",
     color: "#336799",
-    marginTop: 5,
-    marginBottom: 30,
+    margin: 5,
   },
   charityContainer: {
     flexWrap: "wrap",
     flexDirection: "row",
-    marginTop: 15,
+    margin: 10,
     height: 120,
   },
 });

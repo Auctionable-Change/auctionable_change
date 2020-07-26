@@ -109,14 +109,10 @@ export default function App() {
               ...backButtonStyle,
             }}
           >
-            {() => (
-              <Camera
-                cameraType="launchCameraAsync"
-                user="seller"
-                prompt="Time to take a photo of your item to donate!"
-                title="Upload a Photo"
-              />
-            )}
+            {() => <Camera cameraType="launchCameraAsync"
+              user="seller"
+              prompt="Press camera to take a photo of your item to donate!"
+              title="Upload a Photo"/>}
           </Stack.Screen>
         </Stack.Navigator>
       </NavigationContainer>

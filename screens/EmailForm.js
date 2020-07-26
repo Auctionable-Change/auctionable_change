@@ -4,12 +4,13 @@ import { ScrollView } from "react-native-gesture-handler";
 import * as MailComposer from "expo-mail-composer";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useStore } from "../store";
+import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import BuyerForm from "../components/BuyerForm";
 
 const EmailForm = ({ navigation }) => {
   const { state } = useStore();
 
-  const sendEmail = (photoData) => {
+  const sendEmail = (buyerObj) => {
     MailComposer.composeAsync({
       recipients: [
         // `${state.currentListing.donor_email}`,
@@ -21,26 +22,31 @@ const EmailForm = ({ navigation }) => {
       I just made my donation to ${state.currentListing.charity}. Excited to have made A.change with you. Find my info below for shipping.
 
     Thank you,
-    ${state.buyerDetails.bidder_name}
+    ${buyerObj.bidder_name}
 
-    Email: ${state.buyerDetails.bidder_email}
-    Address: ${state.buyerDetails.street_address}, ${state.buyerDetails.city}, ${state.buyerDetails.state} ${state.buyerDetails.zip_code}
-    Donation Receipt: ${photoData} 
+    Email: ${buyerObj.bidder_email}
+    Address: ${buyerObj.street_address}, ${buyerObj.city}, ${buyerObj.state} ${buyerObj.zip_code}
+    Donation Receipt: ${state.buyerDetails.receipt} 
       `,
     });
   };
 
   return (
-    <SafeAreaView style={{ flex: 1 }}>
-      <ScrollView>
+    <SafeAreaView style={{ flex: 1, padding: 30, backgroundColor: "#FFFFFF" }}>
+      <KeyboardAwareScrollView>
         <Text>
-          Please enter your contact and shipping information to send an email to
-          the seller.
+          3. Enter your contact and shipping information to email the seller.
         </Text>
-        <BuyerForm navigation={navigation} sendEmail={sendEmail} />
-      </ScrollView>
+        <BuyerForm
+          navigation={navigation}
+          sendEmail={sendEmail}
+          style={styles.form}
+        />
+      </KeyboardAwareScrollView>
     </SafeAreaView>
   );
 };
+
+const styles = StyleSheet.create({});
 
 export default EmailForm;

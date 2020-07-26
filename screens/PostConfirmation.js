@@ -7,15 +7,12 @@ import { useStore } from "../store";
 
 const PostConfirmation = ({ navigation }) => {
   const { state } = useStore();
-  console.log(state);
+
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView>
         <Text>{state.selectedCharity.name}</Text>
-        <TouchableOpacity
-          // onPress={() => navigation.navigate("Confirmation")}
-          style={styles.button}
-        >
+        <TouchableOpacity style={styles.button}>
           <Text>View Listing</Text>
         </TouchableOpacity>
       </ScrollView>

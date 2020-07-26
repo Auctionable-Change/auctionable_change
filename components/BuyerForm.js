@@ -10,6 +10,7 @@ import {
   Label,
   Text,
 } from "native-base";
+import { Alert } from "react-native";
 import { useStore } from "../store";
 
 const BuyerForm = ({ navigation, sendEmail }) => {
@@ -28,7 +29,6 @@ const BuyerForm = ({ navigation, sendEmail }) => {
   };
 
   const validateForm = () => {
-    console.log("buyerObj", buyerObj);
     let keys = Object.keys(buyerObj);
     let result = [];
     keys.forEach((key) => {
@@ -38,10 +38,9 @@ const BuyerForm = ({ navigation, sendEmail }) => {
     });
     if (result.length === 0) {
       dispatch({ type: "ADD_BUYER_DETAILS", buyerDetails: buyerObj });
-      console.log("navigate", state.buyerDetails);
-      sendEmail();
+      sendEmail(buyerObj);
     } else {
-      console.log("denied");
+      Alert.alert("Missing Input", "Please fill out all fields to continue");
     }
   };
 
@@ -77,7 +76,7 @@ const BuyerForm = ({ navigation, sendEmail }) => {
             <Input onChange={(event) => handleChange(event, "zip_code")} />
           </Item>
           <Button block onPress={() => validateForm()}>
-            <Text>Confirm Purchase</Text>
+            <Text>Complete Purchase</Text>
           </Button>
         </Form>
       </Content>

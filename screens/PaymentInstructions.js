@@ -21,6 +21,7 @@ const PaymentInstructions = ({ navigation }) => {
           onPress={() => Linking.openURL(state.currentListing.charity_url)}
         >
           link
+          {" "}
         </Text>
         <Text>to donate at least ${state.currentListing.price}.</Text>
       </View>

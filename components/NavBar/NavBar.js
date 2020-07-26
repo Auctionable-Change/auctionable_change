@@ -32,7 +32,7 @@ const NavBar = ({ navigation }) => {
       >
         <Image
           accessibilityRole="button"
-          id="profile"
+          id="home"
           source={require("../../assets/icons/home.png")}
           style={styles.icons}
         />

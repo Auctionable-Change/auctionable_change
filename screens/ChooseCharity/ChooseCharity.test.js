@@ -41,11 +41,11 @@ describe('ChooseCharity', () => {
         <ChooseCharity />
       </StoreProvider>)
 
-      const searchBtn = getByText('Search')
-      // const searchBar = getByPlaceholder('Search Charities')
-      fireEvent.press(searchBtn)
+      const searchBtn = getByText('Search');
+      fireEvent.press(searchBtn);
       const charityItem = waitFor(() => getByText('Charity1'));
       expect(charityItem).toBeTruthy();
+  
     })
    
 })

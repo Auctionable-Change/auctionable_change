@@ -1,12 +1,18 @@
 import React from 'react'
 import { Image } from 'react-native'
+import { useNavigation } from "@react-navigation/native";
+import { TouchableWithoutFeedback } from "react-native-gesture-handler";
 
- const LogoTitle = () => {
+
+const LogoTitle = () => {
+  const navigation = useNavigation();
   return (
-    <Image
-      style={{ width: 250, resizeMode: "contain" }}
-      source={require("../assets/a_change.png")}
-    />
+    <TouchableWithoutFeedback onPress={() => navigation.navigate("Home")}>
+      <Image
+        style={{ width: 150, resizeMode: "contain" }}
+        source={require("../assets/a_change.png")}
+      />
+    </TouchableWithoutFeedback>
   );
  }
 

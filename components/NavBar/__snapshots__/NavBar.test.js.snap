@@ -5,12 +5,14 @@ exports[`NavBar renders correctly 1`] = `
   style={
     Object {
       "backgroundColor": "white",
+      "borderTopColor": "#dddddd",
+      "borderTopWidth": 1,
       "bottom": "0%",
       "display": "flex",
       "flexDirection": "row",
-      "height": "11%",
+      "height": "8%",
       "justifyContent": "space-around",
-      "padding": 10,
+      "padding": 8,
       "position": "absolute",
       "width": "100%",
     }
@@ -41,8 +43,8 @@ exports[`NavBar renders correctly 1`] = `
         source={1}
         style={
           Object {
-            "height": 45,
-            "width": 45,
+            "height": 30,
+            "width": 30,
           }
         }
       />
@@ -73,8 +75,8 @@ exports[`NavBar renders correctly 1`] = `
         source={1}
         style={
           Object {
-            "height": 45,
-            "width": 45,
+            "height": 30,
+            "width": 30,
           }
         }
       />
@@ -101,12 +103,12 @@ exports[`NavBar renders correctly 1`] = `
     >
       <Image
         accessibilityRole="button"
-        id="profile"
+        id="home"
         source={1}
         style={
           Object {
-            "height": 45,
-            "width": 45,
+            "height": 30,
+            "width": 30,
           }
         }
       />

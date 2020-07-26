@@ -9,8 +9,9 @@ import {
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useStore } from "../store";
-import { fetchItems } from "./apiCalls";
-import { Picker, Icon, CardItem, Card, Left, Body, Button } from "native-base";
+import { fetchItems } from './apiCalls';
+import { Picker, Icon, CardItem, Card, Left, Body, Button } from 'native-base'
+import NavBar from "../components/NavBar/NavBar"
 
 const CurrentListings = ({ navigation }) => {
   const { dispatch } = useStore();
@@ -118,6 +119,7 @@ const CurrentListings = ({ navigation }) => {
           </Card>
         )}
       />
+      <NavBar navigation={navigation} />
     </SafeAreaView>
   );
 };

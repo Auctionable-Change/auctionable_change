@@ -103,7 +103,11 @@ export default function App() {
           />
           <Stack.Screen
             name="Camera"
-            options={{ headerTitle: () => <LogoTitle /> }}
+            options={{
+              headerTitle: () => <LogoTitle />,
+              headerBackTitleVisible: false,
+              ...backButtonStyle,
+            }}
           >
             {() => (
               <Camera

@@ -13,7 +13,7 @@ const NavBar = ({ navigation }) => {
         <Image
           accessibilityRole="button"
           id="search"
-          source={require("../assets/icons/search.png")}
+          source={require("../../assets/icons/search.png")}
           style={styles.icons}
         />
       </TouchableWithoutFeedback>
@@ -23,7 +23,7 @@ const NavBar = ({ navigation }) => {
         <Image
           accessibilityRole="button"
           id="add"
-          source={require("../assets/icons/add.png")}
+          source={require("../../assets/icons/add.png")}
           style={styles.icons}
         />
       </TouchableWithoutFeedback>
@@ -33,7 +33,7 @@ const NavBar = ({ navigation }) => {
         <Image
           accessibilityRole="button"
           id="profile"
-          source={require("../assets/icons/home.png")}
+          source={require("../../assets/icons/home.png")}
           style={styles.icons}
         />
       </TouchableWithoutFeedback>

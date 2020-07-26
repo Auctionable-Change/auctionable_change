@@ -21,7 +21,7 @@ describe('EmailForm', () => {
         <EmailForm />
       </StoreProvider>
     )
-    const message = getByText("Please enter your contact and shipping information to send an email to the seller.")
+    const message = getByText("3. Enter your contact and shipping information to email the seller.")
     expect(message).toBeTruthy()
   })
 })

@@ -15,6 +15,7 @@ exports[`ListingDetails should render 1`] = `
       Object {
         "alignItems": "center",
         "display": "flex",
+        "padding": 15,
       }
     }
     onGestureHandlerEvent={[Function]}
@@ -24,10 +25,10 @@ exports[`ListingDetails should render 1`] = `
       <View
         style={
           Object {
-            "backgroundColor": "white",
+            "backgroundColor": "#FFFFFF",
             "borderRadius": 10,
-            "margin": 15,
-            "padding": 15,
+            "margin": 10,
+            "padding": 10,
             "shadowOffset": Object {
               "height": 1,
               "width": 0,
@@ -40,8 +41,7 @@ exports[`ListingDetails should render 1`] = `
         <Text
           style={
             Object {
-              "fontSize": 30,
-              "fontWeight": "bold",
+              "fontSize": 25,
               "margin": 10,
               "textAlign": "center",
             }
@@ -54,17 +54,17 @@ exports[`ListingDetails should render 1`] = `
           style={
             Object {
               "alignSelf": "center",
-              "height": 225,
+              "height": 300,
               "resizeMode": "cover",
-              "width": 225,
+              "width": 300,
             }
           }
         />
         <Text
           style={
             Object {
-              "marginBottom": 15,
-              "marginTop": 15,
+              "fontSize": 15,
+              "margin": 5,
             }
           }
         >
@@ -73,23 +73,32 @@ exports[`ListingDetails should render 1`] = `
         <Text
           style={
             Object {
-              "fontSize": 20,
+              "fontSize": 15,
+              "margin": 5,
             }
           }
         >
-          Listed Price: $
+          Minimum Donation: $
         </Text>
         <Text
           style={
             Object {
-              "marginTop": 15,
+              "fontSize": 15,
+              "margin": 5,
             }
           }
         >
-          Purchase of this item supports 
+          This item supports 
           
         </Text>
-        <Text>
+        <Text
+          style={
+            Object {
+              "fontSize": 15,
+              "margin": 5,
+            }
+          }
+        >
           Charity Score: 
         </Text>
         <View
@@ -100,69 +109,85 @@ exports[`ListingDetails should render 1`] = `
             }
           }
         >
-          <Text>
-            Read more about their mission 
+          <Text
+            style={
+              Object {
+                "fontSize": 15,
+                "marginLeft": 5,
+              }
+            }
+          >
+            Read more about their mission
+             
           </Text>
           <Text
             onPress={[Function]}
             style={
               Object {
                 "fontWeight": "bold",
+                "textDecorationLine": "underline",
               }
             }
           >
-            here.
+            here
           </Text>
         </View>
       </View>
-      <RNGestureHandlerButton
-        collapsable={false}
-        onGestureEvent={[Function]}
-        onGestureHandlerEvent={[Function]}
-        onGestureHandlerStateChange={[Function]}
-        onHandlerStateChange={[Function]}
-        rippleColor={0}
+      <View
+        accessible={true}
+        focusable={true}
+        forwardedRef={[Function]}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
         style={
-          Array [
-            Object {
-              "overflow": "hidden",
-            },
-            undefined,
-          ]
+          Object {
+            "alignItems": "center",
+            "alignSelf": "stretch",
+            "backgroundColor": "#5cb85c",
+            "borderBottomWidth": null,
+            "borderColor": "#007aff",
+            "borderLeftWidth": null,
+            "borderRadius": 5,
+            "borderRightWidth": null,
+            "borderTopWidth": null,
+            "borderWidth": undefined,
+            "elevation": 2,
+            "flexDirection": "row",
+            "height": 45,
+            "justifyContent": "center",
+            "opacity": 1,
+            "paddingBottom": 6,
+            "paddingTop": 6,
+            "shadowColor": undefined,
+            "shadowOffset": undefined,
+            "shadowOpacity": undefined,
+            "shadowRadius": undefined,
+          }
         }
       >
-        <View
-          accessible={true}
+        <Text
           style={
             Object {
-              "alignItems": "center",
-              "backgroundColor": "#FFFFFF",
-              "borderRadius": 10,
-              "marginTop": 5,
-              "opacity": 1,
-              "padding": 10,
-              "shadowOffset": Object {
-                "height": 1,
-                "width": 0,
-              },
-              "shadowOpacity": 0.18,
-              "shadowRadius": 1,
-              "width": 200,
+              "color": "white",
+              "fontSize": 15,
             }
           }
         >
-          <Text>
-            Donate For Item
-          </Text>
-        </View>
-      </RNGestureHandlerButton>
+          Donate For Item
+        </Text>
+      </View>
       <View
         style={
           Object {
             "flexDirection": "row",
             "flexWrap": "wrap",
             "height": 120,
-            "marginTop": 15,
+            "margin": 10,
           }
         }
       >
@@ -171,8 +196,7 @@ exports[`ListingDetails should render 1`] = `
             Object {
               "color": "#336799",
               "fontStyle": "italic",
-              "marginBottom": 30,
-              "marginTop": 5,
+              "margin": 5,
               "textAlign": "center",
               "width": 140,
             }
@@ -196,12 +220,14 @@ exports[`ListingDetails should render 1`] = `
     style={
       Object {
         "backgroundColor": "white",
+        "borderTopColor": "#dddddd",
+        "borderTopWidth": 1,
         "bottom": "0%",
         "display": "flex",
         "flexDirection": "row",
-        "height": "11%",
+        "height": "8%",
         "justifyContent": "space-around",
-        "padding": 10,
+        "padding": 8,
         "position": "absolute",
         "width": "100%",
       }
@@ -232,8 +258,8 @@ exports[`ListingDetails should render 1`] = `
           source={1}
           style={
             Object {
-              "height": 45,
-              "width": 45,
+              "height": 30,
+              "width": 30,
             }
           }
         />
@@ -264,8 +290,8 @@ exports[`ListingDetails should render 1`] = `
           source={1}
           style={
             Object {
-              "height": 45,
-              "width": 45,
+              "height": 30,
+              "width": 30,
             }
           }
         />
@@ -292,12 +318,12 @@ exports[`ListingDetails should render 1`] = `
       >
         <Image
           accessibilityRole="button"
-          id="profile"
+          id="home"
           source={1}
           style={
             Object {
-              "height": 45,
-              "width": 45,
+              "height": 30,
+              "width": 30,
             }
           }
         />

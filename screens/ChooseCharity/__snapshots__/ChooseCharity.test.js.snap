@@ -82,7 +82,7 @@ exports[`ChooseCharity should render 1`] = `
         Object {
           "alignItems": "center",
           "alignSelf": "flex-start",
-          "backgroundColor": "transparent",
+          "backgroundColor": "#5cb85c",
           "borderBottomWidth": null,
           "borderColor": "#007aff",
           "borderLeftWidth": null,
@@ -90,29 +90,35 @@ exports[`ChooseCharity should render 1`] = `
           "borderRightWidth": null,
           "borderTopWidth": null,
           "borderWidth": undefined,
-          "elevation": 0,
+          "elevation": 2,
           "flexDirection": "row",
           "height": 45,
           "justifyContent": "space-between",
           "opacity": 1,
           "paddingBottom": 6,
           "paddingTop": 6,
-          "shadowColor": null,
-          "shadowOffset": null,
-          "shadowOpacity": null,
-          "shadowRadius": null,
+          "shadowColor": undefined,
+          "shadowOffset": undefined,
+          "shadowOpacity": undefined,
+          "shadowRadius": undefined,
         }
       }
     >
       <Text
         style={
           Object {
-            "color": "#065EFE",
-            "fontSize": 20,
+            "backgroundColor": "transparent",
+            "color": "#fff",
+            "fontFamily": "System",
+            "fontSize": 16.5,
+            "marginLeft": 0,
+            "marginRight": 0,
+            "paddingLeft": 16,
+            "paddingRight": 16,
           }
         }
       >
-        Search
+        Go!
       </Text>
     </View>
   </View>
@@ -151,13 +157,38 @@ exports[`ChooseCharity should render 1`] = `
   >
     <Text
       style={
-        Object {
-          "alignSelf": "center",
-          "paddingTop": 50,
-        }
+        Array [
+          Object {
+            "color": "#000",
+            "fontFamily": "System",
+            "fontSize": 16,
+          },
+          Object {
+            "alignSelf": "center",
+            "paddingTop": 30,
+          },
+        ]
       }
     >
-      Search For Your Favorite Charity Above!
+      Search For Your Favorite Charity Above
+    </Text>
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#000",
+            "fontFamily": "System",
+            "fontSize": 16,
+          },
+          Object {
+            "alignSelf": "center",
+            "fontStyle": "italic",
+            "margin": 5,
+          },
+        ]
+      }
+    >
+      - or -
     </Text>
     <View
       accessible={true}
@@ -175,14 +206,14 @@ exports[`ChooseCharity should render 1`] = `
           "alignItems": "center",
           "alignSelf": "center",
           "backgroundColor": "transparent",
-          "borderBottomWidth": null,
-          "borderColor": "#007aff",
-          "borderLeftWidth": null,
+          "borderBottomWidth": 1,
+          "borderColor": "#5cb85c",
+          "borderLeftWidth": 1,
           "borderRadius": 5,
-          "borderRightWidth": null,
-          "borderTopWidth": null,
-          "borderWidth": undefined,
-          "elevation": 0,
+          "borderRightWidth": 1,
+          "borderTopWidth": 1,
+          "borderWidth": 1,
+          "elevation": null,
           "flexDirection": "row",
           "height": 45,
           "justifyContent": "space-between",
@@ -199,12 +230,18 @@ exports[`ChooseCharity should render 1`] = `
       <Text
         style={
           Object {
-            "color": "#065EFE",
-            "fontSize": 20,
+            "backgroundColor": "transparent",
+            "color": "#5cb85c",
+            "fontFamily": "System",
+            "fontSize": 16.5,
+            "marginLeft": 0,
+            "marginRight": 0,
+            "paddingLeft": 16,
+            "paddingRight": 16,
           }
         }
       >
-        Or Browse Our Featured Charities
+        Browse Our Featured Charities
       </Text>
     </View>
   </View>

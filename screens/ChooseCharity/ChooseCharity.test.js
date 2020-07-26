@@ -22,8 +22,8 @@ describe('ChooseCharity', () => {
       <ChooseCharity/>
     </StoreProvider>)
 
-    const message = getByText('Search For Your Favorite Charity Above!')
-    const button = getByText('Or Browse Our Featured Charities')
+    const message = getByText('Search For Your Favorite Charity Above')
+    const button = getByText('Browse Our Featured Charities')
     expect(message).toBeTruthy()
     expect(button).toBeTruthy()
  })
@@ -41,7 +41,7 @@ describe('ChooseCharity', () => {
         <ChooseCharity />
       </StoreProvider>)
 
-      const searchBtn = getByText('Search');
+      const searchBtn = getByText('Go!');
       fireEvent.press(searchBtn);
       const charityItem = waitFor(() => getByText('Charity1'));
       expect(charityItem).toBeTruthy();

@@ -1418,7 +1418,7 @@ exports[`SellerForm should render 1`] = `
                 }
               }
             >
-              Continue
+              Continue to Charities
             </Text>
           </View>
         </View>

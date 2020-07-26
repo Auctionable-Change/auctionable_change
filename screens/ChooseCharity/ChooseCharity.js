@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { View, Text } from "react-native";
+import { View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { StyleSheet, Linking, ActivityIndicator } from "react-native";
 import {
-  TouchableOpacity,
-  ScrollView,
   FlatList,
 } from "react-native-gesture-handler";
 import { useStore } from "../../store";
@@ -13,16 +11,13 @@ import {
   Icon,
   CardItem,
   Card,
-  Body,
   CheckBox,
   Item,
   Input,
-  Label,
   Button,
   ListItem,
-  Content,
+  Text
 } from "native-base";
-import { Header } from "react-native/Libraries/NewAppScreen";
 
 const ChooseCharity = ({ navigation }) => {
   const { dispatch } = useStore();
@@ -66,22 +61,25 @@ const ChooseCharity = ({ navigation }) => {
             onChange={(event) => handleChange(event)}
           ></Input>
         </Item>
-        <Button transparent onPress={() => returnCharities()}>
-          <Text style={{ color: "#065EFE", fontSize: 20 }}>Search</Text>
+        <Button success onPress={() => returnCharities()}>
+          <Text>Go!</Text>
         </Button>
       </View>
       {!charities && (
         <Card style={{ width: "90%", height: 150, marginTop: 50 }}>
-          <Text style={{ alignSelf: "center", paddingTop: 50 }}>
-            Search For Your Favorite Charity Above!
+          <Text style={{ alignSelf: "center", paddingTop: 30 }}>
+            Search For Your Favorite Charity Above
+          </Text>
+          <Text style={{ alignSelf: "center", margin: 5, fontStyle: "italic" }}>
+            - or -
           </Text>
           <Button
-            transparent
+            bordered success
             style={{ alignSelf: "center" }}
             onPress={() => returnCharities()}
           >
-            <Text style={{ color: "#065EFE", fontSize: 20 }}>
-              Or Browse Our Featured Charities
+            <Text>
+              Browse Our Featured Charities
             </Text>
           </Button>
         </Card>
@@ -154,7 +152,7 @@ const ChooseCharity = ({ navigation }) => {
 
       {charitySelected && (
         <Button block onPress={() => confirmCharity()}>
-          <Text style={{ color: "white" }}>Comfirm Charity & Continue</Text>
+          <Text style={{ color: "white" }}>Confirm Charity & Continue</Text>
         </Button>
       )}
     </SafeAreaView>
@@ -162,96 +160,15 @@ const ChooseCharity = ({ navigation }) => {
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    position: "absolute",
-    alignItems: "center",
-    justifyContent: "center",
-  },
   search: {
     width: "100%",
     alignItems: "center",
     justifyContent: "center",
   },
-  scroll: {
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#FFF",
-    marginTop: 10,
-    borderRadius: 10,
-  },
-  button: {
-    backgroundColor: "lightgrey",
-    borderRadius: 10,
-    height: 40,
-    width: 150,
-    padding: 10,
-    marginBottom: 10,
-    marginTop: 10,
-    alignItems: "center",
-    shadowOffset: {
-      width: 0,
-      height: 1,
-    },
-    shadowOpacity: 0.18,
-    shadowRadius: 1.0,
-    alignSelf: "center",
-  },
-  confirmButton: {
-    backgroundColor: "purple",
-    borderRadius: 10,
-    height: 40,
-    width: 150,
-    padding: 10,
-    marginBottom: 10,
-    marginTop: 10,
-    alignItems: "center",
-    shadowOffset: {
-      width: 0,
-      height: 1,
-    },
-    shadowOpacity: 0.18,
-    shadowRadius: 1.0,
-    alignSelf: "center",
-  },
-  textInput: {
-    height: 50,
-    borderColor: "gray",
-    borderWidth: 1,
-    margin: 10,
-    borderRadius: 10,
-    padding: 5,
-    width: "90%",
-    fontSize: 30,
-  },
-  charityButton: {
-    backgroundColor: "lightgrey",
-    borderRadius: 10,
-    height: 40,
-    width: 125,
-    padding: 10,
-    margin: 5,
-    alignItems: "center",
-    shadowOffset: {
-      width: 0,
-      height: 1,
-    },
-    shadowOpacity: 0.18,
-    shadowRadius: 1.0,
-  },
+
   scrollView: {
     flex: 1,
     width: "90%",
-  },
-  itemContainer: {
-    width: "100%",
-    flex: 1,
-    flexDirection: "column",
-    justifyContent: "space-between",
-    alignItems: "center",
-    backgroundColor: "#FFF",
-    marginTop: 10,
-    borderRadius: 10,
   },
   charityDefault: {
     flex: 1,

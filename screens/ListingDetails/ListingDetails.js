@@ -3,9 +3,10 @@ import { Image, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import NavBar from "../../components/NavBar/NavBar";
 import { StyleSheet } from "react-native";
-import { TouchableOpacity, ScrollView } from "react-native-gesture-handler";
+import { ScrollView } from "react-native-gesture-handler";
 import { useStore } from "../../store";
 import * as Linking from "expo-linking";
+import { Button } from "native-base";
 
 const ListingDetails = ({ navigation }) => {
   const { state } = useStore();
@@ -25,29 +26,30 @@ const ListingDetails = ({ navigation }) => {
           <Text style={styles.description}>
             {state.currentListing.description}
           </Text>
-          <Text style={{ fontSize: 20 }}>
-            Listed Price: ${state.currentListing.price}
+          <Text style={styles.description}>
+            Minimum Donation: ${state.currentListing.price}
           </Text>
-          <Text style={styles.charityDescription}>
-            Purchase of this item supports {state.currentListing.charity}
+          <Text style={styles.description}>
+            This item supports {state.currentListing.charity}
           </Text>
-          <Text>Charity Score: {state.currentListing.charity_score}</Text>
+          <Text style={styles.description}>
+            Charity Score: {state.currentListing.charity_score}
+          </Text>
           <View style={{ flexDirection: "row", flexWrap: "wrap" }}>
-            <Text>Read more about their mission </Text>
+            <Text style={{ fontSize: 15, marginLeft: 5 }}>
+              Read more about their mission{" "}
+            </Text>
             <Text
-              style={{ fontWeight: "bold" }}
+              style={{ fontWeight: "bold", textDecorationLine: "underline" }}
               onPress={() => Linking.openURL(state.currentListing.charity_url)}
             >
-              here.
+              here
             </Text>
           </View>
         </View>
-        <TouchableOpacity
-          onPress={() => navigation.navigate("Purchase")}
-          style={styles.button}
-        >
-          <Text>Donate For Item</Text>
-        </TouchableOpacity>
+        <Button block success onPress={() => navigation.navigate("Purchase")}>
+          <Text style={{ color: "white", fontSize: 15 }}>Donate For Item</Text>
+        </Button>
         <View style={styles.charityContainer}>
           <Text style={styles.charityAttribution}>
             Charity information provided by
@@ -69,9 +71,9 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   itemContainer: {
-    backgroundColor: "white",
-    margin: 15,
-    padding: 15,
+    backgroundColor: "#FFFFFF",
+    margin: 10,
+    padding: 10,
     borderRadius: 10,
     shadowOffset: {
       width: 0,
@@ -82,53 +84,35 @@ const styles = StyleSheet.create({
   },
   title: {
     margin: 10,
-    fontSize: 30,
+    fontSize: 25,
     textAlign: "center",
-    fontWeight: "bold",
   },
   scroll: {
     display: "flex",
     alignItems: "center",
+    padding: 15,
   },
   image: {
-    width: 225,
-    height: 225,
+    width: 300,
+    height: 300,
     resizeMode: "cover",
     alignSelf: "center",
   },
   description: {
-    marginTop: 15,
-    marginBottom: 15,
-  },
-  charityDescription: {
-    marginTop: 15,
-  },
-  button: {
-    backgroundColor: "#FFFFFF",
-    borderRadius: 10,
-    width: 200,
-    padding: 10,
-    marginTop: 5,
-    alignItems: "center",
-    shadowOffset: {
-      width: 0,
-      height: 1,
-    },
-    shadowOpacity: 0.18,
-    shadowRadius: 1.0,
+    margin: 5,
+    fontSize: 15,
   },
   charityAttribution: {
     fontStyle: "italic",
     width: 140,
     textAlign: "center",
     color: "#336799",
-    marginTop: 5,
-    marginBottom: 30,
+    margin: 5,
   },
   charityContainer: {
     flexWrap: "wrap",
     flexDirection: "row",
-    marginTop: 15,
+    margin: 10,
     height: 120,
   },
 });

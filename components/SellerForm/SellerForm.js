@@ -14,7 +14,6 @@ import {
 import { Alert } from "react-native";
 import { useStore } from "../../store";
 
-
 const SellerForm = ({ navigation }) => {
   const { dispatch, state } = useStore();
   const [listingObj, setListingObj] = useState({
@@ -31,26 +30,23 @@ const SellerForm = ({ navigation }) => {
   };
 
   const validateForm = () => {
-    let keys = Object.keys(listingObj)
-    let result = []
-    keys.forEach(key => {
-      if(listingObj[key] === null || listingObj[key] === '') {
-        result.push(key)
-      } 
-    })
+    let keys = Object.keys(listingObj);
+    let result = [];
+    keys.forEach((key) => {
+      if (listingObj[key] === null || listingObj[key] === "") {
+        result.push(key);
+      }
+    });
     if (result.length === 0) {
       dispatch({
         type: "ADD_TO_LISTING",
         listingToPost: listingObj,
       });
-      navigation.navigate("Camera")
+      navigation.navigate("Camera");
     } else {
-      Alert.alert(
-        "Missing Input",
-        "Please fill out all fields before proceeding"
-      )
+      Alert.alert("Missing Input", "Please fill out all fields to continue");
     }
-   }
+  };
 
   return (
     <Container>
@@ -98,7 +94,7 @@ const SellerForm = ({ navigation }) => {
             </Picker>
           </Item>
           <Button block success onPress={() => validateForm()}>
-            <Text>Continue</Text>
+            <Text>Continue to Charities</Text>
           </Button>
         </Form>
       </Content>

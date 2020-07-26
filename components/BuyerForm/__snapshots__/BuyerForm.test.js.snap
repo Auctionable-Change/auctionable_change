@@ -716,7 +716,7 @@ exports[`BuyerForm should render 1`] = `
                 }
               }
             >
-              Confirm Purchase
+              Complete Purchase
             </Text>
           </View>
         </View>

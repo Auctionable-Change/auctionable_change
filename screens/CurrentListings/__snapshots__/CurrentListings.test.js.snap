@@ -939,16 +939,125 @@ exports[`CurrentListings should render 1`] = `
     renderItem={[Function]}
     scrollEventThrottle={50}
     stickyHeaderIndices={Array []}
-    style={
-      Object {
-        "width": "90%",
-      }
-    }
     updateCellsBatchingPeriod={50}
     viewabilityConfigCallbackPairs={Array []}
     windowSize={21}
   >
     <View />
   </RCTScrollView>
+  <View
+    style={
+      Object {
+        "backgroundColor": "white",
+        "borderTopColor": "#dddddd",
+        "borderTopWidth": 1,
+        "bottom": "0%",
+        "display": "flex",
+        "flexDirection": "row",
+        "height": "8%",
+        "justifyContent": "space-around",
+        "padding": 8,
+        "position": "absolute",
+        "width": "100%",
+      }
+    }
+  >
+    <RNGestureHandlerButton
+      collapsable={false}
+      onGestureEvent={[Function]}
+      onGestureHandlerEvent={[Function]}
+      onGestureHandlerStateChange={[Function]}
+      onHandlerStateChange={[Function]}
+      rippleColor={0}
+      style={
+        Array [
+          Object {
+            "overflow": "hidden",
+          },
+          undefined,
+        ]
+      }
+    >
+      <View
+        accessible={true}
+      >
+        <Image
+          accessibilityRole="button"
+          id="search"
+          source={1}
+          style={
+            Object {
+              "height": 30,
+              "width": 30,
+            }
+          }
+        />
+      </View>
+    </RNGestureHandlerButton>
+    <RNGestureHandlerButton
+      collapsable={false}
+      onGestureEvent={[Function]}
+      onGestureHandlerEvent={[Function]}
+      onGestureHandlerStateChange={[Function]}
+      onHandlerStateChange={[Function]}
+      rippleColor={0}
+      style={
+        Array [
+          Object {
+            "overflow": "hidden",
+          },
+          undefined,
+        ]
+      }
+    >
+      <View
+        accessible={true}
+      >
+        <Image
+          accessibilityRole="button"
+          id="add"
+          source={1}
+          style={
+            Object {
+              "height": 30,
+              "width": 30,
+            }
+          }
+        />
+      </View>
+    </RNGestureHandlerButton>
+    <RNGestureHandlerButton
+      collapsable={false}
+      onGestureEvent={[Function]}
+      onGestureHandlerEvent={[Function]}
+      onGestureHandlerStateChange={[Function]}
+      onHandlerStateChange={[Function]}
+      rippleColor={0}
+      style={
+        Array [
+          Object {
+            "overflow": "hidden",
+          },
+          undefined,
+        ]
+      }
+    >
+      <View
+        accessible={true}
+      >
+        <Image
+          accessibilityRole="button"
+          id="home"
+          source={1}
+          style={
+            Object {
+              "height": 30,
+              "width": 30,
+            }
+          }
+        />
+      </View>
+    </RNGestureHandlerButton>
+  </View>
 </RNCSafeAreaView>
 `;

@@ -16,6 +16,7 @@ import ChooseCharity from "./screens/ChooseCharity/ChooseCharity";
 import PostConfirmation from "./screens/PostConfirmation/PostConfirmation";
 import EmailForm from "./screens/EmailForm/EmailForm";
 import Camera from "./screens/Camera/Camera";
+import { Image } from "react-native";
 
 const Stack = createStackNavigator();
 
@@ -39,45 +40,77 @@ export default function App() {
           <Stack.Screen
             name="Listings"
             component={CurrentListings}
-            options={{ headerTitle: () => <LogoTitle /> }}
+            options={{
+              headerTitle: () => <LogoTitle />,
+              headerBackTitleVisible: false,
+              ...backButtonStyle,
+            }}
           />
           <Stack.Screen
             name="Details"
             component={ListingDetails}
-            options={{ headerTitle: () => <LogoTitle /> }}
+            options={{
+              headerTitle: () => <LogoTitle />,
+              headerBackTitleVisible: false,
+              ...backButtonStyle,
+            }}
           />
           <Stack.Screen
             name="Purchase"
             component={PaymentInstructions}
-            options={{ headerTitle: () => <LogoTitle /> }}
+            options={{
+              headerTitle: () => <LogoTitle />,
+              headerBackTitleVisible: false,
+              ...backButtonStyle,
+            }}
           />
           <Stack.Screen
             name="Email"
             component={EmailForm}
-            options={{ headerTitle: () => <LogoTitle /> }}
+            options={{
+              headerTitle: () => <LogoTitle />,
+              headerBackTitleVisible: false,
+              ...backButtonStyle,
+            }}
           />
           <Stack.Screen
             name="Post Item"
             component={PostItem}
-            options={{ headerTitle: () => <LogoTitle /> }}
+            options={{
+              headerTitle: () => <LogoTitle />,
+              headerBackTitleVisible: false,
+              ...backButtonStyle,
+            }}
           />
           <Stack.Screen
             name="Choose Charity"
             component={ChooseCharity}
-            options={{ headerTitle: () => <LogoTitle /> }}
+            options={{
+              headerTitle: () => <LogoTitle />,
+              headerBackTitleVisible: false,
+              ...backButtonStyle,
+            }}
           />
           <Stack.Screen
             name="Confirmation"
             component={PostConfirmation}
-            options={{ headerTitle: () => <LogoTitle /> }}
+            options={{
+              headerTitle: () => <LogoTitle />,
+              headerBackTitleVisible: false,
+              ...backButtonStyle,
+            }}
           />
           <Stack.Screen
             name="Camera"
-            options={{ headerTitle: () => <LogoTitle /> }}
+            options={{
+              headerTitle: () => <LogoTitle />,
+              headerBackTitleVisible: false,
+              ...backButtonStyle,
+            }}
           >
             {() => <Camera cameraType="launchCameraAsync"
               user="seller"
-              prompt="Time to take a photo of your item to donate!"
+              prompt="Press camera to take a photo of your item to donate!"
               title="Upload a Photo"/>}
           </Stack.Screen>
         </Stack.Navigator>
@@ -86,11 +119,13 @@ export default function App() {
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});
+const backButtonStyle = {
+  headerBackImage: () => (
+    <Image
+      accessibilityRole="button"
+      id="add"
+      source={require("./assets/icons/back.png")}
+      style={{ width: 30, height: 30, margin: 8 }}
+    />
+  )         
+}

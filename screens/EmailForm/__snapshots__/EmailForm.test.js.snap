@@ -4,18 +4,44 @@ exports[`EmailForm should render 1`] = `
 <RNCSafeAreaView
   style={
     Object {
+      "backgroundColor": "#FFFFFF",
       "flex": 1,
+      "padding": 30,
     }
   }
 >
   <RCTScrollView
-    collapsable={false}
-    onGestureHandlerEvent={[Function]}
-    onGestureHandlerStateChange={[Function]}
+    automaticallyAdjustContentInsets={false}
+    contentInset={
+      Object {
+        "bottom": 0,
+      }
+    }
+    enableAutomaticScroll={true}
+    enableOnAndroid={false}
+    enableResetScrollToCoords={true}
+    extraHeight={75}
+    extraScrollHeight={0}
+    getScrollResponder={[Function]}
+    handleOnScroll={[Function]}
+    keyboardDismissMode="interactive"
+    keyboardOpeningTime={250}
+    keyboardSpace={0}
+    onScroll={[Function]}
+    resetKeyboardSpace={[Function]}
+    scrollEventThrottle={1}
+    scrollForExtraHeightOnAndroid={[Function]}
+    scrollIntoView={[Function]}
+    scrollToEnd={[Function]}
+    scrollToFocusedInput={[Function]}
+    scrollToPosition={[Function]}
+    showsVerticalScrollIndicator={true}
+    update={[Function]}
+    viewIsInsideTabBar={false}
   >
     <View>
       <Text>
-        Please enter your contact and shipping information to send an email to the seller.
+        3. Enter your contact and shipping information to email the seller.
       </Text>
       <View
         style={
@@ -732,7 +758,7 @@ exports[`EmailForm should render 1`] = `
                       }
                     }
                   >
-                    Confirm Purchase
+                    Complete Purchase
                   </Text>
                 </View>
               </View>

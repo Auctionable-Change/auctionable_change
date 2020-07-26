@@ -11,6 +11,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { useStore } from "../../store";
 import { fetchItems } from "../apiCalls";
 import { Picker, Icon, CardItem, Card, Left, Body, Button } from "native-base";
+import NavBar from "../../components/NavBar/NavBar"
 
 const CurrentListings = ({ navigation }) => {
   const { dispatch } = useStore();
@@ -52,14 +53,7 @@ const CurrentListings = ({ navigation }) => {
   }, []);
 
   return (
-    <SafeAreaView
-      style={{
-        flex: 1,
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "space-between",
-      }}
-    >
+    <SafeAreaView style={styles.container}>
       <Picker
         mode="dropdown"
         iosIcon={<Icon name="arrow-down" />}
@@ -84,7 +78,6 @@ const CurrentListings = ({ navigation }) => {
 
       <FlatList
         data={listings}
-        style={styles.scrollView}
         keyExtractor={(item) => item.id.toString()}
         renderItem={({ item }) => (
           <Card>
@@ -106,7 +99,9 @@ const CurrentListings = ({ navigation }) => {
               />
             </CardItem>
             <CardItem style={{ justifyContent: "space-between" }}>
-              <Text>{`Current Price: $${item.price}`}</Text>
+              <Text
+                style={{ fontSize: 15 }}
+              >{`Minimum Donation: $${item.price}`}</Text>
               <Button
                 transparent
                 title="Listing Details"
@@ -118,6 +113,7 @@ const CurrentListings = ({ navigation }) => {
           </Card>
         )}
       />
+      <NavBar navigation={navigation} />
     </SafeAreaView>
   );
 };
@@ -125,33 +121,19 @@ const CurrentListings = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
+    flexDirection: "column",
     alignItems: "center",
+    justifyContent: "space-between",
   },
   image: {
     width: "100%",
-    height: 200,
+    height: 300,
     resizeMode: "cover",
   },
   cardTitle: {
-    marginBottom: 10,
-    fontSize: 25,
+    margin: 5,
+    fontSize: 20,
     alignSelf: "center",
-  },
-  listing: {
-    marginTop: 5,
-    padding: 20,
-  },
-  picker: {
-    height: 15,
-    width: "50%",
-  },
-  scrollView: {
-    width: "90%",
-    // marginTop: 140
-  },
-  pickerItem: {
-    height: 150,
   },
   cardItem: {
     shadowOffset: {
@@ -162,40 +144,11 @@ const styles = StyleSheet.create({
     shadowRadius: 1.0,
     borderRadius: 3,
   },
-  itemContainer: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "lightgrey",
-    marginTop: 10,
-    borderColor: "#2cb833",
-    borderWidth: 2,
-    borderRadius: 10,
-    padding: 10,
-  },
   button: {
-    color: "blue",
+    color: "#065EFE",
+    fontSize: 15,
+    fontWeight: "bold",
   },
 });
 
 export default CurrentListings;
-
-{
-  /* <Text style={styles.pageTitle}>Browse Listings:</Text> */
-}
-{
-  /* <Picker
-        style={styles.picker}
-        itemStyle={styles.pickerItem}
-        selectedValue={filterCategory}
-        onValueChange={(itemValue) => {
-          filterListings(itemValue);
-        }}
-      >
-        <Picker.Item label="All" value="all" />
-        <Picker.Item label="Electronics" value="electronics" />
-        <Picker.Item label="Home" value="home" />
-        <Picker.Item label="Furniture" value="furniture" />
-        <Picker.Item label="Baby/Kids" value="baby" />
-      </Picker> */
-}

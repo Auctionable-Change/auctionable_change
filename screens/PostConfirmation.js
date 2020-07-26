@@ -1,12 +1,13 @@
 import * as React from "react";
-import { SafeAreaView, Text } from "react-native";
+import { Text } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 import { StyleSheet } from "react-native";
 import { TouchableOpacity, ScrollView } from "react-native-gesture-handler";
-import { useStore } from '../store'
+import { useStore } from "../store";
 
 const PostConfirmation = ({ navigation }) => {
-  const { state } = useStore()
-  console.log(state)
+  const { state } = useStore();
+  console.log(state);
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView>

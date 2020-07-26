@@ -5,9 +5,8 @@ import { TouchableWithoutFeedback } from "react-native-gesture-handler";
 
 
 const LogoTitle = () => {
-  const navigation = useNavigation();
   return (
-    <TouchableWithoutFeedback onPress={() => navigation.navigate("Home")}>
+    <TouchableWithoutFeedback>
       <Image
         style={{ width: 150, resizeMode: "contain" }}
         source={require("../assets/a_change.png")}

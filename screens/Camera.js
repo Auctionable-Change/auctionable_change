@@ -79,9 +79,9 @@ const Camera = ({ cameraType, user, prompt, title }) => {
     }
   };
   return (
-    <SafeAreaView style={styles.mainContainer}>
+    <SafeAreaView style={styles.container}>
       <Text style={styles.title}>{title}</Text>
-      <View style={styles.container}>
+      {/* <View style={styles.subcontainer}> */}
         <Text accessibilityLabel={prompt} color="#2cb833" onPress={_pickImage}>
           {prompt}
         </Text>
@@ -98,29 +98,30 @@ const Camera = ({ cameraType, user, prompt, title }) => {
         <Button block success onPress={() => submitHandler()}>
           <Text>Continue</Text>
         </Button>
-      </View>
+      {/* </View> */}
     </SafeAreaView>
   );
 };
 
+// let me know what you think of the camera not on the card
 const styles = StyleSheet.create({
-  mainContainer: {
+  container: {
     flex: 1,
     alignItems: "center",
     padding: 20,
   },
-  container: {
-    alignItems: "center",
-    backgroundColor: "white",
-    padding: 20,
-    borderRadius: 10,
-    shadowOffset: {
-      width: 0,
-      height: 1,
-    },
-    shadowOpacity: 0.18,
-    shadowRadius: 1.0,
-  },
+  // subcontainer: {
+  //   alignItems: "center",
+    // backgroundColor: "white",
+    // padding: 20,
+    // borderRadius: 10,
+    // shadowOffset: {
+    //   width: 0,
+    //   height: 1,
+    // },
+    // shadowOpacity: 0.18,
+    // shadowRadius: 1.0,
+  // },
   title: {
     fontSize: 20,
     textAlign: "center",

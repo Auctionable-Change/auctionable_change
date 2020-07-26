@@ -9,7 +9,7 @@ const LogoTitle = () => {
   return (
     <TouchableWithoutFeedback onPress={() => navigation.navigate("Home")}>
       <Image
-        style={{ width: 250, resizeMode: "contain" }}
+        style={{ width: 200, resizeMode: "contain" }}
         source={require("../assets/a_change.png")}
       />
     </TouchableWithoutFeedback>

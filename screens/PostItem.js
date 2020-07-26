@@ -2,12 +2,15 @@ import React from "react";
 import { Text, StyleSheet } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import SellerForm from "../components/SellerForm";
+import NavBar from "../components/NavBar";
+
 
 const PostItem = ({ navigation }) => {
   return (
-    <SafeAreaView style={{ flex: 1, padding: 30, backgroundColor: "#FFFFFF" }}>
+    <SafeAreaView style={{ flex: 1, backgroundColor: "#FFFFFF" }}>
       <Text style={styles.title}>Post an Item</Text>
       <SellerForm style={styles.form} navigation={navigation} />
+      <NavBar navigation={navigation} />
     </SafeAreaView>
   );
 };

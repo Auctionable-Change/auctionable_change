@@ -9,10 +9,12 @@ import { Image, View } from "react-native";
 import { Button, Text } from "native-base";
 import { StyleSheet } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
-
-// for buyer, arguments will be cameraType=launchImageLibraryAsync, user="buyer", 
-// prompt = "Upload photo screen shot from camera roll"
+// for buyer, arguments will be:
+// cameraType=launchImageLibraryAsync
+// user="buyer"
+// prompt="Upload photo screen shot from camera roll"
 
 const Camera = ({ cameraType, user, prompt, title }) => {
   const [image, uploadImage] = useState(null);
@@ -26,10 +28,8 @@ const Camera = ({ cameraType, user, prompt, title }) => {
 
   const submitHandler = async () => {
     if (imageObj) {
-      await cloudinaryPost(imageObj, updatePhotoInStore)
-      navigation.navigate("Choose Charity");
+      await cloudinaryPost(imageObj, updatePhotoInStore);
     }
-    console.log(state.listingToPost);
   };
 
   const updatePhotoInStore = (photoData) => {
@@ -37,11 +37,19 @@ const Camera = ({ cameraType, user, prompt, title }) => {
     if (user === "seller") {
       dispatch({
         type: "ADD_TO_LISTING",
-        listingToPost: { "image": photoData }
+        listingToPost: { image: photoData },
       });
+      navigation.navigate("Choose Charity");
     }
-    // for buyer route , add in dispatch 
-  }
+    // for buyer route
+    if (user === "buyer") {
+      dispatch({
+        type: "ADD_BUYER_DETAILS",
+        buyerDetails: { receipt: photoData },
+      });
+      navigation.navigate("Email");
+    }
+  };
 
   const getPermissionAsync = async () => {
     if (Constants.platform.ios) {
@@ -76,7 +84,7 @@ const Camera = ({ cameraType, user, prompt, title }) => {
     }
   };
   return (
-    <View style={styles.mainContainer}>
+    <SafeAreaView style={styles.mainContainer}>
       <Text style={styles.title}>{title}</Text>
       <View style={styles.container}>
         <Text accessibilityLabel={prompt} color="#2cb833" onPress={_pickImage}>
@@ -96,9 +104,9 @@ const Camera = ({ cameraType, user, prompt, title }) => {
           <Text>Continue</Text>
         </Button>
       </View>
-    </View>
+    </SafeAreaView>
   );
-}
+};
 
 const styles = StyleSheet.create({
   mainContainer: {
@@ -125,4 +133,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Camera
+export default Camera;

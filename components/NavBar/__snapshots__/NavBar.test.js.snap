@@ -1,0 +1,116 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NavBar renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "white",
+      "bottom": "0%",
+      "display": "flex",
+      "flexDirection": "row",
+      "height": "11%",
+      "justifyContent": "space-around",
+      "padding": 10,
+      "position": "absolute",
+      "width": "100%",
+    }
+  }
+>
+  <RNGestureHandlerButton
+    collapsable={false}
+    onGestureEvent={[Function]}
+    onGestureHandlerEvent={[Function]}
+    onGestureHandlerStateChange={[Function]}
+    onHandlerStateChange={[Function]}
+    rippleColor={0}
+    style={
+      Array [
+        Object {
+          "overflow": "hidden",
+        },
+        undefined,
+      ]
+    }
+  >
+    <View
+      accessible={true}
+    >
+      <Image
+        accessibilityRole="button"
+        id="search"
+        source={1}
+        style={
+          Object {
+            "height": 45,
+            "width": 45,
+          }
+        }
+      />
+    </View>
+  </RNGestureHandlerButton>
+  <RNGestureHandlerButton
+    collapsable={false}
+    onGestureEvent={[Function]}
+    onGestureHandlerEvent={[Function]}
+    onGestureHandlerStateChange={[Function]}
+    onHandlerStateChange={[Function]}
+    rippleColor={0}
+    style={
+      Array [
+        Object {
+          "overflow": "hidden",
+        },
+        undefined,
+      ]
+    }
+  >
+    <View
+      accessible={true}
+    >
+      <Image
+        accessibilityRole="button"
+        id="add"
+        source={1}
+        style={
+          Object {
+            "height": 45,
+            "width": 45,
+          }
+        }
+      />
+    </View>
+  </RNGestureHandlerButton>
+  <RNGestureHandlerButton
+    collapsable={false}
+    onGestureEvent={[Function]}
+    onGestureHandlerEvent={[Function]}
+    onGestureHandlerStateChange={[Function]}
+    onHandlerStateChange={[Function]}
+    rippleColor={0}
+    style={
+      Array [
+        Object {
+          "overflow": "hidden",
+        },
+        undefined,
+      ]
+    }
+  >
+    <View
+      accessible={true}
+    >
+      <Image
+        accessibilityRole="button"
+        id="profile"
+        source={1}
+        style={
+          Object {
+            "height": 45,
+            "width": 45,
+          }
+        }
+      />
+    </View>
+  </RNGestureHandlerButton>
+</View>
+`;

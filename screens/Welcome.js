@@ -1,6 +1,6 @@
 import * as React from "react";
 import { View, Button, Image, Text } from "react-native";
-import NavBar from "../components/NavBar";
+import NavBar from '../components/NavBar/NavBar';
 import { StyleSheet } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 

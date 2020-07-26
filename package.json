@@ -33,6 +33,7 @@
     "babel-preset-expo": "~8.1.0",
     "jest": "^26.1.0",
     "jest-expo": "^38.0.2",
+    "react-native-testing-library": "^2.1.1",
     "react-test-renderer": "^16.13.1"
   },
   "private": true,
@@ -42,6 +43,14 @@
     "testEnvironment": "jsdom",
     "transformIgnorePatterns": [
       "/node_modules/(?!native-base)/"
+    ],
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "**/*.{js,jsx}",
+      "!**/coverage/**",
+      "!**/node_modules/**",
+      "!**/babel.config.js",
+      "!**/jest.setup.js"
     ]
   }
 }

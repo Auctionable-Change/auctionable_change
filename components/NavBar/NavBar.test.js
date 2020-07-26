@@ -1,7 +1,6 @@
 import NavBar from "./NavBar";
 import React from "react";
 import renderer from "react-test-renderer";
-import { render, fireEvent } from "react-native-testing-library";
 
 
 describe("NavBar", () => {
@@ -27,12 +26,6 @@ describe("NavBar", () => {
     const tree = renderer.create(<NavBar />).toJSON();
     const addIconId = tree.children[2].children[0].children[0].props.id;
     expect(addIconId).toBe("profile");
-  });
-  it.only("should render a profile icon third", () => {
-    const { getByText, debug } = render(<NavBar />)
-    debug()
-    // const addIconId = tree.children[2].children[0].children[0].props.id;
-    // expect(getByText()).toBeInDocument();
   });
 
 });

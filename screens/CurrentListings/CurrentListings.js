@@ -8,10 +8,10 @@ import {
   ActivityIndicator,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { useStore } from "../store";
-import { fetchItems } from './apiCalls';
-import { Picker, Icon, CardItem, Card, Left, Body, Button } from 'native-base'
-import NavBar from "../components/NavBar/NavBar"
+import { useStore } from "../../store";
+import { fetchItems } from "../apiCalls";
+import { Picker, Icon, CardItem, Card, Left, Body, Button } from "native-base";
+import NavBar from "../../components/NavBar/NavBar"
 
 const CurrentListings = ({ navigation }) => {
   const { dispatch } = useStore();
@@ -93,7 +93,7 @@ const CurrentListings = ({ navigation }) => {
                 source={
                   item.image
                     ? { uri: item.image }
-                    : require("../assets/icons/no-photo-selected.png")
+                    : require("../../assets/icons/no-photo-selected.png")
                 }
                 style={styles.image}
               />

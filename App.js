@@ -7,17 +7,16 @@ import { NavigationContainer } from "@react-navigation/native";
 import { StoreProvider } from "./store";
 import { StyleSheet } from "react-native";
 import LogoTitle from "./components/LogoTitle";
-import Welcome from "./screens/Welcome";
-import CurrentListings from "./screens/CurrentListings";
-import ListingDetails from "./screens/ListingDetails";
-import PostItem from "./screens/PostItem";
-import PaymentInstructions from "./screens/PaymentInstructions";
-import ChooseCharity from "./screens/ChooseCharity";
-import PostConfirmation from "./screens/PostConfirmation";
-import EmailForm from "./screens/EmailForm";
-import Camera from "./screens/Camera";
+import Welcome from "./screens/Welcome/Welcome";
+import CurrentListings from "./screens/CurrentListings/CurrentListings";
+import ListingDetails from "./screens/ListingDetails/ListingDetails";
+import PostItem from "./screens/PostItem/PostItem";
+import PaymentInstructions from "./screens/PaymentInstructions/PaymentInstructions";
+import ChooseCharity from "./screens/ChooseCharity/ChooseCharity";
+import PostConfirmation from "./screens/PostConfirmation/PostConfirmation";
+import EmailForm from "./screens/EmailForm/EmailForm";
+import Camera from "./screens/Camera/Camera";
 import { Image } from "react-native";
-
 
 const Stack = createStackNavigator();
 

@@ -3,10 +3,9 @@ import { Image } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { StyleSheet, View } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
-import { useStore } from "../store";
+import { useStore } from "../../store";
 import { Button, Text } from "native-base";
-import { submitListing } from "./apiCalls";
-
+import { submitListing } from "../apiCalls";
 
 const PostConfirmation = ({ navigation }) => {
   const { state } = useStore();

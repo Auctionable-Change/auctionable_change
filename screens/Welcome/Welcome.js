@@ -1,6 +1,6 @@
 import * as React from "react";
 import { View, Image } from "react-native";
-import NavBar from '../components/NavBar/NavBar';
+import NavBar from '../../components/NavBar/NavBar';
 import { StyleSheet } from "react-native";
 import { Button, Text } from "native-base";
 
@@ -9,7 +9,7 @@ const Welcome = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <Image
-        source={require("../assets/stacked_logo.png")}
+        source={require("../../assets/stacked_logo.png")}
         style={styles.logo}
       />
       <Text style={{width: "70%", textAlign: "center", alignSelf: "center", fontStyle: "italic", color: "grey", marginBottom: 10}}>

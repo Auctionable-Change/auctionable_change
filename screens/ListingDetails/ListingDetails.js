@@ -1,10 +1,10 @@
 import * as React from "react";
 import { Image, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import NavBar from "../components/NavBar/NavBar";
+import NavBar from "../../components/NavBar/NavBar";
 import { StyleSheet } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
-import { useStore } from "../store";
+import { useStore } from "../../store";
 import * as Linking from "expo-linking";
 import { Button } from "native-base";
 
@@ -20,7 +20,7 @@ const ListingDetails = ({ navigation }) => {
             source={
               state.currentListing.image
                 ? { uri: state.currentListing.image }
-                : require("../assets/icons/no-photo-selected.png")
+                : require("../../assets/icons/no-photo-selected.png")
             }
           />
           <Text style={styles.description}>
@@ -55,7 +55,7 @@ const ListingDetails = ({ navigation }) => {
             Charity information provided by
           </Text>
           <Image
-            source={require("../assets/charity_navigator.jpg")}
+            source={require("../../assets/charity_navigator.jpg")}
             style={{ width: 90, height: 45 }}
           />
         </View>

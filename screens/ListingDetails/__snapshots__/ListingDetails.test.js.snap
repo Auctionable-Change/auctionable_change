@@ -1,0 +1,334 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ListingDetails should render 1`] = `
+<RNCSafeAreaView
+  style={
+    Object {
+      "alignItems": "center",
+      "flex": 1,
+    }
+  }
+>
+  <RCTScrollView
+    collapsable={false}
+    contentContainerStyle={
+      Object {
+        "alignItems": "center",
+        "display": "flex",
+        "padding": 15,
+      }
+    }
+    onGestureHandlerEvent={[Function]}
+    onGestureHandlerStateChange={[Function]}
+  >
+    <View>
+      <View
+        style={
+          Object {
+            "backgroundColor": "#FFFFFF",
+            "borderRadius": 10,
+            "margin": 10,
+            "padding": 10,
+            "shadowOffset": Object {
+              "height": 1,
+              "width": 0,
+            },
+            "shadowOpacity": 0.18,
+            "shadowRadius": 1,
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "fontSize": 25,
+              "margin": 10,
+              "textAlign": "center",
+            }
+          }
+        >
+          
+        </Text>
+        <Image
+          source={1}
+          style={
+            Object {
+              "alignSelf": "center",
+              "height": 300,
+              "resizeMode": "cover",
+              "width": 300,
+            }
+          }
+        />
+        <Text
+          style={
+            Object {
+              "fontSize": 15,
+              "margin": 5,
+            }
+          }
+        >
+          
+        </Text>
+        <Text
+          style={
+            Object {
+              "fontSize": 15,
+              "margin": 5,
+            }
+          }
+        >
+          Minimum Donation: $
+        </Text>
+        <Text
+          style={
+            Object {
+              "fontSize": 15,
+              "margin": 5,
+            }
+          }
+        >
+          This item supports 
+          
+        </Text>
+        <Text
+          style={
+            Object {
+              "fontSize": 15,
+              "margin": 5,
+            }
+          }
+        >
+          Charity Score: 
+        </Text>
+        <View
+          style={
+            Object {
+              "flexDirection": "row",
+              "flexWrap": "wrap",
+            }
+          }
+        >
+          <Text
+            style={
+              Object {
+                "fontSize": 15,
+                "marginLeft": 5,
+              }
+            }
+          >
+            Read more about their mission
+             
+          </Text>
+          <Text
+            onPress={[Function]}
+            style={
+              Object {
+                "fontWeight": "bold",
+                "textDecorationLine": "underline",
+              }
+            }
+          >
+            here
+          </Text>
+        </View>
+      </View>
+      <View
+        accessible={true}
+        focusable={true}
+        forwardedRef={[Function]}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "alignSelf": "stretch",
+            "backgroundColor": "#5cb85c",
+            "borderBottomWidth": null,
+            "borderColor": "#007aff",
+            "borderLeftWidth": null,
+            "borderRadius": 5,
+            "borderRightWidth": null,
+            "borderTopWidth": null,
+            "borderWidth": undefined,
+            "elevation": 2,
+            "flexDirection": "row",
+            "height": 45,
+            "justifyContent": "center",
+            "opacity": 1,
+            "paddingBottom": 6,
+            "paddingTop": 6,
+            "shadowColor": undefined,
+            "shadowOffset": undefined,
+            "shadowOpacity": undefined,
+            "shadowRadius": undefined,
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "color": "white",
+              "fontSize": 15,
+            }
+          }
+        >
+          Donate For Item
+        </Text>
+      </View>
+      <View
+        style={
+          Object {
+            "flexDirection": "row",
+            "flexWrap": "wrap",
+            "height": 120,
+            "margin": 10,
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "color": "#336799",
+              "fontStyle": "italic",
+              "margin": 5,
+              "textAlign": "center",
+              "width": 140,
+            }
+          }
+        >
+          Charity information provided by
+        </Text>
+        <Image
+          source={1}
+          style={
+            Object {
+              "height": 45,
+              "width": 90,
+            }
+          }
+        />
+      </View>
+    </View>
+  </RCTScrollView>
+  <View
+    style={
+      Object {
+        "backgroundColor": "white",
+        "borderTopColor": "#dddddd",
+        "borderTopWidth": 1,
+        "bottom": "0%",
+        "display": "flex",
+        "flexDirection": "row",
+        "height": "8%",
+        "justifyContent": "space-around",
+        "padding": 8,
+        "position": "absolute",
+        "width": "100%",
+      }
+    }
+  >
+    <RNGestureHandlerButton
+      collapsable={false}
+      onGestureEvent={[Function]}
+      onGestureHandlerEvent={[Function]}
+      onGestureHandlerStateChange={[Function]}
+      onHandlerStateChange={[Function]}
+      rippleColor={0}
+      style={
+        Array [
+          Object {
+            "overflow": "hidden",
+          },
+          undefined,
+        ]
+      }
+    >
+      <View
+        accessible={true}
+      >
+        <Image
+          accessibilityRole="button"
+          id="search"
+          source={1}
+          style={
+            Object {
+              "height": 30,
+              "width": 30,
+            }
+          }
+        />
+      </View>
+    </RNGestureHandlerButton>
+    <RNGestureHandlerButton
+      collapsable={false}
+      onGestureEvent={[Function]}
+      onGestureHandlerEvent={[Function]}
+      onGestureHandlerStateChange={[Function]}
+      onHandlerStateChange={[Function]}
+      rippleColor={0}
+      style={
+        Array [
+          Object {
+            "overflow": "hidden",
+          },
+          undefined,
+        ]
+      }
+    >
+      <View
+        accessible={true}
+      >
+        <Image
+          accessibilityRole="button"
+          id="add"
+          source={1}
+          style={
+            Object {
+              "height": 30,
+              "width": 30,
+            }
+          }
+        />
+      </View>
+    </RNGestureHandlerButton>
+    <RNGestureHandlerButton
+      collapsable={false}
+      onGestureEvent={[Function]}
+      onGestureHandlerEvent={[Function]}
+      onGestureHandlerStateChange={[Function]}
+      onHandlerStateChange={[Function]}
+      rippleColor={0}
+      style={
+        Array [
+          Object {
+            "overflow": "hidden",
+          },
+          undefined,
+        ]
+      }
+    >
+      <View
+        accessible={true}
+      >
+        <Image
+          accessibilityRole="button"
+          id="home"
+          source={1}
+          style={
+            Object {
+              "height": 30,
+              "width": 30,
+            }
+          }
+        />
+      </View>
+    </RNGestureHandlerButton>
+  </View>
+</RNCSafeAreaView>
+`;

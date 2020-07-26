@@ -1,14 +1,16 @@
 import * as React from "react";
 import { View, Button, Image, Text } from "react-native";
-import NavBar from '../components/NavBar';
+import NavBar from "../components/NavBar";
 import { StyleSheet } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
-
 
 const Welcome = ({ navigation }) => {
   return (
     <View style={styles.container}>
-      <Image source={require('../assets/stacked_logo.png')} style={styles.logo} />
+      <Image
+        source={require("../assets/stacked_logo.png")}
+        style={styles.logo}
+      />
       <TouchableOpacity
         onPress={() => navigation.navigate("Listings")}
         style={styles.button}
@@ -50,7 +52,7 @@ const styles = StyleSheet.create({
     },
     shadowOpacity: 0.18,
     shadowRadius: 1.0,
-  }
+  },
 });
 
 export default Welcome;

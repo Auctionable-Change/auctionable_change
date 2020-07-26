@@ -14,12 +14,12 @@ import PostItem from "./screens/PostItem";
 import PaymentInstructions from "./screens/PaymentInstructions";
 import ChooseCharity from "./screens/ChooseCharity";
 import PostConfirmation from "./screens/PostConfirmation";
+import EmailForm from "./screens/EmailForm";
 import Camera from "./screens/Camera";
 
 const Stack = createStackNavigator();
 
 export default function App() {
-
   useEffect(() => {
     const loadFonts = async () => {
       await Font.loadAsync({
@@ -49,6 +49,11 @@ export default function App() {
           <Stack.Screen
             name="Purchase"
             component={PaymentInstructions}
+            options={{ headerTitle: () => <LogoTitle /> }}
+          />
+          <Stack.Screen
+            name="Email"
+            component={EmailForm}
             options={{ headerTitle: () => <LogoTitle /> }}
           />
           <Stack.Screen

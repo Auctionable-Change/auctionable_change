@@ -12,7 +12,7 @@ import {
   Text,
 } from "native-base";
 import { Alert } from "react-native";
-import { useStore } from "../store";
+import { useStore } from "../../store";
 
 
 const SellerForm = ({ navigation }) => {

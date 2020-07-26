@@ -3,8 +3,8 @@ import { Text, StyleSheet } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
 import * as MailComposer from "expo-mail-composer";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { useStore } from "../store";
-import BuyerForm from "../components/BuyerForm";
+import { useStore } from "../../store";
+import BuyerForm from "../../components/BuyerForm/BuyerForm";
 
 const EmailForm = ({ navigation }) => {
   const { state } = useStore();

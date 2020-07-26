@@ -1,0 +1,218 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Welcome should render 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "flex": 1,
+      "justifyContent": "flex-start",
+    }
+  }
+>
+  <Image
+    source={1}
+    style={
+      Object {
+        "height": 200,
+        "resizeMode": "contain",
+        "width": "90%",
+      }
+    }
+  />
+  <RNGestureHandlerButton
+    collapsable={false}
+    onGestureEvent={[Function]}
+    onGestureHandlerEvent={[Function]}
+    onGestureHandlerStateChange={[Function]}
+    onHandlerStateChange={[Function]}
+    rippleColor={0}
+    style={
+      Array [
+        Object {
+          "overflow": "hidden",
+        },
+        undefined,
+      ]
+    }
+  >
+    <View
+      accessible={true}
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#FFFFFF",
+          "borderRadius": 10,
+          "margin": 15,
+          "opacity": 1,
+          "padding": 10,
+          "shadowOffset": Object {
+            "height": 1,
+            "width": 0,
+          },
+          "shadowOpacity": 0.18,
+          "shadowRadius": 1,
+          "width": 200,
+        }
+      }
+    >
+      <Text>
+        Current Listings
+      </Text>
+    </View>
+  </RNGestureHandlerButton>
+  <RNGestureHandlerButton
+    collapsable={false}
+    onGestureEvent={[Function]}
+    onGestureHandlerEvent={[Function]}
+    onGestureHandlerStateChange={[Function]}
+    onHandlerStateChange={[Function]}
+    rippleColor={0}
+    style={
+      Array [
+        Object {
+          "overflow": "hidden",
+        },
+        undefined,
+      ]
+    }
+  >
+    <View
+      accessible={true}
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#FFFFFF",
+          "borderRadius": 10,
+          "margin": 15,
+          "opacity": 1,
+          "padding": 10,
+          "shadowOffset": Object {
+            "height": 1,
+            "width": 0,
+          },
+          "shadowOpacity": 0.18,
+          "shadowRadius": 1,
+          "width": 200,
+        }
+      }
+    >
+      <Text>
+        Post Item
+      </Text>
+    </View>
+  </RNGestureHandlerButton>
+  <View
+    style={
+      Object {
+        "backgroundColor": "white",
+        "bottom": "0%",
+        "display": "flex",
+        "flexDirection": "row",
+        "height": "11%",
+        "justifyContent": "space-around",
+        "padding": 10,
+        "position": "absolute",
+        "width": "100%",
+      }
+    }
+  >
+    <RNGestureHandlerButton
+      collapsable={false}
+      onGestureEvent={[Function]}
+      onGestureHandlerEvent={[Function]}
+      onGestureHandlerStateChange={[Function]}
+      onHandlerStateChange={[Function]}
+      rippleColor={0}
+      style={
+        Array [
+          Object {
+            "overflow": "hidden",
+          },
+          undefined,
+        ]
+      }
+    >
+      <View
+        accessible={true}
+      >
+        <Image
+          accessibilityRole="button"
+          id="search"
+          source={1}
+          style={
+            Object {
+              "height": 45,
+              "width": 45,
+            }
+          }
+        />
+      </View>
+    </RNGestureHandlerButton>
+    <RNGestureHandlerButton
+      collapsable={false}
+      onGestureEvent={[Function]}
+      onGestureHandlerEvent={[Function]}
+      onGestureHandlerStateChange={[Function]}
+      onHandlerStateChange={[Function]}
+      rippleColor={0}
+      style={
+        Array [
+          Object {
+            "overflow": "hidden",
+          },
+          undefined,
+        ]
+      }
+    >
+      <View
+        accessible={true}
+      >
+        <Image
+          accessibilityRole="button"
+          id="add"
+          source={1}
+          style={
+            Object {
+              "height": 45,
+              "width": 45,
+            }
+          }
+        />
+      </View>
+    </RNGestureHandlerButton>
+    <RNGestureHandlerButton
+      collapsable={false}
+      onGestureEvent={[Function]}
+      onGestureHandlerEvent={[Function]}
+      onGestureHandlerStateChange={[Function]}
+      onHandlerStateChange={[Function]}
+      rippleColor={0}
+      style={
+        Array [
+          Object {
+            "overflow": "hidden",
+          },
+          undefined,
+        ]
+      }
+    >
+      <View
+        accessible={true}
+      >
+        <Image
+          accessibilityRole="button"
+          id="profile"
+          source={1}
+          style={
+            Object {
+              "height": 45,
+              "width": 45,
+            }
+          }
+        />
+      </View>
+    </RNGestureHandlerButton>
+  </View>
+</View>
+`;

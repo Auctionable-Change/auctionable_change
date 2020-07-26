@@ -1,6 +1,6 @@
 import * as React from "react";
 import { View, Button, Image, Text } from "react-native";
-import NavBar from '../components/NavBar/NavBar';
+import NavBar from '../../components/NavBar/NavBar';
 import { StyleSheet } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 
@@ -8,7 +8,7 @@ const Welcome = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <Image
-        source={require("../assets/stacked_logo.png")}
+        source={require("../../assets/stacked_logo.png")}
         style={styles.logo}
       />
       <TouchableOpacity

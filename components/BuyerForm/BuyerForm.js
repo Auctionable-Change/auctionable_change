@@ -10,7 +10,7 @@ import {
   Label,
   Text,
 } from "native-base";
-import { useStore } from "../store";
+import { useStore } from "../../store";
 
 const BuyerForm = ({ navigation, sendEmail }) => {
   const { dispatch, state } = useStore();

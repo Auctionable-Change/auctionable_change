@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import * as ImagePicker from "expo-image-picker";
 import Constants from "expo-constants";
 import * as Permissions from "expo-permissions";
-import { cloudinaryPost } from "./apiCalls";
-import { useStore } from "../store";
+import { cloudinaryPost } from "../apiCalls";
+import { useStore } from "../../store";
 import { TouchableWithoutFeedback } from "react-native-gesture-handler";
 import { Image, View } from "react-native";
 import { Button, Text } from "native-base";
@@ -95,7 +95,7 @@ const Camera = ({ cameraType, user, prompt, title }) => {
         ) : (
           <TouchableWithoutFeedback onPress={_pickImage}>
             <Image
-              source={require("../assets/icons/camera.png")}
+              source={require("../../assets/icons/camera.png")}
               style={{ width: 150, height: 150 }}
             />
           </TouchableWithoutFeedback>

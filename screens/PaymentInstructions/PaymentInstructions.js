@@ -3,9 +3,9 @@ import { StyleSheet, Image, View } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Button, Text } from "native-base";
-import { useStore } from "../store";
+import { useStore } from "../../store";
 import * as Linking from "expo-linking";
-import Camera from "./Camera";
+import Camera from "../Camera/Camera";
 
 const PaymentInstructions = ({ navigation }) => {
   const { dispatch, state } = useStore();

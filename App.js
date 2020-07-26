@@ -77,7 +77,7 @@ export default function App() {
           >
             {() => <Camera cameraType="launchCameraAsync"
               user="seller"
-              prompt="Time to take a photo of your item to donate!"
+              prompt="Press camera to take a photo of your item to donate!"
               title="Upload a Photo"/>}
           </Stack.Screen>
         </Stack.Navigator>

@@ -4,6 +4,7 @@ import { ScrollView } from "react-native-gesture-handler";
 import * as MailComposer from "expo-mail-composer";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useStore } from "../store";
+import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import BuyerForm from "../components/BuyerForm";
 
 const EmailForm = ({ navigation }) => {
@@ -31,16 +32,21 @@ const EmailForm = ({ navigation }) => {
   };
 
   return (
-    <SafeAreaView style={{ flex: 1 }}>
-      <ScrollView>
+    <SafeAreaView style={{ flex: 1, padding: 30, backgroundColor: "#FFFFFF" }}>
+      <KeyboardAwareScrollView>
         <Text>
-          Please enter your contact and shipping information to send an email to
-          the seller.
+          3. Enter your contact and shipping information to email the seller.
         </Text>
-        <BuyerForm navigation={navigation} sendEmail={sendEmail} />
-      </ScrollView>
+        <BuyerForm
+          navigation={navigation}
+          sendEmail={sendEmail}
+          style={styles.form}
+        />
+      </KeyboardAwareScrollView>
     </SafeAreaView>
   );
 };
+
+const styles = StyleSheet.create({});
 
 export default EmailForm;

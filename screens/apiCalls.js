@@ -39,6 +39,28 @@ export const fetchCharities = async (search) => {
   }
 };
 
+export const submitListing = async (listing) => {
+  try {
+    const response = await fetch(
+      `https://auctionable-change-api.herokuapp.com/items`, {
+      method: "POST",
+      headers: {
+      "Content-Type": "application/json",
+      },
+        body: JSON.stringify({
+          ...listing
+        })
+      });
+    if (!response.ok) {
+      throw new Error(error);
+    }
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    return false;
+  }
+};
+
 let CLOUDINARY_URL = "https://api.cloudinary.com/v1_1/djk5anakm/upload";
 
 export const cloudinaryPost = (pickerResult, updateStore) => {

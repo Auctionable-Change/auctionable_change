@@ -3,9 +3,10 @@ import { Image, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import NavBar from "../components/NavBar/NavBar";
 import { StyleSheet } from "react-native";
-import { TouchableOpacity, ScrollView } from "react-native-gesture-handler";
+import { ScrollView } from "react-native-gesture-handler";
 import { useStore } from "../store";
 import * as Linking from "expo-linking";
+import { Button } from "native-base";
 
 const ListingDetails = ({ navigation }) => {
   const { state } = useStore();
@@ -42,12 +43,9 @@ const ListingDetails = ({ navigation }) => {
             </Text>
           </View>
         </View>
-        <TouchableOpacity
-          onPress={() => navigation.navigate("Purchase")}
-          style={styles.button}
-        >
-          <Text>Donate For Item</Text>
-        </TouchableOpacity>
+        <Button block success onPress={() => navigation.navigate("Purchase")}>
+          <Text style={{ color: "white", fontSize: 15 }}>Donate For Item</Text>
+        </Button>
         <View style={styles.charityContainer}>
           <Text style={styles.charityAttribution}>
             Charity information provided by
@@ -70,7 +68,6 @@ const styles = StyleSheet.create({
   },
   itemContainer: {
     backgroundColor: "white",
-    margin: 15,
     padding: 15,
     borderRadius: 10,
     shadowOffset: {
@@ -89,6 +86,7 @@ const styles = StyleSheet.create({
   scroll: {
     display: "flex",
     alignItems: "center",
+    padding: 15,
   },
   image: {
     width: 225,
@@ -102,20 +100,6 @@ const styles = StyleSheet.create({
   },
   charityDescription: {
     marginTop: 15,
-  },
-  button: {
-    backgroundColor: "#FFFFFF",
-    borderRadius: 10,
-    width: 200,
-    padding: 10,
-    marginTop: 5,
-    alignItems: "center",
-    shadowOffset: {
-      width: 0,
-      height: 1,
-    },
-    shadowOpacity: 0.18,
-    shadowRadius: 1.0,
   },
   charityAttribution: {
     fontStyle: "italic",

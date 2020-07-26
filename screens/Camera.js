@@ -11,15 +11,10 @@ import { StyleSheet } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
-// for buyer, arguments will be:
-// cameraType=launchImageLibraryAsync
-// user="buyer"
-// prompt="Upload photo screen shot from camera roll"
-
 const Camera = ({ cameraType, user, prompt, title }) => {
   const [image, uploadImage] = useState(null);
   const [imageObj, setImageObj] = useState(null);
-  const { state, dispatch } = useStore();
+  const { dispatch } = useStore();
   const navigation = useNavigation();
 
   useEffect(() => {
@@ -33,7 +28,6 @@ const Camera = ({ cameraType, user, prompt, title }) => {
   };
 
   const updatePhotoInStore = (photoData) => {
-    // for seller route
     if (user === "seller") {
       dispatch({
         type: "ADD_TO_LISTING",
@@ -41,7 +35,6 @@ const Camera = ({ cameraType, user, prompt, title }) => {
       });
       navigation.navigate("Choose Charity");
     }
-    // for buyer route
     if (user === "buyer") {
       dispatch({
         type: "ADD_BUYER_DETAILS",

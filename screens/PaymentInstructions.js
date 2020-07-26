@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from "react";
-import { StyleSheet, Image, View } from "react-native";
+import React from "react";
+import { StyleSheet } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { Button, Text } from "native-base";
+import { Text } from "native-base";
 import { useStore } from "../store";
 import * as Linking from "expo-linking";
 import Camera from "./Camera";
 
 const PaymentInstructions = ({ navigation }) => {
-  const { dispatch, state } = useStore();
+  const { state } = useStore();
 
   return (
     <SafeAreaView style={{ flex: 1 }}>
@@ -27,7 +27,7 @@ const PaymentInstructions = ({ navigation }) => {
         <Camera
           cameraType="launchImageLibraryAsync"
           user="buyer"
-          prompt="Upload a screenshot of your receipt from camera roll."
+          prompt="Click the camera to upload a screenshot of donation receipt from your camera roll."
           title="Upload a Photo"
         />
       </ScrollView>

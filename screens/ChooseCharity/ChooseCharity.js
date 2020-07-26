@@ -7,8 +7,8 @@ import {
   ScrollView,
   FlatList,
 } from "react-native-gesture-handler";
-import { useStore } from "../store";
-import { fetchCharities } from "./apiCalls";
+import { useStore } from "../../store";
+import { fetchCharities } from "../apiCalls";
 import {
   Icon,
   CardItem,

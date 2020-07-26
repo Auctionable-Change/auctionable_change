@@ -1,0 +1,308 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ListingDetails should render 1`] = `
+<RNCSafeAreaView
+  style={
+    Object {
+      "alignItems": "center",
+      "flex": 1,
+    }
+  }
+>
+  <RCTScrollView
+    collapsable={false}
+    contentContainerStyle={
+      Object {
+        "alignItems": "center",
+        "display": "flex",
+      }
+    }
+    onGestureHandlerEvent={[Function]}
+    onGestureHandlerStateChange={[Function]}
+  >
+    <View>
+      <View
+        style={
+          Object {
+            "backgroundColor": "white",
+            "borderRadius": 10,
+            "margin": 15,
+            "padding": 15,
+            "shadowOffset": Object {
+              "height": 1,
+              "width": 0,
+            },
+            "shadowOpacity": 0.18,
+            "shadowRadius": 1,
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "fontSize": 30,
+              "fontWeight": "bold",
+              "margin": 10,
+              "textAlign": "center",
+            }
+          }
+        >
+          
+        </Text>
+        <Image
+          source={1}
+          style={
+            Object {
+              "alignSelf": "center",
+              "height": 225,
+              "resizeMode": "cover",
+              "width": 225,
+            }
+          }
+        />
+        <Text
+          style={
+            Object {
+              "marginBottom": 15,
+              "marginTop": 15,
+            }
+          }
+        >
+          
+        </Text>
+        <Text
+          style={
+            Object {
+              "fontSize": 20,
+            }
+          }
+        >
+          Listed Price: $
+        </Text>
+        <Text
+          style={
+            Object {
+              "marginTop": 15,
+            }
+          }
+        >
+          Purchase of this item supports 
+          
+        </Text>
+        <Text>
+          Charity Score: 
+        </Text>
+        <View
+          style={
+            Object {
+              "flexDirection": "row",
+              "flexWrap": "wrap",
+            }
+          }
+        >
+          <Text>
+            Read more about their mission 
+          </Text>
+          <Text
+            onPress={[Function]}
+            style={
+              Object {
+                "fontWeight": "bold",
+              }
+            }
+          >
+            here.
+          </Text>
+        </View>
+      </View>
+      <RNGestureHandlerButton
+        collapsable={false}
+        onGestureEvent={[Function]}
+        onGestureHandlerEvent={[Function]}
+        onGestureHandlerStateChange={[Function]}
+        onHandlerStateChange={[Function]}
+        rippleColor={0}
+        style={
+          Array [
+            Object {
+              "overflow": "hidden",
+            },
+            undefined,
+          ]
+        }
+      >
+        <View
+          accessible={true}
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#FFFFFF",
+              "borderRadius": 10,
+              "marginTop": 5,
+              "opacity": 1,
+              "padding": 10,
+              "shadowOffset": Object {
+                "height": 1,
+                "width": 0,
+              },
+              "shadowOpacity": 0.18,
+              "shadowRadius": 1,
+              "width": 200,
+            }
+          }
+        >
+          <Text>
+            Donate For Item
+          </Text>
+        </View>
+      </RNGestureHandlerButton>
+      <View
+        style={
+          Object {
+            "flexDirection": "row",
+            "flexWrap": "wrap",
+            "height": 120,
+            "marginTop": 15,
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "color": "#336799",
+              "fontStyle": "italic",
+              "marginBottom": 30,
+              "marginTop": 5,
+              "textAlign": "center",
+              "width": 140,
+            }
+          }
+        >
+          Charity information provided by
+        </Text>
+        <Image
+          source={1}
+          style={
+            Object {
+              "height": 45,
+              "width": 90,
+            }
+          }
+        />
+      </View>
+    </View>
+  </RCTScrollView>
+  <View
+    style={
+      Object {
+        "backgroundColor": "white",
+        "bottom": "0%",
+        "display": "flex",
+        "flexDirection": "row",
+        "height": "11%",
+        "justifyContent": "space-around",
+        "padding": 10,
+        "position": "absolute",
+        "width": "100%",
+      }
+    }
+  >
+    <RNGestureHandlerButton
+      collapsable={false}
+      onGestureEvent={[Function]}
+      onGestureHandlerEvent={[Function]}
+      onGestureHandlerStateChange={[Function]}
+      onHandlerStateChange={[Function]}
+      rippleColor={0}
+      style={
+        Array [
+          Object {
+            "overflow": "hidden",
+          },
+          undefined,
+        ]
+      }
+    >
+      <View
+        accessible={true}
+      >
+        <Image
+          accessibilityRole="button"
+          id="search"
+          source={1}
+          style={
+            Object {
+              "height": 45,
+              "width": 45,
+            }
+          }
+        />
+      </View>
+    </RNGestureHandlerButton>
+    <RNGestureHandlerButton
+      collapsable={false}
+      onGestureEvent={[Function]}
+      onGestureHandlerEvent={[Function]}
+      onGestureHandlerStateChange={[Function]}
+      onHandlerStateChange={[Function]}
+      rippleColor={0}
+      style={
+        Array [
+          Object {
+            "overflow": "hidden",
+          },
+          undefined,
+        ]
+      }
+    >
+      <View
+        accessible={true}
+      >
+        <Image
+          accessibilityRole="button"
+          id="add"
+          source={1}
+          style={
+            Object {
+              "height": 45,
+              "width": 45,
+            }
+          }
+        />
+      </View>
+    </RNGestureHandlerButton>
+    <RNGestureHandlerButton
+      collapsable={false}
+      onGestureEvent={[Function]}
+      onGestureHandlerEvent={[Function]}
+      onGestureHandlerStateChange={[Function]}
+      onHandlerStateChange={[Function]}
+      rippleColor={0}
+      style={
+        Array [
+          Object {
+            "overflow": "hidden",
+          },
+          undefined,
+        ]
+      }
+    >
+      <View
+        accessible={true}
+      >
+        <Image
+          accessibilityRole="button"
+          id="profile"
+          source={1}
+          style={
+            Object {
+              "height": 45,
+              "width": 45,
+            }
+          }
+        />
+      </View>
+    </RNGestureHandlerButton>
+  </View>
+</RNCSafeAreaView>
+`;

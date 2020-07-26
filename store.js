@@ -39,7 +39,12 @@ const reducer = (state, action) => {
     case "ADD_SELECTED_CHARITY":
       return {
         ...state,
-        selectedCharity: action.selectedCharity,
+        listingToPost: {
+          ...state.listingToPost,
+          charity: action.selectedCharity.name,
+          charity_url: action.selectedCharity.url,
+          charity_score: action.selectedCharity.rating,
+        },
       };
     case "ADD_BUYER_DETAILS":
       return {

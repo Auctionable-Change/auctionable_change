@@ -29,7 +29,6 @@ const BuyerForm = ({ navigation, sendEmail }) => {
   };
 
   const validateForm = () => {
-    console.log("buyerObj", buyerObj);
     let keys = Object.keys(buyerObj);
     let result = [];
     keys.forEach((key) => {
@@ -39,8 +38,7 @@ const BuyerForm = ({ navigation, sendEmail }) => {
     });
     if (result.length === 0) {
       dispatch({ type: "ADD_BUYER_DETAILS", buyerDetails: buyerObj });
-      console.log("navigate", state.buyerDetails);
-      sendEmail();
+      sendEmail(buyerObj);
     } else {
       Alert.alert("Missing Input", "Please fill out all fields to continue");
     }

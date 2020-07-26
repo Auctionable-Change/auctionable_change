@@ -11,24 +11,26 @@ const PaymentInstructions = ({ navigation }) => {
   const { state } = useStore();
 
   return (
-    <SafeAreaView style={{ flex: 1 }}>
+    <SafeAreaView style={styles.container}>
       <ScrollView>
         <Text style={styles.title}>Thank you for your contribution!</Text>
-        <Text style={styles.subheader}>Instructions to complete order:</Text>
-        <Text>1. Follow this </Text>
+        <Text style={styles.subtitle}>Instructions to complete order:</Text>
+        <Text style={styles.listItem}>1. Follow this </Text>
         <Text
           style={{ fontWeight: "bold", textDecorationLine: "underline" }}
           onPress={() => Linking.openURL(state.currentListing.charity_url)}
         >
           link
         </Text>
-        <Text> to donate at least ${state.currentListing.price}</Text>
-        <Text>Screenshot and upload your receipt.</Text>
+        <Text style={styles.listItem}>
+          to donate at least ${state.currentListing.price}.
+        </Text>
+        <Text>Screenshot and upload your receipt to send to seller.</Text>
         <Camera
           cameraType="launchImageLibraryAsync"
           user="buyer"
-          prompt="Click the camera to upload a screenshot of donation receipt from your camera roll."
-          title="Upload a Photo"
+          prompt="Press camera to upload screenshot of donation receipt from your camera roll."
+          title="2. Upload a Photo"
         />
       </ScrollView>
     </SafeAreaView>
@@ -38,11 +40,11 @@ const PaymentInstructions = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: 10,
+    backgroundColor: "#FFFFFF",
   },
-  subheader: {
+  subtitle: {
     fontSize: 15,
-    marginBottom: 20,
+    margin: 10,
   },
   scroll: {
     display: "flex",
@@ -54,8 +56,10 @@ const styles = StyleSheet.create({
     margin: 10,
   },
   listItem: {
-    fontSize: 15,
+    fontSize: 20,
     margin: 5,
+    flexDirection: "row",
+    flexWrap: "wrap",
   },
   textInput: {
     height: 30,
@@ -79,11 +83,6 @@ const styles = StyleSheet.create({
     },
     shadowOpacity: 0.18,
     shadowRadius: 1.0,
-  },
-  stepOne: {
-    flexDirection: "row",
-    flexWrap: "wrap",
-    marginTop: 10,
   },
 });
 

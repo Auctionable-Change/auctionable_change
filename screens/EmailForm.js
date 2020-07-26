@@ -10,7 +10,7 @@ import BuyerForm from "../components/BuyerForm";
 const EmailForm = ({ navigation }) => {
   const { state } = useStore();
 
-  const sendEmail = (photoData) => {
+  const sendEmail = (buyerObj) => {
     MailComposer.composeAsync({
       recipients: [
         // `${state.currentListing.donor_email}`,
@@ -22,11 +22,11 @@ const EmailForm = ({ navigation }) => {
       I just made my donation to ${state.currentListing.charity}. Excited to have made A.change with you. Find my info below for shipping.
 
     Thank you,
-    ${state.buyerDetails.bidder_name}
+    ${buyerObj.bidder_name}
 
-    Email: ${state.buyerDetails.bidder_email}
-    Address: ${state.buyerDetails.street_address}, ${state.buyerDetails.city}, ${state.buyerDetails.state} ${state.buyerDetails.zip_code}
-    Donation Receipt: ${photoData} 
+    Email: ${buyerObj.bidder_email}
+    Address: ${buyerObj.street_address}, ${buyerObj.city}, ${buyerObj.state} ${buyerObj.zip_code}
+    Donation Receipt: ${state.buyerDetails.receipt} 
       `,
     });
   };

@@ -1,8 +1,9 @@
 import * as React from "react";
-import { View, Button, Image, Text } from "react-native";
+import { View, Image } from "react-native";
 import NavBar from '../components/NavBar/NavBar';
 import { StyleSheet } from "react-native";
-import { TouchableOpacity } from "react-native-gesture-handler";
+import { Button, Text } from "native-base";
+
 
 const Welcome = ({ navigation }) => {
   return (
@@ -11,18 +12,21 @@ const Welcome = ({ navigation }) => {
         source={require("../assets/stacked_logo.png")}
         style={styles.logo}
       />
-      <TouchableOpacity
-        onPress={() => navigation.navigate("Listings")}
-        style={styles.button}
-      >
-        <Text>Current Listings</Text>
-      </TouchableOpacity>
-      <TouchableOpacity
-        onPress={() => navigation.navigate("Post Item")}
-        style={styles.button}
-      >
-        <Text>Post Item</Text>
-      </TouchableOpacity>
+      <Text style={{width: "70%", textAlign: "center", alignSelf: "center", fontStyle: "italic", color: "grey", marginBottom: 10}}>
+        Buy and sell with purpose because together we can make A.change
+      </Text>
+      <View style={{flex:1,padding: 10}}>
+        <Button block info onPress={() => navigation.navigate("Listings")}>
+          <Text>Current Listings</Text>
+        </Button>
+        <Button
+          style={{ marginTop: 30 }}
+          block info
+          onPress={() => navigation.navigate("Post Item")}
+        >
+          <Text>Post Item</Text>
+        </Button>
+      </View>
       <NavBar navigation={navigation} />
     </View>
   );
@@ -31,27 +35,11 @@ const Welcome = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "center",
-    justifyContent: "flex-start",
   },
   logo: {
-    width: "90%",
+    width: "95%",
     height: 200,
     resizeMode: "contain",
-  },
-  button: {
-    backgroundColor: "#FFFFFF",
-    borderRadius: 10,
-    width: 200,
-    padding: 10,
-    margin: 15,
-    alignItems: "center",
-    shadowOffset: {
-      width: 0,
-      height: 1,
-    },
-    shadowOpacity: 0.18,
-    shadowRadius: 1.0,
   },
 });
 

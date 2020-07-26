@@ -25,7 +25,7 @@ describe("NavBar", () => {
   it("should render a profile icon third", () => {
     const tree = renderer.create(<NavBar />).toJSON();
     const addIconId = tree.children[2].children[0].children[0].props.id;
-    expect(addIconId).toBe("profile");
+    expect(addIconId).toBe("home");
   });
 
 });

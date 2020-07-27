@@ -60,6 +60,30 @@ export const submitListing = async (listing) => {
   }
 };
 
+const updateItemStatus = async (itemId) => {
+try {
+    const response = await fetch(
+      `https://auctionable-change-api.herokuapp.com/items/${itemId}`,
+        {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          "status": "unavailable"
+        }),
+      }
+    );
+    if (!response.ok) {
+      throw new Error(error);
+    }
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    return false;
+  }
+}
+
 export const submitPurchase = async (buyerInfo) => {
   try {
     console.log(buyerInfo);
@@ -78,6 +102,7 @@ export const submitPurchase = async (buyerInfo) => {
     if (!response.ok) {
       throw new Error(error);
     }
+    await updateItemStatus(buyerInfo.item_id);
     const data = await response.json();
     return data;
   } catch (error) {

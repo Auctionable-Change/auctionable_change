@@ -5,6 +5,8 @@ import { Text } from "native-base";
 import { useStore } from "../../store";
 import * as Linking from "expo-linking";
 import Camera from "../Camera/Camera";
+import { ScrollView } from "react-native-gesture-handler";
+
 
 const PaymentInstructions = () => {
   const { state } = useStore();
@@ -13,7 +15,7 @@ const PaymentInstructions = () => {
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView
-        contentContainerStyle={{ alignItems: "center", width: "100%" }}
+        contentContainerStyle={{ alignItems: "center", margin: 0 }}
       >
         <Text style={styles.title}>Thank you for your contribution!</Text>
         <Text style={styles.subtitle}>Instructions to complete order:</Text>
@@ -58,7 +60,6 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#FFFFFF",
     display: "flex",
-    alignItems: "center",
   },
   subtitle: {
     fontSize: 20,

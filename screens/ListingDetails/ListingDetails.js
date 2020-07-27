@@ -35,30 +35,38 @@ const ListingDetails = ({ navigation }) => {
           Charity Score: {state.currentListing.charity_score}
         </Text>
         <View style={{ flexDirection: "row", flexWrap: "wrap" }}>
-          <Text style={{ fontSize: 15 }}>Read more about their mission </Text>
           <Text
-            style={{ fontWeight: "bold", textDecorationLine: "underline" }}
+            style={{ fontSize: 15, marginLeft: 5, fontFamily: "quicksand" }}
+          >
+            Read more about their mission{" "}
+          </Text>
+          <Text
+            style={{
+              textDecorationLine: "underline",
+              fontFamily: "quicksand-bold",
+            }}
             onPress={() => Linking.openURL(state.currentListing.charity_url)}
           >
             here
           </Text>
-          <Text style={styles.description}>
-            Charity Score: {state.currentListing.charity_score}
-          </Text>
           <View style={{ flexDirection: "row", flexWrap: "wrap" }}>
-            <Text style={{ fontSize: 15, marginLeft: 5, fontFamily: "quicksand" }}>
-              Read more about their mission{" "}
-            </Text>
-            <Text
-              style={{ textDecorationLine: "underline", fontFamily: "quicksand-bold" }}
-              onPress={() => Linking.openURL(state.currentListing.charity_url)}
-            >
-              here
-            </Text>
           </View>
         </View>
-        <Button block success style={{ margin: 5 }} onPress={() => navigation.navigate("Purchase")}>
-          <Text style={{ color: "white", fontSize: 15, fontFamily: "quicksand-bold" }}>Donate For Item</Text>
+        <Button
+          block
+          success
+          style={{ margin: 5 }}
+          onPress={() => navigation.navigate("Purchase")}
+        >
+          <Text
+            style={{
+              color: "white",
+              fontSize: 15,
+              fontFamily: "quicksand-bold",
+            }}
+          >
+            Donate For Item
+          </Text>
         </Button>
         <View style={styles.charityContainer}>
           <Text style={styles.charityAttribution}>
@@ -93,7 +101,7 @@ const styles = StyleSheet.create({
   },
   image: {
     width: "100%",
-    height: "100%",
+    height: 400,
     resizeMode: "cover",
     alignSelf: "center",
     margin: 5,

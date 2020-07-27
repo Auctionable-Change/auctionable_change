@@ -78,7 +78,12 @@ const SellerForm = ({ navigation }) => {
             <Picker
               mode="dropdown"
               iosIcon={<Icon name="arrow-down" />}
-              style={{ width: 300, alignSelf: "center", margin: 10, width: 300 }}
+              style={{
+                width: 300,
+                alignSelf: "center",
+                margin: 10,
+                width: 300,
+              }}
               textStyle={{ fontFamily: "quicksand", fontSize: 15 }}
               placeholder="Select a Category"
               selectedValue={listingObj.category}
@@ -97,8 +102,13 @@ const SellerForm = ({ navigation }) => {
               <Picker.Item label="Other" value="other" />
             </Picker>
           </Item>
-          <Button rounded success onPress={() => validateForm()}>
-            <Text style={{ fontFamily: "quicksand-bold", fontSize: 15, alignSelf: "center", margin: 10 }}>
+          <Button
+            rounded
+            success
+            style={{ alignSelf: "center", margin: 10 }}
+            onPress={() => validateForm()}
+          >
+            <Text style={{ fontFamily: "quicksand-bold", fontSize: 15 }}>
               Continue
             </Text>
           </Button>

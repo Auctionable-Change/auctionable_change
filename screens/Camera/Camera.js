@@ -81,42 +81,21 @@ const Camera = ({ cameraType, user, prompt, title }) => {
   return (
     <SafeAreaView style={styles.container}>
       <Text style={styles.title}>{title}</Text>
-<<<<<<< HEAD
       {/* <View style={styles.subcontainer}> */}
       <Text
         accessibilityLabel={prompt}
         color="#2cb833"
         onPress={_pickImage}
-        style={{ fontFamily: "quicksand" }}
-=======
-      <Text
-        accessibilityLabel={prompt}
-        onPress={_pickImage}
-        style={{ fontSize: 15, margin: 5 }}
->>>>>>> 750582677ef8a111b5a35de76877b56e7b541c1f
+        style={{ fontFamily: "quicksand", fontSize: 15, margin: 5 }}
       >
         {prompt}
       </Text>
       {image ? (
-<<<<<<< HEAD
-        <Image source={{ uri: image }} style={{ width: 200, height: 200 }} />
-=======
         <Image source={{ uri: image }} style={styles.image} />
->>>>>>> 750582677ef8a111b5a35de76877b56e7b541c1f
       ) : (
         <TouchableWithoutFeedback onPress={_pickImage}>
           <Image
             source={require("../../assets/icons/camera.png")}
-<<<<<<< HEAD
-            style={{ width: 150, height: 150 }}
-          />
-        </TouchableWithoutFeedback>
-      )}
-      <Button block success onPress={() => submitHandler()}>
-        <Text style={{ fontFamily: "quicksand-bold" }}>Continue</Text>
-      </Button>
-      {/* </View> */}
-=======
             style={styles.camera}
           />
         </TouchableWithoutFeedback>
@@ -127,9 +106,8 @@ const Camera = ({ cameraType, user, prompt, title }) => {
         onPress={() => submitHandler()}
         style={styles.button}
       >
-        <Text>Continue</Text>
+        <Text style={{ fontFamily: "quicksand-bold" }}>Continue</Text>
       </Button>
->>>>>>> 750582677ef8a111b5a35de76877b56e7b541c1f
     </SafeAreaView>
   );
 };
@@ -143,12 +121,8 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 20,
     textAlign: "center",
-<<<<<<< HEAD
     marginBottom: 10,
     fontFamily: "quicksand-bold"
-=======
-    marginBottom: 5,
->>>>>>> 750582677ef8a111b5a35de76877b56e7b541c1f
   },
   image: { margin: 5, width: 300, height: 300 },
   camera: { width: 150, height: 150 },

@@ -15,14 +15,8 @@ import { Alert } from "react-native";
 import { submitPurchase } from "../../screens/apiCalls";
 import { StyleSheet } from "react-native";
 
-<<<<<<< HEAD
-
-const BuyerForm = ({ sendEmail }) => {
-  const { dispatch, state } = useStore();
-=======
 const BuyerForm = ({ sendEmail }) => {
   const { dispatch } = useStore();
->>>>>>> 750582677ef8a111b5a35de76877b56e7b541c1f
   const [buyerObj, setBuyerObj] = useState({
     bidder_name: null,
     bidder_email: null,
@@ -61,19 +55,12 @@ const BuyerForm = ({ sendEmail }) => {
       <Header />
       <Content>
         <Form>
-        {/* <Text>
-          Enter your contact and shipping information to email the seller.
-        </Text> */}
           <Item floatingLabel>
             <Label style={styles.label}>Your Name</Label>
             <Input onChange={(event) => handleChange(event, "bidder_name")} />
           </Item>
           <Item floatingLabel>
-<<<<<<< HEAD
-            <Label style={styles.label}>Email</Label>
-=======
-            <Label>Your Email</Label>
->>>>>>> 750582677ef8a111b5a35de76877b56e7b541c1f
+            <Label style={styles.label}>Your Email</Label>
             <Input onChange={(event) => handleChange(event, "bidder_email")} />
           </Item>
           <Item floatingLabel>
@@ -94,18 +81,13 @@ const BuyerForm = ({ sendEmail }) => {
             <Label style={styles.label}>Zipcode</Label>
             <Input onChange={(event) => handleChange(event, "zip_code")} />
           </Item>
-<<<<<<< HEAD
-          <Button block success onPress={() => validateForm()}>
-            <Text style={{fontFamily: "quicksand-bold", fontSize: 15}}>Complete Purchase</Text>
-=======
           <Button
             rounded
             success
             onPress={() => validateForm()}
             style={{ alignSelf: "center", margin: 10 }}
           >
-            <Text>Complete Purchase</Text>
->>>>>>> 750582677ef8a111b5a35de76877b56e7b541c1f
+            <Text style={{fontFamily: "quicksand-bold", fontSize: 15}}>Complete Purchase</Text>
           </Button>
         </Form>
       </Content>

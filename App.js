@@ -1,11 +1,10 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { AppLoading } from "expo";
 import * as Font from "expo-font";
 import { Ionicons } from "@expo/vector-icons";
 import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from "@react-navigation/native";
 import { StoreProvider } from "./store";
-import { StyleSheet } from "react-native";
 import LogoTitle from "./components/LogoTitle";
 import Welcome from "./screens/Welcome/Welcome";
 import CurrentListings from "./screens/CurrentListings/CurrentListings";
@@ -21,17 +20,27 @@ import { Image } from "react-native";
 const Stack = createStackNavigator();
 
 export default function App() {
+  const [fontsLoaded, updateFontsLoaded ] = useState(false)
+
   useEffect(() => {
     const loadFonts = async () => {
       await Font.loadAsync({
-        Roboto: require("native-base/Fonts/Roboto.ttf"),
-        Roboto_medium: require("native-base/Fonts/Roboto_medium.ttf"),
+        "quicksand": require("./assets/fonts/Quicksand-Regular.ttf"),
+        "quicksand-light": require("./assets/fonts/Quicksand-Light.ttf"),
+        "quicksand-medium": require("./assets/fonts/Quicksand-Medium.ttf"),
+        "quicksand-bold": require("./assets/fonts/Quicksand-SemiBold.ttf"),
         ...Ionicons.font,
       });
+      await updateFontsLoaded(true)
     };
     loadFonts();
   });
 
+  if (!fontsLoaded) {
+    return (
+       <AppLoading />
+     )
+   }
   return (
     <StoreProvider>
       <NavigationContainer>

@@ -19,6 +19,7 @@ const PostItem = ({ navigation }) => {
 const styles = StyleSheet.create({
   title: {
     fontSize: 25,
+    fontFamily: "quicksand-bold",
     textAlign: "center",
     marginBottom: 10,
   },

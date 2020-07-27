@@ -14,8 +14,7 @@ const EmailForm = ({ navigation }) => {
   const sendEmail = (buyerObj) => {
     MailComposer.composeAsync({
       recipients: [
-        // `${state.currentListing.donor_email}`,
-        "foxymeatball@aol.com",
+        `${state.currentListing.donor_email}`,
       ],
       subject: "Time to ship your item from Auctionable Change",
       body: `Hello ${state.currentListing.donor}, 
@@ -35,7 +34,7 @@ const EmailForm = ({ navigation }) => {
   return (
     <SafeAreaView style={{ flex: 1, padding: 30, backgroundColor: "#FFFFFF" }}>
       <KeyboardAwareScrollView>
-        <Text>
+        <Text style={{fontFamily: "quicksand", fontSize: 15}}>
           3. Enter your contact and shipping information to email the seller.
         </Text>
         <BuyerForm

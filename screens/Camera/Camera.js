@@ -5,7 +5,7 @@ import * as Permissions from "expo-permissions";
 import { cloudinaryPost } from "../apiCalls";
 import { useStore } from "../../store";
 import { TouchableWithoutFeedback } from "react-native-gesture-handler";
-import { Alert, Image, View } from "react-native";
+import { Alert, Image } from "react-native";
 import { Button, Text } from "native-base";
 import { StyleSheet } from "react-native";
 import { useNavigation } from "@react-navigation/native";
@@ -82,22 +82,27 @@ const Camera = ({ cameraType, user, prompt, title }) => {
     <SafeAreaView style={styles.container}>
       <Text style={styles.title}>{title}</Text>
       {/* <View style={styles.subcontainer}> */}
-        <Text accessibilityLabel={prompt} color="#2cb833" onPress={_pickImage}>
-          {prompt}
-        </Text>
-        {image ? (
-          <Image source={{ uri: image }} style={{ width: 200, height: 200 }} />
-        ) : (
-          <TouchableWithoutFeedback onPress={_pickImage}>
-            <Image
-              source={require("../../assets/icons/camera.png")}
-              style={{ width: 150, height: 150 }}
-            />
-          </TouchableWithoutFeedback>
-        )}
-        <Button block success onPress={() => submitHandler()}>
-          <Text>Continue</Text>
-        </Button>
+      <Text
+        accessibilityLabel={prompt}
+        color="#2cb833"
+        onPress={_pickImage}
+        style={{ fontFamily: "quicksand" }}
+      >
+        {prompt}
+      </Text>
+      {image ? (
+        <Image source={{ uri: image }} style={{ width: 200, height: 200 }} />
+      ) : (
+        <TouchableWithoutFeedback onPress={_pickImage}>
+          <Image
+            source={require("../../assets/icons/camera.png")}
+            style={{ width: 150, height: 150 }}
+          />
+        </TouchableWithoutFeedback>
+      )}
+      <Button block success onPress={() => submitHandler()}>
+        <Text style={{ fontFamily: "quicksand-bold" }}>Continue</Text>
+      </Button>
       {/* </View> */}
     </SafeAreaView>
   );
@@ -126,6 +131,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     textAlign: "center",
     marginBottom: 10,
+    fontFamily: "quicksand-bold"
   },
 });
 

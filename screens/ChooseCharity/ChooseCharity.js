@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { StyleSheet, Linking, ActivityIndicator } from "react-native";
@@ -14,6 +14,7 @@ import {
   Button,
   Text,
   Right,
+  Image
 } from "native-base";
 
 const ChooseCharity = ({ navigation }) => {
@@ -54,20 +55,35 @@ const ChooseCharity = ({ navigation }) => {
         <Item style={{ width: "75%" }}>
           <Icon name="ios-search" />
           <Input
+            style={{ fontFamily: "quicksand", fontSize: 15 }}
             placeholder="Search Charities"
             onChange={(event) => handleChange(event)}
           ></Input>
         </Item>
         <Button success onPress={() => returnCharities()}>
-          <Text>Go!</Text>
+          <Text style={{ fontFamily: "quicksand-bold", fontSize: 15 }}>Go!</Text>
         </Button>
       </View>
       {!charities && (
         <Card style={{ width: "90%", height: 150, marginTop: 50 }}>
-          <Text style={{ alignSelf: "center", paddingTop: 30 }}>
+          <Text
+            style={{
+              alignSelf: "center",
+              paddingTop: 30,
+              fontFamily: "quicksand",
+              fontSize: 15,
+            }}
+          >
             Search For Your Favorite Charity Above
           </Text>
-          <Text style={{ alignSelf: "center", margin: 5, fontStyle: "italic" }}>
+          <Text
+            style={{
+              alignSelf: "center",
+              margin: 5,
+              fontFamily: "quicksand",
+              fontSize: 15,
+            }}
+          >
             - or -
           </Text>
           <Button
@@ -76,7 +92,9 @@ const ChooseCharity = ({ navigation }) => {
             style={{ alignSelf: "center" }}
             onPress={() => returnCharities()}
           >
-            <Text>Browse Our Featured Charities</Text>
+            <Text style={{ fontFamily: "quicksand", fontSize: 15 }}>
+              Browse Our Featured Charities
+            </Text>
           </Button>
         </Card>
       )}
@@ -113,12 +131,14 @@ const ChooseCharity = ({ navigation }) => {
                   alignSelf: "center",
                   fontSize: 18,
                   color: "#065EFE",
+                  fontFamily: "quicksand",
                 }}
                 numberOfLines={2}
               >
                 {item.name}
               </Text>
             </Button>
+            <Image />
             <Right>
               <CheckBox
                 color="#2CB833"
@@ -133,7 +153,15 @@ const ChooseCharity = ({ navigation }) => {
 
       {charitySelected && (
         <Button block success onPress={() => confirmCharity()}>
-          <Text style={{ color: "white" }}>Confirm Charity & Continue</Text>
+          <Text
+            style={{
+              color: "white",
+              fontFamily: "quicksand-bold",
+              fontSize: 15,
+            }}
+          >
+            Confirm Charity & Continue
+          </Text>
         </Button>
       )}
     </SafeAreaView>

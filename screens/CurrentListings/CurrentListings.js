@@ -61,13 +61,36 @@ const CurrentListings = ({ navigation }) => {
         placeholder="Item Category"
         selectedValue={filterCategory}
         onValueChange={(event) => filterListings(event)}
+        textStyle={{ fontFamily: "quicksand-bold", fontSize: 15 }}
       >
-        <Picker.Item label="All" value="all" />
-        <Picker.Item label="Electronics" value="electronics" />
-        <Picker.Item label="Home" value="home" />
-        <Picker.Item label="Furniture" value="furniture" />
-        <Picker.Item label="Baby/Kids" value="baby" />
-        <Picker.Item label="Other" value="other" />
+        <Picker.Item
+          label="All"
+          value="all"
+        />
+        <Picker.Item
+          label="Electronics"
+          value="electronics"
+        />
+        <Picker.Item
+          label="Home"
+          value="home"
+        />
+        <Picker.Item
+          label="Furniture"
+          value="furniture"
+        />
+        <Picker.Item
+          label="Baby/Kids"
+          value="baby"
+        />
+        <Picker.Item
+          label="Apparel"
+          value="apparel"
+        />
+        <Picker.Item
+          label="Other"
+          value="other"
+        />
       </Picker>
 
       {isLoading && (
@@ -100,7 +123,7 @@ const CurrentListings = ({ navigation }) => {
             </CardItem>
             <CardItem style={{ justifyContent: "space-between" }}>
               <Text
-                style={{ fontSize: 15 }}
+                style={{ fontSize: 15, fontFamily: "quicksand" }}
               >{`Minimum Donation: $${item.price}`}</Text>
               <Button
                 transparent
@@ -132,8 +155,10 @@ const styles = StyleSheet.create({
   },
   cardTitle: {
     margin: 5,
-    fontSize: 20,
+    fontSize: 25,
     alignSelf: "center",
+    fontFamily: "quicksand-bold",
+    textAlign: "center"
   },
   cardItem: {
     shadowOffset: {
@@ -148,6 +173,7 @@ const styles = StyleSheet.create({
     color: "#065EFE",
     fontSize: 15,
     fontWeight: "bold",
+    fontFamily: "quicksand-bold"
   },
 });
 

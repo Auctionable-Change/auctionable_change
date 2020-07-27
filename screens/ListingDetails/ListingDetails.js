@@ -36,11 +36,11 @@ const ListingDetails = ({ navigation }) => {
             Charity Score: {state.currentListing.charity_score}
           </Text>
           <View style={{ flexDirection: "row", flexWrap: "wrap" }}>
-            <Text style={{ fontSize: 15, marginLeft: 5 }}>
+            <Text style={{ fontSize: 15, marginLeft: 5, fontFamily: "quicksand" }}>
               Read more about their mission{" "}
             </Text>
             <Text
-              style={{ fontWeight: "bold", textDecorationLine: "underline" }}
+              style={{ textDecorationLine: "underline", fontFamily: "quicksand-bold" }}
               onPress={() => Linking.openURL(state.currentListing.charity_url)}
             >
               here
@@ -48,7 +48,7 @@ const ListingDetails = ({ navigation }) => {
           </View>
         </View>
         <Button block success onPress={() => navigation.navigate("Purchase")}>
-          <Text style={{ color: "white", fontSize: 15 }}>Donate For Item</Text>
+          <Text style={{ color: "white", fontSize: 15, fontFamily: "quicksand-bold" }}>Donate For Item</Text>
         </Button>
         <View style={styles.charityContainer}>
           <Text style={styles.charityAttribution}>
@@ -86,6 +86,7 @@ const styles = StyleSheet.create({
     margin: 10,
     fontSize: 25,
     textAlign: "center",
+    fontFamily: "quicksand-bold"
   },
   scroll: {
     display: "flex",
@@ -101,13 +102,14 @@ const styles = StyleSheet.create({
   description: {
     margin: 5,
     fontSize: 15,
+    fontFamily: "quicksand"
   },
   charityAttribution: {
-    fontStyle: "italic",
     width: 140,
     textAlign: "center",
     color: "#336799",
     margin: 5,
+    fontFamily: "quicksand"
   },
   charityContainer: {
     flexWrap: "wrap",

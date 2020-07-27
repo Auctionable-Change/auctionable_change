@@ -1,6 +1,5 @@
 import React from "react";
 import { StyleSheet, View } from "react-native";
-import { ScrollView } from "react-native-gesture-handler";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Text } from "native-base";
 import { useStore } from "../../store";
@@ -20,7 +19,7 @@ const PaymentInstructions = () => {
         <Text style={styles.subtitle}>Instructions to complete order:</Text>
         <View style={styles.stepOne}>
           <Text style={{ fontFamily: "quicksand", fontSize: 15 }}>
-            1. Follow this{" "}
+            First, follow this{" "}
           </Text>
           <Text
             style={{
@@ -37,8 +36,11 @@ const PaymentInstructions = () => {
           </Text>
         </View>
         <Text style={styles.listItem}>
-          Take a screenshot that includes your name, charity name and donation
-          amount. Do not include other personal information.
+          Then, take a screenshot that includes your name, charity name and
+          donation amount.
+        </Text>
+        <Text style={styles.listItem}>
+          Do not include other personal information.
         </Text>
         <Camera
           cameraType="launchImageLibraryAsync"
@@ -77,7 +79,7 @@ const styles = StyleSheet.create({
   stepOne: {
     flexDirection: "row",
     flexWrap: "wrap",
-    marginTop: 10,
+    marginTop: 5,
   },
 });
 

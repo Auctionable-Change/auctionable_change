@@ -11,7 +11,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { useStore } from "../../store";
 import { fetchItems } from "../apiCalls";
 import { Picker, Icon, CardItem, Card, Left, Body, Button } from "native-base";
-import NavBar from "../../components/NavBar/NavBar"
+import NavBar from "../../components/NavBar/NavBar";
 
 const CurrentListings = ({ navigation }) => {
   const { dispatch } = useStore();
@@ -57,8 +57,8 @@ const CurrentListings = ({ navigation }) => {
       <Picker
         mode="dropdown"
         iosIcon={<Icon name="arrow-down" />}
-        style={{ width: 300 }}
-        placeholder="Item Category"
+        style={{ alignSelf: "center", width: 300 }}
+        placeholder="Filter by Category"
         selectedValue={filterCategory}
         onValueChange={(event) => filterListings(event)}
         textStyle={{ fontFamily: "quicksand-bold", fontSize: 15 }}
@@ -103,7 +103,7 @@ const CurrentListings = ({ navigation }) => {
         data={listings}
         keyExtractor={(item) => item.id.toString()}
         renderItem={({ item }) => (
-          <Card>
+          <Card style={{ marginBottom: 15 }}>
             <CardItem style={styles.cardItem}>
               <Left>
                 <Body>
@@ -147,11 +147,13 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "space-between",
+    backgroundColor: "#FFFFFF",
   },
   image: {
     width: "100%",
     height: 400,
     resizeMode: "cover",
+    alignSelf: "center",
   },
   cardTitle: {
     margin: 5,

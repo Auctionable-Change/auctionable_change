@@ -5,6 +5,7 @@ exports[`CurrentListings should render 1`] = `
   style={
     Object {
       "alignItems": "center",
+      "backgroundColor": "#FFFFFF",
       "flex": 1,
       "flexDirection": "column",
       "justifyContent": "space-between",
@@ -26,7 +27,7 @@ exports[`CurrentListings should render 1`] = `
       style={
         Object {
           "alignItems": "center",
-          "alignSelf": "flex-start",
+          "alignSelf": "center",
           "backgroundColor": "transparent",
           "borderBottomWidth": null,
           "borderColor": "#007aff",
@@ -72,7 +73,7 @@ exports[`CurrentListings should render 1`] = `
           ]
         }
       >
-        Item Category
+        Filter by Category
       </Text>
       <Text />
     </View>

@@ -1,17 +1,16 @@
 import React from "react";
-import { Text, StyleSheet, View } from "react-native";
+import { Text, StyleSheet } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import SellerForm from "../../components/SellerForm/SellerForm";
 
-
 const PostItem = ({ navigation }) => {
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: "#FFFFFF" }}>
-    <KeyboardAwareScrollView>
-      <Text style={styles.title}>Post an Item</Text>
-      <SellerForm navigation={navigation} />
-    </KeyboardAwareScrollView>
+    <SafeAreaView style={styles.container}>
+      <KeyboardAwareScrollView>
+        <Text style={styles.title}>Post an Item</Text>
+        <SellerForm navigation={navigation} />
+      </KeyboardAwareScrollView>
     </SafeAreaView>
   );
 };
@@ -25,8 +24,7 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
-    paddingLeft: 30,
-    paddingRight: 30,
+    backgroundColor: "#FFFFFF",
   },
 });
 

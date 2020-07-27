@@ -17,7 +17,7 @@ import { StyleSheet } from "react-native";
 
 
 const SellerForm = ({ navigation }) => {
-  const { dispatch, state } = useStore();
+  const { dispatch } = useStore();
   const [listingObj, setListingObj] = useState({
     donor: null,
     donor_email: null,
@@ -78,9 +78,9 @@ const SellerForm = ({ navigation }) => {
             <Picker
               mode="dropdown"
               iosIcon={<Icon name="arrow-down" />}
-              style={{ width: 300, marginTop: 20 }}
+              style={{ width: 300, alignSelf: "center", margin: 10, width: 300 }}
               textStyle={{ fontFamily: "quicksand", fontSize: 15 }}
-              placeholder="Item Category"
+              placeholder="Select a Category"
               selectedValue={listingObj.category}
               onValueChange={(event) =>
                 setListingObj({
@@ -97,9 +97,9 @@ const SellerForm = ({ navigation }) => {
               <Picker.Item label="Other" value="other" />
             </Picker>
           </Item>
-          <Button block success onPress={() => validateForm()}>
-            <Text style={{ fontFamily: "quicksand-bold", fontSize: 15 }}>
-              Continue to Charities
+          <Button rounded success onPress={() => validateForm()}>
+            <Text style={{ fontFamily: "quicksand-bold", fontSize: 15, alignSelf: "center", margin: 10 }}>
+              Continue
             </Text>
           </Button>
         </Form>

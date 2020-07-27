@@ -5,6 +5,7 @@ import { Ionicons } from "@expo/vector-icons";
 import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from "@react-navigation/native";
 import { StoreProvider } from "./store";
+import { Image } from "react-native";
 import LogoTitle from "./components/LogoTitle";
 import Welcome from "./screens/Welcome/Welcome";
 import CurrentListings from "./screens/CurrentListings/CurrentListings";
@@ -15,7 +16,7 @@ import ChooseCharity from "./screens/ChooseCharity/ChooseCharity";
 import PostConfirmation from "./screens/PostConfirmation/PostConfirmation";
 import EmailForm from "./screens/EmailForm/EmailForm";
 import Camera from "./screens/Camera/Camera";
-import { Image } from "react-native";
+import ThankYou from "./screens/ThankYou/ThankYou";
 
 const Stack = createStackNavigator();
 
@@ -110,6 +111,15 @@ export default function App() {
             }}
           />
           <Stack.Screen
+            name="Thank You"
+            component={ThankYou}
+            options={{
+              headerTitle: () => <LogoTitle />,
+              headerBackTitleVisible: false,
+              headerLeft: null,
+            }}
+          />
+          <Stack.Screen
             name="Camera"
             options={{
               headerTitle: () => <LogoTitle />,
@@ -117,10 +127,14 @@ export default function App() {
               ...backButtonStyle,
             }}
           >
-            {() => <Camera cameraType="launchCameraAsync"
-              user="seller"
-              prompt="Press camera to take a photo of your item to donate!"
-              title="Upload a Photo"/>}
+            {() => (
+              <Camera
+                cameraType="launchCameraAsync"
+                user="seller"
+                prompt="Press camera to take a photo of your item to donate!"
+                title="Upload a Photo"
+              />
+            )}
           </Stack.Screen>
         </Stack.Navigator>
       </NavigationContainer>
@@ -136,5 +150,5 @@ const backButtonStyle = {
       source={require("./assets/icons/back.png")}
       style={{ width: 30, height: 30, margin: 8 }}
     />
-  )         
-}
+  ),
+};

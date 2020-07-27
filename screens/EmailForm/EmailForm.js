@@ -1,12 +1,10 @@
 import React from "react";
 import { Text, StyleSheet } from "react-native";
-import { ScrollView } from "react-native-gesture-handler";
-import * as MailComposer from "expo-mail-composer";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
+import * as MailComposer from "expo-mail-composer";
 import { useStore } from "../../store";
 import BuyerForm from "../../components/BuyerForm/BuyerForm";
-import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
-
 
 const EmailForm = ({ navigation }) => {
   const { state } = useStore();
@@ -29,19 +27,21 @@ const EmailForm = ({ navigation }) => {
     Donation Receipt: ${state.buyerDetails.receipt} 
       `,
     });
+    navigation.navigate("Thank You");
   };
 
   return (
-    <SafeAreaView style={{ flex: 1, padding: 30, backgroundColor: "#FFFFFF" }}>
+    <SafeAreaView style={{ flex: 1, backgroundColor: "#FFFFFF" }}>
       <KeyboardAwareScrollView>
+<<<<<<< HEAD
         <Text style={{fontFamily: "quicksand", fontSize: 15}}>
           3. Enter your contact and shipping information to email the seller.
+=======
+        <Text style={{ textAlign: "center", backgroundColor: "#FFFFFF" }}>
+          Enter your contact and shipping information to email the seller.
+>>>>>>> 750582677ef8a111b5a35de76877b56e7b541c1f
         </Text>
-        <BuyerForm
-          navigation={navigation}
-          sendEmail={sendEmail}
-          style={styles.form}
-        />
+        <BuyerForm navigation={navigation} sendEmail={sendEmail} />
       </KeyboardAwareScrollView>
     </SafeAreaView>
   );

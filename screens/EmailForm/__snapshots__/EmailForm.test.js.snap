@@ -6,7 +6,6 @@ exports[`EmailForm should render 1`] = `
     Object {
       "backgroundColor": "#FFFFFF",
       "flex": 1,
-      "padding": 30,
     }
   }
 >
@@ -40,8 +39,15 @@ exports[`EmailForm should render 1`] = `
     viewIsInsideTabBar={false}
   >
     <View>
-      <Text>
-        3. Enter your contact and shipping information to email the seller.
+      <Text
+        style={
+          Object {
+            "backgroundColor": "#FFFFFF",
+            "textAlign": "center",
+          }
+        }
+      >
+        Enter your contact and shipping information to email the seller.
       </Text>
       <View
         style={
@@ -302,7 +308,7 @@ exports[`EmailForm should render 1`] = `
                           }
                         }
                       >
-                        Email
+                        Your Email
                       </Text>
                     </Text>
                   </View>
@@ -721,19 +727,20 @@ exports[`EmailForm should render 1`] = `
                   style={
                     Object {
                       "alignItems": "center",
-                      "alignSelf": "stretch",
-                      "backgroundColor": "#007aff",
+                      "alignSelf": "center",
+                      "backgroundColor": "#5cb85c",
                       "borderBottomWidth": null,
                       "borderColor": "#007aff",
                       "borderLeftWidth": null,
-                      "borderRadius": 5,
+                      "borderRadius": 57,
                       "borderRightWidth": null,
                       "borderTopWidth": null,
                       "borderWidth": undefined,
                       "elevation": 2,
                       "flexDirection": "row",
                       "height": 45,
-                      "justifyContent": "center",
+                      "justifyContent": "space-between",
+                      "margin": 10,
                       "opacity": 1,
                       "paddingBottom": 6,
                       "paddingTop": 6,

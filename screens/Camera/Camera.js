@@ -81,52 +81,49 @@ const Camera = ({ cameraType, user, prompt, title }) => {
   return (
     <SafeAreaView style={styles.container}>
       <Text style={styles.title}>{title}</Text>
-      {/* <View style={styles.subcontainer}> */}
-        <Text accessibilityLabel={prompt} color="#2cb833" onPress={_pickImage}>
-          {prompt}
-        </Text>
-        {image ? (
-          <Image source={{ uri: image }} style={{ width: 200, height: 200 }} />
-        ) : (
-          <TouchableWithoutFeedback onPress={_pickImage}>
-            <Image
-              source={require("../../assets/icons/camera.png")}
-              style={{ width: 150, height: 150 }}
-            />
-          </TouchableWithoutFeedback>
-        )}
-        <Button block success onPress={() => submitHandler()}>
-          <Text>Continue</Text>
-        </Button>
-      {/* </View> */}
+      <Text
+        accessibilityLabel={prompt}
+        onPress={_pickImage}
+        style={{ fontSize: 15, margin: 5 }}
+      >
+        {prompt}
+      </Text>
+      {image ? (
+        <Image source={{ uri: image }} style={styles.image} />
+      ) : (
+        <TouchableWithoutFeedback onPress={_pickImage}>
+          <Image
+            source={require("../../assets/icons/camera.png")}
+            style={styles.camera}
+          />
+        </TouchableWithoutFeedback>
+      )}
+      <Button
+        rounded
+        success
+        onPress={() => submitHandler()}
+        style={styles.button}
+      >
+        <Text>Continue</Text>
+      </Button>
     </SafeAreaView>
   );
 };
 
-// let me know what you think of the camera not on the card
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: "center",
-    padding: 20,
+    backgroundColor: "#FFFFFF",
   },
-  // subcontainer: {
-  //   alignItems: "center",
-    // backgroundColor: "white",
-    // padding: 20,
-    // borderRadius: 10,
-    // shadowOffset: {
-    //   width: 0,
-    //   height: 1,
-    // },
-    // shadowOpacity: 0.18,
-    // shadowRadius: 1.0,
-  // },
   title: {
     fontSize: 20,
     textAlign: "center",
-    marginBottom: 10,
+    marginBottom: 5,
   },
+  image: { margin: 5, width: 300, height: 300 },
+  camera: { width: 150, height: 150 },
+  button: { alignSelf: "center", margin: 5 },
 });
 
 export default Camera;

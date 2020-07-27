@@ -5,7 +5,7 @@ import NavBar from "../../components/NavBar/NavBar";
 
 const ThankYou = ({ navigation }) => {
   return (
-    <SafeAreaView style={{ flex: 1 }}>
+    <SafeAreaView style={styles.container}>
       <View>
         <Text style={styles.text}>Thank you for contributing to A.change!</Text>
         <Text style={styles.text}>Please check your email for updates.</Text>
@@ -16,7 +16,11 @@ const ThankYou = ({ navigation }) => {
 };
 
 const styles = StyleSheet.create({
-  text: { fontSize: 20, margin: 5 },
+  container: {
+    flex: 1,
+    backgroundColor: "#FFFFFF",
+  },
+  text: { fontSize: 20, margin: 10 },
 });
 
 export default ThankYou;

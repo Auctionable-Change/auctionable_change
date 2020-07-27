@@ -13,8 +13,8 @@ import {
 import { useStore } from "../../store";
 import { Alert } from "react-native";
 
-const BuyerForm = ({ navigation, sendEmail }) => {
-  const { dispatch, state } = useStore();
+const BuyerForm = ({ sendEmail }) => {
+  const { dispatch } = useStore();
   const [buyerObj, setBuyerObj] = useState({
     bidder_name: null,
     bidder_email: null,
@@ -49,12 +49,15 @@ const BuyerForm = ({ navigation, sendEmail }) => {
       <Header />
       <Content>
         <Form>
+        <Text>
+          Enter your contact and shipping information to email the seller.
+        </Text>
           <Item floatingLabel>
             <Label>Your Name</Label>
             <Input onChange={(event) => handleChange(event, "bidder_name")} />
           </Item>
           <Item floatingLabel>
-            <Label>Email</Label>
+            <Label>Your Email</Label>
             <Input onChange={(event) => handleChange(event, "bidder_email")} />
           </Item>
           <Item floatingLabel>
@@ -75,7 +78,12 @@ const BuyerForm = ({ navigation, sendEmail }) => {
             <Label>Zipcode</Label>
             <Input onChange={(event) => handleChange(event, "zip_code")} />
           </Item>
-          <Button block onPress={() => validateForm()}>
+          <Button
+            rounded
+            success
+            onPress={() => validateForm()}
+            style={{ alignSelf: "center", margin: 10 }}
+          >
             <Text>Complete Purchase</Text>
           </Button>
         </Form>

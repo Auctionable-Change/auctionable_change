@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import { AppLoading } from "expo";
 import * as Font from "expo-font";
 import { Ionicons } from "@expo/vector-icons";
 import { createStackNavigator } from "@react-navigation/stack";
@@ -106,6 +105,7 @@ export default function App() {
             options={{
               headerTitle: () => <LogoTitle />,
               headerBackTitleVisible: false,
+              headerLeft: null,
             }}
           />
           <Stack.Screen

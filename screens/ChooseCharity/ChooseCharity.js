@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View } from "react-native";
+import { View, Image } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { StyleSheet, Linking, ActivityIndicator } from "react-native";
 import { FlatList } from "react-native-gesture-handler";
@@ -14,7 +14,6 @@ import {
   Button,
   Text,
   Right,
-  Image
 } from "native-base";
 
 const ChooseCharity = ({ navigation }) => {
@@ -61,7 +60,9 @@ const ChooseCharity = ({ navigation }) => {
           ></Input>
         </Item>
         <Button success onPress={() => returnCharities()}>
-          <Text style={{ fontFamily: "quicksand-bold", fontSize: 15 }}>Go!</Text>
+          <Text style={{ fontFamily: "quicksand-bold", fontSize: 15 }}>
+            Go!
+          </Text>
         </Button>
       </View>
       {!charities && (
@@ -116,29 +117,38 @@ const ChooseCharity = ({ navigation }) => {
                 : styles.charityDefault
             }
           >
-            <Button
-              transparent
-              onPress={() => Linking.openURL(item.url)}
-              style={{
-                borderBottomWidth: 1,
-                height: "100%",
-                alignSelf: "center",
-                flex: 5,
-              }}
-            >
-              <Text
+            <View>
+              <Button
+                transparent
+                onPress={() => Linking.openURL(item.url)}
                 style={{
+                  height: "100%",
                   alignSelf: "center",
-                  fontSize: 18,
-                  color: "#065EFE",
-                  fontFamily: "quicksand",
+                  flex: 5,
                 }}
-                numberOfLines={2}
               >
-                {item.name}
-              </Text>
-            </Button>
-            <Image />
+                <Text
+                  style={{
+                    alignSelf: "center",
+                    fontSize: 18,
+                    color: "#439fd9",
+                    fontFamily: "quicksand",
+                  }}
+                  numberOfLines={2}
+                >
+                  {item.name}
+                </Text>
+              </Button>
+              <Image
+                source={{ uri: item.rating_image }}
+                style={{
+                  width: 80,
+                  height: 40,
+                  resizeMode: "contain",
+                  marginLeft: 15,
+                }}
+              />
+            </View>
             <Right>
               <CheckBox
                 color="#2CB833"

@@ -1,7 +1,6 @@
 import * as React from "react";
-import { Image } from "react-native";
+import { Image, StyleSheet, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { StyleSheet, View } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
 import { useStore } from "../../store";
 import { Button, Text } from "native-base";
@@ -11,9 +10,10 @@ const PostConfirmation = ({ navigation }) => {
   const { state } = useStore();
 
   const handleSubmit = () => {
-    console.log(state);
-    submitListing(state.listingToPost)
-  }
+    submitListing(state.listingToPost);
+    // navigate to thank you
+    navigation.navigate("Thank You");
+  };
 
   return (
     <SafeAreaView style={styles.container}>
@@ -25,22 +25,16 @@ const PostConfirmation = ({ navigation }) => {
             textAlign: "center",
           }}
         >
-          Please review your listing below:
+          Please review your listing before confirming:
         </Text>
         <Image
           source={{ uri: state.listingToPost.image }}
           style={styles.image}
         />
-        <View style={{padding: 10, backgroundColor: "#FFFFFF"}}>
-          <Text style={(styles.text, { fontWeight: "bold" })}>
-            Details:
-          </Text>
-          <Text style={styles.text}>
-            Title: {state.listingToPost.title}
-          </Text>
-          <Text style={styles.text}>
-            Price: ${state.listingToPost.price}
-          </Text>
+        <View style={{ padding: 10, backgroundColor: "#FFFFFF" }}>
+          <Text style={(styles.text, { fontWeight: "bold" })}>Details:</Text>
+          <Text style={styles.text}>Title: {state.listingToPost.title}</Text>
+          <Text style={styles.text}>Price: ${state.listingToPost.price}</Text>
           <Text style={styles.text}>
             Description: {state.listingToPost.description}
           </Text>
@@ -57,7 +51,7 @@ const PostConfirmation = ({ navigation }) => {
           </Text>
         </View>
         <Text style={styles.alert}>
-          See something that needs adjusting? Feel free to navigate back to the previous pages to edit.
+          Navigate back to the previous screens to edit or confirm listing.
         </Text>
         <Button block onPress={() => handleSubmit()} style={{ marginTop: 10 }}>
           <Text>Confirm Listing</Text>

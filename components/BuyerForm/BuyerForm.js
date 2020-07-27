@@ -16,7 +16,7 @@ import { submitPurchase } from "../../screens/apiCalls";
 import { StyleSheet } from "react-native";
 
 const BuyerForm = ({ sendEmail }) => {
-  const { dispatch } = useStore();
+  const { dispatch, state } = useStore();
   const [buyerObj, setBuyerObj] = useState({
     bidder_name: null,
     bidder_email: null,

@@ -15,12 +15,12 @@ describe('EmailForm', () => {
     expect(tree).toMatchSnapshot();
   })
 
-  it('should display passed in information', () => {
+  it('should display passed in information', async () => {
     const { getByText } = render(
       <StoreProvider>
         <EmailForm />
       </StoreProvider>
-    )
+    );
     const message = getByText("Enter your contact and shipping information to email the seller.")
     expect(message).toBeTruthy()
   })

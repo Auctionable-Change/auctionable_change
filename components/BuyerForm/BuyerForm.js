@@ -51,29 +51,30 @@ const BuyerForm = ({ navigation, sendEmail }) => {
         <Form>
           <Item floatingLabel>
             <Label>Your Name</Label>
-            <Input onChange={(event) => handleChange(event, "bidder_name")} />
+            <Input accessibilityLabel={'name'} onChange={(event) => handleChange(event, "bidder_name")} />
           </Item>
           <Item floatingLabel>
             <Label>Email</Label>
-            <Input onChange={(event) => handleChange(event, "bidder_email")} />
+            <Input accessibilityLabel={'email'} onChange={(event) => handleChange(event, "bidder_email")} />
           </Item>
           <Item floatingLabel>
             <Label>Street Address</Label>
             <Input
               onChange={(event) => handleChange(event, "street_address")}
+              accessibilityLabel={'address'} 
             />
           </Item>
           <Item floatingLabel>
             <Label>City</Label>
-            <Input onChange={(event) => handleChange(event, "city")} />
+            <Input accessibilityLabel={'city'} onChange={(event) => handleChange(event, "city")} />
           </Item>
           <Item floatingLabel>
             <Label>State</Label>
-            <Input onChange={(event) => handleChange(event, "state")} />
+            <Input accessibilityLabel={'state'} onChange={(event) => handleChange(event, "state")} />
           </Item>
           <Item floatingLabel last>
             <Label>Zipcode</Label>
-            <Input onChange={(event) => handleChange(event, "zip_code")} />
+            <Input accessibilityLabel={'zip'} onChange={(event) => handleChange(event, "zip_code")} />
           </Item>
           <Button block onPress={() => validateForm()}>
             <Text>Complete Purchase</Text>

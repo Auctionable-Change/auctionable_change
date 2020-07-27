@@ -54,23 +54,23 @@ const SellerForm = ({ navigation }) => {
         <Form>
           <Item floatingLabel>
             <Label>Your Name</Label>
-            <Input onChange={(event) => handleChange(event, "donor")} />
+            <Input accessibilityLabel={'name'} onChange={(event) => handleChange(event, "donor")} />
           </Item>
           <Item floatingLabel>
             <Label>Email</Label>
-            <Input onChange={(event) => handleChange(event, "donor_email")} />
+            <Input accessibilityLabel={'email'} onChange={(event) => handleChange(event, "donor_email")} />
           </Item>
           <Item floatingLabel>
             <Label>Item Name</Label>
-            <Input onChange={(event) => handleChange(event, "title")} />
+            <Input accessibilityLabel={'item-name'} onChange={(event) => handleChange(event, "title")} />
           </Item>
           <Item floatingLabel>
             <Label>Item Description</Label>
-            <Input onChange={(event) => handleChange(event, "description")} />
+            <Input accessibilityLabel={'description'}  onChange={(event) => handleChange(event, "description")} />
           </Item>
           <Item floatingLabel>
             <Label>Minimum Bid</Label>
-            <Input onChange={(event) => handleChange(event, "price")} />
+            <Input accessibilityLabel={'bid'} onChange={(event) => handleChange(event, "price")} />
           </Item>
           <Item picker last>
             <Picker
@@ -79,6 +79,7 @@ const SellerForm = ({ navigation }) => {
               style={{ width: 300, marginTop: 20 }}
               placeholder="Item Category"
               selectedValue={listingObj.category}
+              accessibilityLabel={'category'}
               onValueChange={(event) =>
                 setListingObj({
                   ...listingObj,

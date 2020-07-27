@@ -17,6 +17,7 @@ import PostConfirmation from "./screens/PostConfirmation/PostConfirmation";
 import EmailForm from "./screens/EmailForm/EmailForm";
 import Camera from "./screens/Camera/Camera";
 import { Image } from "react-native";
+import 'react-native-gesture-handler';
 
 const Stack = createStackNavigator();
 

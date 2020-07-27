@@ -60,6 +60,31 @@ export const submitListing = async (listing) => {
   }
 };
 
+export const submitPurchase = async (buyerInfo) => {
+  try {
+    console.log(buyerInfo);
+    const response = await fetch(
+      `https://auctionable-change-api.herokuapp.com/bids`,
+        {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          ...buyerInfo,
+        }),
+      }
+    );
+    if (!response.ok) {
+      throw new Error(error);
+    }
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    return false;
+  }
+};
+
 let CLOUDINARY_URL = "https://api.cloudinary.com/v1_1/djk5anakm/upload";
 
 export const cloudinaryPost = (pickerResult, updateStore) => {

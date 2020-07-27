@@ -15,7 +15,7 @@ import { Alert } from "react-native";
 import { useStore } from "../../store";
 
 const SellerForm = ({ navigation }) => {
-  const { dispatch, state } = useStore();
+  const { dispatch } = useStore();
   const [listingObj, setListingObj] = useState({
     donor: null,
     donor_email: null,
@@ -57,7 +57,7 @@ const SellerForm = ({ navigation }) => {
             <Input onChange={(event) => handleChange(event, "donor")} />
           </Item>
           <Item floatingLabel>
-            <Label>Email</Label>
+            <Label>Your Email</Label>
             <Input onChange={(event) => handleChange(event, "donor_email")} />
           </Item>
           <Item floatingLabel>
@@ -76,8 +76,8 @@ const SellerForm = ({ navigation }) => {
             <Picker
               mode="dropdown"
               iosIcon={<Icon name="arrow-down" />}
-              style={{ width: 300, marginTop: 20 }}
-              placeholder="Item Category"
+              style={{ alignSelf: "center", margin: 10, width: 300 }}
+              placeholder="Select a Category"
               selectedValue={listingObj.category}
               onValueChange={(event) =>
                 setListingObj({
@@ -93,8 +93,13 @@ const SellerForm = ({ navigation }) => {
               <Picker.Item label="Other" value="other" />
             </Picker>
           </Item>
-          <Button block success onPress={() => validateForm()}>
-            <Text>Continue to Charities</Text>
+          <Button
+            rounded
+            success
+            onPress={() => validateForm()}
+            style={{ alignSelf: "center", margin: 10 }}
+          >
+            <Text>Continue</Text>
           </Button>
         </Form>
       </Content>

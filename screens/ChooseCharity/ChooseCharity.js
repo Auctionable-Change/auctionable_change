@@ -2,21 +2,18 @@ import React, { useState, useEffect } from "react";
 import { View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { StyleSheet, Linking, ActivityIndicator } from "react-native";
-import {
-  FlatList,
-} from "react-native-gesture-handler";
+import { FlatList } from "react-native-gesture-handler";
 import { useStore } from "../../store";
 import { fetchCharities } from "../apiCalls";
 import {
   Icon,
-  CardItem,
   Card,
   CheckBox,
   Item,
   Input,
   Button,
-  ListItem,
-  Text
+  Text,
+  Right,
 } from "native-base";
 
 const ChooseCharity = ({ navigation }) => {
@@ -74,13 +71,12 @@ const ChooseCharity = ({ navigation }) => {
             - or -
           </Text>
           <Button
-            bordered success
+            bordered
+            success
             style={{ alignSelf: "center" }}
             onPress={() => returnCharities()}
           >
-            <Text>
-              Browse Our Featured Charities
-            </Text>
+            <Text>Browse Our Featured Charities</Text>
           </Button>
         </Card>
       )}
@@ -102,56 +98,41 @@ const ChooseCharity = ({ navigation }) => {
                 : styles.charityDefault
             }
           >
-            <CardItem
-              header
-              bordered
-              style={{ alignSelf: "center", flexDirection: "row" }}
+            <Button
+              transparent
+              onPress={() => Linking.openURL(item.url)}
+              style={{
+                borderBottomWidth: 1,
+                height: "100%",
+                alignSelf: "center",
+                flex: 5,
+              }}
             >
-              <Button
-                small
-                transparent
-                onPress={() => Linking.openURL(item.url)}
+              <Text
                 style={{
-                  borderBottomWidth: 1,
-                  borderBottomColor: "#065EFE",
+                  alignSelf: "center",
+                  fontSize: 18,
                   color: "#065EFE",
                 }}
+                numberOfLines={2}
               >
-                <Text
-                  style={{
-                    alignSelf: "center",
-                    flexDirection: "row",
-                    color: "#065EFE",
-                  }}
-                  numberOfLines={2}
-                >
-                  {item.name}
-                </Text>
-              </Button>
-            </CardItem>
-            <Card bordered style={{ backgroundColor: "#f8f8ff" }}>
-              <ListItem
-                style={{
-                  flexDirection: "row",
-                  justifyContent: "space-between",
-                }}
-              >
-                <View>
-                  <Text>Select Charity</Text>
-                </View>
-                <CheckBox
-                  color="#2CB833"
-                  onPress={() => charitySelect(item.name)}
-                  checked={item.name == charitySelected.name ? true : false}
-                />
-              </ListItem>
-            </Card>
+                {item.name}
+              </Text>
+            </Button>
+            <Right>
+              <CheckBox
+                color="#2CB833"
+                onPress={() => charitySelect(item.name)}
+                checked={item.name == charitySelected.name ? true : false}
+                style={{ margin: 15 }}
+              />
+            </Right>
           </Card>
         )}
       />
 
       {charitySelected && (
-        <Button block onPress={() => confirmCharity()}>
+        <Button block success onPress={() => confirmCharity()}>
           <Text style={{ color: "white" }}>Confirm Charity & Continue</Text>
         </Button>
       )}
@@ -171,20 +152,22 @@ const styles = StyleSheet.create({
     width: "90%",
   },
   charityDefault: {
-    flex: 1,
     backgroundColor: "#FFF",
     padding: 15,
     width: "98%",
     marginTop: 15,
+    height: 130,
+    flexDirection: "row",
   },
   charityActive: {
-    flex: 1,
     backgroundColor: "#FFF",
-    borderWidth: 2,
-    borderColor: "black",
+    borderWidth: 5,
+    height: 130,
+    borderColor: "blue",
     padding: 15,
     width: "98%",
     marginTop: 15,
+    flexDirection: "row",
   },
 });
 

@@ -59,7 +59,7 @@ const PostConfirmation = ({ navigation }) => {
         <Text style={styles.alert}>
           See something that needs adjusting? Feel free to navigate back to the previous pages to edit.
         </Text>
-        <Button block onPress={() => handleSubmit()} style={{ marginTop: 10 }}>
+        <Button block success onPress={() => handleSubmit()} style={{ marginTop: 10 }}>
           <Text>Confirm Listing</Text>
         </Button>
       </ScrollView>
@@ -84,7 +84,7 @@ const styles = StyleSheet.create({
   },
   image: {
     width: "100%",
-    height: 300,
+    height: 400,
     resizeMode: "cover",
   },
   text: {

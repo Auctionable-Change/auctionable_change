@@ -49,9 +49,9 @@ const BuyerForm = ({ sendEmail }) => {
       <Header />
       <Content>
         <Form>
-        <Text>
+        {/* <Text>
           Enter your contact and shipping information to email the seller.
-        </Text>
+        </Text> */}
           <Item floatingLabel>
             <Label>Your Name</Label>
             <Input onChange={(event) => handleChange(event, "bidder_name")} />

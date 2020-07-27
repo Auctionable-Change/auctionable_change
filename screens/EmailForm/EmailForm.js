@@ -34,9 +34,9 @@ const EmailForm = ({ navigation }) => {
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: "#FFFFFF" }}>
       <KeyboardAwareScrollView>
-        {/* <Text style={{ textAlign: "center", backgroundColor: "#FFFFFF" }}>
+        <Text style={{ textAlign: "center", backgroundColor: "#FFFFFF" }}>
           Enter your contact and shipping information to email the seller.
-        </Text> */}
+        </Text>
         <BuyerForm navigation={navigation} sendEmail={sendEmail} />
       </KeyboardAwareScrollView>
     </SafeAreaView>

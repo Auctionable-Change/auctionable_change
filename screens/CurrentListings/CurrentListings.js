@@ -104,6 +104,7 @@ const CurrentListings = ({ navigation }) => {
               >{`Minimum Donation: $${item.price}`}</Text>
               <Button
                 transparent
+                accessibilityLabel={'listing'}
                 title="Listing Details"
                 onPress={() => pressHandler(item.title)}
               >

@@ -1,7 +1,7 @@
 import NavBar from "./NavBar";
 import React from "react";
 import renderer from "react-test-renderer";
-
+import {expect, it} from '@jest/globals';
 
 describe("NavBar", () => {
   it("should render three icons component", () => {

@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#FFFFFF",
   },
-  text: { fontSize: 20, margin: 10 },
+  text: { fontSize: 20, margin: 15 },
 });
 
 export default ThankYou;

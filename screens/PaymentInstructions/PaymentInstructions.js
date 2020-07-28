@@ -12,9 +12,6 @@ const PaymentInstructions = () => {
 
   return (
     <SafeAreaView style={styles.container}>
-      {/* <View
-        contentContainerStyle={{ alignItems: "center", margin: 0 }}
-      > */}
       <Text style={styles.title}>Thank you for your contribution!</Text>
       <Text style={styles.subtitle}>Instructions to complete order:</Text>
       <View style={styles.stepOne}>
@@ -48,7 +45,6 @@ const PaymentInstructions = () => {
         prompt="Press camera to upload screenshot of donation receipt from your camera roll."
         title="Upload Receipt"
       />
-      {/* </View> */}
     </SafeAreaView>
   );
 };

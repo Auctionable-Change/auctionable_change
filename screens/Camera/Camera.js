@@ -81,7 +81,6 @@ const Camera = ({ cameraType, user, prompt, title }) => {
   return (
     <SafeAreaView style={styles.container}>
       <Text style={styles.title}>{title}</Text>
-      {/* <View style={styles.subcontainer}> */}
       <Text
         accessibilityLabel={prompt}
         color="#2cb833"
@@ -95,7 +94,7 @@ const Camera = ({ cameraType, user, prompt, title }) => {
       ) : (
         <TouchableWithoutFeedback onPress={_pickImage}>
           <Image
-            source={require("../../assets/icons/camera.png")}
+            source={require("../../assets/icons/ar-camera.png")}
             style={styles.camera}
           />
         </TouchableWithoutFeedback>
@@ -122,11 +121,11 @@ const styles = StyleSheet.create({
     fontSize: 20,
     textAlign: "center",
     marginBottom: 10,
-    fontFamily: "quicksand-bold"
+    fontFamily: "quicksand-bold",
   },
   image: { margin: 5, width: 300, height: 300 },
   camera: { width: 150, height: 150 },
-  button: { alignSelf: "center", margin: 5 },
+  button: { alignSelf: "center", backgroundColor: "#2cb833", margin: 5 },
 });
 
 export default Camera;

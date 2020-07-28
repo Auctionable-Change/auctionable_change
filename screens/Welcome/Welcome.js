@@ -1,9 +1,8 @@
 import * as React from "react";
 import { View, Image } from "react-native";
-import NavBar from '../../components/NavBar/NavBar';
+import NavBar from "../../components/NavBar/NavBar";
 import { StyleSheet } from "react-native";
 import { Button, Text } from "native-base";
-
 
 const Welcome = ({ navigation }) => {
   return (

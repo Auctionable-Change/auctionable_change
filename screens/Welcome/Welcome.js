@@ -54,7 +54,9 @@ const Welcome = ({ navigation }) => {
               items for sale to donate proceeds to your favorite charities
             </Text>
           </Text>
-          <Text style={{ fontFamily: "quicksand", fontSize: 18, marginTop: 25 }}>
+          <Text
+            style={{ fontFamily: "quicksand", fontSize: 18, marginTop: 25 }}
+          >
             Together we can make A.change!
           </Text>
         </View>

@@ -31,10 +31,9 @@ const Welcome = ({ navigation }) => {
             style={styles.icons}
           />
           <Text style={{ width: "80%" }}>
-            <Text style={styles.iconText}>Search </Text>
+            <Text style={styles.iconText}>Browse </Text>
             <Text style={styles.pageText}>
-              and purchase items to get cool stuff while contributing to a good
-              cause
+              and buy items to get cool stuff while supporting a good cause
             </Text>
           </Text>
         </View>
@@ -50,10 +49,13 @@ const Welcome = ({ navigation }) => {
             style={styles.icons}
           />
           <Text style={{ width: "80%" }}>
-            <Text style={styles.iconText}>Sell </Text>
+            <Text style={styles.iconText}>Post </Text>
             <Text style={styles.pageText}>
-              items to donate proceeds to your favorite charities
+              items for sale to donate proceeds to your favorite charities
             </Text>
+          </Text>
+          <Text style={{ fontFamily: "quicksand", fontSize: 18, marginTop: 25 }}>
+            Together we can make A.change!
           </Text>
         </View>
       </View>
@@ -66,7 +68,7 @@ const Welcome = ({ navigation }) => {
           width: "95%",
         }}
       >
-        <Text style={styles.iconText}>Search</Text>
+        <Text style={styles.iconText}>Browse</Text>
         <Text style={styles.iconText}>Post</Text>
         <Text style={styles.iconText}>Home</Text>
       </View>
@@ -97,6 +99,7 @@ const styles = StyleSheet.create({
     flex: 1,
     textAlign: "center",
     fontSize: 18,
+    marginBottom: 2.5,
   },
   pageText: {
     fontFamily: "quicksand",

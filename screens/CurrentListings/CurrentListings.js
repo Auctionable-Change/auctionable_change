@@ -78,15 +78,9 @@ const CurrentListings = ({ navigation }) => {
         </View>
       )}
 
-        {/* {listings.length < 1 && (
-          <Card style={{flex: 1}}>
-            
-              <Text>No Listings here</Text>
-            
-          </Card>
-        ) 
-
-        } */}
+        {listings.length < 1 && (   
+          <Text style={{flex: 1, width: '75%', textAlign: 'center', marginTop: 50, fontSize: 25, fontFamily: "quicksand" }}>No Listings Here, Try Another Category</Text> 
+        )}
 
       <FlatList
         data={listings}
@@ -141,7 +135,7 @@ const styles = StyleSheet.create({
   },
   image: {
     width: "100%",
-    height: 400,
+    height: 350,
     resizeMode: "cover",
     alignSelf: "center",
   },

@@ -5,6 +5,7 @@ exports[`ChooseCharity should render 1`] = `
   style={
     Object {
       "alignItems": "center",
+      "backgroundColor": "#FFFFFF",
       "flex": 1,
     }
   }
@@ -88,7 +89,7 @@ exports[`ChooseCharity should render 1`] = `
         Object {
           "alignItems": "center",
           "alignSelf": "flex-start",
-          "backgroundColor": "#5cb85c",
+          "backgroundColor": "#2cb833",
           "borderBottomWidth": null,
           "borderColor": "#007aff",
           "borderLeftWidth": null,
@@ -161,7 +162,7 @@ exports[`ChooseCharity should render 1`] = `
         },
         Object {
           "height": 150,
-          "marginTop": 50,
+          "marginTop": 30,
           "width": "90%",
         },
       ]
@@ -228,6 +229,7 @@ exports[`ChooseCharity should render 1`] = `
           "borderRightWidth": 1,
           "borderTopWidth": 1,
           "borderWidth": 1,
+          "color": "#2cb833",
           "elevation": null,
           "flexDirection": "row",
           "height": 45,

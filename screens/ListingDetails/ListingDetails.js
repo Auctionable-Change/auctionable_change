@@ -1,12 +1,12 @@
 import * as React from "react";
 import { Image, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import NavBar from "../../components/NavBar/NavBar";
 import { StyleSheet } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
-import { useStore } from "../../store";
-import * as Linking from "expo-linking";
 import { Button } from "native-base";
+import { useStore } from "../../store";
+import NavBar from "../../components/NavBar/NavBar";
+import * as Linking from "expo-linking";
 
 const ListingDetails = ({ navigation }) => {
   const { state } = useStore();
@@ -32,37 +32,50 @@ const ListingDetails = ({ navigation }) => {
           Minimum Donation: ${state.currentListing.price}
         </Text>
         <Text style={styles.description}>
-          Charity Score: {state.currentListing.charity_score}
+          Charity Score: {state.currentListing.charity_score} stars
         </Text>
+        <Image
+          source={{ uri: state.currentListing.charity_score_image }}
+          style={{
+            alignSelf: "center",
+            height: 40,
+            marginLeft: 15,
+            resizeMode: "contain",
+            width: 80,
+          }}
+        />
         <View style={{ flexDirection: "row", flexWrap: "wrap" }}>
           <Text
-            style={{ fontSize: 15, marginLeft: 5, fontFamily: "quicksand" }}
+            style={{
+              fontFamily: "quicksand",
+              fontSize: 15,
+              marginLeft: 5,
+            }}
           >
             Read more about their mission{" "}
           </Text>
           <Text
             style={{
-              textDecorationLine: "underline",
               fontFamily: "quicksand-bold",
+              textDecorationLine: "underline",
             }}
             onPress={() => Linking.openURL(state.currentListing.charity_url)}
           >
             here
           </Text>
-          <View style={{ flexDirection: "row", flexWrap: "wrap" }}>
-          </View>
+          <View style={{ flexDirection: "row", flexWrap: "wrap" }}></View>
         </View>
         <Button
           block
           success
-          style={{ margin: 5 }}
+          style={{ backgroundColor: "#2cb833", margin: 5 }}
           onPress={() => navigation.navigate("Purchase")}
         >
           <Text
             style={{
               color: "white",
-              fontSize: 15,
               fontFamily: "quicksand-bold",
+              fontSize: 15,
             }}
           >
             Donate For Item
@@ -92,7 +105,7 @@ const styles = StyleSheet.create({
     marginBottom: 5,
     fontSize: 25,
     textAlign: "center",
-    fontFamily: "quicksand-bold"
+    fontFamily: "quicksand-bold",
   },
   scroll: {
     margin: 0,
@@ -109,14 +122,14 @@ const styles = StyleSheet.create({
   description: {
     margin: 5,
     fontSize: 15,
-    fontFamily: "quicksand"
+    fontFamily: "quicksand",
   },
   charityAttribution: {
     width: 140,
     textAlign: "center",
     color: "#336799",
     margin: 5,
-    fontFamily: "quicksand"
+    fontFamily: "quicksand",
   },
   charityContainer: {
     flexWrap: "wrap",

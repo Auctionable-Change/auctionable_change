@@ -63,34 +63,13 @@ const CurrentListings = ({ navigation }) => {
         onValueChange={(event) => filterListings(event)}
         textStyle={{ fontFamily: "quicksand-bold", fontSize: 15 }}
       >
-        <Picker.Item
-          label="All"
-          value="all"
-        />
-        <Picker.Item
-          label="Electronics"
-          value="electronics"
-        />
-        <Picker.Item
-          label="Home"
-          value="home"
-        />
-        <Picker.Item
-          label="Furniture"
-          value="furniture"
-        />
-        <Picker.Item
-          label="Baby/Kids"
-          value="baby"
-        />
-        <Picker.Item
-          label="Apparel"
-          value="apparel"
-        />
-        <Picker.Item
-          label="Other"
-          value="other"
-        />
+        <Picker.Item label="All" value="all" />
+        <Picker.Item label="Apparel" value="apparel" />
+        <Picker.Item label="Baby/Kids" value="baby" />
+        <Picker.Item label="Electronics" value="electronics" />
+        <Picker.Item label="Furniture" value="furniture" />
+        <Picker.Item label="Home" value="home" />
+        <Picker.Item label="Other" value="other" />
       </Picker>
 
       {isLoading && (
@@ -160,7 +139,7 @@ const styles = StyleSheet.create({
     fontSize: 25,
     alignSelf: "center",
     fontFamily: "quicksand-bold",
-    textAlign: "center"
+    textAlign: "center",
   },
   cardItem: {
     shadowOffset: {
@@ -175,7 +154,7 @@ const styles = StyleSheet.create({
     color: "#065EFE",
     fontSize: 15,
     fontWeight: "bold",
-    fontFamily: "quicksand-bold"
+    fontFamily: "quicksand-bold",
   },
 });
 

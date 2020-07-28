@@ -310,24 +310,24 @@ exports[`CurrentListings should render 1`] = `
                       value="all"
                     />,
                     <Item
-                      label="Electronics"
-                      value="electronics"
-                    />,
-                    <Item
-                      label="Home"
-                      value="home"
-                    />,
-                    <Item
-                      label="Furniture"
-                      value="furniture"
+                      label="Apparel"
+                      value="apparel"
                     />,
                     <Item
                       label="Baby/Kids"
                       value="baby"
                     />,
                     <Item
-                      label="Apparel"
-                      value="apparel"
+                      label="Electronics"
+                      value="electronics"
+                    />,
+                    <Item
+                      label="Furniture"
+                      value="furniture"
+                    />,
+                    <Item
+                      label="Home"
+                      value="home"
                     />,
                     <Item
                       label="Other"
@@ -502,189 +502,7 @@ exports[`CurrentListings should render 1`] = `
                               }
                             }
                           >
-                            Electronics
-                          </Text>
-                        </View>
-                        <View
-                          style={
-                            Object {
-                              "alignItems": "flex-end",
-                              "alignSelf": "center",
-                              "flex": 0.28,
-                              "paddingBottom": null,
-                              "paddingLeft": null,
-                              "paddingRight": null,
-                              "paddingTop": null,
-                            }
-                          }
-                        >
-                          <View
-                            accessible={true}
-                            focusable={false}
-                            forwardedRef={[Function]}
-                            onClick={[Function]}
-                            onResponderGrant={[Function]}
-                            onResponderMove={[Function]}
-                            onResponderRelease={[Function]}
-                            onResponderTerminate={[Function]}
-                            onResponderTerminationRequest={[Function]}
-                            onStartShouldSetResponder={[Function]}
-                            style={
-                              Object {
-                                "alignSelf": null,
-                                "opacity": 1,
-                              }
-                            }
-                          />
-                        </View>
-                      </View>
-                    </View>
-                  </View>
-                  <View
-                    onLayout={[Function]}
-                    style={null}
-                  >
-                    <View
-                      accessible={true}
-                      focusable={true}
-                      onClick={[Function]}
-                      onResponderGrant={[Function]}
-                      onResponderMove={[Function]}
-                      onResponderRelease={[Function]}
-                      onResponderTerminate={[Function]}
-                      onResponderTerminationRequest={[Function]}
-                      onStartShouldSetResponder={[Function]}
-                    >
-                      <View
-                        button={true}
-                        onPress={[Function]}
-                        selected={false}
-                        style={
-                          Object {
-                            "alignItems": "center",
-                            "backgroundColor": "transparent",
-                            "borderBottomWidth": 0.5,
-                            "borderColor": "#c9c9c9",
-                            "flexDirection": "row",
-                            "marginLeft": 16,
-                            "paddingBottom": 13,
-                            "paddingRight": 16,
-                            "paddingTop": 13,
-                          }
-                        }
-                      >
-                        <View
-                          style={
-                            Object {
-                              "alignItems": "flex-start",
-                              "alignSelf": "center",
-                              "flex": 1,
-                              "flexDirection": "row",
-                            }
-                          }
-                        >
-                          <Text
-                            style={
-                              Object {
-                                "alignSelf": "center",
-                                "color": "#000",
-                                "fontFamily": "System",
-                                "fontSize": 16,
-                              }
-                            }
-                          >
-                            Home
-                          </Text>
-                        </View>
-                        <View
-                          style={
-                            Object {
-                              "alignItems": "flex-end",
-                              "alignSelf": "center",
-                              "flex": 0.28,
-                              "paddingBottom": null,
-                              "paddingLeft": null,
-                              "paddingRight": null,
-                              "paddingTop": null,
-                            }
-                          }
-                        >
-                          <View
-                            accessible={true}
-                            focusable={false}
-                            forwardedRef={[Function]}
-                            onClick={[Function]}
-                            onResponderGrant={[Function]}
-                            onResponderMove={[Function]}
-                            onResponderRelease={[Function]}
-                            onResponderTerminate={[Function]}
-                            onResponderTerminationRequest={[Function]}
-                            onStartShouldSetResponder={[Function]}
-                            style={
-                              Object {
-                                "alignSelf": null,
-                                "opacity": 1,
-                              }
-                            }
-                          />
-                        </View>
-                      </View>
-                    </View>
-                  </View>
-                  <View
-                    onLayout={[Function]}
-                    style={null}
-                  >
-                    <View
-                      accessible={true}
-                      focusable={true}
-                      onClick={[Function]}
-                      onResponderGrant={[Function]}
-                      onResponderMove={[Function]}
-                      onResponderRelease={[Function]}
-                      onResponderTerminate={[Function]}
-                      onResponderTerminationRequest={[Function]}
-                      onStartShouldSetResponder={[Function]}
-                    >
-                      <View
-                        button={true}
-                        onPress={[Function]}
-                        selected={false}
-                        style={
-                          Object {
-                            "alignItems": "center",
-                            "backgroundColor": "transparent",
-                            "borderBottomWidth": 0.5,
-                            "borderColor": "#c9c9c9",
-                            "flexDirection": "row",
-                            "marginLeft": 16,
-                            "paddingBottom": 13,
-                            "paddingRight": 16,
-                            "paddingTop": 13,
-                          }
-                        }
-                      >
-                        <View
-                          style={
-                            Object {
-                              "alignItems": "flex-start",
-                              "alignSelf": "center",
-                              "flex": 1,
-                              "flexDirection": "row",
-                            }
-                          }
-                        >
-                          <Text
-                            style={
-                              Object {
-                                "alignSelf": "center",
-                                "color": "#000",
-                                "fontFamily": "System",
-                                "fontSize": 16,
-                              }
-                            }
-                          >
-                            Furniture
+                            Apparel
                           </Text>
                         </View>
                         <View
@@ -866,7 +684,189 @@ exports[`CurrentListings should render 1`] = `
                               }
                             }
                           >
-                            Apparel
+                            Electronics
+                          </Text>
+                        </View>
+                        <View
+                          style={
+                            Object {
+                              "alignItems": "flex-end",
+                              "alignSelf": "center",
+                              "flex": 0.28,
+                              "paddingBottom": null,
+                              "paddingLeft": null,
+                              "paddingRight": null,
+                              "paddingTop": null,
+                            }
+                          }
+                        >
+                          <View
+                            accessible={true}
+                            focusable={false}
+                            forwardedRef={[Function]}
+                            onClick={[Function]}
+                            onResponderGrant={[Function]}
+                            onResponderMove={[Function]}
+                            onResponderRelease={[Function]}
+                            onResponderTerminate={[Function]}
+                            onResponderTerminationRequest={[Function]}
+                            onStartShouldSetResponder={[Function]}
+                            style={
+                              Object {
+                                "alignSelf": null,
+                                "opacity": 1,
+                              }
+                            }
+                          />
+                        </View>
+                      </View>
+                    </View>
+                  </View>
+                  <View
+                    onLayout={[Function]}
+                    style={null}
+                  >
+                    <View
+                      accessible={true}
+                      focusable={true}
+                      onClick={[Function]}
+                      onResponderGrant={[Function]}
+                      onResponderMove={[Function]}
+                      onResponderRelease={[Function]}
+                      onResponderTerminate={[Function]}
+                      onResponderTerminationRequest={[Function]}
+                      onStartShouldSetResponder={[Function]}
+                    >
+                      <View
+                        button={true}
+                        onPress={[Function]}
+                        selected={false}
+                        style={
+                          Object {
+                            "alignItems": "center",
+                            "backgroundColor": "transparent",
+                            "borderBottomWidth": 0.5,
+                            "borderColor": "#c9c9c9",
+                            "flexDirection": "row",
+                            "marginLeft": 16,
+                            "paddingBottom": 13,
+                            "paddingRight": 16,
+                            "paddingTop": 13,
+                          }
+                        }
+                      >
+                        <View
+                          style={
+                            Object {
+                              "alignItems": "flex-start",
+                              "alignSelf": "center",
+                              "flex": 1,
+                              "flexDirection": "row",
+                            }
+                          }
+                        >
+                          <Text
+                            style={
+                              Object {
+                                "alignSelf": "center",
+                                "color": "#000",
+                                "fontFamily": "System",
+                                "fontSize": 16,
+                              }
+                            }
+                          >
+                            Furniture
+                          </Text>
+                        </View>
+                        <View
+                          style={
+                            Object {
+                              "alignItems": "flex-end",
+                              "alignSelf": "center",
+                              "flex": 0.28,
+                              "paddingBottom": null,
+                              "paddingLeft": null,
+                              "paddingRight": null,
+                              "paddingTop": null,
+                            }
+                          }
+                        >
+                          <View
+                            accessible={true}
+                            focusable={false}
+                            forwardedRef={[Function]}
+                            onClick={[Function]}
+                            onResponderGrant={[Function]}
+                            onResponderMove={[Function]}
+                            onResponderRelease={[Function]}
+                            onResponderTerminate={[Function]}
+                            onResponderTerminationRequest={[Function]}
+                            onStartShouldSetResponder={[Function]}
+                            style={
+                              Object {
+                                "alignSelf": null,
+                                "opacity": 1,
+                              }
+                            }
+                          />
+                        </View>
+                      </View>
+                    </View>
+                  </View>
+                  <View
+                    onLayout={[Function]}
+                    style={null}
+                  >
+                    <View
+                      accessible={true}
+                      focusable={true}
+                      onClick={[Function]}
+                      onResponderGrant={[Function]}
+                      onResponderMove={[Function]}
+                      onResponderRelease={[Function]}
+                      onResponderTerminate={[Function]}
+                      onResponderTerminationRequest={[Function]}
+                      onStartShouldSetResponder={[Function]}
+                    >
+                      <View
+                        button={true}
+                        onPress={[Function]}
+                        selected={false}
+                        style={
+                          Object {
+                            "alignItems": "center",
+                            "backgroundColor": "transparent",
+                            "borderBottomWidth": 0.5,
+                            "borderColor": "#c9c9c9",
+                            "flexDirection": "row",
+                            "marginLeft": 16,
+                            "paddingBottom": 13,
+                            "paddingRight": 16,
+                            "paddingTop": 13,
+                          }
+                        }
+                      >
+                        <View
+                          style={
+                            Object {
+                              "alignItems": "flex-start",
+                              "alignSelf": "center",
+                              "flex": 1,
+                              "flexDirection": "row",
+                            }
+                          }
+                        >
+                          <Text
+                            style={
+                              Object {
+                                "alignSelf": "center",
+                                "color": "#000",
+                                "fontFamily": "System",
+                                "fontSize": 16,
+                              }
+                            }
+                          >
+                            Home
                           </Text>
                         </View>
                         <View

@@ -15,7 +15,6 @@ import { Alert } from "react-native";
 import { useStore } from "../../store";
 import { StyleSheet } from "react-native";
 
-
 const SellerForm = ({ navigation }) => {
   const { dispatch } = useStore();
   const [listingObj, setListingObj] = useState({
@@ -94,18 +93,22 @@ const SellerForm = ({ navigation }) => {
                 })
               }
             >
-              <Picker.Item label="Electronics" value="electronics" />
-              <Picker.Item label="Home" value="home" />
-              <Picker.Item label="Furniture" value="furniture" />
-              <Picker.Item label="Baby/Kids" value="baby" />
               <Picker.Item label="Apparel" value="apparel" />
+              <Picker.Item label="Baby/Kids" value="baby" />
+              <Picker.Item label="Electronics" value="electronics" />
+              <Picker.Item label="Furniture" value="furniture" />
+              <Picker.Item label="Home" value="home" />
               <Picker.Item label="Other" value="other" />
             </Picker>
           </Item>
           <Button
             rounded
             success
-            style={{ alignSelf: "center", margin: 10 }}
+            style={{
+              alignSelf: "center",
+              backgroundColor: "#2cb833",
+              margin: 10,
+            }}
             onPress={() => validateForm()}
           >
             <Text style={{ fontFamily: "quicksand-bold", fontSize: 15 }}>
@@ -124,6 +127,5 @@ const styles = StyleSheet.create({
     fontSize: 15,
   },
 });
-
 
 export default SellerForm;

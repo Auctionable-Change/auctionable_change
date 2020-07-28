@@ -11,7 +11,6 @@ const PostConfirmation = ({ navigation }) => {
 
   const handleSubmit = () => {
     submitListing(state.listingToPost);
-    // navigate to thank you
     navigation.navigate("Thank You");
   };
 
@@ -67,7 +66,7 @@ const PostConfirmation = ({ navigation }) => {
         block
         success
         onPress={() => handleSubmit()}
-        style={{ marginTop: 10 }}
+        style={{ marginTop: 10, backgroundColor: "#2cb833" }}
       >
         <Text style={{ fontSize: 15, fontFamily: "quicksand-bold" }}>
           Confirm Listing

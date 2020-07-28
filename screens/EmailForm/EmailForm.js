@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, StyleSheet } from "react-native";
+import { Text } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import * as MailComposer from "expo-mail-composer";
@@ -33,7 +33,7 @@ const EmailForm = ({ navigation }) => {
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: "#FFFFFF" }}>
       <KeyboardAwareScrollView>
-        <Text style={{ fontFamily: "quicksand", fontSize: 15, textAlign: "center", backgroundColor: "#FFFFFF" }}>
+        <Text style={{ fontFamily: "quicksand-bold", fontSize: 20, textAlign: "center", backgroundColor: "#FFFFFF", width: "85%", alignSelf: "center" }}>
           Enter your contact and shipping information to email the seller.
         </Text>
         <BuyerForm navigation={navigation} sendEmail={sendEmail} />
@@ -42,6 +42,5 @@ const EmailForm = ({ navigation }) => {
   );
 };
 
-const styles = StyleSheet.create({});
 
 export default EmailForm;

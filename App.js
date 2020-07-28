@@ -46,7 +46,16 @@ export default function App() {
     <StoreProvider>
       <NavigationContainer>
         <Stack.Navigator>
-          <Stack.Screen name="Home" component={Welcome} />
+          <Stack.Screen
+            name="Home"
+            component={Welcome}
+            options={{
+              headerTitle: false,
+              headerStyle: {
+                backgroundColor: "#2cb833",
+              },
+            }}
+          />
           <Stack.Screen
             name="Listings"
             component={CurrentListings}
@@ -54,6 +63,9 @@ export default function App() {
               headerTitle: () => <LogoTitle />,
               headerBackTitleVisible: false,
               ...backButtonStyle,
+              headerStyle: {
+                backgroundColor: "#2cb833",
+              },
             }}
           />
           <Stack.Screen
@@ -63,6 +75,9 @@ export default function App() {
               headerTitle: () => <LogoTitle />,
               headerBackTitleVisible: false,
               ...backButtonStyle,
+              headerStyle: {
+                backgroundColor: "#2cb833",
+              },
             }}
           />
           <Stack.Screen
@@ -72,6 +87,9 @@ export default function App() {
               headerTitle: () => <LogoTitle />,
               headerBackTitleVisible: false,
               ...backButtonStyle,
+              headerStyle: {
+                backgroundColor: "#2cb833",
+              },
             }}
           />
           <Stack.Screen
@@ -81,6 +99,9 @@ export default function App() {
               headerTitle: () => <LogoTitle />,
               headerBackTitleVisible: false,
               ...backButtonStyle,
+              headerStyle: {
+                backgroundColor: "#2cb833",
+              },
             }}
           />
           <Stack.Screen
@@ -90,6 +111,9 @@ export default function App() {
               headerTitle: () => <LogoTitle />,
               headerBackTitleVisible: false,
               ...backButtonStyle,
+              headerStyle: {
+                backgroundColor: "#2cb833",
+              },
             }}
           />
           <Stack.Screen
@@ -99,6 +123,9 @@ export default function App() {
               headerTitle: () => <LogoTitle />,
               headerBackTitleVisible: false,
               ...backButtonStyle,
+              headerStyle: {
+                backgroundColor: "#2cb833",
+              },
             }}
           />
           <Stack.Screen
@@ -108,6 +135,9 @@ export default function App() {
               headerTitle: () => <LogoTitle />,
               headerBackTitleVisible: false,
               ...backButtonStyle,
+              headerStyle: {
+                backgroundColor: "#2cb833",
+              },
             }}
           />
           <Stack.Screen
@@ -117,6 +147,9 @@ export default function App() {
               headerTitle: () => <LogoTitle />,
               headerBackTitleVisible: false,
               headerLeft: null,
+              headerStyle: {
+                backgroundColor: "#2cb833",
+              },
             }}
           />
           <Stack.Screen
@@ -125,6 +158,9 @@ export default function App() {
               headerTitle: () => <LogoTitle />,
               headerBackTitleVisible: false,
               ...backButtonStyle,
+              headerStyle: {
+                backgroundColor: "#2cb833",
+              },
             }}
           >
             {() => (
@@ -148,7 +184,7 @@ const backButtonStyle = {
       accessibilityRole="button"
       id="add"
       source={require("./assets/icons/back.png")}
-      style={{ width: 30, height: 30, margin: 8 }}
+      style={{ width: 30, height: 30, marginLeft: 10 }}
     />
   ),
 };

@@ -39,7 +39,7 @@ exports[`ListingDetails should render 1`] = `
         style={
           Object {
             "alignSelf": "center",
-            "height": 400,
+            "height": 350,
             "margin": 5,
             "resizeMode": "cover",
             "width": "100%",
@@ -89,9 +89,7 @@ exports[`ListingDetails should render 1`] = `
           }
         }
       >
-        Charity Score: 
-        
-         stars
+        Charity Score:
       </Text>
       <Image
         source={

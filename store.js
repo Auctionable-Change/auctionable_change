@@ -48,6 +48,7 @@ const reducer = (state, action) => {
           charity: action.selectedCharity.name,
           charity_url: action.selectedCharity.url,
           charity_score: action.selectedCharity.rating,
+          charity_score_image: action.selectedCharity.rating_image,
         },
       };
     case "ADD_BUYER_DETAILS":

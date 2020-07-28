@@ -52,9 +52,12 @@ const BuyerForm = ({ sendEmail }) => {
 
   return (
     <Container>
-      <Header />
       <Content>
         <Form>
+          <Text style={{ fontFamily: "quicksand", fontSize: 20, margin: 5 }}>
+            Please enter your contact and shipping information to email the
+            seller
+          </Text>
           <Item floatingLabel>
             <Label style={styles.label}>Your Name</Label>
             <Input onChange={(event) => handleChange(event, "bidder_name")} />
@@ -87,7 +90,9 @@ const BuyerForm = ({ sendEmail }) => {
             onPress={() => validateForm()}
             style={{ alignSelf: "center", margin: 10 }}
           >
-            <Text style={{fontFamily: "quicksand-bold", fontSize: 15}}>Complete Purchase</Text>
+            <Text style={{ fontFamily: "quicksand-bold", fontSize: 15 }}>
+              Complete Purchase
+            </Text>
           </Button>
         </Form>
       </Content>
@@ -98,8 +103,8 @@ const BuyerForm = ({ sendEmail }) => {
 const styles = StyleSheet.create({
   label: {
     fontFamily: "quicksand",
-    fontSize: 15 
-  }
-})
+    fontSize: 15,
+  },
+});
 
 export default BuyerForm;

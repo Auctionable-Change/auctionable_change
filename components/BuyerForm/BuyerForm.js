@@ -33,11 +33,13 @@ const BuyerForm = ({ sendEmail }) => {
   };
 
   const validateForm = () => {
+    console.log('validate')
     let keys = Object.keys(buyerObj);
     let result = [];
     keys.forEach((key) => {
       if (buyerObj[key] === null || buyerObj[key] === "") {
         result.push(key);
+        console.log('results', result)
       }
     });
     if (result.length === 0) {
@@ -55,29 +57,30 @@ const BuyerForm = ({ sendEmail }) => {
         <Form>
           <Item floatingLabel>
             <Label style={styles.label}>Your Name</Label>
-            <Input onChange={(event) => handleChange(event, "bidder_name")} />
+            <Input accessibilityLabel={'name'} onChange={(event) => handleChange(event, "bidder_name")} />
           </Item>
           <Item floatingLabel>
             <Label style={styles.label}>Your Email</Label>
-            <Input onChange={(event) => handleChange(event, "bidder_email")} />
+            <Input accessibilityLabel={'email'} onChange={(event) => handleChange(event, "bidder_email")} />
           </Item>
           <Item floatingLabel>
             <Label style={styles.label}>Street Address</Label>
             <Input
               onChange={(event) => handleChange(event, "street_address")}
+              accessibilityLabel={'address'} 
             />
           </Item>
           <Item floatingLabel>
             <Label style={styles.label}>City</Label>
-            <Input onChange={(event) => handleChange(event, "city")} />
+            <Input accessibilityLabel={'city'} onChange={(event) => handleChange(event, "city")} />
           </Item>
           <Item floatingLabel>
             <Label style={styles.label}>State</Label>
-            <Input onChange={(event) => handleChange(event, "state")} />
+            <Input accessibilityLabel={'state'} onChange={(event) => handleChange(event, "state")} />
           </Item>
           <Item floatingLabel last>
             <Label style={styles.label}>Zipcode</Label>
-            <Input onChange={(event) => handleChange(event, "zip_code")} />
+            <Input accessibilityLabel={'zip'} onChange={(event) => handleChange(event, "zip_code")} />
           </Item>
           <Button
             rounded

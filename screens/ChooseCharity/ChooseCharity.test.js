@@ -16,6 +16,7 @@ describe('ChooseCharity', () => {
     </StoreProvider>).toJSON();
   expect(tree).toMatchSnapshot();
  })
+
  it('should display a message before searching for a charity', () => {
    const { getByText } = render(
     <StoreProvider>
@@ -27,8 +28,9 @@ describe('ChooseCharity', () => {
     expect(message).toBeTruthy()
     expect(button).toBeTruthy()
  })
+ 
  it('should search the BE charity API', () => {
-    fetchCharities.mockResolvedValue(
+    fetchCharities.mockResolvedValueOnce(
       {
         "id": 200345249,
         "url": "https://www.charitynavigator.org/?bay=search.summary&orgid=14066&utm_source=DataAPI&utm_content=6bc9f3c8",
@@ -42,10 +44,11 @@ describe('ChooseCharity', () => {
       </StoreProvider>)
 
       const searchBtn = getByText('Go!');
+      
+      fireEvent(getByPlaceholder("Search Charities"), 'onChange', {nativeEvent: {text: 'Charity1'}})
       fireEvent.press(searchBtn);
       const charityItem = waitFor(() => getByText('Charity1'));
       expect(charityItem).toBeTruthy();
-  
     })
-   
+ 
 })

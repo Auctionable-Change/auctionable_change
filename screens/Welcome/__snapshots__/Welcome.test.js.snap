@@ -185,7 +185,7 @@ exports[`Welcome should render 1`] = `
             },
             Object {
               "fontFamily": "quicksand",
-              "fontSize": 18,
+              "fontSize": 15,
               "marginTop": 25,
             },
           ]

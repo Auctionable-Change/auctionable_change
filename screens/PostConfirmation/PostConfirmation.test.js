@@ -8,10 +8,11 @@ import renderer from "react-test-renderer";
 
 describe('PostConfirmation', () => {
   it('should render', () => {
-  //   const tree = renderer.create(
-  //     <StoreProvider>
-  //       <PostConfirmation/>
-  //     </StoreProvider>).toJSON();
-  //  expect(tree).toMatchSnapshot();
+    const tree = renderer.create(
+      <StoreProvider>
+        <PostConfirmation />
+      </StoreProvider>).toJSON();
+   expect(tree).toMatchSnapshot();
   })
+
 })

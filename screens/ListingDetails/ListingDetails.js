@@ -32,7 +32,7 @@ const ListingDetails = ({ navigation }) => {
           Minimum Donation: ${state.currentListing.price}
         </Text>
         <Text style={styles.description}>
-          Charity Score: {state.currentListing.charity_score} stars
+          Charity Score:
         </Text>
         <Image
           source={{ uri: state.currentListing.charity_score_image }}
@@ -114,7 +114,7 @@ const styles = StyleSheet.create({
   },
   image: {
     width: "100%",
-    height: 400,
+    height: 350,
     resizeMode: "cover",
     alignSelf: "center",
     margin: 5,

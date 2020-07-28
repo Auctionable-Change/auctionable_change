@@ -55,7 +55,7 @@ const Welcome = ({ navigation }) => {
             </Text>
           </Text>
           <Text
-            style={{ fontFamily: "quicksand", fontSize: 18, marginTop: 25 }}
+            style={{ fontFamily: "quicksand", fontSize: 15, marginTop: 25 }}
           >
             Together we can make A.change!
           </Text>

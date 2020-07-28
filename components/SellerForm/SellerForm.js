@@ -39,6 +39,7 @@ const SellerForm = ({ navigation }) => {
       }
     });
     if (result.length === 0) {
+      setListingObj({...listingObj, 'price': Number(listingObj.price)})
       dispatch({
         type: "ADD_TO_LISTING",
         listingToPost: listingObj,
@@ -49,29 +50,36 @@ const SellerForm = ({ navigation }) => {
     }
   };
 
+  const verifyPrice =  (event, name) => {
+    let numberString = event.nativeEvent.text.replace(/[^\d.]/g, '')
+    setListingObj({ ...listingObj, [name]: numberString });
+  } 
+  
+
   return (
     <Container>
       <Content>
         <Form>
           <Item floatingLabel>
             <Label style={styles.label}>Your Name</Label>
-            <Input onChange={(event) => handleChange(event, "donor")} />
+            <Input accessibilityLabel={'name'} onChange={(event) => handleChange(event, "donor")} />
           </Item>
           <Item floatingLabel>
             <Label style={styles.label}>Email</Label>
-            <Input onChange={(event) => handleChange(event, "donor_email")} />
+            <Input accessibilityLabel={'email'} onChange={(event) => handleChange(event, "donor_email")} />
           </Item>
           <Item floatingLabel>
             <Label style={styles.label}>Item Name</Label>
-            <Input onChange={(event) => handleChange(event, "title")} />
+            <Input accessibilityLabel={'item-name'} onChange={(event) => handleChange(event, "title")} />
           </Item>
           <Item floatingLabel>
             <Label style={styles.label}>Item Description</Label>
-            <Input onChange={(event) => handleChange(event, "description")} />
+            <Input accessibilityLabel={'description'} onChange={(event) => handleChange(event, "description")} />
           </Item>
           <Item floatingLabel>
             <Label style={styles.label}>Minimum Bid</Label>
-            <Input onChange={(event) => handleChange(event, "price")} />
+            <Input value={listingObj.price} accessibilityLabel={'bid'} onChange={(event) => verifyPrice(event, "price")} />
+            
           </Item>
           <Item picker last>
             <Picker
@@ -86,6 +94,7 @@ const SellerForm = ({ navigation }) => {
               textStyle={{ fontFamily: "quicksand", fontSize: 15 }}
               placeholder="Select a Category"
               selectedValue={listingObj.category}
+              accessibilityLabel={'category'}
               onValueChange={(event) =>
                 setListingObj({
                   ...listingObj,

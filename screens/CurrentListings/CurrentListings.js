@@ -20,6 +20,7 @@ const CurrentListings = ({ navigation }) => {
   const [allListings, setAllListings] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
+
   const filterListings = (filterCriteria) => {
     if (filterCriteria === "all") {
       setListings(allListings);
@@ -35,8 +36,7 @@ const CurrentListings = ({ navigation }) => {
 
   const pressHandler = (name) => {
     let currentListing = listings.filter(
-      (listing) => listing.title === name
-    )[0];
+      (listing) => listing.title === name)[0];
     dispatch({ type: "ADD_CURRENT_LISTING", currentListing: currentListing });
     navigation.navigate("Details");
   };
@@ -78,6 +78,10 @@ const CurrentListings = ({ navigation }) => {
         </View>
       )}
 
+        {listings.length < 1 && (   
+          <Text style={{flex: 1, width: '75%', textAlign: 'center', marginTop: 50, fontSize: 25, fontFamily: "quicksand" }}>No Listings Here, Try Another Category</Text> 
+        )}
+
       <FlatList
         data={listings}
         keyExtractor={(item) => item.id.toString()}
@@ -106,6 +110,7 @@ const CurrentListings = ({ navigation }) => {
               >{`Minimum Donation: $${item.price}`}</Text>
               <Button
                 transparent
+                accessibilityLabel={'listing'}
                 title="Listing Details"
                 onPress={() => pressHandler(item.title)}
               >
@@ -130,7 +135,7 @@ const styles = StyleSheet.create({
   },
   image: {
     width: "100%",
-    height: 400,
+    height: 350,
     resizeMode: "cover",
     alignSelf: "center",
   },

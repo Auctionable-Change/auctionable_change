@@ -151,6 +151,7 @@ exports[`SellerForm should render 1`] = `
               </Text>
             </View>
             <TextInput
+              accessibilityLabel="name"
               allowFontScaling={true}
               editable={true}
               onBlur={[Function]}
@@ -256,6 +257,7 @@ exports[`SellerForm should render 1`] = `
               </Text>
             </View>
             <TextInput
+              accessibilityLabel="email"
               allowFontScaling={true}
               editable={true}
               onBlur={[Function]}
@@ -361,6 +363,7 @@ exports[`SellerForm should render 1`] = `
               </Text>
             </View>
             <TextInput
+              accessibilityLabel="item-name"
               allowFontScaling={true}
               editable={true}
               onBlur={[Function]}
@@ -466,6 +469,7 @@ exports[`SellerForm should render 1`] = `
               </Text>
             </View>
             <TextInput
+              accessibilityLabel="description"
               allowFontScaling={true}
               editable={true}
               onBlur={[Function]}
@@ -571,6 +575,7 @@ exports[`SellerForm should render 1`] = `
               </Text>
             </View>
             <TextInput
+              accessibilityLabel="bid"
               allowFontScaling={true}
               editable={true}
               onBlur={[Function]}
@@ -595,7 +600,7 @@ exports[`SellerForm should render 1`] = `
                 }
               }
               underlineColorAndroid="rgba(0,0,0,0)"
-              value=""
+              value={null}
             />
           </View>
           <View

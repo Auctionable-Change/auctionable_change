@@ -20,12 +20,12 @@ describe('Camera', () => {
   // it('should display display a Continue Button on load', () => {
   //   const { getByText, getByA11yLabel, debug } = render(
   //     <StoreProvider>
-  //        <App component={Camera}
-  //          params={{title: 'test'}}
-  //        />
+  //      <App component={Camera} 
+
+  //      />
   //     </StoreProvider>
   //   )
-  //   debug()
-  //   expect(getByText('test')).toBeTruthy()
+    
+  //   expect(getByText('Continue')).toBeTruthy()
   // })
 })

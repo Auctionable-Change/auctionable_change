@@ -151,6 +151,7 @@ exports[`BuyerForm should render 1`] = `
               </Text>
             </View>
             <TextInput
+              accessibilityLabel="name"
               allowFontScaling={true}
               editable={true}
               onBlur={[Function]}
@@ -256,6 +257,7 @@ exports[`BuyerForm should render 1`] = `
               </Text>
             </View>
             <TextInput
+              accessibilityLabel="email"
               allowFontScaling={true}
               editable={true}
               onBlur={[Function]}
@@ -361,6 +363,7 @@ exports[`BuyerForm should render 1`] = `
               </Text>
             </View>
             <TextInput
+              accessibilityLabel="address"
               allowFontScaling={true}
               editable={true}
               onBlur={[Function]}
@@ -466,6 +469,7 @@ exports[`BuyerForm should render 1`] = `
               </Text>
             </View>
             <TextInput
+              accessibilityLabel="city"
               allowFontScaling={true}
               editable={true}
               onBlur={[Function]}
@@ -571,6 +575,7 @@ exports[`BuyerForm should render 1`] = `
               </Text>
             </View>
             <TextInput
+              accessibilityLabel="state"
               allowFontScaling={true}
               editable={true}
               onBlur={[Function]}
@@ -677,6 +682,7 @@ exports[`BuyerForm should render 1`] = `
               </Text>
             </View>
             <TextInput
+              accessibilityLabel="zip"
               allowFontScaling={true}
               editable={true}
               onBlur={[Function]}

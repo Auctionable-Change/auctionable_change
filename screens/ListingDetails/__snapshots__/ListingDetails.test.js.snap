@@ -25,6 +25,7 @@ exports[`ListingDetails should render 1`] = `
       <Text
         style={
           Object {
+            "fontFamily": "quicksand-bold",
             "fontSize": 25,
             "marginBottom": 5,
             "textAlign": "center",
@@ -38,7 +39,7 @@ exports[`ListingDetails should render 1`] = `
         style={
           Object {
             "alignSelf": "center",
-            "height": "100%",
+            "height": 400,
             "margin": 5,
             "resizeMode": "cover",
             "width": "100%",
@@ -48,6 +49,7 @@ exports[`ListingDetails should render 1`] = `
       <Text
         style={
           Object {
+            "fontFamily": "quicksand",
             "fontSize": 15,
             "margin": 5,
           }
@@ -58,6 +60,7 @@ exports[`ListingDetails should render 1`] = `
       <Text
         style={
           Object {
+            "fontFamily": "quicksand",
             "fontSize": 15,
             "margin": 5,
           }
@@ -69,6 +72,7 @@ exports[`ListingDetails should render 1`] = `
       <Text
         style={
           Object {
+            "fontFamily": "quicksand",
             "fontSize": 15,
             "margin": 5,
           }
@@ -79,6 +83,7 @@ exports[`ListingDetails should render 1`] = `
       <Text
         style={
           Object {
+            "fontFamily": "quicksand",
             "fontSize": 15,
             "margin": 5,
           }
@@ -97,23 +102,34 @@ exports[`ListingDetails should render 1`] = `
         <Text
           style={
             Object {
+              "fontFamily": "quicksand",
               "fontSize": 15,
+              "marginLeft": 5,
             }
           }
         >
-          Read more about their mission 
+          Read more about their mission
+           
         </Text>
         <Text
           onPress={[Function]}
           style={
             Object {
-              "fontWeight": "bold",
+              "fontFamily": "quicksand-bold",
               "textDecorationLine": "underline",
             }
           }
         >
           here
         </Text>
+        <View
+          style={
+            Object {
+              "flexDirection": "row",
+              "flexWrap": "wrap",
+            }
+          }
+        />
       </View>
       <View
         accessible={true}
@@ -157,6 +173,7 @@ exports[`ListingDetails should render 1`] = `
           style={
             Object {
               "color": "white",
+              "fontFamily": "quicksand-bold",
               "fontSize": 15,
             }
           }
@@ -179,10 +196,10 @@ exports[`ListingDetails should render 1`] = `
           style={
             Object {
               "color": "#336799",
-              "fontStyle": "italic",
+              "fontFamily": "quicksand",
               "margin": 5,
               "textAlign": "center",
-              "width": 150,
+              "width": 140,
             }
           }
         >

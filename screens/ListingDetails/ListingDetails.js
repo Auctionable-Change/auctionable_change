@@ -35,21 +35,38 @@ const ListingDetails = ({ navigation }) => {
           Charity Score: {state.currentListing.charity_score}
         </Text>
         <View style={{ flexDirection: "row", flexWrap: "wrap" }}>
-          <Text style={{ fontSize: 15 }}>Read more about their mission </Text>
           <Text
-            style={{ fontWeight: "bold", textDecorationLine: "underline" }}
+            style={{ fontSize: 15, marginLeft: 5, fontFamily: "quicksand" }}
+          >
+            Read more about their mission{" "}
+          </Text>
+          <Text
+            style={{
+              textDecorationLine: "underline",
+              fontFamily: "quicksand-bold",
+            }}
             onPress={() => Linking.openURL(state.currentListing.charity_url)}
           >
             here
           </Text>
+          <View style={{ flexDirection: "row", flexWrap: "wrap" }}>
+          </View>
         </View>
         <Button
           block
           success
-          onPress={() => navigation.navigate("Purchase")}
           style={{ margin: 5 }}
+          onPress={() => navigation.navigate("Purchase")}
         >
-          <Text style={{ color: "white", fontSize: 15 }}>Donate For Item</Text>
+          <Text
+            style={{
+              color: "white",
+              fontSize: 15,
+              fontFamily: "quicksand-bold",
+            }}
+          >
+            Donate For Item
+          </Text>
         </Button>
         <View style={styles.charityContainer}>
           <Text style={styles.charityAttribution}>
@@ -75,6 +92,7 @@ const styles = StyleSheet.create({
     marginBottom: 5,
     fontSize: 25,
     textAlign: "center",
+    fontFamily: "quicksand-bold"
   },
   scroll: {
     margin: 0,
@@ -83,7 +101,7 @@ const styles = StyleSheet.create({
   },
   image: {
     width: "100%",
-    height: "100%",
+    height: 400,
     resizeMode: "cover",
     alignSelf: "center",
     margin: 5,
@@ -91,13 +109,14 @@ const styles = StyleSheet.create({
   description: {
     margin: 5,
     fontSize: 15,
+    fontFamily: "quicksand"
   },
   charityAttribution: {
-    fontStyle: "italic",
-    width: 150,
+    width: 140,
     textAlign: "center",
     color: "#336799",
     margin: 5,
+    fontFamily: "quicksand"
   },
   charityContainer: {
     flexWrap: "wrap",

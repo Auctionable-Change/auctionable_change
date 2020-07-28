@@ -13,6 +13,8 @@ import {
 } from "native-base";
 import { Alert } from "react-native";
 import { useStore } from "../../store";
+import { StyleSheet } from "react-native";
+
 
 const SellerForm = ({ navigation }) => {
   const { dispatch } = useStore();
@@ -53,30 +55,36 @@ const SellerForm = ({ navigation }) => {
       <Content>
         <Form>
           <Item floatingLabel>
-            <Label>Your Name</Label>
+            <Label style={styles.label}>Your Name</Label>
             <Input onChange={(event) => handleChange(event, "donor")} />
           </Item>
           <Item floatingLabel>
-            <Label>Your Email</Label>
+            <Label style={styles.label}>Email</Label>
             <Input onChange={(event) => handleChange(event, "donor_email")} />
           </Item>
           <Item floatingLabel>
-            <Label>Item Name</Label>
+            <Label style={styles.label}>Item Name</Label>
             <Input onChange={(event) => handleChange(event, "title")} />
           </Item>
           <Item floatingLabel>
-            <Label>Item Description</Label>
+            <Label style={styles.label}>Item Description</Label>
             <Input onChange={(event) => handleChange(event, "description")} />
           </Item>
           <Item floatingLabel>
-            <Label>Minimum Bid</Label>
+            <Label style={styles.label}>Minimum Bid</Label>
             <Input onChange={(event) => handleChange(event, "price")} />
           </Item>
           <Item picker last>
             <Picker
               mode="dropdown"
               iosIcon={<Icon name="arrow-down" />}
-              style={{ alignSelf: "center", margin: 10, width: 300 }}
+              style={{
+                width: 300,
+                alignSelf: "center",
+                margin: 10,
+                width: 300,
+              }}
+              textStyle={{ fontFamily: "quicksand", fontSize: 15 }}
               placeholder="Select a Category"
               selectedValue={listingObj.category}
               onValueChange={(event) =>
@@ -90,21 +98,32 @@ const SellerForm = ({ navigation }) => {
               <Picker.Item label="Home" value="home" />
               <Picker.Item label="Furniture" value="furniture" />
               <Picker.Item label="Baby/Kids" value="baby" />
+              <Picker.Item label="Apparel" value="apparel" />
               <Picker.Item label="Other" value="other" />
             </Picker>
           </Item>
           <Button
             rounded
             success
-            onPress={() => validateForm()}
             style={{ alignSelf: "center", margin: 10 }}
+            onPress={() => validateForm()}
           >
-            <Text>Continue</Text>
+            <Text style={{ fontFamily: "quicksand-bold", fontSize: 15 }}>
+              Continue
+            </Text>
           </Button>
         </Form>
       </Content>
     </Container>
   );
 };
+
+const styles = StyleSheet.create({
+  label: {
+    fontFamily: "quicksand",
+    fontSize: 15,
+  },
+});
+
 
 export default SellerForm;

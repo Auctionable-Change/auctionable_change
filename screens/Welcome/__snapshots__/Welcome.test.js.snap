@@ -29,7 +29,7 @@ exports[`Welcome should render 1`] = `
         Object {
           "alignSelf": "center",
           "color": "grey",
-          "fontStyle": "italic",
+          "fontFamily": "quicksand",
           "marginBottom": 10,
           "textAlign": "center",
           "width": "70%",
@@ -86,16 +86,21 @@ exports[`Welcome should render 1`] = `
     >
       <Text
         style={
-          Object {
-            "backgroundColor": "transparent",
-            "color": "#fff",
-            "fontFamily": "System",
-            "fontSize": 16.5,
-            "marginLeft": 0,
-            "marginRight": 0,
-            "paddingLeft": 16,
-            "paddingRight": 16,
-          }
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+              "color": "#fff",
+              "fontFamily": "System",
+              "fontSize": 16.5,
+              "marginLeft": 0,
+              "marginRight": 0,
+              "paddingLeft": 16,
+              "paddingRight": 16,
+            },
+            Object {
+              "fontFamily": "quicksand-bold",
+            },
+          ]
         }
       >
         Current Listings
@@ -141,16 +146,21 @@ exports[`Welcome should render 1`] = `
     >
       <Text
         style={
-          Object {
-            "backgroundColor": "transparent",
-            "color": "#fff",
-            "fontFamily": "System",
-            "fontSize": 16.5,
-            "marginLeft": 0,
-            "marginRight": 0,
-            "paddingLeft": 16,
-            "paddingRight": 16,
-          }
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+              "color": "#fff",
+              "fontFamily": "System",
+              "fontSize": 16.5,
+              "marginLeft": 0,
+              "marginRight": 0,
+              "paddingLeft": 16,
+              "paddingRight": 16,
+            },
+            Object {
+              "fontFamily": "quicksand-bold",
+            },
+          ]
         }
       >
         Post Item

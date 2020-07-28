@@ -23,6 +23,7 @@ const PostConfirmation = ({ navigation }) => {
             marginBottom: 20,
             fontSize: 25,
             textAlign: "center",
+            fontFamily: "quicksand-bold",
           }}
         >
           Please review your listing before confirming:
@@ -32,7 +33,11 @@ const PostConfirmation = ({ navigation }) => {
           style={styles.image}
         />
         <View style={{ padding: 10, backgroundColor: "#FFFFFF" }}>
-          <Text style={(styles.text, { fontWeight: "bold" })}>Details:</Text>
+          <Text
+            style={{ fontFamily: "quicksand-bold", fontSize: 18, marginTop: 5 }}
+          >
+            Details:
+          </Text>
           <Text style={styles.text}>Title: {state.listingToPost.title}</Text>
           <Text style={styles.text}>Price: ${state.listingToPost.price}</Text>
           <Text style={styles.text}>
@@ -44,7 +49,11 @@ const PostConfirmation = ({ navigation }) => {
           <Text style={styles.text}>
             Charity: {state.listingToPost.charity}
           </Text>
-          <Text style={(styles.text, { fontWeight: "bold" })}>About you:</Text>
+          <Text
+            style={{ fontFamily: "quicksand-bold", fontSize: 18, marginTop: 5 }}
+          >
+            About you:
+          </Text>
           <Text style={styles.text}>Name: {state.listingToPost.donor}</Text>
           <Text style={styles.text}>
             Email: {state.listingToPost.donor_email}
@@ -53,10 +62,17 @@ const PostConfirmation = ({ navigation }) => {
         <Text style={styles.alert}>
           Navigate back to the previous screens to edit or confirm listing.
         </Text>
-        <Button block onPress={() => handleSubmit()} style={{ marginTop: 10 }}>
-          <Text>Confirm Listing</Text>
-        </Button>
       </ScrollView>
+      <Button
+        block
+        success
+        onPress={() => handleSubmit()}
+        style={{ marginTop: 10 }}
+      >
+        <Text style={{ fontSize: 15, fontFamily: "quicksand-bold" }}>
+          Confirm Listing
+        </Text>
+      </Button>
     </SafeAreaView>
   );
 };
@@ -78,20 +94,23 @@ const styles = StyleSheet.create({
   },
   image: {
     width: "100%",
-    height: 300,
+    height: 400,
     resizeMode: "cover",
   },
   text: {
     marginBottom: 5,
     marginLeft: 10,
+    fontFamily: "quicksand",
+    fontSize: 15,
   },
   alert: {
     textAlign: "center",
     margin: 10,
     width: "80%",
-    fontStyle: "italic",
     alignSelf: "center",
     color: "grey",
+    fontFamily: "quicksand",
+    fontSize: 15,
   },
 });
 

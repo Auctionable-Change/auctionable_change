@@ -5,7 +5,7 @@ import * as Permissions from "expo-permissions";
 import { cloudinaryPost } from "../apiCalls";
 import { useStore } from "../../store";
 import { TouchableWithoutFeedback } from "react-native-gesture-handler";
-import { Alert, Image, View } from "react-native";
+import { Alert, Image } from "react-native";
 import { Button, Text } from "native-base";
 import { StyleSheet } from "react-native";
 import { useNavigation } from "@react-navigation/native";
@@ -81,10 +81,12 @@ const Camera = ({ cameraType, user, prompt, title }) => {
   return (
     <SafeAreaView style={styles.container}>
       <Text style={styles.title}>{title}</Text>
+      {/* <View style={styles.subcontainer}> */}
       <Text
         accessibilityLabel={prompt}
+        color="#2cb833"
         onPress={_pickImage}
-        style={{ fontSize: 15, margin: 5 }}
+        style={{ fontFamily: "quicksand", fontSize: 15, margin: 5 }}
       >
         {prompt}
       </Text>
@@ -104,7 +106,7 @@ const Camera = ({ cameraType, user, prompt, title }) => {
         onPress={() => submitHandler()}
         style={styles.button}
       >
-        <Text>Continue</Text>
+        <Text style={{ fontFamily: "quicksand-bold" }}>Continue</Text>
       </Button>
     </SafeAreaView>
   );
@@ -119,7 +121,8 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 20,
     textAlign: "center",
-    marginBottom: 5,
+    marginBottom: 10,
+    fontFamily: "quicksand-bold"
   },
   image: { margin: 5, width: 300, height: 300 },
   camera: { width: 150, height: 150 },

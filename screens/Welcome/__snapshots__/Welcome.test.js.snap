@@ -191,7 +191,29 @@ exports[`Welcome should render 1`] = `
           ]
         }
       >
-        Together we can make A.change!
+        Together we can make 
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#000",
+                "fontFamily": "System",
+                "fontSize": 16,
+              },
+              Object {
+                "color": "#2cb833",
+                "flex": 1,
+                "fontFamily": "quicksand-bold",
+                "fontSize": 18,
+                "marginBottom": 2.5,
+                "textAlign": "center",
+              },
+            ]
+          }
+        >
+          A.change
+        </Text>
+        !
       </Text>
     </View>
   </View>

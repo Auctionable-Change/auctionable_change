@@ -1,3 +1,5 @@
+console.disableYellowBox = true;
+
 import React, { useEffect, useState } from "react";
 import { AppLoading } from "expo";
 import * as Font from "expo-font";
@@ -21,32 +23,39 @@ import ThankYou from "./screens/ThankYou/ThankYou";
 const Stack = createStackNavigator();
 
 export default function App() {
-  const [fontsLoaded, updateFontsLoaded ] = useState(false)
+  const [fontsLoaded, updateFontsLoaded] = useState(false);
 
   useEffect(() => {
     const loadFonts = async () => {
       await Font.loadAsync({
-        "quicksand": require("./assets/fonts/Quicksand-Regular.ttf"),
+        quicksand: require("./assets/fonts/Quicksand-Regular.ttf"),
         "quicksand-light": require("./assets/fonts/Quicksand-Light.ttf"),
         "quicksand-medium": require("./assets/fonts/Quicksand-Medium.ttf"),
         "quicksand-bold": require("./assets/fonts/Quicksand-SemiBold.ttf"),
         ...Ionicons.font,
       });
-      await updateFontsLoaded(true)
+      await updateFontsLoaded(true);
     };
     loadFonts();
   });
 
   if (!fontsLoaded) {
-    return (
-       <AppLoading />
-     )
-   }
+    return <AppLoading />;
+  }
   return (
     <StoreProvider>
       <NavigationContainer>
         <Stack.Navigator>
-          <Stack.Screen name="Home" component={Welcome} />
+          <Stack.Screen
+            name="Home"
+            component={Welcome}
+            options={{
+              headerTitle: false,
+              headerStyle: {
+                backgroundColor: "#2cb833",
+              },
+            }}
+          />
           <Stack.Screen
             name="Listings"
             component={CurrentListings}
@@ -54,6 +63,9 @@ export default function App() {
               headerTitle: () => <LogoTitle />,
               headerBackTitleVisible: false,
               ...backButtonStyle,
+              headerStyle: {
+                backgroundColor: "#2cb833",
+              },
             }}
           />
           <Stack.Screen
@@ -63,6 +75,9 @@ export default function App() {
               headerTitle: () => <LogoTitle />,
               headerBackTitleVisible: false,
               ...backButtonStyle,
+              headerStyle: {
+                backgroundColor: "#2cb833",
+              },
             }}
           />
           <Stack.Screen
@@ -72,6 +87,9 @@ export default function App() {
               headerTitle: () => <LogoTitle />,
               headerBackTitleVisible: false,
               ...backButtonStyle,
+              headerStyle: {
+                backgroundColor: "#2cb833",
+              },
             }}
           />
           <Stack.Screen
@@ -81,6 +99,9 @@ export default function App() {
               headerTitle: () => <LogoTitle />,
               headerBackTitleVisible: false,
               ...backButtonStyle,
+              headerStyle: {
+                backgroundColor: "#2cb833",
+              },
             }}
           />
           <Stack.Screen
@@ -90,6 +111,9 @@ export default function App() {
               headerTitle: () => <LogoTitle />,
               headerBackTitleVisible: false,
               ...backButtonStyle,
+              headerStyle: {
+                backgroundColor: "#2cb833",
+              },
             }}
           />
           <Stack.Screen
@@ -99,6 +123,9 @@ export default function App() {
               headerTitle: () => <LogoTitle />,
               headerBackTitleVisible: false,
               ...backButtonStyle,
+              headerStyle: {
+                backgroundColor: "#2cb833",
+              },
             }}
           />
           <Stack.Screen
@@ -108,6 +135,9 @@ export default function App() {
               headerTitle: () => <LogoTitle />,
               headerBackTitleVisible: false,
               ...backButtonStyle,
+              headerStyle: {
+                backgroundColor: "#2cb833",
+              },
             }}
           />
           <Stack.Screen
@@ -117,6 +147,9 @@ export default function App() {
               headerTitle: () => <LogoTitle />,
               headerBackTitleVisible: false,
               headerLeft: null,
+              headerStyle: {
+                backgroundColor: "#2cb833",
+              },
             }}
           />
           <Stack.Screen
@@ -125,6 +158,9 @@ export default function App() {
               headerTitle: () => <LogoTitle />,
               headerBackTitleVisible: false,
               ...backButtonStyle,
+              headerStyle: {
+                backgroundColor: "#2cb833",
+              },
             }}
           >
             {() => (
@@ -148,7 +184,7 @@ const backButtonStyle = {
       accessibilityRole="button"
       id="add"
       source={require("./assets/icons/back.png")}
-      style={{ width: 30, height: 30, margin: 8 }}
+      style={{ width: 30, height: 30, marginLeft: 10 }}
     />
   ),
 };

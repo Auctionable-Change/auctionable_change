@@ -49,7 +49,9 @@ const ChooseCharity = ({ navigation }) => {
   };
 
   return (
-    <SafeAreaView style={{ flex: 1, alignItems: "center" }}>
+    <SafeAreaView
+      style={{ flex: 1, alignItems: "center", backgroundColor: "#FFFFFF" }}
+    >
       <View style={{ flexDirection: "row" }}>
         <Item style={{ width: "75%" }}>
           <Icon name="ios-search" />
@@ -59,14 +61,18 @@ const ChooseCharity = ({ navigation }) => {
             onChange={(event) => handleChange(event)}
           ></Input>
         </Item>
-        <Button success onPress={() => returnCharities()}>
+        <Button
+          success
+          onPress={() => returnCharities()}
+          style={{ backgroundColor: "#2cb833" }}
+        >
           <Text style={{ fontFamily: "quicksand-bold", fontSize: 15 }}>
             Go!
           </Text>
         </Button>
       </View>
       {!charities && (
-        <Card style={{ width: "90%", height: 150, marginTop: 50 }}>
+        <Card style={{ width: "90%", height: 150, marginTop: 30 }}>
           <Text
             style={{
               alignSelf: "center",
@@ -90,7 +96,7 @@ const ChooseCharity = ({ navigation }) => {
           <Button
             bordered
             success
-            style={{ alignSelf: "center" }}
+            style={{ alignSelf: "center", color: "#2cb833" }}
             onPress={() => returnCharities()}
           >
             <Text style={{ fontFamily: "quicksand", fontSize: 15 }}>
@@ -154,7 +160,7 @@ const ChooseCharity = ({ navigation }) => {
                 color="#2CB833"
                 onPress={() => charitySelect(item.name)}
                 checked={item.name == charitySelected.name ? true : false}
-                style={{ margin: 15 }}
+                style={{ color: "#2cb833", margin: 15 }}
               />
             </Right>
           </Card>
@@ -162,7 +168,12 @@ const ChooseCharity = ({ navigation }) => {
       />
 
       {charitySelected && (
-        <Button block success onPress={() => confirmCharity()}>
+        <Button
+          block
+          success
+          onPress={() => confirmCharity()}
+          style={{ backgroundColor: "#2cb833" }}
+        >
           <Text
             style={{
               color: "white",

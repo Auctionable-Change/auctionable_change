@@ -90,7 +90,25 @@ exports[`ListingDetails should render 1`] = `
         }
       >
         Charity Score: 
+        
+         stars
       </Text>
+      <Image
+        source={
+          Object {
+            "uri": "",
+          }
+        }
+        style={
+          Object {
+            "alignSelf": "center",
+            "height": 40,
+            "marginLeft": 15,
+            "resizeMode": "contain",
+            "width": 80,
+          }
+        }
+      />
       <View
         style={
           Object {
@@ -146,7 +164,7 @@ exports[`ListingDetails should render 1`] = `
           Object {
             "alignItems": "center",
             "alignSelf": "stretch",
-            "backgroundColor": "#5cb85c",
+            "backgroundColor": "#2cb833",
             "borderBottomWidth": null,
             "borderColor": "#007aff",
             "borderLeftWidth": null,
@@ -220,7 +238,7 @@ exports[`ListingDetails should render 1`] = `
   <View
     style={
       Object {
-        "backgroundColor": "white",
+        "backgroundColor": "#2cb833",
         "borderTopColor": "#dddddd",
         "borderTopWidth": 1,
         "bottom": "0%",

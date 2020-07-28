@@ -4,6 +4,8 @@ exports[`Welcome should render 1`] = `
 <View
   style={
     Object {
+      "alignItems": "center",
+      "backgroundColor": "white",
       "flex": 1,
     }
   }
@@ -12,165 +14,266 @@ exports[`Welcome should render 1`] = `
     source={1}
     style={
       Object {
-        "height": 200,
+        "height": 140,
         "resizeMode": "contain",
-        "width": "95%",
+        "width": 400,
       }
     }
   />
-  <Text
-    style={
-      Array [
-        Object {
-          "color": "#000",
-          "fontFamily": "System",
-          "fontSize": 16,
-        },
-        Object {
-          "alignSelf": "center",
-          "color": "grey",
-          "fontFamily": "quicksand",
-          "marginBottom": 10,
-          "textAlign": "center",
-          "width": "70%",
-        },
-      ]
-    }
-  >
-    Buy and sell with purpose because together we can make A.change
-  </Text>
   <View
     style={
       Object {
-        "flex": 1,
-        "padding": 10,
+        "alignSelf": "center",
+        "padding": 20,
+        "width": "80%",
       }
     }
   >
     <View
-      accessible={true}
-      focusable={true}
-      forwardedRef={[Function]}
-      onClick={[Function]}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
       style={
         Object {
           "alignItems": "center",
-          "alignSelf": "stretch",
-          "backgroundColor": "#62B1F6",
-          "borderBottomWidth": null,
-          "borderColor": "#007aff",
-          "borderLeftWidth": null,
-          "borderRadius": 5,
-          "borderRightWidth": null,
-          "borderTopWidth": null,
-          "borderWidth": undefined,
-          "elevation": 2,
-          "flexDirection": "row",
-          "height": 45,
-          "justifyContent": "center",
-          "opacity": 1,
-          "paddingBottom": 6,
-          "paddingTop": 6,
-          "shadowColor": undefined,
-          "shadowOffset": undefined,
-          "shadowOpacity": undefined,
-          "shadowRadius": undefined,
+          "marginBottom": 30,
         }
       }
     >
+      <Image
+        accessibilityRole="button"
+        id="add"
+        source={1}
+        style={
+          Object {
+            "height": 50,
+            "marginBottom": 10,
+            "width": 50,
+          }
+        }
+      />
       <Text
         style={
           Array [
             Object {
-              "backgroundColor": "transparent",
-              "color": "#fff",
+              "color": "#000",
               "fontFamily": "System",
-              "fontSize": 16.5,
-              "marginLeft": 0,
-              "marginRight": 0,
-              "paddingLeft": 16,
-              "paddingRight": 16,
+              "fontSize": 16,
             },
             Object {
-              "fontFamily": "quicksand-bold",
+              "width": "80%",
             },
           ]
         }
       >
-        Current Listings
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#000",
+                "fontFamily": "System",
+                "fontSize": 16,
+              },
+              Object {
+                "color": "#2cb833",
+                "flex": 1,
+                "fontFamily": "quicksand-bold",
+                "fontSize": 18,
+                "marginBottom": 2.5,
+                "textAlign": "center",
+              },
+            ]
+          }
+        >
+          Browse 
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#000",
+                "fontFamily": "System",
+                "fontSize": 16,
+              },
+              Object {
+                "fontFamily": "quicksand",
+                "fontSize": 18,
+              },
+            ]
+          }
+        >
+          and buy items to get cool stuff while supporting a good cause
+        </Text>
       </Text>
     </View>
     <View
-      accessible={true}
-      focusable={true}
-      forwardedRef={[Function]}
-      onClick={[Function]}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
       style={
         Object {
           "alignItems": "center",
-          "alignSelf": "stretch",
-          "backgroundColor": "#62B1F6",
-          "borderBottomWidth": null,
-          "borderColor": "#007aff",
-          "borderLeftWidth": null,
-          "borderRadius": 5,
-          "borderRightWidth": null,
-          "borderTopWidth": null,
-          "borderWidth": undefined,
-          "elevation": 2,
-          "flexDirection": "row",
-          "height": 45,
-          "justifyContent": "center",
-          "marginTop": 30,
-          "opacity": 1,
-          "paddingBottom": 6,
-          "paddingTop": 6,
-          "shadowColor": undefined,
-          "shadowOffset": undefined,
-          "shadowOpacity": undefined,
-          "shadowRadius": undefined,
         }
       }
     >
+      <Image
+        accessibilityRole="button"
+        id="add"
+        source={1}
+        style={
+          Object {
+            "height": 50,
+            "marginBottom": 10,
+            "width": 50,
+          }
+        }
+      />
       <Text
         style={
           Array [
             Object {
-              "backgroundColor": "transparent",
-              "color": "#fff",
+              "color": "#000",
               "fontFamily": "System",
-              "fontSize": 16.5,
-              "marginLeft": 0,
-              "marginRight": 0,
-              "paddingLeft": 16,
-              "paddingRight": 16,
+              "fontSize": 16,
             },
             Object {
-              "fontFamily": "quicksand-bold",
+              "width": "80%",
             },
           ]
         }
       >
-        Post Item
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#000",
+                "fontFamily": "System",
+                "fontSize": 16,
+              },
+              Object {
+                "color": "#2cb833",
+                "flex": 1,
+                "fontFamily": "quicksand-bold",
+                "fontSize": 18,
+                "marginBottom": 2.5,
+                "textAlign": "center",
+              },
+            ]
+          }
+        >
+          Post 
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#000",
+                "fontFamily": "System",
+                "fontSize": 16,
+              },
+              Object {
+                "fontFamily": "quicksand",
+                "fontSize": 18,
+              },
+            ]
+          }
+        >
+          items for sale to donate proceeds to your favorite charities
+        </Text>
+      </Text>
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#000",
+              "fontFamily": "System",
+              "fontSize": 16,
+            },
+            Object {
+              "fontFamily": "quicksand",
+              "fontSize": 18,
+              "marginTop": 25,
+            },
+          ]
+        }
+      >
+        Together we can make A.change!
       </Text>
     </View>
   </View>
   <View
     style={
       Object {
-        "backgroundColor": "white",
+        "bottom": 50,
+        "flexDirection": "row",
+        "justifyContent": "space-between",
+        "position": "absolute",
+        "width": "95%",
+      }
+    }
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#000",
+            "fontFamily": "System",
+            "fontSize": 16,
+          },
+          Object {
+            "color": "#2cb833",
+            "flex": 1,
+            "fontFamily": "quicksand-bold",
+            "fontSize": 18,
+            "marginBottom": 2.5,
+            "textAlign": "center",
+          },
+        ]
+      }
+    >
+      Browse
+    </Text>
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#000",
+            "fontFamily": "System",
+            "fontSize": 16,
+          },
+          Object {
+            "color": "#2cb833",
+            "flex": 1,
+            "fontFamily": "quicksand-bold",
+            "fontSize": 18,
+            "marginBottom": 2.5,
+            "textAlign": "center",
+          },
+        ]
+      }
+    >
+      Post
+    </Text>
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#000",
+            "fontFamily": "System",
+            "fontSize": 16,
+          },
+          Object {
+            "color": "#2cb833",
+            "flex": 1,
+            "fontFamily": "quicksand-bold",
+            "fontSize": 18,
+            "marginBottom": 2.5,
+            "textAlign": "center",
+          },
+        ]
+      }
+    >
+      Home
+    </Text>
+  </View>
+  <View
+    style={
+      Object {
+        "backgroundColor": "#2cb833",
         "borderTopColor": "#dddddd",
         "borderTopWidth": 1,
         "bottom": "0%",

@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import {
   Button,
   Container,
-  Header,
   Content,
   Form,
   Item,
@@ -54,7 +53,6 @@ const BuyerForm = ({ sendEmail }) => {
 
   return (
     <Container>
-      <Header />
       <Content>
         <Form>
           <Item floatingLabel>
@@ -88,9 +86,15 @@ const BuyerForm = ({ sendEmail }) => {
             rounded
             success
             onPress={() => validateForm()}
-            style={{ alignSelf: "center", margin: 10 }}
+            style={{
+              alignSelf: "center",
+              backgroundColor: "#2cb833",
+              margin: 10,
+            }}
           >
-            <Text style={{fontFamily: "quicksand-bold", fontSize: 15}}>Complete Purchase</Text>
+            <Text style={{ fontFamily: "quicksand-bold", fontSize: 15 }}>
+              Complete Purchase
+            </Text>
           </Button>
         </Form>
       </Content>
@@ -101,8 +105,8 @@ const BuyerForm = ({ sendEmail }) => {
 const styles = StyleSheet.create({
   label: {
     fontFamily: "quicksand",
-    fontSize: 15 
-  }
-})
+    fontSize: 15,
+  },
+});
 
 export default BuyerForm;

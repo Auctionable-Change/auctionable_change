@@ -7,16 +7,12 @@ import * as Linking from "expo-linking";
 import Camera from "../Camera/Camera";
 import { ScrollView } from "react-native-gesture-handler";
 
-
 const PaymentInstructions = () => {
   const { state } = useStore();
-  // had to add scroll view because when i changed font the button was below screen
 
   return (
     <SafeAreaView style={styles.container}>
-      <ScrollView
-        contentContainerStyle={{ alignItems: "center", margin: 0 }}
-      >
+      <ScrollView contentContainerStyle={{ alignItems: "center", width: "100%" }}>
         <Text style={styles.title}>Thank you for your contribution!</Text>
         <Text style={styles.subtitle}>Instructions to complete order:</Text>
         <View style={styles.stepOne}>
@@ -64,17 +60,20 @@ const styles = StyleSheet.create({
   subtitle: {
     fontSize: 20,
     fontFamily: "quicksand",
-    margin: 10,
+    margin: 5,
   },
   title: {
     fontSize: 25,
     textAlign: "center",
-    margin: 10,
+    margin: 5,
     fontFamily: "quicksand-bold",
   },
   listItem: {
     fontSize: 15,
-    margin: 20,
+    marginLeft: 20,
+    marginRight: 20,
+    marginTop: 5,
+    marginBottom: 5,
     fontFamily: "quicksand",
   },
   stepOne: {

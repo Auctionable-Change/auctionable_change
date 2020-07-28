@@ -1,12 +1,9 @@
-import React from 'react'
+import React from "react";
 import { View, Image } from "react-native";
 import { StyleSheet } from "react-native";
 import { TouchableWithoutFeedback } from "react-native-gesture-handler";
 
-
-
 const NavBar = ({ navigation }) => {
-
   return (
     <View style={styles.navBar}>
       <TouchableWithoutFeedback onPress={() => navigation.navigate("Listings")}>
@@ -27,9 +24,7 @@ const NavBar = ({ navigation }) => {
           style={styles.icons}
         />
       </TouchableWithoutFeedback>
-      <TouchableWithoutFeedback
-        onPress={() => navigation.navigate("Home")}
-      >
+      <TouchableWithoutFeedback onPress={() => navigation.navigate("Home")}>
         <Image
           accessibilityRole="button"
           id="home"
@@ -39,12 +34,12 @@ const NavBar = ({ navigation }) => {
       </TouchableWithoutFeedback>
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   navBar: {
     width: "100%",
-    backgroundColor: "white",
+    backgroundColor: "#2cb833",
     position: "absolute",
     bottom: "0%",
     height: "8%",

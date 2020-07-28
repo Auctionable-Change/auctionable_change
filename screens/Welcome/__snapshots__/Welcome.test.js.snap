@@ -76,12 +76,13 @@ exports[`Welcome should render 1`] = `
                 "flex": 1,
                 "fontFamily": "quicksand-bold",
                 "fontSize": 18,
+                "marginBottom": 2.5,
                 "textAlign": "center",
               },
             ]
           }
         >
-          Search 
+          Browse 
         </Text>
         <Text
           style={
@@ -98,7 +99,7 @@ exports[`Welcome should render 1`] = `
             ]
           }
         >
-          and purchase items to get cool stuff while contributing to a good cause
+          and buy items to get cool stuff while supporting a good cause
         </Text>
       </Text>
     </View>
@@ -148,12 +149,13 @@ exports[`Welcome should render 1`] = `
                 "flex": 1,
                 "fontFamily": "quicksand-bold",
                 "fontSize": 18,
+                "marginBottom": 2.5,
                 "textAlign": "center",
               },
             ]
           }
         >
-          Sell 
+          Post 
         </Text>
         <Text
           style={
@@ -170,8 +172,26 @@ exports[`Welcome should render 1`] = `
             ]
           }
         >
-          items to donate proceeds to your favorite charities
+          items for sale to donate proceeds to your favorite charities
         </Text>
+      </Text>
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#000",
+              "fontFamily": "System",
+              "fontSize": 16,
+            },
+            Object {
+              "fontFamily": "quicksand",
+              "fontSize": 18,
+              "marginTop": 25,
+            },
+          ]
+        }
+      >
+        Together we can make A.change!
       </Text>
     </View>
   </View>
@@ -199,12 +219,13 @@ exports[`Welcome should render 1`] = `
             "flex": 1,
             "fontFamily": "quicksand-bold",
             "fontSize": 18,
+            "marginBottom": 2.5,
             "textAlign": "center",
           },
         ]
       }
     >
-      Search
+      Browse
     </Text>
     <Text
       style={
@@ -219,6 +240,7 @@ exports[`Welcome should render 1`] = `
             "flex": 1,
             "fontFamily": "quicksand-bold",
             "fontSize": 18,
+            "marginBottom": 2.5,
             "textAlign": "center",
           },
         ]
@@ -239,6 +261,7 @@ exports[`Welcome should render 1`] = `
             "flex": 1,
             "fontFamily": "quicksand-bold",
             "fontSize": 18,
+            "marginBottom": 2.5,
             "textAlign": "center",
           },
         ]

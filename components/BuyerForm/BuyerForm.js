@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import {
   Button,
   Container,
-  Header,
   Content,
   Form,
   Item,
@@ -52,7 +51,6 @@ const BuyerForm = ({ sendEmail }) => {
 
   return (
     <Container>
-      <Header />
       <Content>
         <Form>
           <Item floatingLabel>

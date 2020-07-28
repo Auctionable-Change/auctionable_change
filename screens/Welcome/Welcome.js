@@ -13,7 +13,7 @@ const Welcome = ({ navigation }) => {
       />
       <View
         style={{
-          padding: 20,
+          padding: 15,
           width: "80%",
           alignSelf: "center",
         }}
@@ -54,13 +54,13 @@ const Welcome = ({ navigation }) => {
               items for sale to donate proceeds to your favorite charities
             </Text>
           </Text>
-          <Text
-            style={{ fontFamily: "quicksand", fontSize: 15, marginTop: 25 }}
-          >
-            Together we can make <Text style={styles.iconText}>A.change</Text>!
-          </Text>
         </View>
       </View>
+      <Text
+        style={{ fontFamily: "quicksand", fontSize: 18, marginTop: 10, textAlign: "center" }}
+      >
+        Together we can make <Text style={styles.iconText}>A.change</Text>!
+      </Text>
       <View
         style={{
           position: "absolute",

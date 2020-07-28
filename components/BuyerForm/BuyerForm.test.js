@@ -8,15 +8,9 @@ import renderer from "react-test-renderer";
 
 describe('BuyerForm', () => {
   it('should render', () => {
-    const state = {
-      currentListing: {
-        price: 3,
-        id: 4
-      }
-    }
     const tree = renderer.create(
       <StoreProvider>
-        <BuyerForm state={state}/>
+        <BuyerForm />
       </StoreProvider>).toJSON();
    expect(tree).toMatchSnapshot();
   })

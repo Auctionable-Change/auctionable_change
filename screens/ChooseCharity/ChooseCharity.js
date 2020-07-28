@@ -49,7 +49,9 @@ const ChooseCharity = ({ navigation }) => {
   };
 
   return (
-    <SafeAreaView style={{ flex: 1, alignItems: "center" }}>
+    <SafeAreaView
+      style={{ flex: 1, alignItems: "center", backgroundColor: "#FFFFFF" }}
+    >
       <View style={{ flexDirection: "row" }}>
         <Item style={{ width: "75%" }}>
           <Icon name="ios-search" />
@@ -66,7 +68,7 @@ const ChooseCharity = ({ navigation }) => {
         </Button>
       </View>
       {!charities && (
-        <Card style={{ width: "90%", height: 150, marginTop: 50 }}>
+        <Card style={{ width: "90%", height: 150, marginTop: 30 }}>
           <Text
             style={{
               alignSelf: "center",

@@ -2,7 +2,7 @@ import * as React from "react";
 import { View, Image } from "react-native";
 import NavBar from "../../components/NavBar/NavBar";
 import { StyleSheet } from "react-native";
-import { Button, Text } from "native-base";
+import { Text } from "native-base";
 
 const Welcome = ({ navigation }) => {
   return (
@@ -11,21 +11,64 @@ const Welcome = ({ navigation }) => {
         source={require("../../assets/stacked_logo.png")}
         style={styles.logo}
       />
-      <Text style={styles.motto}>
-        Buy and sell with purpose because together we can make A.change
-      </Text>
-      <View style={{ flex: 1, padding: 10 }}>
-        <Button block info onPress={() => navigation.navigate("Listings")}>
-          <Text style={{ fontFamily: "quicksand-bold" }}>Current Listings</Text>
-        </Button>
-        <Button
-          style={{ marginTop: 30 }}
-          block
-          info
-          onPress={() => navigation.navigate("Post Item")}
+      <View
+        style={{
+          padding: 20,
+          width: "80%",
+          alignSelf: "center",
+        }}
+      >
+        <View
+          style={{
+            marginBottom: 30,
+            alignItems: "center",
+          }}
         >
-          <Text style={{ fontFamily: "quicksand-bold" }}>Post Item</Text>
-        </Button>
+          <Image
+            accessibilityRole="button"
+            id="add"
+            source={require("../../assets/icons/browse.png")}
+            style={styles.icons}
+          />
+          <Text style={{ width: "80%" }}>
+            <Text style={styles.iconText}>Search </Text>
+            <Text style={styles.pageText}>
+              and purchase items to get cool stuff while contributing to a good
+              cause
+            </Text>
+          </Text>
+        </View>
+        <View
+          style={{
+            alignItems: "center",
+          }}
+        >
+          <Image
+            accessibilityRole="button"
+            id="add"
+            source={require("../../assets/icons/package.png")}
+            style={styles.icons}
+          />
+          <Text style={{ width: "80%" }}>
+            <Text style={styles.iconText}>Sell </Text>
+            <Text style={styles.pageText}>
+              items to donate proceeds to your favorite charities
+            </Text>
+          </Text>
+        </View>
+      </View>
+      <View
+        style={{
+          position: "absolute",
+          bottom: 50,
+          flexDirection: "row",
+          justifyContent: "space-between",
+          width: "95%"
+        }}
+      >
+        <Text style={styles.iconText}>Search</Text>
+        <Text style={styles.iconText}>Post</Text>
+        <Text style={styles.iconText}>Home</Text>
       </View>
       <NavBar navigation={navigation} />
     </View>
@@ -35,19 +78,29 @@ const Welcome = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: "white",
+    alignItems: "center",
   },
   logo: {
-    width: "95%",
-    height: 200,
+    width: 400,
+    height: 140,
     resizeMode: "contain",
   },
-  motto: {
-    width: "70%",
-    textAlign: "center",
-    alignSelf: "center",
-    color: "grey",
+  icons: {
+    width: 50,
     marginBottom: 10,
+    height: 50,
+  },
+  iconText: {
+    fontFamily: "quicksand-bold",
+    color: "#2cb833",
+    flex: 1,
+    textAlign: "center",
+    fontSize: 18,
+  },
+  pageText: {
     fontFamily: "quicksand",
+    fontSize: 18,
   },
 });
 

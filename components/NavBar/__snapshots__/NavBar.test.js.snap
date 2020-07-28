@@ -4,7 +4,7 @@ exports[`NavBar renders correctly 1`] = `
 <View
   style={
     Object {
-      "backgroundColor": "white",
+      "backgroundColor": "#2cb833",
       "borderTopColor": "#dddddd",
       "borderTopWidth": 1,
       "bottom": "0%",

@@ -44,7 +44,7 @@ const NavBar = ({ navigation }) => {
 const styles = StyleSheet.create({
   navBar: {
     width: "100%",
-    backgroundColor: "white",
+    backgroundColor: "#2cb833",
     position: "absolute",
     bottom: "0%",
     height: "8%",

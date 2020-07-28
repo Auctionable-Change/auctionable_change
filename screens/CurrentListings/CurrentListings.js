@@ -82,7 +82,7 @@ const CurrentListings = ({ navigation }) => {
         data={listings}
         keyExtractor={(item) => item.id.toString()}
         renderItem={({ item }) => (
-          <Card style={{ marginBottom: 15 }}>
+          <Card style={{ marginBottom: 35 }}>
             <CardItem style={styles.cardItem}>
               <Left>
                 <Body>

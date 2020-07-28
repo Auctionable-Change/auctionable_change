@@ -20,6 +20,7 @@ const CurrentListings = ({ navigation }) => {
   const [allListings, setAllListings] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
+
   const filterListings = (filterCriteria) => {
     if (filterCriteria === "all") {
       setListings(allListings);
@@ -35,8 +36,7 @@ const CurrentListings = ({ navigation }) => {
 
   const pressHandler = (name) => {
     let currentListing = listings.filter(
-      (listing) => listing.title === name
-    )[0];
+      (listing) => listing.title === name)[0];
     dispatch({ type: "ADD_CURRENT_LISTING", currentListing: currentListing });
     navigation.navigate("Details");
   };
@@ -98,6 +98,16 @@ const CurrentListings = ({ navigation }) => {
           <ActivityIndicator size="large" color="#2CB833" />
         </View>
       )}
+
+        {/* {listings.length < 1 && (
+          <Card style={{flex: 1}}>
+            
+              <Text>No Listings here</Text>
+            
+          </Card>
+        ) 
+
+        } */}
 
       <FlatList
         data={listings}

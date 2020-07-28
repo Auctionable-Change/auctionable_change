@@ -40,6 +40,7 @@ const SellerForm = ({ navigation }) => {
       }
     });
     if (result.length === 0) {
+      setListingObj({...listingObj, 'price': Number(listingObj.price)})
       dispatch({
         type: "ADD_TO_LISTING",
         listingToPost: listingObj,
@@ -49,6 +50,12 @@ const SellerForm = ({ navigation }) => {
       Alert.alert("Missing Input", "Please fill out all fields to continue");
     }
   };
+
+  const verifyPrice =  (event, name) => {
+    let numberString = event.nativeEvent.text.replace(/[^\d.]/g, '')
+    setListingObj({ ...listingObj, [name]: numberString });
+  } 
+  
 
   return (
     <Container>
@@ -72,7 +79,8 @@ const SellerForm = ({ navigation }) => {
           </Item>
           <Item floatingLabel>
             <Label style={styles.label}>Minimum Bid</Label>
-            <Input accessibilityLabel={'bid'} onChange={(event) => handleChange(event, "price")} />
+            <Input value={listingObj.price} accessibilityLabel={'bid'} onChange={(event) => verifyPrice(event, "price")} />
+            
           </Item>
           <Item picker last>
             <Picker

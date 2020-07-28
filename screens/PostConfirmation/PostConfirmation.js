@@ -11,7 +11,6 @@ const PostConfirmation = ({ navigation }) => {
 
   const handleSubmit = () => {
     submitListing(state.listingToPost);
-    // navigate to thank you
     navigation.navigate("Thank You");
   };
 

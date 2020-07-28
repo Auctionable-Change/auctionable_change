@@ -1,3 +1,5 @@
+console.disableYellowBox = true;
+
 import React, { useEffect, useState } from "react";
 import { AppLoading } from "expo";
 import * as Font from "expo-font";
@@ -21,27 +23,25 @@ import ThankYou from "./screens/ThankYou/ThankYou";
 const Stack = createStackNavigator();
 
 export default function App() {
-  const [fontsLoaded, updateFontsLoaded ] = useState(false)
+  const [fontsLoaded, updateFontsLoaded] = useState(false);
 
   useEffect(() => {
     const loadFonts = async () => {
       await Font.loadAsync({
-        "quicksand": require("./assets/fonts/Quicksand-Regular.ttf"),
+        quicksand: require("./assets/fonts/Quicksand-Regular.ttf"),
         "quicksand-light": require("./assets/fonts/Quicksand-Light.ttf"),
         "quicksand-medium": require("./assets/fonts/Quicksand-Medium.ttf"),
         "quicksand-bold": require("./assets/fonts/Quicksand-SemiBold.ttf"),
         ...Ionicons.font,
       });
-      await updateFontsLoaded(true)
+      await updateFontsLoaded(true);
     };
     loadFonts();
   });
 
   if (!fontsLoaded) {
-    return (
-       <AppLoading />
-     )
-   }
+    return <AppLoading />;
+  }
   return (
     <StoreProvider>
       <NavigationContainer>

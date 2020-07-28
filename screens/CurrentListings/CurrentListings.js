@@ -20,7 +20,6 @@ const CurrentListings = ({ navigation }) => {
   const [allListings, setAllListings] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
-
   const filterListings = (filterCriteria) => {
     if (filterCriteria === "all") {
       setListings(allListings);
@@ -36,7 +35,8 @@ const CurrentListings = ({ navigation }) => {
 
   const pressHandler = (name) => {
     let currentListing = listings.filter(
-      (listing) => listing.title === name)[0];
+      (listing) => listing.title === name
+    )[0];
     dispatch({ type: "ADD_CURRENT_LISTING", currentListing: currentListing });
     navigation.navigate("Details");
   };
@@ -78,9 +78,30 @@ const CurrentListings = ({ navigation }) => {
         </View>
       )}
 
-        {listings.length < 1 && (   
-          <Text style={{flex: 1, width: '75%', textAlign: 'center', marginTop: 50, fontSize: 25, fontFamily: "quicksand" }}>No Listings Here, Try Another Category</Text> 
-        )}
+      {listings.length < 1 && (
+        <View>
+          <Text
+            style={{
+              textAlign: "center",
+              marginTop: 50,
+              fontSize: 25,
+              fontFamily: "quicksand",
+            }}
+          >
+            No Listings Here
+          </Text>
+          <Text
+            style={{
+              textAlign: "center",
+              marginTop: 10,
+              fontSize: 25,
+              fontFamily: "quicksand",
+            }}
+          >
+            Try Another Category
+          </Text>
+        </View>
+      )}
 
       <FlatList
         data={listings}
@@ -110,7 +131,7 @@ const CurrentListings = ({ navigation }) => {
               >{`Minimum Donation: $${item.price}`}</Text>
               <Button
                 transparent
-                accessibilityLabel={'listing'}
+                accessibilityLabel={"listing"}
                 title="Listing Details"
                 onPress={() => pressHandler(item.title)}
               >

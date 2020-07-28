@@ -42,10 +42,12 @@ exports[`EmailForm should render 1`] = `
       <Text
         style={
           Object {
+            "alignSelf": "center",
             "backgroundColor": "#FFFFFF",
-            "fontFamily": "quicksand",
-            "fontSize": 15,
+            "fontFamily": "quicksand-bold",
+            "fontSize": 20,
             "textAlign": "center",
+            "width": "85%",
           }
         }
       >
@@ -60,39 +62,6 @@ exports[`EmailForm should render 1`] = `
           }
         }
       >
-        <View>
-          <RCTSafeAreaView
-            emulateUnlessSupported={true}
-            style={
-              Object {
-                "backgroundColor": "#F8F8F8",
-              }
-            }
-          >
-            <View
-              style={
-                Object {
-                  "backgroundColor": "#F8F8F8",
-                  "borderBottomColor": "#a7a6ab",
-                  "borderBottomWidth": 0.5,
-                  "elevation": 3,
-                  "flexDirection": "row",
-                  "height": 64,
-                  "justifyContent": "center",
-                  "left": 0,
-                  "paddingLeft": 6,
-                  "paddingRight": 10,
-                  "right": 0,
-                  "shadowColor": undefined,
-                  "shadowOffset": undefined,
-                  "shadowOpacity": undefined,
-                  "shadowRadius": undefined,
-                  "top": 0,
-                }
-              }
-            />
-          </RCTSafeAreaView>
-        </View>
         <RCTSafeAreaView
           emulateUnlessSupported={true}
           style={

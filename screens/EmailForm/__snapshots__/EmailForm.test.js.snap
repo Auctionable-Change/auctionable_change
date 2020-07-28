@@ -42,18 +42,12 @@ exports[`EmailForm should render 1`] = `
       <Text
         style={
           Object {
-<<<<<<< HEAD
-            "fontFamily": "quicksand",
-            "fontSize": 20,
-            "margin": 5,
-=======
             "alignSelf": "center",
             "backgroundColor": "#FFFFFF",
             "fontFamily": "quicksand-bold",
             "fontSize": 20,
             "textAlign": "center",
             "width": "85%",
->>>>>>> b6751359646ff63db57637c857331c158a511815
           }
         }
       >

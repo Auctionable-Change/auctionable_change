@@ -93,11 +93,11 @@ const SellerForm = ({ navigation }) => {
                 })
               }
             >
-              <Picker.Item label="Electronics" value="electronics" />
-              <Picker.Item label="Home" value="home" />
-              <Picker.Item label="Furniture" value="furniture" />
-              <Picker.Item label="Baby/Kids" value="baby" />
               <Picker.Item label="Apparel" value="apparel" />
+              <Picker.Item label="Baby/Kids" value="baby" />
+              <Picker.Item label="Electronics" value="electronics" />
+              <Picker.Item label="Furniture" value="furniture" />
+              <Picker.Item label="Home" value="home" />
               <Picker.Item label="Other" value="other" />
             </Picker>
           </Item>

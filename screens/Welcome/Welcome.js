@@ -63,7 +63,7 @@ const Welcome = ({ navigation }) => {
           bottom: 50,
           flexDirection: "row",
           justifyContent: "space-between",
-          width: "95%"
+          width: "95%",
         }}
       >
         <Text style={styles.iconText}>Search</Text>

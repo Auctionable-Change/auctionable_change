@@ -10,39 +10,6 @@ exports[`BuyerForm should render 1`] = `
     }
   }
 >
-  <View>
-    <RCTSafeAreaView
-      emulateUnlessSupported={true}
-      style={
-        Object {
-          "backgroundColor": "#F8F8F8",
-        }
-      }
-    >
-      <View
-        style={
-          Object {
-            "backgroundColor": "#F8F8F8",
-            "borderBottomColor": "#a7a6ab",
-            "borderBottomWidth": 0.5,
-            "elevation": 3,
-            "flexDirection": "row",
-            "height": 64,
-            "justifyContent": "center",
-            "left": 0,
-            "paddingLeft": 6,
-            "paddingRight": 10,
-            "right": 0,
-            "shadowColor": undefined,
-            "shadowOffset": undefined,
-            "shadowOpacity": undefined,
-            "shadowRadius": undefined,
-            "top": 0,
-          }
-        }
-      />
-    </RCTSafeAreaView>
-  </View>
   <RCTSafeAreaView
     emulateUnlessSupported={true}
     style={
@@ -752,7 +719,7 @@ exports[`BuyerForm should render 1`] = `
               Object {
                 "alignItems": "center",
                 "alignSelf": "center",
-                "backgroundColor": "#5cb85c",
+                "backgroundColor": "#2cb833",
                 "borderBottomWidth": null,
                 "borderColor": "#007aff",
                 "borderLeftWidth": null,

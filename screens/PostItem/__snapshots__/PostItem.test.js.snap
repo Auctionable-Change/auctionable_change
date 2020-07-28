@@ -1590,7 +1590,7 @@ exports[`PostItem should render 1`] = `
                     Object {
                       "alignItems": "center",
                       "alignSelf": "center",
-                      "backgroundColor": "#5cb85c",
+                      "backgroundColor": "#2cb833",
                       "borderBottomWidth": null,
                       "borderColor": "#007aff",
                       "borderLeftWidth": null,

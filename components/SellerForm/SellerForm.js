@@ -13,9 +13,11 @@ import {
 } from "native-base";
 import { Alert } from "react-native";
 import { useStore } from "../../store";
+import { StyleSheet } from "react-native";
+
 
 const SellerForm = ({ navigation }) => {
-  const { dispatch, state } = useStore();
+  const { dispatch } = useStore();
   const [listingObj, setListingObj] = useState({
     donor: null,
     donor_email: null,
@@ -53,31 +55,37 @@ const SellerForm = ({ navigation }) => {
       <Content>
         <Form>
           <Item floatingLabel>
-            <Label>Your Name</Label>
+            <Label style={styles.label}>Your Name</Label>
             <Input accessibilityLabel={'name'} onChange={(event) => handleChange(event, "donor")} />
           </Item>
           <Item floatingLabel>
-            <Label>Email</Label>
+            <Label style={styles.label}>Email</Label>
             <Input accessibilityLabel={'email'} onChange={(event) => handleChange(event, "donor_email")} />
           </Item>
           <Item floatingLabel>
-            <Label>Item Name</Label>
+            <Label style={styles.label}>Item Name</Label>
             <Input accessibilityLabel={'item-name'} onChange={(event) => handleChange(event, "title")} />
           </Item>
           <Item floatingLabel>
-            <Label>Item Description</Label>
-            <Input accessibilityLabel={'description'}  onChange={(event) => handleChange(event, "description")} />
+            <Label style={styles.label}>Item Description</Label>
+            <Input accessibilityLabel={'description'} onChange={(event) => handleChange(event, "description")} />
           </Item>
           <Item floatingLabel>
-            <Label>Minimum Bid</Label>
+            <Label style={styles.label}>Minimum Bid</Label>
             <Input accessibilityLabel={'bid'} onChange={(event) => handleChange(event, "price")} />
           </Item>
           <Item picker last>
             <Picker
               mode="dropdown"
               iosIcon={<Icon name="arrow-down" />}
-              style={{ width: 300, marginTop: 20 }}
-              placeholder="Item Category"
+              style={{
+                width: 300,
+                alignSelf: "center",
+                margin: 10,
+                width: 300,
+              }}
+              textStyle={{ fontFamily: "quicksand", fontSize: 15 }}
+              placeholder="Select a Category"
               selectedValue={listingObj.category}
               accessibilityLabel={'category'}
               onValueChange={(event) =>
@@ -91,16 +99,32 @@ const SellerForm = ({ navigation }) => {
               <Picker.Item label="Home" value="home" />
               <Picker.Item label="Furniture" value="furniture" />
               <Picker.Item label="Baby/Kids" value="baby" />
+              <Picker.Item label="Apparel" value="apparel" />
               <Picker.Item label="Other" value="other" />
             </Picker>
           </Item>
-          <Button block success onPress={() => validateForm()}>
-            <Text>Continue to Charities</Text>
+          <Button
+            rounded
+            success
+            style={{ alignSelf: "center", margin: 10 }}
+            onPress={() => validateForm()}
+          >
+            <Text style={{ fontFamily: "quicksand-bold", fontSize: 15 }}>
+              Continue
+            </Text>
           </Button>
         </Form>
       </Content>
     </Container>
   );
 };
+
+const styles = StyleSheet.create({
+  label: {
+    fontFamily: "quicksand",
+    fontSize: 15,
+  },
+});
+
 
 export default SellerForm;

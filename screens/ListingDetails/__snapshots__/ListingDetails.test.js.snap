@@ -4,7 +4,7 @@ exports[`ListingDetails should render 1`] = `
 <RNCSafeAreaView
   style={
     Object {
-      "alignItems": "center",
+      "backgroundColor": "#FFFFFF",
       "flex": 1,
     }
   }
@@ -15,91 +15,112 @@ exports[`ListingDetails should render 1`] = `
       Object {
         "alignItems": "center",
         "display": "flex",
-        "padding": 15,
+        "margin": 0,
       }
     }
     onGestureHandlerEvent={[Function]}
     onGestureHandlerStateChange={[Function]}
   >
     <View>
+      <Text
+        style={
+          Object {
+            "fontFamily": "quicksand-bold",
+            "fontSize": 25,
+            "marginBottom": 5,
+            "textAlign": "center",
+          }
+        }
+      >
+        
+      </Text>
+      <Image
+        source={1}
+        style={
+          Object {
+            "alignSelf": "center",
+            "height": 400,
+            "margin": 5,
+            "resizeMode": "cover",
+            "width": "100%",
+          }
+        }
+      />
+      <Text
+        style={
+          Object {
+            "fontFamily": "quicksand",
+            "fontSize": 15,
+            "margin": 5,
+          }
+        }
+      >
+        
+      </Text>
+      <Text
+        style={
+          Object {
+            "fontFamily": "quicksand",
+            "fontSize": 15,
+            "margin": 5,
+          }
+        }
+      >
+        This item supports 
+        
+      </Text>
+      <Text
+        style={
+          Object {
+            "fontFamily": "quicksand",
+            "fontSize": 15,
+            "margin": 5,
+          }
+        }
+      >
+        Minimum Donation: $
+      </Text>
+      <Text
+        style={
+          Object {
+            "fontFamily": "quicksand",
+            "fontSize": 15,
+            "margin": 5,
+          }
+        }
+      >
+        Charity Score: 
+      </Text>
       <View
         style={
           Object {
-            "backgroundColor": "#FFFFFF",
-            "borderRadius": 10,
-            "margin": 10,
-            "padding": 10,
-            "shadowOffset": Object {
-              "height": 1,
-              "width": 0,
-            },
-            "shadowOpacity": 0.18,
-            "shadowRadius": 1,
+            "flexDirection": "row",
+            "flexWrap": "wrap",
           }
         }
       >
         <Text
           style={
             Object {
-              "fontSize": 25,
-              "margin": 10,
-              "textAlign": "center",
-            }
-          }
-        >
-          
-        </Text>
-        <Image
-          source={1}
-          style={
-            Object {
-              "alignSelf": "center",
-              "height": 300,
-              "resizeMode": "cover",
-              "width": 300,
-            }
-          }
-        />
-        <Text
-          style={
-            Object {
+              "fontFamily": "quicksand",
               "fontSize": 15,
-              "margin": 5,
+              "marginLeft": 5,
             }
           }
         >
-          
+          Read more about their mission
+           
         </Text>
         <Text
+          onPress={[Function]}
           style={
             Object {
-              "fontSize": 15,
-              "margin": 5,
+              "fontFamily": "quicksand-bold",
+              "textDecorationLine": "underline",
             }
           }
         >
-          Minimum Donation: $
-        </Text>
-        <Text
-          style={
-            Object {
-              "fontSize": 15,
-              "margin": 5,
-            }
-          }
-        >
-          This item supports 
-          
-        </Text>
-        <Text
-          style={
-            Object {
-              "fontSize": 15,
-              "margin": 5,
-            }
-          }
-        >
-          Charity Score: 
+          here
         </Text>
         <View
           style={
@@ -108,30 +129,7 @@ exports[`ListingDetails should render 1`] = `
               "flexWrap": "wrap",
             }
           }
-        >
-          <Text
-            style={
-              Object {
-                "fontSize": 15,
-                "marginLeft": 5,
-              }
-            }
-          >
-            Read more about their mission
-             
-          </Text>
-          <Text
-            onPress={[Function]}
-            style={
-              Object {
-                "fontWeight": "bold",
-                "textDecorationLine": "underline",
-              }
-            }
-          >
-            here
-          </Text>
-        </View>
+        />
       </View>
       <View
         accessible={true}
@@ -160,6 +158,7 @@ exports[`ListingDetails should render 1`] = `
             "flexDirection": "row",
             "height": 45,
             "justifyContent": "center",
+            "margin": 5,
             "opacity": 1,
             "paddingBottom": 6,
             "paddingTop": 6,
@@ -174,6 +173,7 @@ exports[`ListingDetails should render 1`] = `
           style={
             Object {
               "color": "white",
+              "fontFamily": "quicksand-bold",
               "fontSize": 15,
             }
           }
@@ -187,7 +187,8 @@ exports[`ListingDetails should render 1`] = `
             "flexDirection": "row",
             "flexWrap": "wrap",
             "height": 120,
-            "margin": 10,
+            "marginBottom": 15,
+            "marginTop": 5,
           }
         }
       >
@@ -195,7 +196,7 @@ exports[`ListingDetails should render 1`] = `
           style={
             Object {
               "color": "#336799",
-              "fontStyle": "italic",
+              "fontFamily": "quicksand",
               "margin": 5,
               "textAlign": "center",
               "width": 140,

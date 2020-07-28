@@ -30,6 +30,7 @@ exports[`PostConfirmation should render 1`] = `
               "fontSize": 16,
             },
             Object {
+              "fontFamily": "quicksand-bold",
               "fontSize": 25,
               "marginBottom": 20,
               "textAlign": "center",
@@ -37,7 +38,7 @@ exports[`PostConfirmation should render 1`] = `
           ]
         }
       >
-        Please review your listing below:
+        Please review your listing before confirming:
       </Text>
       <Image
         source={
@@ -47,7 +48,7 @@ exports[`PostConfirmation should render 1`] = `
         }
         style={
           Object {
-            "height": 300,
+            "height": 400,
             "resizeMode": "cover",
             "width": "100%",
           }
@@ -70,7 +71,9 @@ exports[`PostConfirmation should render 1`] = `
                 "fontSize": 16,
               },
               Object {
-                "fontWeight": "bold",
+                "fontFamily": "quicksand-bold",
+                "fontSize": 18,
+                "marginTop": 5,
               },
             ]
           }
@@ -86,6 +89,8 @@ exports[`PostConfirmation should render 1`] = `
                 "fontSize": 16,
               },
               Object {
+                "fontFamily": "quicksand",
+                "fontSize": 15,
                 "marginBottom": 5,
                 "marginLeft": 10,
               },
@@ -103,6 +108,8 @@ exports[`PostConfirmation should render 1`] = `
                 "fontSize": 16,
               },
               Object {
+                "fontFamily": "quicksand",
+                "fontSize": 15,
                 "marginBottom": 5,
                 "marginLeft": 10,
               },
@@ -120,6 +127,8 @@ exports[`PostConfirmation should render 1`] = `
                 "fontSize": 16,
               },
               Object {
+                "fontFamily": "quicksand",
+                "fontSize": 15,
                 "marginBottom": 5,
                 "marginLeft": 10,
               },
@@ -137,6 +146,8 @@ exports[`PostConfirmation should render 1`] = `
                 "fontSize": 16,
               },
               Object {
+                "fontFamily": "quicksand",
+                "fontSize": 15,
                 "marginBottom": 5,
                 "marginLeft": 10,
               },
@@ -154,6 +165,8 @@ exports[`PostConfirmation should render 1`] = `
                 "fontSize": 16,
               },
               Object {
+                "fontFamily": "quicksand",
+                "fontSize": 15,
                 "marginBottom": 5,
                 "marginLeft": 10,
               },
@@ -171,7 +184,9 @@ exports[`PostConfirmation should render 1`] = `
                 "fontSize": 16,
               },
               Object {
-                "fontWeight": "bold",
+                "fontFamily": "quicksand-bold",
+                "fontSize": 18,
+                "marginTop": 5,
               },
             ]
           }
@@ -187,6 +202,8 @@ exports[`PostConfirmation should render 1`] = `
                 "fontSize": 16,
               },
               Object {
+                "fontFamily": "quicksand",
+                "fontSize": 15,
                 "marginBottom": 5,
                 "marginLeft": 10,
               },
@@ -204,6 +221,8 @@ exports[`PostConfirmation should render 1`] = `
                 "fontSize": 16,
               },
               Object {
+                "fontFamily": "quicksand",
+                "fontSize": 15,
                 "marginBottom": 5,
                 "marginLeft": 10,
               },
@@ -224,7 +243,8 @@ exports[`PostConfirmation should render 1`] = `
             Object {
               "alignSelf": "center",
               "color": "grey",
-              "fontStyle": "italic",
+              "fontFamily": "quicksand",
+              "fontSize": 15,
               "margin": 10,
               "textAlign": "center",
               "width": "80%",
@@ -232,64 +252,70 @@ exports[`PostConfirmation should render 1`] = `
           ]
         }
       >
-        See something that needs adjusting? Feel free to navigate back to the previous pages to edit.
+        Navigate back to the previous screens to edit or confirm listing.
       </Text>
-      <View
-        accessible={true}
-        focusable={true}
-        forwardedRef={[Function]}
-        onClick={[Function]}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
-        style={
-          Object {
-            "alignItems": "center",
-            "alignSelf": "stretch",
-            "backgroundColor": "#007aff",
-            "borderBottomWidth": null,
-            "borderColor": "#007aff",
-            "borderLeftWidth": null,
-            "borderRadius": 5,
-            "borderRightWidth": null,
-            "borderTopWidth": null,
-            "borderWidth": undefined,
-            "elevation": 2,
-            "flexDirection": "row",
-            "height": 45,
-            "justifyContent": "center",
-            "marginTop": 10,
-            "opacity": 1,
-            "paddingBottom": 6,
-            "paddingTop": 6,
-            "shadowColor": undefined,
-            "shadowOffset": undefined,
-            "shadowOpacity": undefined,
-            "shadowRadius": undefined,
-          }
-        }
-      >
-        <Text
-          style={
-            Object {
-              "backgroundColor": "transparent",
-              "color": "#fff",
-              "fontFamily": "System",
-              "fontSize": 16.5,
-              "marginLeft": 0,
-              "marginRight": 0,
-              "paddingLeft": 16,
-              "paddingRight": 16,
-            }
-          }
-        >
-          Confirm Listing
-        </Text>
-      </View>
     </View>
   </RCTScrollView>
+  <View
+    accessible={true}
+    focusable={true}
+    forwardedRef={[Function]}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "alignItems": "center",
+        "alignSelf": "stretch",
+        "backgroundColor": "#5cb85c",
+        "borderBottomWidth": null,
+        "borderColor": "#007aff",
+        "borderLeftWidth": null,
+        "borderRadius": 5,
+        "borderRightWidth": null,
+        "borderTopWidth": null,
+        "borderWidth": undefined,
+        "elevation": 2,
+        "flexDirection": "row",
+        "height": 45,
+        "justifyContent": "center",
+        "marginTop": 10,
+        "opacity": 1,
+        "paddingBottom": 6,
+        "paddingTop": 6,
+        "shadowColor": undefined,
+        "shadowOffset": undefined,
+        "shadowOpacity": undefined,
+        "shadowRadius": undefined,
+      }
+    }
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "backgroundColor": "transparent",
+            "color": "#fff",
+            "fontFamily": "System",
+            "fontSize": 16.5,
+            "marginLeft": 0,
+            "marginRight": 0,
+            "paddingLeft": 16,
+            "paddingRight": 16,
+          },
+          Object {
+            "fontFamily": "quicksand-bold",
+            "fontSize": 15,
+          },
+        ]
+      }
+    >
+      Confirm Listing
+    </Text>
+  </View>
 </RNCSafeAreaView>
 `;

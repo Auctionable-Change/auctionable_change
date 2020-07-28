@@ -30,7 +30,7 @@ describe('SellerForm', () => {
         <SellerForm />
       </StoreProvider>
     )
-    const send = getByText('Continue to Charities')
+    const send = getByText('Continue')
     fireEvent(getByA11yLabel("name"), 'onChange', {nativeEvent: {text: 'User1'}})
     fireEvent(getByA11yLabel("email"), 'onChange', {nativeEvent: {text: 'User1@gmail.com'}})
     fireEvent(getByA11yLabel("item-name"), 'onChange', {nativeEvent: {text: 'Test Item'}})

@@ -1,12 +1,10 @@
 import React from "react";
 import { Text, StyleSheet } from "react-native";
-import { ScrollView } from "react-native-gesture-handler";
-import * as MailComposer from "expo-mail-composer";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
+import * as MailComposer from "expo-mail-composer";
 import { useStore } from "../../store";
 import BuyerForm from "../../components/BuyerForm/BuyerForm";
-import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
-
 
 const EmailForm = ({ navigation }) => {
   const { state } = useStore();
@@ -14,8 +12,7 @@ const EmailForm = ({ navigation }) => {
   const sendEmail = (buyerObj) => {
     MailComposer.composeAsync({
       recipients: [
-        // `${state.currentListing.donor_email}`,
-        "foxymeatball@aol.com",
+        `${state.currentListing.donor_email}`,
       ],
       subject: "Time to ship your item from Auctionable Change",
       body: `Hello ${state.currentListing.donor}, 
@@ -30,19 +27,16 @@ const EmailForm = ({ navigation }) => {
     Donation Receipt: ${state.buyerDetails.receipt} 
       `,
     });
+    navigation.navigate("Thank You");
   };
 
   return (
-    <SafeAreaView style={{ flex: 1, padding: 30, backgroundColor: "#FFFFFF" }}>
+    <SafeAreaView style={{ flex: 1, backgroundColor: "#FFFFFF" }}>
       <KeyboardAwareScrollView>
-        <Text>
-          3. Enter your contact and shipping information to email the seller.
+        <Text style={{ fontFamily: "quicksand", fontSize: 15, textAlign: "center", backgroundColor: "#FFFFFF" }}>
+          Enter your contact and shipping information to email the seller.
         </Text>
-        <BuyerForm
-          navigation={navigation}
-          sendEmail={sendEmail}
-          style={styles.form}
-        />
+        <BuyerForm navigation={navigation} sendEmail={sendEmail} />
       </KeyboardAwareScrollView>
     </SafeAreaView>
   );

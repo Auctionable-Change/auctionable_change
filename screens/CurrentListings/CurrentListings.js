@@ -11,7 +11,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { useStore } from "../../store";
 import { fetchItems } from "../apiCalls";
 import { Picker, Icon, CardItem, Card, Left, Body, Button } from "native-base";
-import NavBar from "../../components/NavBar/NavBar"
+import NavBar from "../../components/NavBar/NavBar";
 
 const CurrentListings = ({ navigation }) => {
   const { dispatch } = useStore();
@@ -57,17 +57,40 @@ const CurrentListings = ({ navigation }) => {
       <Picker
         mode="dropdown"
         iosIcon={<Icon name="arrow-down" />}
-        style={{ width: 300 }}
-        placeholder="Item Category"
+        style={{ alignSelf: "center", width: 300 }}
+        placeholder="Filter by Category"
         selectedValue={filterCategory}
         onValueChange={(event) => filterListings(event)}
+        textStyle={{ fontFamily: "quicksand-bold", fontSize: 15 }}
       >
-        <Picker.Item label="All" value="all" />
-        <Picker.Item label="Electronics" value="electronics" />
-        <Picker.Item label="Home" value="home" />
-        <Picker.Item label="Furniture" value="furniture" />
-        <Picker.Item label="Baby/Kids" value="baby" />
-        <Picker.Item label="Other" value="other" />
+        <Picker.Item
+          label="All"
+          value="all"
+        />
+        <Picker.Item
+          label="Electronics"
+          value="electronics"
+        />
+        <Picker.Item
+          label="Home"
+          value="home"
+        />
+        <Picker.Item
+          label="Furniture"
+          value="furniture"
+        />
+        <Picker.Item
+          label="Baby/Kids"
+          value="baby"
+        />
+        <Picker.Item
+          label="Apparel"
+          value="apparel"
+        />
+        <Picker.Item
+          label="Other"
+          value="other"
+        />
       </Picker>
 
       {isLoading && (
@@ -80,7 +103,7 @@ const CurrentListings = ({ navigation }) => {
         data={listings}
         keyExtractor={(item) => item.id.toString()}
         renderItem={({ item }) => (
-          <Card>
+          <Card style={{ marginBottom: 15 }}>
             <CardItem style={styles.cardItem}>
               <Left>
                 <Body>
@@ -100,7 +123,7 @@ const CurrentListings = ({ navigation }) => {
             </CardItem>
             <CardItem style={{ justifyContent: "space-between" }}>
               <Text
-                style={{ fontSize: 15 }}
+                style={{ fontSize: 15, fontFamily: "quicksand" }}
               >{`Minimum Donation: $${item.price}`}</Text>
               <Button
                 transparent
@@ -125,16 +148,20 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "space-between",
+    backgroundColor: "#FFFFFF",
   },
   image: {
     width: "100%",
-    height: 300,
+    height: 400,
     resizeMode: "cover",
+    alignSelf: "center",
   },
   cardTitle: {
     margin: 5,
-    fontSize: 20,
+    fontSize: 25,
     alignSelf: "center",
+    fontFamily: "quicksand-bold",
+    textAlign: "center"
   },
   cardItem: {
     shadowOffset: {
@@ -149,6 +176,7 @@ const styles = StyleSheet.create({
     color: "#065EFE",
     fontSize: 15,
     fontWeight: "bold",
+    fontFamily: "quicksand-bold"
   },
 });
 

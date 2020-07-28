@@ -6,7 +6,6 @@ exports[`EmailForm should render 1`] = `
     Object {
       "backgroundColor": "#FFFFFF",
       "flex": 1,
-      "padding": 30,
     }
   }
 >
@@ -40,8 +39,17 @@ exports[`EmailForm should render 1`] = `
     viewIsInsideTabBar={false}
   >
     <View>
-      <Text>
-        3. Enter your contact and shipping information to email the seller.
+      <Text
+        style={
+          Object {
+            "backgroundColor": "#FFFFFF",
+            "fontFamily": "quicksand",
+            "fontSize": 15,
+            "textAlign": "center",
+          }
+        }
+      >
+        Enter your contact and shipping information to email the seller.
       </Text>
       <View
         style={
@@ -192,21 +200,33 @@ exports[`EmailForm should render 1`] = `
                   >
                     <Text
                       style={
-                        Object {
-                          "color": "#575757",
-                          "fontSize": 17,
-                          "left": 0,
-                          "paddingRight": 5,
-                          "paddingTop": 5,
-                          "top": 6,
-                        }
+                        Array [
+                          Object {
+                            "color": "#575757",
+                            "fontSize": 17,
+                            "left": 0,
+                            "paddingRight": 5,
+                            "paddingTop": 5,
+                            "top": 6,
+                          },
+                          Object {
+                            "fontFamily": "quicksand",
+                            "fontSize": 15,
+                          },
+                        ]
                       }
                     >
                       <Text
                         style={
-                          Object {
-                            "fontSize": 17,
-                          }
+                          Array [
+                            Object {
+                              "fontSize": 17,
+                            },
+                            Object {
+                              "fontFamily": "quicksand",
+                              "fontSize": 15,
+                            },
+                          ]
                         }
                       >
                         Your Name
@@ -286,24 +306,36 @@ exports[`EmailForm should render 1`] = `
                   >
                     <Text
                       style={
-                        Object {
-                          "color": "#575757",
-                          "fontSize": 17,
-                          "left": 0,
-                          "paddingRight": 5,
-                          "paddingTop": 5,
-                          "top": 6,
-                        }
+                        Array [
+                          Object {
+                            "color": "#575757",
+                            "fontSize": 17,
+                            "left": 0,
+                            "paddingRight": 5,
+                            "paddingTop": 5,
+                            "top": 6,
+                          },
+                          Object {
+                            "fontFamily": "quicksand",
+                            "fontSize": 15,
+                          },
+                        ]
                       }
                     >
                       <Text
                         style={
-                          Object {
-                            "fontSize": 17,
-                          }
+                          Array [
+                            Object {
+                              "fontSize": 17,
+                            },
+                            Object {
+                              "fontFamily": "quicksand",
+                              "fontSize": 15,
+                            },
+                          ]
                         }
                       >
-                        Email
+                        Your Email
                       </Text>
                     </Text>
                   </View>
@@ -380,21 +412,33 @@ exports[`EmailForm should render 1`] = `
                   >
                     <Text
                       style={
-                        Object {
-                          "color": "#575757",
-                          "fontSize": 17,
-                          "left": 0,
-                          "paddingRight": 5,
-                          "paddingTop": 5,
-                          "top": 6,
-                        }
+                        Array [
+                          Object {
+                            "color": "#575757",
+                            "fontSize": 17,
+                            "left": 0,
+                            "paddingRight": 5,
+                            "paddingTop": 5,
+                            "top": 6,
+                          },
+                          Object {
+                            "fontFamily": "quicksand",
+                            "fontSize": 15,
+                          },
+                        ]
                       }
                     >
                       <Text
                         style={
-                          Object {
-                            "fontSize": 17,
-                          }
+                          Array [
+                            Object {
+                              "fontSize": 17,
+                            },
+                            Object {
+                              "fontFamily": "quicksand",
+                              "fontSize": 15,
+                            },
+                          ]
                         }
                       >
                         Street Address
@@ -474,21 +518,33 @@ exports[`EmailForm should render 1`] = `
                   >
                     <Text
                       style={
-                        Object {
-                          "color": "#575757",
-                          "fontSize": 17,
-                          "left": 0,
-                          "paddingRight": 5,
-                          "paddingTop": 5,
-                          "top": 6,
-                        }
+                        Array [
+                          Object {
+                            "color": "#575757",
+                            "fontSize": 17,
+                            "left": 0,
+                            "paddingRight": 5,
+                            "paddingTop": 5,
+                            "top": 6,
+                          },
+                          Object {
+                            "fontFamily": "quicksand",
+                            "fontSize": 15,
+                          },
+                        ]
                       }
                     >
                       <Text
                         style={
-                          Object {
-                            "fontSize": 17,
-                          }
+                          Array [
+                            Object {
+                              "fontSize": 17,
+                            },
+                            Object {
+                              "fontFamily": "quicksand",
+                              "fontSize": 15,
+                            },
+                          ]
                         }
                       >
                         City
@@ -568,21 +624,33 @@ exports[`EmailForm should render 1`] = `
                   >
                     <Text
                       style={
-                        Object {
-                          "color": "#575757",
-                          "fontSize": 17,
-                          "left": 0,
-                          "paddingRight": 5,
-                          "paddingTop": 5,
-                          "top": 6,
-                        }
+                        Array [
+                          Object {
+                            "color": "#575757",
+                            "fontSize": 17,
+                            "left": 0,
+                            "paddingRight": 5,
+                            "paddingTop": 5,
+                            "top": 6,
+                          },
+                          Object {
+                            "fontFamily": "quicksand",
+                            "fontSize": 15,
+                          },
+                        ]
                       }
                     >
                       <Text
                         style={
-                          Object {
-                            "fontSize": 17,
-                          }
+                          Array [
+                            Object {
+                              "fontSize": 17,
+                            },
+                            Object {
+                              "fontFamily": "quicksand",
+                              "fontSize": 15,
+                            },
+                          ]
                         }
                       >
                         State
@@ -663,21 +731,33 @@ exports[`EmailForm should render 1`] = `
                   >
                     <Text
                       style={
-                        Object {
-                          "color": "#575757",
-                          "fontSize": 17,
-                          "left": 0,
-                          "paddingRight": 5,
-                          "paddingTop": 5,
-                          "top": 6,
-                        }
+                        Array [
+                          Object {
+                            "color": "#575757",
+                            "fontSize": 17,
+                            "left": 0,
+                            "paddingRight": 5,
+                            "paddingTop": 5,
+                            "top": 6,
+                          },
+                          Object {
+                            "fontFamily": "quicksand",
+                            "fontSize": 15,
+                          },
+                        ]
                       }
                     >
                       <Text
                         style={
-                          Object {
-                            "fontSize": 17,
-                          }
+                          Array [
+                            Object {
+                              "fontSize": 17,
+                            },
+                            Object {
+                              "fontFamily": "quicksand",
+                              "fontSize": 15,
+                            },
+                          ]
                         }
                       >
                         Zipcode
@@ -727,19 +807,20 @@ exports[`EmailForm should render 1`] = `
                   style={
                     Object {
                       "alignItems": "center",
-                      "alignSelf": "stretch",
-                      "backgroundColor": "#007aff",
+                      "alignSelf": "center",
+                      "backgroundColor": "#5cb85c",
                       "borderBottomWidth": null,
                       "borderColor": "#007aff",
                       "borderLeftWidth": null,
-                      "borderRadius": 5,
+                      "borderRadius": 57,
                       "borderRightWidth": null,
                       "borderTopWidth": null,
                       "borderWidth": undefined,
                       "elevation": 2,
                       "flexDirection": "row",
                       "height": 45,
-                      "justifyContent": "center",
+                      "justifyContent": "space-between",
+                      "margin": 10,
                       "opacity": 1,
                       "paddingBottom": 6,
                       "paddingTop": 6,
@@ -752,16 +833,22 @@ exports[`EmailForm should render 1`] = `
                 >
                   <Text
                     style={
-                      Object {
-                        "backgroundColor": "transparent",
-                        "color": "#fff",
-                        "fontFamily": "System",
-                        "fontSize": 16.5,
-                        "marginLeft": 0,
-                        "marginRight": 0,
-                        "paddingLeft": 16,
-                        "paddingRight": 16,
-                      }
+                      Array [
+                        Object {
+                          "backgroundColor": "transparent",
+                          "color": "#fff",
+                          "fontFamily": "System",
+                          "fontSize": 16.5,
+                          "marginLeft": 0,
+                          "marginRight": 0,
+                          "paddingLeft": 16,
+                          "paddingRight": 16,
+                        },
+                        Object {
+                          "fontFamily": "quicksand-bold",
+                          "fontSize": 15,
+                        },
+                      ]
                     }
                   >
                     Complete Purchase

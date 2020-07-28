@@ -1,22 +1,19 @@
-import React, { useState, useEffect } from "react";
-import { View } from "react-native";
+import React, { useState } from "react";
+import { View, Image } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { StyleSheet, Linking, ActivityIndicator } from "react-native";
-import {
-  FlatList,
-} from "react-native-gesture-handler";
+import { FlatList } from "react-native-gesture-handler";
 import { useStore } from "../../store";
 import { fetchCharities } from "../apiCalls";
 import {
   Icon,
-  CardItem,
   Card,
   CheckBox,
   Item,
   Input,
   Button,
-  ListItem,
-  Text
+  Text,
+  Right,
 } from "native-base";
 
 const ChooseCharity = ({ navigation }) => {
@@ -57,28 +54,46 @@ const ChooseCharity = ({ navigation }) => {
         <Item style={{ width: "75%" }}>
           <Icon name="ios-search" />
           <Input
+            style={{ fontFamily: "quicksand", fontSize: 15 }}
             placeholder="Search Charities"
             onChange={(event) => handleChange(event)}
           ></Input>
         </Item>
         <Button success onPress={() => returnCharities()}>
-          <Text>Go!</Text>
+          <Text style={{ fontFamily: "quicksand-bold", fontSize: 15 }}>
+            Go!
+          </Text>
         </Button>
       </View>
       {!charities && (
         <Card style={{ width: "90%", height: 150, marginTop: 50 }}>
-          <Text style={{ alignSelf: "center", paddingTop: 30 }}>
+          <Text
+            style={{
+              alignSelf: "center",
+              paddingTop: 30,
+              fontFamily: "quicksand",
+              fontSize: 15,
+            }}
+          >
             Search For Your Favorite Charity Above
           </Text>
-          <Text style={{ alignSelf: "center", margin: 5, fontStyle: "italic" }}>
+          <Text
+            style={{
+              alignSelf: "center",
+              margin: 5,
+              fontFamily: "quicksand",
+              fontSize: 15,
+            }}
+          >
             - or -
           </Text>
           <Button
-            bordered success
+            bordered
+            success
             style={{ alignSelf: "center" }}
             onPress={() => returnCharities()}
           >
-            <Text>
+            <Text style={{ fontFamily: "quicksand", fontSize: 15 }}>
               Browse Our Featured Charities
             </Text>
           </Button>
@@ -102,57 +117,61 @@ const ChooseCharity = ({ navigation }) => {
                 : styles.charityDefault
             }
           >
-            <CardItem
-              header
-              bordered
-              style={{ alignSelf: "center", flexDirection: "row" }}
-            >
+            <View>
               <Button
-                small
                 transparent
                 onPress={() => Linking.openURL(item.url)}
                 style={{
-                  borderBottomWidth: 1,
-                  borderBottomColor: "#065EFE",
-                  color: "#065EFE",
+                  height: "100%",
+                  alignSelf: "center",
+                  flex: 5,
                 }}
               >
                 <Text
                   style={{
                     alignSelf: "center",
-                    flexDirection: "row",
-                    color: "#065EFE",
+                    fontSize: 18,
+                    color: "#439fd9",
+                    fontFamily: "quicksand",
                   }}
                   numberOfLines={2}
                 >
                   {item.name}
                 </Text>
               </Button>
-            </CardItem>
-            <Card bordered style={{ backgroundColor: "#f8f8ff" }}>
-              <ListItem
+              <Image
+                source={{ uri: item.rating_image }}
                 style={{
-                  flexDirection: "row",
-                  justifyContent: "space-between",
+                  width: 80,
+                  height: 40,
+                  resizeMode: "contain",
+                  marginLeft: 15,
                 }}
-              >
-                <View>
-                  <Text>Select Charity</Text>
-                </View>
-                <CheckBox
-                  color="#2CB833"
-                  onPress={() => charitySelect(item.name)}
-                  checked={item.name == charitySelected.name ? true : false}
-                />
-              </ListItem>
-            </Card>
+              />
+            </View>
+            <Right>
+              <CheckBox
+                color="#2CB833"
+                onPress={() => charitySelect(item.name)}
+                checked={item.name == charitySelected.name ? true : false}
+                style={{ margin: 15 }}
+              />
+            </Right>
           </Card>
         )}
       />
 
       {charitySelected && (
-        <Button block onPress={() => confirmCharity()}>
-          <Text style={{ color: "white" }}>Confirm Charity & Continue</Text>
+        <Button block success onPress={() => confirmCharity()}>
+          <Text
+            style={{
+              color: "white",
+              fontFamily: "quicksand-bold",
+              fontSize: 15,
+            }}
+          >
+            Confirm Charity & Continue
+          </Text>
         </Button>
       )}
     </SafeAreaView>
@@ -171,20 +190,22 @@ const styles = StyleSheet.create({
     width: "90%",
   },
   charityDefault: {
-    flex: 1,
     backgroundColor: "#FFF",
     padding: 15,
     width: "98%",
     marginTop: 15,
+    height: 130,
+    flexDirection: "row",
   },
   charityActive: {
-    flex: 1,
     backgroundColor: "#FFF",
-    borderWidth: 2,
-    borderColor: "black",
+    borderWidth: 5,
+    height: 130,
+    borderColor: "blue",
     padding: 15,
     width: "98%",
     marginTop: 15,
+    flexDirection: "row",
   },
 });
 

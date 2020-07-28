@@ -117,21 +117,33 @@ exports[`SellerForm should render 1`] = `
             >
               <Text
                 style={
-                  Object {
-                    "color": "#575757",
-                    "fontSize": 17,
-                    "left": 0,
-                    "paddingRight": 5,
-                    "paddingTop": 5,
-                    "top": 6,
-                  }
+                  Array [
+                    Object {
+                      "color": "#575757",
+                      "fontSize": 17,
+                      "left": 0,
+                      "paddingRight": 5,
+                      "paddingTop": 5,
+                      "top": 6,
+                    },
+                    Object {
+                      "fontFamily": "quicksand",
+                      "fontSize": 15,
+                    },
+                  ]
                 }
               >
                 <Text
                   style={
-                    Object {
-                      "fontSize": 17,
-                    }
+                    Array [
+                      Object {
+                        "fontSize": 17,
+                      },
+                      Object {
+                        "fontFamily": "quicksand",
+                        "fontSize": 15,
+                      },
+                    ]
                   }
                 >
                   Your Name
@@ -211,21 +223,33 @@ exports[`SellerForm should render 1`] = `
             >
               <Text
                 style={
-                  Object {
-                    "color": "#575757",
-                    "fontSize": 17,
-                    "left": 0,
-                    "paddingRight": 5,
-                    "paddingTop": 5,
-                    "top": 6,
-                  }
+                  Array [
+                    Object {
+                      "color": "#575757",
+                      "fontSize": 17,
+                      "left": 0,
+                      "paddingRight": 5,
+                      "paddingTop": 5,
+                      "top": 6,
+                    },
+                    Object {
+                      "fontFamily": "quicksand",
+                      "fontSize": 15,
+                    },
+                  ]
                 }
               >
                 <Text
                   style={
-                    Object {
-                      "fontSize": 17,
-                    }
+                    Array [
+                      Object {
+                        "fontSize": 17,
+                      },
+                      Object {
+                        "fontFamily": "quicksand",
+                        "fontSize": 15,
+                      },
+                    ]
                   }
                 >
                   Email
@@ -305,21 +329,33 @@ exports[`SellerForm should render 1`] = `
             >
               <Text
                 style={
-                  Object {
-                    "color": "#575757",
-                    "fontSize": 17,
-                    "left": 0,
-                    "paddingRight": 5,
-                    "paddingTop": 5,
-                    "top": 6,
-                  }
+                  Array [
+                    Object {
+                      "color": "#575757",
+                      "fontSize": 17,
+                      "left": 0,
+                      "paddingRight": 5,
+                      "paddingTop": 5,
+                      "top": 6,
+                    },
+                    Object {
+                      "fontFamily": "quicksand",
+                      "fontSize": 15,
+                    },
+                  ]
                 }
               >
                 <Text
                   style={
-                    Object {
-                      "fontSize": 17,
-                    }
+                    Array [
+                      Object {
+                        "fontSize": 17,
+                      },
+                      Object {
+                        "fontFamily": "quicksand",
+                        "fontSize": 15,
+                      },
+                    ]
                   }
                 >
                   Item Name
@@ -399,21 +435,33 @@ exports[`SellerForm should render 1`] = `
             >
               <Text
                 style={
-                  Object {
-                    "color": "#575757",
-                    "fontSize": 17,
-                    "left": 0,
-                    "paddingRight": 5,
-                    "paddingTop": 5,
-                    "top": 6,
-                  }
+                  Array [
+                    Object {
+                      "color": "#575757",
+                      "fontSize": 17,
+                      "left": 0,
+                      "paddingRight": 5,
+                      "paddingTop": 5,
+                      "top": 6,
+                    },
+                    Object {
+                      "fontFamily": "quicksand",
+                      "fontSize": 15,
+                    },
+                  ]
                 }
               >
                 <Text
                   style={
-                    Object {
-                      "fontSize": 17,
-                    }
+                    Array [
+                      Object {
+                        "fontSize": 17,
+                      },
+                      Object {
+                        "fontFamily": "quicksand",
+                        "fontSize": 15,
+                      },
+                    ]
                   }
                 >
                   Item Description
@@ -493,21 +541,33 @@ exports[`SellerForm should render 1`] = `
             >
               <Text
                 style={
-                  Object {
-                    "color": "#575757",
-                    "fontSize": 17,
-                    "left": 0,
-                    "paddingRight": 5,
-                    "paddingTop": 5,
-                    "top": 6,
-                  }
+                  Array [
+                    Object {
+                      "color": "#575757",
+                      "fontSize": 17,
+                      "left": 0,
+                      "paddingRight": 5,
+                      "paddingTop": 5,
+                      "top": 6,
+                    },
+                    Object {
+                      "fontFamily": "quicksand",
+                      "fontSize": 15,
+                    },
+                  ]
                 }
               >
                 <Text
                   style={
-                    Object {
-                      "fontSize": 17,
-                    }
+                    Array [
+                      Object {
+                        "fontSize": 17,
+                      },
+                      Object {
+                        "fontFamily": "quicksand",
+                        "fontSize": 15,
+                      },
+                    ]
                   }
                 >
                   Minimum Bid
@@ -587,7 +647,7 @@ exports[`SellerForm should render 1`] = `
                 style={
                   Object {
                     "alignItems": "center",
-                    "alignSelf": "flex-start",
+                    "alignSelf": "center",
                     "backgroundColor": "transparent",
                     "borderBottomWidth": null,
                     "borderColor": "#007aff",
@@ -600,7 +660,7 @@ exports[`SellerForm should render 1`] = `
                     "flexDirection": "row",
                     "height": 45,
                     "justifyContent": "space-between",
-                    "marginTop": 20,
+                    "margin": 10,
                     "opacity": 1,
                     "paddingBottom": 6,
                     "paddingTop": 6,
@@ -629,12 +689,15 @@ exports[`SellerForm should render 1`] = `
                         "paddingLeft": 16,
                         "paddingRight": 16,
                       },
-                      undefined,
+                      Object {
+                        "fontFamily": "quicksand",
+                        "fontSize": 15,
+                      },
                       undefined,
                     ]
                   }
                 >
-                  Item Category
+                  Select a Category
                 </Text>
                 <Text />
               </View>
@@ -878,6 +941,10 @@ exports[`SellerForm should render 1`] = `
                               <Item
                                 label="Baby/Kids"
                                 value="baby"
+                              />,
+                              <Item
+                                label="Apparel"
+                                value="apparel"
                               />,
                               <Item
                                 label="Other"
@@ -1325,6 +1392,97 @@ exports[`SellerForm should render 1`] = `
                                         }
                                       }
                                     >
+                                      Apparel
+                                    </Text>
+                                  </View>
+                                  <View
+                                    style={
+                                      Object {
+                                        "alignItems": "flex-end",
+                                        "alignSelf": "center",
+                                        "flex": 0.28,
+                                        "paddingBottom": null,
+                                        "paddingLeft": null,
+                                        "paddingRight": null,
+                                        "paddingTop": null,
+                                      }
+                                    }
+                                  >
+                                    <View
+                                      accessible={true}
+                                      focusable={false}
+                                      forwardedRef={[Function]}
+                                      onClick={[Function]}
+                                      onResponderGrant={[Function]}
+                                      onResponderMove={[Function]}
+                                      onResponderRelease={[Function]}
+                                      onResponderTerminate={[Function]}
+                                      onResponderTerminationRequest={[Function]}
+                                      onStartShouldSetResponder={[Function]}
+                                      style={
+                                        Object {
+                                          "alignSelf": null,
+                                          "opacity": 1,
+                                        }
+                                      }
+                                    />
+                                  </View>
+                                </View>
+                              </View>
+                            </View>
+                            <View
+                              onLayout={[Function]}
+                              style={null}
+                            >
+                              <View
+                                accessible={true}
+                                focusable={true}
+                                onClick={[Function]}
+                                onResponderGrant={[Function]}
+                                onResponderMove={[Function]}
+                                onResponderRelease={[Function]}
+                                onResponderTerminate={[Function]}
+                                onResponderTerminationRequest={[Function]}
+                                onStartShouldSetResponder={[Function]}
+                              >
+                                <View
+                                  button={true}
+                                  onPress={[Function]}
+                                  selected={false}
+                                  style={
+                                    Object {
+                                      "alignItems": "center",
+                                      "backgroundColor": "transparent",
+                                      "borderBottomWidth": 0.5,
+                                      "borderColor": "#c9c9c9",
+                                      "flexDirection": "row",
+                                      "marginLeft": 16,
+                                      "paddingBottom": 13,
+                                      "paddingRight": 16,
+                                      "paddingTop": 13,
+                                    }
+                                  }
+                                >
+                                  <View
+                                    style={
+                                      Object {
+                                        "alignItems": "flex-start",
+                                        "alignSelf": "center",
+                                        "flex": 1,
+                                        "flexDirection": "row",
+                                      }
+                                    }
+                                  >
+                                    <Text
+                                      style={
+                                        Object {
+                                          "alignSelf": "center",
+                                          "color": "#000",
+                                          "fontFamily": "System",
+                                          "fontSize": 16,
+                                        }
+                                      }
+                                    >
                                       Other
                                     </Text>
                                   </View>
@@ -1386,19 +1544,20 @@ exports[`SellerForm should render 1`] = `
             style={
               Object {
                 "alignItems": "center",
-                "alignSelf": "stretch",
+                "alignSelf": "center",
                 "backgroundColor": "#5cb85c",
                 "borderBottomWidth": null,
                 "borderColor": "#007aff",
                 "borderLeftWidth": null,
-                "borderRadius": 5,
+                "borderRadius": 57,
                 "borderRightWidth": null,
                 "borderTopWidth": null,
                 "borderWidth": undefined,
                 "elevation": 2,
                 "flexDirection": "row",
                 "height": 45,
-                "justifyContent": "center",
+                "justifyContent": "space-between",
+                "margin": 10,
                 "opacity": 1,
                 "paddingBottom": 6,
                 "paddingTop": 6,
@@ -1411,19 +1570,25 @@ exports[`SellerForm should render 1`] = `
           >
             <Text
               style={
-                Object {
-                  "backgroundColor": "transparent",
-                  "color": "#fff",
-                  "fontFamily": "System",
-                  "fontSize": 16.5,
-                  "marginLeft": 0,
-                  "marginRight": 0,
-                  "paddingLeft": 16,
-                  "paddingRight": 16,
-                }
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                    "color": "#fff",
+                    "fontFamily": "System",
+                    "fontSize": 16.5,
+                    "marginLeft": 0,
+                    "marginRight": 0,
+                    "paddingLeft": 16,
+                    "paddingRight": 16,
+                  },
+                  Object {
+                    "fontFamily": "quicksand-bold",
+                    "fontSize": 15,
+                  },
+                ]
               }
             >
-              Continue to Charities
+              Continue
             </Text>
           </View>
         </View>

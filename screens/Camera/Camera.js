@@ -81,12 +81,11 @@ const Camera = ({ cameraType, user, prompt, title }) => {
   return (
     <SafeAreaView style={styles.container}>
       <Text style={styles.title}>{title}</Text>
-      {/* <View style={styles.subcontainer}> */}
       <Text
         accessibilityLabel={prompt}
         color="#2cb833"
         onPress={_pickImage}
-        style={{ fontFamily: "quicksand", fontSize: 15, margin: 5 }}
+        style={{ fontFamily: "quicksand", fontSize: 15, margin: 10, textAlign: "center" }}
       >
         {prompt}
       </Text>
@@ -122,7 +121,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     textAlign: "center",
     marginBottom: 10,
-    fontFamily: "quicksand-bold"
+    fontFamily: "quicksand-bold",
   },
   image: { margin: 5, width: 300, height: 300 },
   camera: { width: 150, height: 150 },

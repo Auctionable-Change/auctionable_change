@@ -23,9 +23,9 @@ Buyers notify sellers through app generated email with proof of donation and shi
 - TravisCI
 
 ## Project Management
-Kanban & Sprint Planning: Github Project Boards
-Agile Planning & Retros: Miro
-Communication: Slack & Zoom
+- Kanban & Sprint Planning: Github Project Boards
+- Agile Planning & Retros: Miro
+- Communication: Slack & Zoom
 
 ## Future Iterations
 

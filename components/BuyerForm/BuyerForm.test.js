@@ -4,6 +4,8 @@ import BuyerForm from './BuyerForm';
 import { StoreProvider } from '../../store'
 import {expect, it} from '@jest/globals';
 import renderer from "react-test-renderer";
+import { waitFor} from 'react-native-testing-library';
+
 
 
 describe('BuyerForm', () => {
@@ -54,6 +56,8 @@ describe('BuyerForm', () => {
 
     fireEvent.press(send)
     expect(mockSendEmail).not.toHaveBeenCalledWith(buyerObj)
-    // expect(getByText("Missing Input", "Please fill out all fields to continue")).toBeTruthy()
+    waitFor(() =>
+      expect(getByText("Missing, Input", "Please fill out all fields to continue")).toBeTruthy()
+    );
   })
 })

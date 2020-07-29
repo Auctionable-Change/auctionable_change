@@ -24,7 +24,7 @@ exports[`Welcome should render 1`] = `
     style={
       Object {
         "alignSelf": "center",
-        "padding": 20,
+        "padding": 15,
         "width": "80%",
       }
     }
@@ -175,48 +175,49 @@ exports[`Welcome should render 1`] = `
           items for sale to donate proceeds to your favorite charities
         </Text>
       </Text>
-      <Text
-        style={
-          Array [
-            Object {
-              "color": "#000",
-              "fontFamily": "System",
-              "fontSize": 16,
-            },
-            Object {
-              "fontFamily": "quicksand",
-              "fontSize": 15,
-              "marginTop": 25,
-            },
-          ]
-        }
-      >
-        Together we can make 
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#000",
-                "fontFamily": "System",
-                "fontSize": 16,
-              },
-              Object {
-                "color": "#2cb833",
-                "flex": 1,
-                "fontFamily": "quicksand-bold",
-                "fontSize": 18,
-                "marginBottom": 2.5,
-                "textAlign": "center",
-              },
-            ]
-          }
-        >
-          A.change
-        </Text>
-        !
-      </Text>
     </View>
   </View>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#000",
+          "fontFamily": "System",
+          "fontSize": 16,
+        },
+        Object {
+          "fontFamily": "quicksand",
+          "fontSize": 18,
+          "marginTop": 10,
+          "textAlign": "center",
+        },
+      ]
+    }
+  >
+    Together we can make 
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#000",
+            "fontFamily": "System",
+            "fontSize": 16,
+          },
+          Object {
+            "color": "#2cb833",
+            "flex": 1,
+            "fontFamily": "quicksand-bold",
+            "fontSize": 18,
+            "marginBottom": 2.5,
+            "textAlign": "center",
+          },
+        ]
+      }
+    >
+      A.change
+    </Text>
+    !
+  </Text>
   <View
     style={
       Object {

@@ -9,10 +9,7 @@ Buyers browse items and purchase by donating to selected charity.
 Buyers notify sellers through app generated email with proof of donation and shipping information.
 
 ## Local Setup Instructions
-- Fork and clone this repo to your local machine using SSH:
-  ```
-  git clone git@github.com:Auctionable-Change/auctionable_change.git
-  ```
+- Fork and clone this repo to your local machine using SSH: `git clone git@github.com:Auctionable-Change/auctionable_change.git`
 - Navigate to the new directory: `cd auctionable_change`
 - Download [Expo Client](https://expo.io/tools#client) to open the app from your iOS device.
 - Run `npm start` then scan the QR code with the Camera app to open.
@@ -43,5 +40,5 @@ Communication: Slack & Zoom
  - Andrew Reid ([GitHub](https://github.com/reid-andrew), [LinkedIn](https://www.linkedin.com/in/reida/))
 
 ## Application Links
-FE Repo: https://github.com/Auctionable-Change/auctionable_change
-BE Production: https://auctionable-change-api.herokuapp.com/
+- FE Repo: https://github.com/Auctionable-Change/auctionable_change
+- BE Production: https://auctionable-change-api.herokuapp.com/

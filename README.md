@@ -23,7 +23,7 @@ Buyers notify sellers through app generated email with proof of donation and shi
 - [TravisCI](https://travis-ci.org/Auctionable-Change/auctionable_change)
 
 ## Project Management
-- Kanban & Sprint Planning: Github Project Boards
+- Kanban & Sprint Planning: Github Organization Project Board
 - Agile Planning & Retros: [Miro](https://miro.com/app/board/o9J_kpWR55w=/)
 - Communication & Pair Programming: Slack & Zoom
 

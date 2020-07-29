@@ -1,4 +1,4 @@
-# Auctionable Change [![Build Status](https://travis-ci.com/Auctionable-Change/auctionable_change_api.svg?branch=master)](https://travis-ci.com/Auctionable-Change/auctionable_change_api)
+# Auctionable Change [![Build Status](https://travis-ci.org/Auctionable-Change/auctionable_change.svg?branch=master)](https://travis-ci.org/Auctionable-Change/auctionable_change)
 
 ## Description
 

@@ -20,11 +20,11 @@ Buyers notify sellers through app generated email with proof of donation and shi
 - [React Navigation](https://reactnavigation.org/)
 - [Hooks](https://reactjs.org/docs/hooks-intro.html) + [Context](https://reactjs.org/docs/context.html)
 - [NativeBase](https://nativebase.io/) UI Components
-- TravisCI
+- [TravisCI](https://travis-ci.org/Auctionable-Change/auctionable_change)
 
 ## Project Management
 - Kanban & Sprint Planning: Github Project Boards
-- Agile Planning & Retros: Miro
+- Agile Planning & Retros: [Miro](https://miro.com/app/board/o9J_kpWR55w=/)
 - Communication & Pair Programming: Slack & Zoom
 
 ## Future Iterations

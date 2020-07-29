@@ -1,11 +1,13 @@
-# Auctionable Change [![Build Status](https://travis-ci.org/Auctionable-Change/auctionable_change.svg?branch=master)](https://travis-ci.org/Auctionable-Change/auctionable_change)
+![Auctionable Change](assets/expanded_logo.png)
+### Together we can make **A.change**! [![Build Status](https://travis-ci.org/Auctionable-Change/auctionable_change.svg?branch=master)](https://travis-ci.org/Auctionable-Change/auctionable_change)
 
-## Description
+##  Description
 
 **Auctionable Change** is a cross-pollination capstone project for [Turing School of Software and Design](https://turing.io/).
 
-The idea behind **A.change** is creating a platform where individuals can post items they no longer want or need for sale/auction. 
-Sellers set a minimum price and select a charity to which the funds from that item's sale would be donated. Buyers browse items and purchase by donating to charity. 
+The idea behind **A.change** is supporting charities and the planet by reselling items and buying secondhand.
+Sellers can post items, set a minimum price and select a charity to which the funds from that item's sale will be donated. 
+Buyers browse items and purchase by donating to selected charity. 
 Buyers notify sellers through app generated email with proof of donation and shipping information.
 
 ## Local Setup Instructions*
@@ -15,11 +17,15 @@ Buyers notify sellers through app generated email with proof of donation and shi
   git clone git@github.com:Auctionable-Change/auctionable_change.git
   ```
 - Navigate to the new directory: `cd auctionable_change`
-- Download ![Expo Client](https://expo.io/tools#client) to open the app from your iOS device.
-- Run `npm start` and scan the QR code with the Camera app.
-* Sorry, Android, the current iteration only works on iOS!
+- Download [Expo Client](https://expo.io/tools#client) to open the app from your iOS device.
+- Run `npm start` then scan the QR code with the Camera app to open.
+* *Sorry, Android, the current iteration only works on iOS!
 
 ## Technologies and Frameworks
+[React Native](https://reactnative.dev/)
+[React Navigation](https://reactnavigation.org/)
+[Hooks](https://reactjs.org/docs/hooks-intro.html) + [Context](https://reactjs.org/docs/context.html)
+[NativeBase](https://nativebase.io/) UI Components
 
 ## Wins
 

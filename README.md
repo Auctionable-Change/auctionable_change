@@ -10,7 +10,7 @@ Sellers can post items, set a minimum price and select a charity to which the fu
 Buyers browse items and purchase by donating to selected charity. 
 Buyers notify sellers through app generated email with proof of donation and shipping information.
 
-## Local Setup Instructions*
+## Local Setup Instructions
 
 - Fork and clone this repo to your local machine using SSH:
   ```
@@ -19,13 +19,13 @@ Buyers notify sellers through app generated email with proof of donation and shi
 - Navigate to the new directory: `cd auctionable_change`
 - Download [Expo Client](https://expo.io/tools#client) to open the app from your iOS device.
 - Run `npm start` then scan the QR code with the Camera app to open.
-* *Sorry, Android, the current iteration only works on iOS!
+- Sorry, Android, the current iteration only works on iOS!
 
 ## Technologies and Frameworks
-[React Native](https://reactnative.dev/)
-[React Navigation](https://reactnavigation.org/)
-[Hooks](https://reactjs.org/docs/hooks-intro.html) + [Context](https://reactjs.org/docs/context.html)
-[NativeBase](https://nativebase.io/) UI Components
+- [React Native](https://reactnative.dev/)
+- [React Navigation](https://reactnavigation.org/)
+- [Hooks](https://reactjs.org/docs/hooks-intro.html) + [Context](https://reactjs.org/docs/context.html)
+- [NativeBase](https://nativebase.io/) UI Components
 
 ## Wins
 

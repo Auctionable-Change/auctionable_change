@@ -25,7 +25,7 @@ Buyers notify sellers through app generated email with proof of donation and shi
 ## Project Management
 - Kanban & Sprint Planning: Github Project Boards
 - Agile Planning & Retros: Miro
-- Communication: Slack & Zoom
+- Communication & Pair Programming: Slack & Zoom
 
 ## Future Iterations
 

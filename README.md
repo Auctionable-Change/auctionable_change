@@ -21,6 +21,8 @@ Buyers notify sellers through app generated email with proof of donation and shi
 - [Hooks](https://reactjs.org/docs/hooks-intro.html) + [Context](https://reactjs.org/docs/context.html)
 - [NativeBase](https://nativebase.io/) UI Components
 - [TravisCI](https://travis-ci.org/Auctionable-Change/auctionable_change)
+- React Native Testing Library
+- Jest
 
 ## Project Management
 - Kanban & Sprint Planning: Github Organization Project Board
@@ -28,6 +30,8 @@ Buyers notify sellers through app generated email with proof of donation and shi
 - Communication & Pair Programming: Slack & Zoom
 
 ## Future Iterations
+
+## UI/UX
 
 ## Dev Team Front End
  - Ally Jarjour ([GitHub](https://github.com/allyjarjour), [LinkedIn](https://www.linkedin.com/in/allyjarjour/))

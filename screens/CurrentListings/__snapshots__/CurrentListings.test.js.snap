@@ -1018,32 +1018,6 @@ exports[`CurrentListings should render 1`] = `
       size="large"
     />
   </View>
-  <View>
-    <Text
-      style={
-        Object {
-          "fontFamily": "quicksand",
-          "fontSize": 25,
-          "marginTop": 50,
-          "textAlign": "center",
-        }
-      }
-    >
-      No Listings Here
-    </Text>
-    <Text
-      style={
-        Object {
-          "fontFamily": "quicksand",
-          "fontSize": 25,
-          "marginTop": 10,
-          "textAlign": "center",
-        }
-      }
-    >
-      Try Another Category
-    </Text>
-  </View>
   <RCTScrollView
     data={Array []}
     disableVirtualization={false}

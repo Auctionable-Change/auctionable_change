@@ -78,7 +78,7 @@ const CurrentListings = ({ navigation }) => {
         </View>
       )}
 
-      {listings.length < 1 && (
+      {((listings.length < 1) && !isLoading) && (
         <View>
           <Text
             style={{

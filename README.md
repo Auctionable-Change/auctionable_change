@@ -16,13 +16,13 @@ Buyers notify sellers through app generated email with proof of donation and shi
 - Sorry, Android, the current iteration only works on iOS!
 
 ## Front End Technologies and Frameworks
-- [React Native](https://reactnative.dev/)
+- [React Native](https://reactnative.dev/) with [Expo](https://expo.io/)
 - [React Navigation](https://reactnavigation.org/)
 - [Hooks](https://reactjs.org/docs/hooks-intro.html) + [Context](https://reactjs.org/docs/context.html)
 - [NativeBase](https://nativebase.io/) UI Components
 - [TravisCI](https://travis-ci.org/Auctionable-Change/auctionable_change)
-- React Native Testing Library
-- Jest
+- [React Native Testing Library](https://www.native-testing-library.com/)
+- [Jest](https://jestjs.io/)
 
 ## Project Management
 - Kanban & Sprint Planning: Github Organization Project Board

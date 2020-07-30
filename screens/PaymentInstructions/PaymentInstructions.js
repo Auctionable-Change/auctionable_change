@@ -34,7 +34,7 @@ const PaymentInstructions = () => {
           </Text>
         </View>
         <Text style={styles.listItem}>
-          Then, take a screenshot that includes your name, charity name and
+          Then, take a screenshot that includes charity name and
           donation amount.
         </Text>
         <Text style={styles.listItem}>

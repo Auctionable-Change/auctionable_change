@@ -37,6 +37,7 @@ Buyers notify sellers through app generated email with proof of donation and shi
 - Silent auction functionality will let users bid how much they would donate for the item and notify the winner after a set time
 - User registration will let users sign in, keep track of bids, and rate sellers/buyers after purchases for accountability
 - Filter by location will let users save on shipping by picking up or dropping off local items
+- Develop for Android
 
 ## Dev Team Front End
  - Ally Jarjour ([GitHub](https://github.com/allyjarjour), [LinkedIn](https://www.linkedin.com/in/allyjarjour/))

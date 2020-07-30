@@ -35,6 +35,7 @@ Buyers notify sellers through app generated email with proof of donation and shi
 - Filter by location will let users save on shipping by picking up or dropping off local items
 
 ## UI/UX
+![A.change Screenshots](assets/A.change_screenviews.jpg)
 
 ## Dev Team Front End
  - Ally Jarjour ([GitHub](https://github.com/allyjarjour), [LinkedIn](https://www.linkedin.com/in/allyjarjour/))

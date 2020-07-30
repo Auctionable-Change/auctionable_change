@@ -1,4 +1,4 @@
-![Auctionable Change](assets/expanded_logo.png)
+![Auctionable Change](assets/stacked_logo.png)
 ### Together we can make **A.change**! [![Build Status](https://travis-ci.org/Auctionable-Change/auctionable_change.svg?branch=master)](https://travis-ci.org/Auctionable-Change/auctionable_change)
 
 ##  Description
@@ -30,6 +30,9 @@ Buyers notify sellers through app generated email with proof of donation and shi
 - Communication & Pair Programming: Slack & Zoom
 
 ## Future Iterations
+- Silent auction functionality will let users bid how much they would donate for the item and notify the winner after a set time
+- User registration will let users sign in, keep track of bids, and rate sellers/buyers after purchases for accountability
+- Filter by location will let users save on shipping by picking up or dropping off local items
 
 ## UI/UX
 

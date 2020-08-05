@@ -9,6 +9,7 @@ const NavBar = ({ navigation }) => {
       <TouchableWithoutFeedback onPress={() => navigation.navigate("Listings")}>
         <Image
           accessibilityRole="button"
+          id="search"
           source={require("../../assets/icons/search.png")}
           style={styles.icons}
         />
@@ -18,6 +19,7 @@ const NavBar = ({ navigation }) => {
       >
         <Image
           accessibilityRole="button"
+          id="add"
           source={require("../../assets/icons/add.png")}
           style={styles.icons}
         />
@@ -25,6 +27,7 @@ const NavBar = ({ navigation }) => {
       <TouchableWithoutFeedback onPress={() => navigation.navigate("Profile")}>
         <Image
           accessibilityRole="button"
+          id="profile"
           source={require("../../assets/icons/profile.png")}
           style={styles.icons}
         />

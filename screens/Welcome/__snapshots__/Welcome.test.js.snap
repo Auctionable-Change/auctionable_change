@@ -290,7 +290,7 @@ exports[`Welcome should render 1`] = `
         ]
       }
     >
-      Home
+      Profile
     </Text>
   </View>
   <View
@@ -395,7 +395,7 @@ exports[`Welcome should render 1`] = `
       >
         <Image
           accessibilityRole="button"
-          id="home"
+          id="profile"
           source={1}
           style={
             Object {

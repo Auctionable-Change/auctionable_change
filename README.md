@@ -21,9 +21,10 @@ Buyers notify sellers through app generated email with proof of donation and shi
 - [Hooks](https://reactjs.org/docs/hooks-intro.html) + [Context](https://reactjs.org/docs/context.html)
 - [NativeBase](https://nativebase.io/) UI Components
 - [TravisCI](https://travis-ci.org/Auctionable-Change/auctionable_change)
-- [React Native Testing Library](https://www.native-testing-library.com/)
-- [Jest](https://jestjs.io/)
-
+- [React Native Testing Library](https://www.native-testing-library.com/) & [Jest](https://jestjs.io/) Snapshot Tests
+- [expo-mail-composer](https://www.npmjs.com/package/expo-mail-composer) API
+- [ImagePicker](https://docs.expo.io/versions/latest/sdk/imagepicker/)
+- [Cloudinary](https://cloudinary.com/) Image Management
 ## Project Management
 - Kanban & Sprint Planning: Github Organization Project Board
 - Agile Planning & Retros: [Miro](https://miro.com/app/board/o9J_kpWR55w=/)
@@ -36,6 +37,7 @@ Buyers notify sellers through app generated email with proof of donation and shi
 - Silent auction functionality will let users bid how much they would donate for the item and notify the winner after a set time
 - User registration will let users sign in, keep track of bids, and rate sellers/buyers after purchases for accountability
 - Filter by location will let users save on shipping by picking up or dropping off local items
+- Develop for Android
 
 ## Dev Team Front End
  - Ally Jarjour ([GitHub](https://github.com/allyjarjour), [LinkedIn](https://www.linkedin.com/in/allyjarjour/))

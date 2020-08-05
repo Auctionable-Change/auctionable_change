@@ -72,7 +72,7 @@ const Welcome = ({ navigation }) => {
       >
         <Text style={styles.iconText}>Browse</Text>
         <Text style={styles.iconText}>Post</Text>
-        <Text style={styles.iconText}>Home</Text>
+        <Text style={styles.iconText}>Profile</Text>
       </View>
       <NavBar navigation={navigation} />
     </View>

@@ -103,7 +103,7 @@ exports[`NavBar renders correctly 1`] = `
     >
       <Image
         accessibilityRole="button"
-        id="home"
+        id="profile"
         source={1}
         style={
           Object {

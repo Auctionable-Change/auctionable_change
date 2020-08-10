@@ -24,11 +24,11 @@ const NavBar = ({ navigation }) => {
           style={styles.icons}
         />
       </TouchableWithoutFeedback>
-      <TouchableWithoutFeedback onPress={() => navigation.navigate("Home")}>
+      <TouchableWithoutFeedback onPress={() => navigation.navigate("Profile")}>
         <Image
           accessibilityRole="button"
-          id="home"
-          source={require("../../assets/icons/home.png")}
+          id="profile"
+          source={require("../../assets/icons/profile.png")}
           style={styles.icons}
         />
       </TouchableWithoutFeedback>

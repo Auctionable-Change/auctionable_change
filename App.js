@@ -9,16 +9,20 @@ import { NavigationContainer } from "@react-navigation/native";
 import { StoreProvider } from "./store";
 import { Image } from "react-native";
 import LogoTitle from "./components/LogoTitle";
+import SignOut from "./components/SignOut";
 import Welcome from "./screens/Welcome/Welcome";
 import CurrentListings from "./screens/CurrentListings/CurrentListings";
 import ListingDetails from "./screens/ListingDetails/ListingDetails";
 import PostItem from "./screens/PostItem/PostItem";
+import Login from "./screens/Login/Login";
 import PaymentInstructions from "./screens/PaymentInstructions/PaymentInstructions";
 import ChooseCharity from "./screens/ChooseCharity/ChooseCharity";
 import PostConfirmation from "./screens/PostConfirmation/PostConfirmation";
 import EmailForm from "./screens/EmailForm/EmailForm";
 import Camera from "./screens/Camera/Camera";
+import Profile from "./screens/Profile/Profile";
 import ThankYou from "./screens/ThankYou/ThankYou";
+
 
 const Stack = createStackNavigator();
 
@@ -47,10 +51,21 @@ export default function App() {
       <NavigationContainer>
         <Stack.Navigator>
           <Stack.Screen
+            name="Login"
+            component={Login}
+            options={{
+              headerTitle: false,
+              headerStyle: {
+                backgroundColor: "#2cb833",
+              },
+            }}
+          />
+          <Stack.Screen
             name="Home"
             component={Welcome}
             options={{
               headerTitle: false,
+              headerLeft: null,
               headerStyle: {
                 backgroundColor: "#2cb833",
               },
@@ -147,6 +162,19 @@ export default function App() {
               headerTitle: () => <LogoTitle />,
               headerBackTitleVisible: false,
               headerLeft: null,
+              headerStyle: {
+                backgroundColor: "#2cb833",
+              },
+            }}
+          />
+          <Stack.Screen
+            name="Profile"
+            component={Profile}
+            options={{
+              headerTitle: () => <LogoTitle />,
+              headerBackTitleVisible: false,
+              headerLeft: null,
+              headerRight: () => <SignOut />,
               headerStyle: {
                 backgroundColor: "#2cb833",
               },

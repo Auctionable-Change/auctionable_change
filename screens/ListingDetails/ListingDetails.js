@@ -69,16 +69,16 @@ const ListingDetails = ({ navigation }) => {
           block
           success
           style={{ backgroundColor: "#2cb833", margin: 5 }}
-          onPress={() => navigation.navigate("Purchase")}
+          onPress={() => navigation.navigate("Bid Confirmation")}
         >
           <Text
             style={{
               color: "white",
               fontFamily: "quicksand-bold",
-              fontSize: 15,
+              fontSize: 20,
             }}
           >
-            Donate For Item
+            Place a Bid
           </Text>
         </Button>
         <View style={styles.charityContainer}>

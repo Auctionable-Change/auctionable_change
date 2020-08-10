@@ -23,7 +23,10 @@ const Login = ({ navigation }) => {
   }
 
   const logoutReset = () => {
-    setLoginDetails({})
+    setLoginDetails({
+      password: 'password',
+      email: 'testemailtwo@example.com'
+    })
   }
 
   useEffect(() => {

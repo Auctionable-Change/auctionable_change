@@ -22,6 +22,7 @@ import EmailForm from "./screens/EmailForm/EmailForm";
 import Camera from "./screens/Camera/Camera";
 import Profile from "./screens/Profile/Profile";
 import ThankYou from "./screens/ThankYou/ThankYou";
+import BidConfirmation from "./screens/BidConfirmation/BidConfirmation";
 
 
 const Stack = createStackNavigator();
@@ -63,6 +64,17 @@ export default function App() {
           <Stack.Screen
             name="Home"
             component={Welcome}
+            options={{
+              headerTitle: false,
+              headerLeft: null,
+              headerStyle: {
+                backgroundColor: "#2cb833",
+              },
+            }}
+          />
+           <Stack.Screen
+            name="Bid Confirmation"
+            component={BidConfirmation}
             options={{
               headerTitle: false,
               headerLeft: null,

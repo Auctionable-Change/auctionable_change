@@ -10,6 +10,14 @@ import * as Linking from "expo-linking";
 
 const ListingDetails = ({ navigation }) => {
   const { state } = useStore();
+
+  const timeConvert = (timestamp) => {
+    let timestampNow = Math.floor(new Date().getTime()/1000.0)
+    let timestampEnd = timestamp
+    let secs = timestampEnd - timestampNow
+    return moment.utc(secs*1000).format('HH:mm:ss')
+  }
+  
   return (
     <SafeAreaView style={styles.container}>
     {/* {console.log('currentListing', state.currentListing)} */}

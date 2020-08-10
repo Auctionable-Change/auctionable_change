@@ -7,7 +7,7 @@ import { useNavigation } from "@react-navigation/native";
 const SignOut = () => {
   const navigation = useNavigation()
   return (
-    <TouchableWithoutFeedback onPress={() => navigation.navigate("Home")}>
+    <TouchableWithoutFeedback onPress={() => navigation.navigate("Login")}>
       <Text
         style={{
           fontFamily: "quicksand-bold",

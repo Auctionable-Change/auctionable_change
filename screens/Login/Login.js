@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { View, Image, StyleSheet, Alert } from "react-native";
 import { Label, Form, Item, Button, Text, Input } from 'native-base'
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
@@ -21,6 +21,14 @@ const Login = ({ navigation }) => {
       );
     }
   }
+
+  const logoutReset = () => {
+    setLoginDetails({})
+  }
+
+  useEffect(() => {
+    logoutReset()
+  },[])
 
   return (
     <View style={{ flex: 1, alignItems: "center" }}>

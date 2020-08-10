@@ -12,6 +12,7 @@ const ListingDetails = ({ navigation }) => {
   const { state } = useStore();
   return (
     <SafeAreaView style={styles.container}>
+    {/* {console.log('currentListing', state.currentListing)} */}
       <ScrollView contentContainerStyle={styles.scroll}>
         <Text style={styles.title}>{state.currentListing.title}</Text>
         <Image

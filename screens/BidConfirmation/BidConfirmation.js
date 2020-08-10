@@ -6,15 +6,18 @@ import { useStore } from "../../store";
 import * as Linking from "expo-linking";
 import Camera from "../Camera/Camera";
 import { ScrollView } from "react-native-gesture-handler";
+import NavBar from "../../components/NavBar/NavBar";
 
-const BidConfirmation = () => {
+const BidConfirmation = ({ navigation }) => {
+  const { state } = useStore();
   return(
     <SafeAreaView style={styles.container}>
       <ScrollView contentContainerStyle={{ alignItems: "center", width: "100%" }}>
         <Text>Hello World</Text>
       </ScrollView>
+      <NavBar navigation={navigation} />
     </SafeAreaView>
-);
+  );
 };
 
 const styles = StyleSheet.create({

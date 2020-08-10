@@ -41,6 +41,16 @@ const CurrentListings = ({ navigation }) => {
     navigation.navigate("Details");
   };
 
+  const timeConvert = (timestamp) => {
+    let unix_timestamp = timestamp
+    let date = new Date(unix_timestamp * 1000);
+    let hours = date.getHours();
+    let minutes = "0" + date.getMinutes();
+    let seconds = "0" + date.getSeconds();
+    
+    return hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
+  }
+
   useEffect(() => {
     const fetchData = async () => {
       setIsLoading(true);
@@ -116,6 +126,7 @@ const CurrentListings = ({ navigation }) => {
               </Left>
             </CardItem>
             <CardItem cardBody>
+            {console.log(item)}
               <Image
                 source={
                   item.image
@@ -137,6 +148,11 @@ const CurrentListings = ({ navigation }) => {
               >
                 <Text style={styles.button}>Listing Details</Text>
               </Button>
+            </CardItem>
+            <CardItem>
+              <Text>
+                Auction Ends in {timeConvert(item.auction_end)}
+              </Text>
             </CardItem>
           </Card>
         )}

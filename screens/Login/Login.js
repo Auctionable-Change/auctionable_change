@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { View, Image, StyleSheet, Alert } from "react-native";
 import { Label, Form, Item, Button, Text, Input } from 'native-base'
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
-
+import { dispatch } from "../../store";
 
 const Login = ({ navigation }) => {
   const [loginDetails, setLoginDetails] = useState({})
@@ -14,6 +14,10 @@ const Login = ({ navigation }) => {
   const login = () => {
     if (loginDetails.email && loginDetails.password) {
       navigation.navigate("Home");
+      dispatch({
+        type: SET_USER,
+        userInfo: loginDetails
+      })
     } else {
       Alert.alert(
         "Missing Input",
@@ -24,8 +28,8 @@ const Login = ({ navigation }) => {
 
   const logoutReset = () => {
     setLoginDetails({
-      password: 'password',
-      email: 'testemailtwo@example.com'
+      password: '',
+      email: ''
     })
   }
 

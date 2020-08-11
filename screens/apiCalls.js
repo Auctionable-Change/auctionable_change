@@ -13,6 +13,18 @@ export const fetchItems = async () => {
   }
 }
 
+export const postBid = async (bidObj) => {
+  const url = 'https://auctionable-change-api.herokuapp.com/bids';
+  const response = await fetch(url, {
+    method: 'POST', 
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(bidObj)
+  })
+  return response.json();
+}
+
 export const postItem = async (listing) => {
   const response = await fetch(url, {
     method: 'POST', 

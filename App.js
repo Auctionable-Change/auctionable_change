@@ -77,7 +77,8 @@ export default function App() {
             component={BidConfirmation}
             options={{
               headerTitle: false,
-              headerLeft: null,
+              headerBackTitleVisible: false,
+              ...backButtonStyle,
               headerStyle: {
                 backgroundColor: "#2cb833",
               },

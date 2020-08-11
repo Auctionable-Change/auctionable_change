@@ -127,7 +127,6 @@ const CurrentListings = ({ navigation }) => {
               </Left>
             </CardItem>
             <CardItem cardBody>
-            {console.log(item)}
               <Image
                 source={
                   item.image
@@ -151,7 +150,7 @@ const CurrentListings = ({ navigation }) => {
               </Button>
             </CardItem>
             <CardItem>
-              <Text style={{ fontSize: 15, fontFamily: "quicksand", justifySelf: 'center' }}>
+              <Text style={{ fontFamily: "quicksand-bold", color: 'red', justifySelf: 'center' }}>
                 Auction Ends in {timeConvert(item.auction_end)}
               </Text>
             </CardItem>

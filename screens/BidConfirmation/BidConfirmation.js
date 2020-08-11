@@ -13,7 +13,7 @@ const BidConfirmation = ({ navigation }) => {
   return(
     <SafeAreaView style={styles.container}>
       <ScrollView contentContainerStyle={{ alignItems: "center", width: "100%" }}>
-        <Text>Hello World</Text>
+        <Text style={styles.title}></Text>
       </ScrollView>
       <NavBar navigation={navigation} />
     </SafeAreaView>

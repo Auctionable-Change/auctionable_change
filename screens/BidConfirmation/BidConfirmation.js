@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, View, Image, Alert } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { Text, Button } from "native-base";
+import { Text, Button, Body, CardItem, Card } from "native-base";
 import { useStore } from "../../store";
 import * as Linking from "expo-linking";
 import Camera from "../Camera/Camera";
@@ -17,15 +17,31 @@ const BidConfirmation = ({ navigation }) => {
     amount: state.currentBid
   })
 
-  const confirmBid = () => {
-    console.log('bidObj', bidObj)
-    postBid(bidObj)
+  const confirmBid = async () => {
+    const response = await postBid(bidObj)
+    if(response.status === 200) {
+      Alert.alert("Bid Placed!", "Congratulations! Your Bid Was Succesfully Placed");
+      navigation.navigate('Profile')
+    }
   }
 
   return(
     <SafeAreaView style={styles.container}>
-      <ScrollView contentContainerStyle={{ alignItems: "center", width: "100%" }}>
-        <Text style={styles.title}></Text>
+      <ScrollView contentContainerStyle={{ flex: 1, alignItems: "center", width: "100%", marginBottom: 25 }}>
+      <View>
+        <Text style={styles.title}>Please Confirm Your Bid:</Text>
+        <Text style={styles.subtitle}>Item: {state.currentListing.title}</Text>
+        <Text style={styles.subtitle}>Description: {state.currentListing.description}</Text>
+        <Text style={styles.subtitle}>Your bid: ${state.currentBid}</Text>
+      </View>
+      <Image
+          style={styles.image}
+          source={
+            state.currentListing.image
+              ? { uri: state.currentListing.image }
+              : require("../../assets/noimage.png")
+          }
+        />
         <Button
           block
           success
@@ -57,7 +73,8 @@ container: {
 subtitle: {
   fontSize: 20,
   fontFamily: "quicksand",
-  margin: 5,
+  margin: 10,
+  textAlign: "center",
 },
 title: {
   fontSize: 25,
@@ -77,6 +94,24 @@ stepOne: {
   flexDirection: "row",
   flexWrap: "wrap",
   marginTop: 5,
+},
+cardItem: {
+  shadowOffset: {
+    width: 0,
+    height: 1,
+  },
+  shadowOpacity: 0.18,
+  shadowRadius: 1.0,
+  borderRadius: 3,
+},
+image: {
+  width: "100%",
+  height: 300,
+  resizeMode: "cover",
+  alignSelf: "center",
+  margin: 10,
+  borderColor: 'black',
+  borderWidth: 5,
 },
 });
 

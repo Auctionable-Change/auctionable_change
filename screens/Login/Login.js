@@ -5,7 +5,10 @@ import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view
 import { dispatch } from "../../store";
 
 const Login = ({ navigation }) => {
-  const [loginDetails, setLoginDetails] = useState({})
+  const [loginDetails, setLoginDetails] = useState({
+    email: 'testemailtwo@example.com',
+    password: 'password'
+  })
 
   const handleChange = (event, name) => {
     setLoginDetails({ ...loginDetails, [name]: event.nativeEvent.text });
@@ -14,10 +17,10 @@ const Login = ({ navigation }) => {
   const login = () => {
     if (loginDetails.email && loginDetails.password) {
       navigation.navigate("Home");
-      dispatch({
-        type: SET_USER,
-        userInfo: loginDetails
-      })
+      // dispatch({
+      //   type: SET_USER,
+      //   userInfo: loginDetails
+      // })
     } else {
       Alert.alert(
         "Missing Input",
@@ -28,8 +31,8 @@ const Login = ({ navigation }) => {
 
   const logoutReset = () => {
     setLoginDetails({
-      password: '',
-      email: ''
+      password: 'password',
+      email: 'testemailtwo@example.com'
     })
   }
 
@@ -49,6 +52,7 @@ const Login = ({ navigation }) => {
             <Label style={styles.text}>Email</Label>
             <Input
               accessibilityLabel="email"
+              value={loginDetails.email}
               onChange={(event) => handleChange(event, "email")}
             />
           </Item>
@@ -56,6 +60,7 @@ const Login = ({ navigation }) => {
             <Label style={styles.text}>Password</Label>
             <Input
               accessibilityLabel="password"
+              value={loginDetails.password}
               onChange={(event) => handleChange(event, "password")}
             />
           </Item>

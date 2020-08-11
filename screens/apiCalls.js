@@ -22,7 +22,7 @@ export const postBid = async (bidObj) => {
     },
     body: JSON.stringify(bidObj)
   })
-  return response.json();
+  return response;
 }
 
 export const postItem = async (listing) => {

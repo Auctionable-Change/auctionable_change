@@ -1,4 +1,4 @@
-const url = 'https://auctionable-change-api.herokuapp.com/items'
+const url = 'https://auctionable-change-api.herokuapp.com/items/available'
 
 export const fetchItems = async () => {
   try {
@@ -8,6 +8,36 @@ export const fetchItems = async () => {
     }
     const data = await response.json();
     return data;
+  } catch(error) {
+    return false
+  }
+}
+
+export const fetchBid = async (itemId) => {
+  const url = `https://auctionable-change-api.herokuapp.com/items/${itemId}`
+
+  try {
+    const response = await fetch(url);
+    if(!response.ok) {
+      throw new Error(error);
+    }
+    const data = await response.json();
+    return data;
+  } catch(error) {
+    return false
+  }
+}
+
+export const fetchUserInfo = async (userId) => {
+  const url = `https://auctionable-change-api.herokuapp.com/users/${userId}`
+
+  try {
+    const response = await fetch(url);
+    if(!response.ok) {
+      throw new Error(error);
+    }
+    const data = await response.json();
+    return data.bids;
   } catch(error) {
     return false
   }

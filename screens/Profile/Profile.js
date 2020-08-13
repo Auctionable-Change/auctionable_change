@@ -54,8 +54,13 @@ const Profile = ({ navigation }) => {
                           <Text style={styles.normal}>Item Title: {item.itemName}</Text>
                           <Text style={styles.normal}>Auction End: {timeConvert(item.auctionEnd)}</Text>
                           <Text style={styles.normal}>Charity: {item.charity}</Text>
-                          <Text style={styles.normal}>Your Bid: {item.bidAmount}</Text>
-        
+                          <Text style={styles.normal}>Your Bid: ${item.bidAmount}</Text>
+                          {item.winner && (
+                            <Text style={styles.normal}>Result: Won Auction!</Text>
+                          )}
+                          {!item.winner && (
+                            <Text style={styles.normal}>Result: Lost Auction</Text>
+                          )}
                         </View>
                       </Card>
                     )}

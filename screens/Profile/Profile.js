@@ -5,7 +5,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import NavBar from "../../components/NavBar/NavBar";
 import { fetchUserInfo, fetchBid} from "../apiCalls";
 import { useStore } from "../../store";
-
+import moment from 'moment';
 
 const Profile = ({ navigation }) => {
   const { state } = useStore();
@@ -32,49 +32,30 @@ const Profile = ({ navigation }) => {
   })
   }
 
-  const segmentHandler = async (page) => {
-    setActivePage(page)
-    await getBidData(1)
-
-    if(page === 1) {
-      let timestampNow = Math.floor(new Date().getTime()/1000.0)
-      // console.log('bidauctionend', bid.auctionEnd)
-      console.log('timestampNow', timestampNow)
-
-      let filteredBids = bidHistory.filter(bid => {
-        console.log('bidauctionend', bid.auctionEnd)
-        (bid.auctionEnd - timestampNow) > 0
-      })
-      setBidHistory(filteredBids)
-    }
-
-    if(page === 2) {
-      setBidHistory(bidHistory)
-    }
+  const timeConvert = (timestamp) => {
+    let date = moment.unix(timestamp).format('dddd, MMMM Do, YYYY h:mm:ss A')
+    return date
   }
-
+ 
   useEffect( () => {
-    segmentHandler(1)
+    getBidData(1)
   }, [])
 
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: "#FFFFFF" }}>
+    <SafeAreaView style={{ flex: 1, backgroundColor: "#FFFFFF", alignItems: "center", }}>
       <Text style={styles.title}>Hello, [name]!</Text>
-      <Segment>
-        <Button first active={activePage === 1} onPress={() => segmentHandler(1)}>
-          <Text>Current Bids</Text>
-        </Button>
-        <Button last active={activePage === 2} onPress={() => segmentHandler(2)}>
-          <Text>Bid History</Text>
-        </Button>
-      </Segment>
+      <Text style={styles.title}>Your Bidding History:</Text>
         <FlatList data={bidHistory}
                     style={styles.scrollView}
                     keyExtractor={(item) => item.id}
                     renderItem={({ item }) => (
                       <Card style={styles.cardDefault}>
-                        <View>
-                          <Text>Item Title: {item.itemName}</Text>
+                        <View style={{ alignContents:'center'}}>
+                          <Text style={styles.normal}>Item Title: {item.itemName}</Text>
+                          <Text style={styles.normal}>Auction End: {timeConvert(item.auctionEnd)}</Text>
+                          <Text style={styles.normal}>Charity: {item.charity}</Text>
+                          <Text style={styles.normal}>Your Bid: {item.bidAmount}</Text>
+        
                         </View>
                       </Card>
                     )}
@@ -105,9 +86,16 @@ const styles = StyleSheet.create({
     padding: 15,
     width: "98%",
     marginTop: 15,
-    height: 130,
+    height: 200,
     flexDirection: "row",
   },
+  normal: {
+    alignContent: "center",
+    justifyContent: 'center',
+    fontSize: 15,
+    fontFamily: "quicksand",
+    margin: 5
+  }
 });
 
 export default Profile

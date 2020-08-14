@@ -10,7 +10,6 @@ import moment from 'moment';
 const Profile = ({ navigation }) => {
   const { state } = useStore();
   const [bidHistory, setBidHistory] = useState([])
-  const [activePage, setActivePage] = useState(1)
 
   const getBidData = async (userId) => {
     fetchUserInfo(userId)
@@ -38,7 +37,8 @@ const Profile = ({ navigation }) => {
   }
  
   useEffect( () => {
-    getBidData(state.userInfo.user_id)
+    console.log(state)
+    getBidData(state.loginDetails.user_id)
   }, [])
 
   return (

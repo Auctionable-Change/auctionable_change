@@ -175,3 +175,34 @@ export const cloudinaryPost = (pickerResult, updateStore) => {
       .then(() => updateStore(photoData));
   };
 
+export const logIn = async (userInfo) => {
+  const url = 'https://auctionable-change-api.herokuapp.com/login';
+
+  const response = await fetch(url, {
+    method: 'POST', 
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(userInfo)
+  })
+  return response.json()
+}
+
+export const register = async (userInfo) => {
+  const url = 'https://auctionable-change-api.herokuapp.com/users';
+  let userDetails = {
+    first_name: "Brian",
+    last_name: "Test",
+    email: "testemailbrian@example.com",
+    password: 'password'
+  }
+
+  const response = await fetch(url, {
+    method: 'GET', 
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(userDetails)
+  })
+  return response.json()
+}

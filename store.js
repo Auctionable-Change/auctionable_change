@@ -65,6 +65,11 @@ const reducer = (state, action) => {
       return {
         ...state,
         currentBid: action.bid
+      };
+      case "SET_USER":
+      return {
+        ...state,
+        userInfo: action.userInfo
       }
 
     default:

@@ -61,6 +61,18 @@ const reducer = (state, action) => {
         ...state,
         listingToPost: { ...state.listingToPost, ...action.listingToPost },
       };
+    case "POST_BID":
+      return {
+        ...state,
+        currentBid: action.bid
+      };
+      case "SET_USER":
+      return {
+        ...state,
+        loginDetails: action.loginDetails,
+        userInfo: action.userInfo,
+        registrationDetails: action.registration
+      }
 
     default:
       throw new Error(`Unhandled action type: ${action.type}`);

@@ -12,6 +12,7 @@ import { useStore } from "../../store";
 import { fetchItems } from "../apiCalls";
 import { Picker, Icon, CardItem, Card, Left, Body, Button } from "native-base";
 import NavBar from "../../components/NavBar/NavBar";
+import moment from 'moment';
 
 const CurrentListings = ({ navigation }) => {
   const { dispatch } = useStore();
@@ -40,6 +41,16 @@ const CurrentListings = ({ navigation }) => {
     dispatch({ type: "ADD_CURRENT_LISTING", currentListing: currentListing });
     navigation.navigate("Details");
   };
+
+  const timeConvert = (timestamp) => {
+    let timestampNow = Math.floor(new Date().getTime()/1000.0)
+    let timestampEnd = timestamp
+    let secs = timestampEnd - timestampNow
+    let hours = moment.utc(secs * 1000).format('HH')
+    let minutes = moment.utc(secs * 1000).format('mm')
+    let seconds = moment.utc(secs * 1000).format('ss')
+    return hours + 'h '  + minutes.substr(-2) + 'm ' + seconds.substr(-2) + 's'
+  }
 
   useEffect(() => {
     const fetchData = async () => {
@@ -137,6 +148,11 @@ const CurrentListings = ({ navigation }) => {
               >
                 <Text style={styles.button}>Listing Details</Text>
               </Button>
+            </CardItem>
+            <CardItem>
+              <Text style={{ fontFamily: "quicksand-bold", color: 'red', justifySelf: 'center' }}>
+                Auction Ends in {timeConvert(item.auction_end)}
+              </Text>
             </CardItem>
           </Card>
         )}

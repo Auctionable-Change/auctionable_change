@@ -78,8 +78,7 @@ const SellerForm = ({ navigation }) => {
           </Item>
           <Item floatingLabel>
             <Label style={styles.label}>Minimum Bid</Label>
-            <Input value={listingObj.price} accessibilityLabel={'bid'} onChange={(event) => verifyPrice(event, "price")} />
-            
+            <Input value={listingObj.price} accessibilityLabel={'bid'} onChange={(event) => verifyPrice(event, "price")} />  
           </Item>
           <Item picker last>
             <Picker

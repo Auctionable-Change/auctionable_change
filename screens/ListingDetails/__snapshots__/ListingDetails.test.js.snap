@@ -107,6 +107,17 @@ exports[`ListingDetails should render 1`] = `
           }
         }
       />
+      <Text
+        style={
+          Object {
+            "color": "red",
+            "fontFamily": "quicksand-bold",
+          }
+        }
+      >
+        Time Remaining: 
+        Invalid dateh tem tes
+      </Text>
       <View
         style={
           Object {
@@ -145,6 +156,107 @@ exports[`ListingDetails should render 1`] = `
               "flexWrap": "wrap",
             }
           }
+        />
+      </View>
+      <View
+        accessible={true}
+        focusable={false}
+        forwardedRef={[Function]}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "alignSelf": "center",
+            "backgroundColor": "transparent",
+            "borderBottomWidth": 1,
+            "borderColor": "#D9D5DC",
+            "borderLeftWidth": 0,
+            "borderRadius": undefined,
+            "borderRightWidth": 0,
+            "borderTopWidth": 0,
+            "borderWidth": undefined,
+            "flexDirection": "row",
+            "marginLeft": 2,
+            "marginTop": 25,
+            "opacity": 1,
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "left": 0,
+              "opacity": 1,
+              "paddingBottom": undefined,
+              "paddingTop": undefined,
+              "position": "absolute",
+              "right": 0,
+              "top": 18,
+            }
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#575757",
+                  "fontSize": 17,
+                  "paddingRight": 5,
+                  "paddingTop": 5,
+                },
+                Object {
+                  "paddingLeft": 10,
+                },
+              ]
+            }
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "fontSize": 17,
+                  },
+                  Object {
+                    "paddingLeft": 10,
+                  },
+                ]
+              }
+            >
+              Enter a bid greater than $
+            </Text>
+          </Text>
+        </View>
+        <TextInput
+          allowFontScaling={true}
+          editable={true}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onChangeText={[Function]}
+          onFocus={[Function]}
+          placeholder={null}
+          placeholderTextColor="#575757"
+          rejectResponderTermination={true}
+          style={
+            Object {
+              "color": "#000",
+              "flex": 1,
+              "fontSize": 17,
+              "height": 50,
+              "paddingBottom": 7,
+              "paddingLeft": 5,
+              "paddingRight": 5,
+              "paddingTop": 3,
+              "top": 8,
+            }
+          }
+          underlineColorAndroid="rgba(0,0,0,0)"
+          value={null}
         />
       </View>
       <View
@@ -190,11 +302,11 @@ exports[`ListingDetails should render 1`] = `
             Object {
               "color": "white",
               "fontFamily": "quicksand-bold",
-              "fontSize": 15,
+              "fontSize": 20,
             }
           }
         >
-          Donate For Item
+          Place Bid
         </Text>
       </View>
       <View

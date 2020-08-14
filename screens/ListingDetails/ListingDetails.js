@@ -1,15 +1,45 @@
-import * as React from "react";
-import { Image, Text, View } from "react-native";
+import React, { useState } from "react";
+import { Image, Text, View, Alert, StyleSheet } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { StyleSheet } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
-import { Button } from "native-base";
+import { Button, Input, Label, Item } from "native-base";
 import { useStore } from "../../store";
 import NavBar from "../../components/NavBar/NavBar";
 import * as Linking from "expo-linking";
+import moment from 'moment';
+
 
 const ListingDetails = ({ navigation }) => {
-  const { state } = useStore();
+  const [currentBid, setCurrentBid] = useState(null)
+  const { state, dispatch } = useStore();
+
+  const timeConvert = (timestamp) => {
+    let timestampNow = Math.floor(new Date().getTime()/1000.0)
+    let timestampEnd = timestamp
+    let secs = timestampEnd - timestampNow
+    let hours = moment.utc(secs * 1000).format('HH')
+    let minutes = moment.utc(secs * 1000).format('mm')
+    let seconds = moment.utc(secs * 1000).format('ss')
+    return hours + 'h '  + minutes.substr(-2) + 'm ' + seconds.substr(-2) + 's'
+  }
+
+  const verifyPrice =  (event) => {
+    let numberString = event.nativeEvent.text.replace(/[^\d.]/g, '')
+    let numberPrice = parseInt(numberString)
+    setCurrentBid(numberPrice)
+  }
+
+  const postBid = () => {
+    if (currentBid < state.currentListing.price) {
+      Alert.alert("Incorrect Bid", "Please confirm your bid is greater than the minimum bid amount")
+    } else {
+      navigation.navigate("Bid Confirmation")    }
+      dispatch({
+        type: "POST_BID",
+        bid: currentBid
+      })
+  }
+
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView contentContainerStyle={styles.scroll}>
@@ -44,6 +74,9 @@ const ListingDetails = ({ navigation }) => {
             width: 80,
           }}
         />
+        <Text style={{fontFamily: "quicksand-bold", color: 'red'}}>
+          Time Remaining: {timeConvert(state.currentListing.auction_end)}
+        </Text>
         <View style={{ flexDirection: "row", flexWrap: "wrap" }}>
           <Text
             style={{
@@ -65,20 +98,24 @@ const ListingDetails = ({ navigation }) => {
           </Text>
           <View style={{ flexDirection: "row", flexWrap: "wrap" }}></View>
         </View>
+        <Item floatingLabel style={{marginTop: 25, alignSelf: 'center', }}>
+          <Label style={styles.label}>Enter a bid greater than ${state.currentListing.price}</Label>
+          <Input value={currentBid} onChange={(event) => verifyPrice(event)}/>
+        </Item>
         <Button
           block
           success
           style={{ backgroundColor: "#2cb833", margin: 5 }}
-          onPress={() => navigation.navigate("Purchase")}
+          onPress={() => postBid()}
         >
           <Text
             style={{
               color: "white",
               fontFamily: "quicksand-bold",
-              fontSize: 15,
+              fontSize: 20,
             }}
           >
-            Donate For Item
+            Place Bid
           </Text>
         </Button>
         <View style={styles.charityContainer}>
@@ -138,6 +175,10 @@ const styles = StyleSheet.create({
     marginBottom: 15,
     height: 120,
   },
+  label: {
+    paddingLeft: 10,
+  }
+  
 });
 
 export default ListingDetails;

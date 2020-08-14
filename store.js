@@ -70,7 +70,8 @@ const reducer = (state, action) => {
       return {
         ...state,
         loginDetails: action.loginDetails,
-        userInfo: action.userInfo
+        userInfo: action.userInfo,
+        registrationDetails: action.registration
       }
 
     default:

@@ -103,27 +103,27 @@ export const submitListing = async (listing) => {
 };
 
 const updateItemStatus = async (itemId) => {
-try {
-    const response = await fetch(
-      `https://auctionable-change-api.herokuapp.com/items/${itemId}`,
-        {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          "status": "unavailable"
-        }),
+  try {
+      const response = await fetch(
+        `https://auctionable-change-api.herokuapp.com/items/${itemId}`,
+          {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            "status": "unavailable"
+          }),
+        }
+      );
+      if (!response.ok) {
+        throw new Error(error);
       }
-    );
-    if (!response.ok) {
-      throw new Error(error);
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      return false;
     }
-    const data = await response.json();
-    return data;
-  } catch (error) {
-    return false;
-  }
 }
 
 export const submitPurchase = async (buyerInfo) => {
@@ -190,19 +190,18 @@ export const logIn = async (userInfo) => {
 
 export const register = async (userInfo) => {
   const url = 'https://auctionable-change-api.herokuapp.com/users';
-  let userDetails = {
-    first_name: "Brian",
-    last_name: "Test",
-    email: "testemailbrian@example.com",
-    password: 'password'
-  }
-
+  
   const response = await fetch(url, {
-    method: 'GET', 
+    method: 'POST', 
     headers: {
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify(userDetails)
+    body: JSON.stringify(userInfo)
   })
-  return response.json()
+  if (response.ok) {
+    return response.json()
+  }
+  else {
+    return false
+  }
 }

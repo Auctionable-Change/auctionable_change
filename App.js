@@ -186,7 +186,10 @@ export default function App() {
             options={{
               headerTitle: () => <LogoTitle />,
               headerBackTitleVisible: false,
-              headerLeft: null,
+              ...backButtonStyle,
+              headerStyle: {
+                backgroundColor: "#2cb833",
+              },
               headerRight: () => <SignOut />,
               headerStyle: {
                 backgroundColor: "#2cb833",

@@ -8,24 +8,35 @@ import { logIn, register, fetchUserInfo } from "../apiCalls";
 const Login = ({ navigation }) => {
   const { dispatch } = useStore()
   const [loginDetails, setLoginDetails] = useState({
-    'email': 'testemailbrian@example.com',
-    'password': 'password'
+    'email': '',
+    'password': ''
   })
+
+  const [registerDetails, setRegisterDetails] = useState({
+    'email': '',
+    'password': '',
+    'confirmPassword': '',
+    'first_name': '',
+    'last_name': ''
+  })
+
   const [logInScreen, setLogInScreen] = useState(true)
 
-  const handleChange = (event, name) => {
+  const handleChangeLogin = (event, name) => {
     setLoginDetails({ ...loginDetails, [name]: event.nativeEvent.text });
   }
 
+  const handleChange = (event, name) => {
+    setRegisterDetails({ ...registerDetails, [name]: event.nativeEvent.text });
+  }
+
   const login = async () => {
-    navigation.navigate("Home");
-    // register()
     let userData = await logIn(loginDetails)
-    console.log('userData', userData)
+    
     let completeUserData = await fetchUserInfo(userData.user_id)
-    console.log('completeUserData', completeUserData)
+   
     if (userData.message === "Successfully logged in.") {
-        // navigation.navigate("Home");
+        navigation.navigate("Home");
         dispatch({
           type: "SET_USER",
           loginDetails: userData,
@@ -40,11 +51,85 @@ const Login = ({ navigation }) => {
     }
   }
 
+  const registration = async () => {
+    const postRegistration = await register(registerDetails)
+    if (postRegistration) {
+      dispatch({
+        type: "SET_USER",
+        registrationDetails: registerDetails,
+      });
+      navigation.navigate("Home");
+    } else {
+      Alert.alert("Registration Failed", postRegistration.message)
+    }
+    
+  }
+
+  const validateRegistrationLogin = () => {
+    let keys = Object.keys(loginDetails);
+    let result = [];
+    keys.forEach((key) => {
+      if (loginDetails[key] === null || loginDetails[key] === "") {
+        result.push(key);
+      }
+    });
+    if (result.length === 0) {
+      login()
+      dispatch({
+        type: "SET_USER",
+        loginDetails: loginDetails,
+      });
+    } else {
+      Alert.alert("Missing Input", "Please fill out all fields to continue");
+    }
+  };
+
+  const validateRegistrationRegister = () => {
+    let keys = Object.keys(registerDetails);
+    let result = [];
+    keys.forEach((key) => {
+      if (registerDetails[key] === null || registerDetails[key] === "") {
+        result.push(key);
+      }
+    });
+    if (result.length === 0) {
+      registration()
+      dispatch({
+        type: "SET_USER",
+        registrationDetails: registerDetails,
+      });
+      
+    } else {
+      Alert.alert("Missing Input", "Please fill out all fields to continue");
+    }
+  };
+
   const logoutReset = () => {
+    dispatch({
+      type: "SET_USER",
+      loginDetails: null,
+      userInfo: null
+    });
     setLoginDetails({
-      password: 'password',
-      email: 'testemailtwo@example.com'
+      password: null,
+      email: null
     })
+    setRegisterDetails({
+    'email': '',
+    'password': '',
+    'confirmPassword': '',
+    'first_name': '',
+    'last_name': ''
+    })
+  }
+  
+  const switchScreen = () => {
+    if(logInScreen) {
+      setLogInScreen(false)
+    } else {
+      setLogInScreen(true)
+    }
+    logoutReset()
   }
 
   useEffect(() => {
@@ -65,7 +150,7 @@ const Login = ({ navigation }) => {
             <Input
               accessibilityLabel="email"
               value={loginDetails.email}
-              onChange={(event) => handleChange(event, "email")}
+              onChange={(event) => handleChangeLogin(event, "email")}
             />
           </Item>
           <Item floatingLabel>
@@ -73,54 +158,78 @@ const Login = ({ navigation }) => {
             <Input
               accessibilityLabel="password"
               value={loginDetails.password}
-              onChange={(event) => handleChange(event, "password")}
+              onChange={(event) => handleChangeLogin(event, "password")}
             />
           </Item>
           <Text style={styles.forgotPasswordAlert}>
             Forget Password?
           </Text>
-          <Button success block style={styles.button} onPress={login}>
+          <Button success block style={styles.button} onPress={() => validateRegistrationLogin('login')}>
             <Text style={{ fontFamily: "quicksand-bold", fontSize: 15 }}>
               Log In
             </Text>
           </Button>
+          <View style={styles.registerAlert}>
+            <Button transparent onPress={() => setLogInScreen(false)}>
+              <Text style={{ fontFamily: "quicksand-bold", fontSize: 15, }}>Don't Have an Account? Sign up Here!</Text>
+            </Button>
+          </View>
         </Form>
         )}
         {!logInScreen && (
           <Form style={{ width: "95%", alignSelf: "center" }}>
-          <Item floatingLabel>
-            <Label style={styles.text}>Email</Label>
-            <Input
-              accessibilityLabel="email"
-              value={loginDetails.email}
-              onChange={(event) => handleChange(event, "email")}
-            />
-          </Item>
-          <Item floatingLabel>
-            <Label style={styles.text}>Password</Label>
-            <Input
-              accessibilityLabel="password"
-              value={loginDetails.password}
-              onChange={(event) => handleChange(event, "password")}
-            />
-          </Item>
-          <Text style={styles.forgotPasswordAlert}>
-            Forget Password?
-          </Text>
-          <Button success block style={styles.button} onPress={login}>
-            <Text style={{ fontFamily: "quicksand-bold", fontSize: 15 }}>
-              Log In
-            </Text>
-          </Button>
-        </Form>
+            <Item floatingLabel>
+              <Label style={styles.text}>First Name</Label>
+              <Input
+                accessibilityLabel="first Name"
+                value={registerDetails.first_name}
+                onChange={(event) => handleChange(event, "first_name")}
+              />
+            </Item>
+            <Item floatingLabel>
+              <Label style={styles.text}>Last Name</Label>
+              <Input
+                accessibilityLabel="password"
+                value={registerDetails.last_name}
+                onChange={(event) => handleChange(event, "last_name")}
+              />
+            </Item>
+            <Item floatingLabel>
+              <Label style={styles.text}>Email</Label>
+              <Input
+                accessibilityLabel="email"
+                value={registerDetails.email}
+                onChange={(event) => handleChange(event, "email")}
+              />
+            </Item>
+            <Item floatingLabel>
+              <Label style={styles.text}>Password</Label>
+              <Input
+                accessibilityLabel="password"
+                value={registerDetails.password}
+                onChange={(event) => handleChange(event, "password")}
+              />
+            </Item>
+            <Item floatingLabel>
+              <Label style={styles.text}>Confirm Password</Label>
+              <Input
+                accessibilityLabel="password"
+                value={registerDetails.confirmPassword}
+                onChange={(event) => handleChange(event, "confirmPassword")}
+              />
+            </Item>
+            <Button success block style={styles.button} onPress={() => validateRegistrationRegister('register')}>
+              <Text style={{ fontFamily: "quicksand-bold", fontSize: 15 }}>
+                Register
+              </Text>
+            </Button>
+              <View style={styles.registerAlert}>
+                <Button transparent onPress={() => switchScreen()}>
+                  <Text style={{ fontFamily: "quicksand-bold", fontSize: 15, }}>Already Have an Account? Log in Here</Text>
+                </Button>
+              </View>
+          </Form>
         )}
-       
-        <View style={styles.registerAlert}>
-        <Button transparent onPress={() => setLogInScreen(false)}>
-          <Text style={{ fontFamily: "quicksand-bold", fontSize: 15 }}>Don't have an account? Sign Up.</Text>
-        </Button>
-          {/* <Text style={styles.text}>Don't have an account? Sign Up.</Text> */}
-        </View>
       </KeyboardAwareScrollView>
     </View>
   );
@@ -138,6 +247,7 @@ const styles = StyleSheet.create({
     width: "90%",
     paddingTop: 15,
     alignItems: "center",
+    justifyContent: 'center',
     borderTopColor: "#cfcfcf",
   },
   button: {

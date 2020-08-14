@@ -38,7 +38,7 @@ const Profile = ({ navigation }) => {
   }
  
   useEffect( () => {
-    getBidData(1)
+    getBidData(state.userInfo.user_id)
   }, [])
 
   return (

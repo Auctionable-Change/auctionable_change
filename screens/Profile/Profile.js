@@ -6,6 +6,7 @@ import NavBar from "../../components/NavBar/NavBar";
 import { fetchUserInfo, fetchBid} from "../apiCalls";
 import { useStore } from "../../store";
 import moment from 'moment';
+import PaymentInstructions from '../PaymentInstructions/PaymentInstructions';
 
 const Profile = ({ navigation }) => {
   const { state } = useStore();
@@ -22,6 +23,7 @@ const Profile = ({ navigation }) => {
             auctionEnd: info.auction_end,
             charity: info.charity,
             bidAmount: bid.amount,
+            status: info.status,
             id: bid.id,
             winner: bid.winner,
           }
@@ -34,6 +36,10 @@ const Profile = ({ navigation }) => {
   const timeConvert = (timestamp) => {
     let date = moment.unix(timestamp).format('dddd, MMMM Do, YYYY h:mm:ss A')
     return date
+  }
+  
+  const payment = () => {
+    navigation.navigate('PaymentInstructions')
   }
  
   useEffect( () => {
@@ -51,16 +57,33 @@ const Profile = ({ navigation }) => {
                     keyExtractor={(item) => item.id}
                     renderItem={({ item }) => (
                       <Card style={styles.cardDefault}>
+                      {console.log('item', item)}
                         <View style={{ alignContents:'center'}}>
                           <Text style={styles.normal}>Item Title: {item.itemName}</Text>
                           <Text style={styles.normal}>Auction End: {timeConvert(item.auctionEnd)}</Text>
                           <Text style={styles.normal}>Charity: {item.charity}</Text>
                           <Text style={styles.normal}>Your Bid: ${item.bidAmount}</Text>
                           {item.winner && (
-                            <Text style={styles.normal}>Result: Won Auction!</Text>
+                            <View>
+                              {item.status === 'pending' && (
+                                <Button transparent onPress={() => payment()}>
+                                  <Text style={styles.normal}>Status: Won Auction! -- Pay Now</Text>
+                                </Button>
+                              )}
+                              {item.status != 'pending' && (
+                                <Text style={styles.normal}>Status: Won Auction! -- Paid</Text>
+                              )}
+                            </View>
                           )}
                           {!item.winner && (
-                            <Text style={styles.normal}>Result: Lost Auction</Text>
+                            <View>
+                              {item.status === 'available' && (
+                                <Text style={styles.normal}>Result: Auction Ongoing. Ends: {timeConvert(item.auctionEnd)}</Text>
+                              )}
+                              {item.status === 'sold' && (
+                                <Text style={styles.normal}>Result: Lost Auction</Text>
+                              )}
+                            </View> 
                           )}
                         </View>
                       </Card>

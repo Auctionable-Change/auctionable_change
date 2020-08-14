@@ -112,7 +112,7 @@ const updateItemStatus = async (itemId) => {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            "status": "unavailable"
+            "status": "sold"
           }),
         }
       );

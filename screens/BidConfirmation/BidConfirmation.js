@@ -3,8 +3,6 @@ import { StyleSheet, View, Image, Alert } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Text, Button, Body, CardItem, Card } from "native-base";
 import { useStore } from "../../store";
-import * as Linking from "expo-linking";
-import Camera from "../Camera/Camera";
 import { ScrollView } from "react-native-gesture-handler";
 import NavBar from "../../components/NavBar/NavBar";
 import { postBid } from "../apiCalls";
@@ -13,12 +11,13 @@ const BidConfirmation = ({ navigation }) => {
   const { state } = useStore();
   const [bidObj, setBidObj] = useState({
     item_id: state.currentListing.id, 
-    user_id: state.currentListing.user_id,
+    user_id: state.userInfo.id,
     amount: state.currentBid
   })
 
   const confirmBid = async () => {
     const response = await postBid(bidObj)
+    
     if(response.status === 200) {
       Alert.alert("Bid Placed!", "Congratulations! Your Bid Was Succesfully Placed");
       navigation.navigate('Profile')

@@ -37,7 +37,7 @@ export const fetchUserInfo = async (userId) => {
       throw new Error(error);
     }
     const data = await response.json();
-    return data.bids;
+    return data;
   } catch(error) {
     return false
   }

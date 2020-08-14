@@ -69,6 +69,7 @@ const reducer = (state, action) => {
       case "SET_USER":
       return {
         ...state,
+        loginDetails: action.loginDetails,
         userInfo: action.userInfo
       }
 

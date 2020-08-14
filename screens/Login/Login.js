@@ -3,7 +3,7 @@ import { View, Image, StyleSheet, Alert } from "react-native";
 import { Label, Form, Item, Button, Text, Input } from 'native-base'
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import { useStore } from "../../store";
-import { logIn, register } from "../apiCalls";
+import { logIn, register, fetchUserInfo } from "../apiCalls";
 
 const Login = ({ navigation }) => {
   const { dispatch } = useStore()
@@ -21,12 +21,15 @@ const Login = ({ navigation }) => {
     navigation.navigate("Home");
     // register()
     let userData = await logIn(loginDetails)
-    
+    console.log('userData', userData)
+    let completeUserData = await fetchUserInfo(userData.user_id)
+    console.log('completeUserData', completeUserData)
     if (userData.message === "Successfully logged in.") {
         // navigation.navigate("Home");
         dispatch({
           type: "SET_USER",
-          userInfo: userData
+          loginDetails: userData,
+          userInfo: completeUserData
         })
     } 
     else {

@@ -15,7 +15,7 @@ const Profile = ({ navigation }) => {
   const getBidData = async (userId) => {
     fetchUserInfo(userId)
     .then(data => {
-      const promises = data.map(bid => {
+      const promises = data.bids.map(bid => {
         return fetchBid(bid.item_id)
         .then(info => {
           return {
@@ -42,8 +42,9 @@ const Profile = ({ navigation }) => {
   }, [])
 
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: "#FFFFFF", alignItems: "center", }}>
-      <Text style={styles.title}>Hello, [name]!</Text>
+    <SafeAreaView style={{ flex: 1, backgroundColor: "#FFFFFF", alignItems: "center", flexDirection: "column", justifyContent: "space-between",}}>
+    {/* {console.log(state)} */}
+      <Text style={styles.title}>Hello, {state.userInfo.first_name}</Text>
       <Text style={styles.title}>Your Bidding History:</Text>
         <FlatList data={bidHistory}
                     style={styles.scrollView}
@@ -91,6 +92,7 @@ const styles = StyleSheet.create({
     padding: 15,
     width: "98%",
     marginTop: 15,
+    marginBottom: 15,
     height: 200,
     flexDirection: "row",
   },

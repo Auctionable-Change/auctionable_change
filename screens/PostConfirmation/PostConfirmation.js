@@ -7,10 +7,14 @@ import { Button, Text } from "native-base";
 import { submitListing } from "../apiCalls";
 
 const PostConfirmation = ({ navigation }) => {
-  const { state } = useStore();
+  const { state, dispatch } = useStore();
 
-  const handleSubmit = () => {
-    submitListing(state.listingToPost);
+  const handleSubmit = async () => {
+     dispatch({
+       type: "ADD_TO_LISTING",
+       listingToPost: { auction_length: 10080 },
+     });
+    await submitListing(state.listingToPost);
     navigation.navigate("Thank You");
   };
 
@@ -47,15 +51,6 @@ const PostConfirmation = ({ navigation }) => {
           </Text>
           <Text style={styles.text}>
             Charity: {state.listingToPost.charity}
-          </Text>
-          <Text
-            style={{ fontFamily: "quicksand-bold", fontSize: 18, marginTop: 5 }}
-          >
-            About you:
-          </Text>
-          <Text style={styles.text}>Name: {state.listingToPost.donor}</Text>
-          <Text style={styles.text}>
-            Email: {state.listingToPost.donor_email}
           </Text>
         </View>
         <Text style={styles.alert}>

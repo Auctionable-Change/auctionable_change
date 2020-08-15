@@ -29,6 +29,9 @@ const initialState = {
     receipt: "",
   },
   listingToPost: {},
+  userInfo: {
+    id: null
+  }
 };
 
 const reducer = (state, action) => {

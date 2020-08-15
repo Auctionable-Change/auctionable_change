@@ -15,24 +15,12 @@ describe('SellerForm', () => {
    expect(tree).toMatchSnapshot();
   })
   it('should navigate when all inputs are full', () => {
-    const mockSendEmail = jest.fn();
-    const itemObj = {
-      donor: 'User2',
-      donor_email: 'User2@gmail.com',
-      title: 'Test Item',
-      category: 'baby',
-      description: 'baby doll',
-      price: '50',
-    }
-
     const { getByText, getByA11yLabel } = render(
       <StoreProvider>
         <SellerForm />
       </StoreProvider>
     )
     const send = getByText('Continue')
-    fireEvent(getByA11yLabel("name"), 'onChange', {nativeEvent: {text: 'User1'}})
-    fireEvent(getByA11yLabel("email"), 'onChange', {nativeEvent: {text: 'User1@gmail.com'}})
     fireEvent(getByA11yLabel("item-name"), 'onChange', {nativeEvent: {text: 'Test Item'}})
     fireEvent(getByA11yLabel("description"), 'onChange', {nativeEvent: {text: 'Baby Doll'}})
     fireEvent(getByA11yLabel("bid"), 'onChange', {nativeEvent: {text: '50'}})

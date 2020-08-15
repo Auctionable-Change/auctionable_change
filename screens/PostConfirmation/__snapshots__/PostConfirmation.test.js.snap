@@ -175,62 +175,6 @@ exports[`PostConfirmation should render 1`] = `
         >
           Charity: 
         </Text>
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#000",
-                "fontFamily": "System",
-                "fontSize": 16,
-              },
-              Object {
-                "fontFamily": "quicksand-bold",
-                "fontSize": 18,
-                "marginTop": 5,
-              },
-            ]
-          }
-        >
-          About you:
-        </Text>
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#000",
-                "fontFamily": "System",
-                "fontSize": 16,
-              },
-              Object {
-                "fontFamily": "quicksand",
-                "fontSize": 15,
-                "marginBottom": 5,
-                "marginLeft": 10,
-              },
-            ]
-          }
-        >
-          Name: 
-        </Text>
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#000",
-                "fontFamily": "System",
-                "fontSize": 16,
-              },
-              Object {
-                "fontFamily": "quicksand",
-                "fontSize": 15,
-                "marginBottom": 5,
-                "marginLeft": 10,
-              },
-            ]
-          }
-        >
-          Email: 
-        </Text>
       </View>
       <Text
         style={

@@ -82,7 +82,7 @@ const ListingDetails = ({ navigation }) => {
             style={{
               fontFamily: "quicksand",
               fontSize: 15,
-              marginLeft: 5,
+              marginTop: 15
             }}
           >
             Read more about their mission{" "}
@@ -91,6 +91,7 @@ const ListingDetails = ({ navigation }) => {
             style={{
               fontFamily: "quicksand-bold",
               textDecorationLine: "underline",
+              marginTop: 15
             }}
             onPress={() => Linking.openURL(state.currentListing.charity_url)}
           >
@@ -98,7 +99,7 @@ const ListingDetails = ({ navigation }) => {
           </Text>
           <View style={{ flexDirection: "row", flexWrap: "wrap" }}></View>
         </View>
-        <Item floatingLabel style={{marginTop: 25, alignSelf: 'center', }}>
+        <Item floatingLabel style={{marginTop: 10, alignSelf: 'center', }}>
           <Label style={styles.label}>Enter a bid greater than ${state.currentListing.price}</Label>
           <Input value={currentBid} onChange={(event) => verifyPrice(event)}/>
         </Item>
@@ -177,8 +178,9 @@ const styles = StyleSheet.create({
   },
   label: {
     paddingLeft: 10,
-  }
-  
+    fontSize: 15,
+    fontFamily: "quicksand",
+  },
 });
 
 export default ListingDetails;

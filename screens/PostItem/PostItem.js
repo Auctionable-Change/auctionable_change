@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
     fontSize: 25,
     fontFamily: "quicksand-bold",
     textAlign: "center",
-    marginBottom: 10,
+    margin: 20,
   },
   container: {
     flex: 1,

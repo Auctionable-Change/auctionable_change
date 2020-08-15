@@ -131,7 +131,7 @@ exports[`ListingDetails should render 1`] = `
             Object {
               "fontFamily": "quicksand",
               "fontSize": 15,
-              "marginLeft": 5,
+              "marginTop": 15,
             }
           }
         >
@@ -143,6 +143,7 @@ exports[`ListingDetails should render 1`] = `
           style={
             Object {
               "fontFamily": "quicksand-bold",
+              "marginTop": 15,
               "textDecorationLine": "underline",
             }
           }
@@ -183,7 +184,7 @@ exports[`ListingDetails should render 1`] = `
             "borderWidth": undefined,
             "flexDirection": "row",
             "marginLeft": 2,
-            "marginTop": 25,
+            "marginTop": 10,
             "opacity": 1,
           }
         }
@@ -211,6 +212,8 @@ exports[`ListingDetails should render 1`] = `
                   "paddingTop": 5,
                 },
                 Object {
+                  "fontFamily": "quicksand",
+                  "fontSize": 15,
                   "paddingLeft": 10,
                 },
               ]
@@ -223,6 +226,8 @@ exports[`ListingDetails should render 1`] = `
                     "fontSize": 17,
                   },
                   Object {
+                    "fontFamily": "quicksand",
+                    "fontSize": 15,
                     "paddingLeft": 10,
                   },
                 ]

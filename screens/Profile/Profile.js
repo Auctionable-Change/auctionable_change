@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import { StyleSheet, FlatList } from "react-native";
-import { Button, Text, Segment, Card, View } from 'native-base'
+import { Button, Text, Card, View } from 'native-base'
 import { SafeAreaView } from "react-native-safe-area-context";
 import NavBar from "../../components/NavBar/NavBar";
 import { fetchUserInfo, fetchBid} from "../apiCalls";
 import { useStore } from "../../store";
 import moment from 'moment';
-import PaymentInstructions from '../PaymentInstructions/PaymentInstructions';
 
 const Profile = ({ navigation }) => {
   const { state } = useStore();
@@ -48,47 +47,69 @@ const Profile = ({ navigation }) => {
   }, [])
 
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: "#FFFFFF", alignItems: "center", flexDirection: "column", justifyContent: "space-between",}}>
-    {/* {console.log(state)} */}
+    <SafeAreaView
+      style={{
+        flex: 1,
+        backgroundColor: "#FFFFFF",
+        alignItems: "center",
+        flexDirection: "column",
+        justifyContent: "space-between",
+      }}
+    >
+      {/* {console.log(state)} */}
       <Text style={styles.title}>Hello, {state.userInfo.first_name}</Text>
       <Text style={styles.title}>Your Bidding History:</Text>
-        <FlatList data={bidHistory}
-                    style={styles.scrollView}
-                    keyExtractor={(item) => item.id}
-                    renderItem={({ item }) => (
-                      <Card style={styles.cardDefault}>
-                      {console.log('item', item)}
-                        <View style={{ alignContents:'center'}}>
-                          <Text style={styles.normal}>Item Title: {item.itemName}</Text>
-                          <Text style={styles.normal}>Auction End: {timeConvert(item.auctionEnd)}</Text>
-                          <Text style={styles.normal}>Charity: {item.charity}</Text>
-                          <Text style={styles.normal}>Your Bid: ${item.bidAmount}</Text>
-                          {item.winner && (
-                            <View>
-                              {item.status === 'pending' && (
-                                <Button transparent onPress={() => payment()}>
-                                  <Text style={styles.normal}>Status: Won Auction! -- Pay Now</Text>
-                                </Button>
-                              )}
-                              {item.status != 'pending' && (
-                                <Text style={styles.normal}>Status: Won Auction! -- Paid</Text>
-                              )}
-                            </View>
-                          )}
-                          {!item.winner && (
-                            <View>
-                              {item.status === 'available' && (
-                                <Text style={styles.normal}>Result: Auction Ongoing. Ends: {timeConvert(item.auctionEnd)}</Text>
-                              )}
-                              {item.status === 'sold' && (
-                                <Text style={styles.normal}>Result: Lost Auction</Text>
-                              )}
-                            </View> 
-                          )}
-                        </View>
-                      </Card>
-                    )}
-          />
+      <FlatList
+        data={bidHistory}
+        style={styles.scrollView}
+        keyExtractor={(item) => item.id}
+        renderItem={({ item }) => (
+          <Card style={styles.cardDefault}>
+            {console.log("item", item)}
+            <View style={{ alignContents: "center" }}>
+              <Text style={styles.normal}>Item Title: {item.itemName}</Text>
+              <Text style={styles.normal}>
+                Auction End: {timeConvert(item.auctionEnd)}
+              </Text>
+              <Text style={styles.normal}>Charity: {item.charity}</Text>
+              <Text style={styles.normal}>Your Bid: ${item.bidAmount}</Text>
+              {item.winner && (
+                <View>
+                  {item.status === "pending" && (
+                    <Button transparent onPress={() => payment()}>
+                      <Text style={styles.normal}>
+                        Status: Won Auction! -- Pay Now
+                      </Text>
+                    </Button>
+                  )}
+                  {item.status != "pending" && (
+                    <Text style={styles.normal}>
+                      Status: Won Auction! -- Paid
+                    </Text>
+                  )}
+                </View>
+              )}
+              {!item.winner && (
+                <View>
+                  {item.status === "available" && (
+                    <>
+                      <Text style={styles.normal}>
+                        Result: Auction Ongoing.{" "}
+                      </Text>
+                      <Text style={styles.normal}>
+                        Ends: {timeConvert(item.auctionEnd)}
+                      </Text>
+                    </>
+                  )}
+                  {item.status === "sold" && (
+                    <Text style={styles.normal}>Result: Lost Auction</Text>
+                  )}
+                </View>
+              )}
+            </View>
+          </Card>
+        )}
+      />
       <NavBar navigation={navigation} />
     </SafeAreaView>
   );
@@ -108,7 +129,10 @@ const styles = StyleSheet.create({
   },
   scrollView: {
     flex: 1,
-    width: "90%",
+    width: "100%",
+    padding: 10,
+    marginBottom: 50,
+    marginTop: 15
   },
   cardDefault: {
     backgroundColor: "#FFF",
@@ -116,7 +140,6 @@ const styles = StyleSheet.create({
     width: "98%",
     marginTop: 15,
     marginBottom: 15,
-    height: 200,
     flexDirection: "row",
   },
   normal: {

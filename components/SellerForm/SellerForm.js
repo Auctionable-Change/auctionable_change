@@ -16,10 +16,9 @@ import { useStore } from "../../store";
 import { StyleSheet } from "react-native";
 
 const SellerForm = ({ navigation }) => {
-  const { dispatch } = useStore();
+  const { dispatch, state } = useStore();
   const [listingObj, setListingObj] = useState({
-    donor: null,
-    donor_email: null,
+    user_id: state.userInfo.id,
     title: null,
     category: null,
     description: null,
@@ -60,14 +59,6 @@ const SellerForm = ({ navigation }) => {
     <Container>
       <Content>
         <Form>
-          <Item floatingLabel>
-            <Label style={styles.label}>Your Name</Label>
-            <Input accessibilityLabel={'name'} onChange={(event) => handleChange(event, "donor")} />
-          </Item>
-          <Item floatingLabel>
-            <Label style={styles.label}>Email</Label>
-            <Input accessibilityLabel={'email'} onChange={(event) => handleChange(event, "donor_email")} />
-          </Item>
           <Item floatingLabel>
             <Label style={styles.label}>Item Name</Label>
             <Input accessibilityLabel={'item-name'} onChange={(event) => handleChange(event, "title")} />
@@ -115,11 +106,11 @@ const SellerForm = ({ navigation }) => {
             style={{
               alignSelf: "center",
               backgroundColor: "#2cb833",
-              margin: 10,
+              marginTop: 40,
             }}
             onPress={() => validateForm()}
           >
-            <Text style={{ fontFamily: "quicksand-bold", fontSize: 15 }}>
+            <Text style={{ fontFamily: "quicksand-bold", fontSize: 15, textSelf: "center" }}>
               Continue
             </Text>
           </Button>

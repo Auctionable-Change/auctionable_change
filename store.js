@@ -8,8 +8,6 @@ const initialState = {
     title: "",
     description: "",
     price: null,
-    donor: "",
-    donor_email: "",
     status: "",
     category: "",
     charity: "",

@@ -26,12 +26,12 @@ const Profile = ({ navigation }) => {
             status: info.status,
             id: bid.id,
             winner: bid.winner,
-          }
-        })
+        }
       })
+    })
     Promise.all(promises).then(bidsInfo => setBidHistory(bidsInfo))
   })
-  }
+}
 
   const timeConvert = (timestamp) => {
     let date = moment.unix(timestamp).format('dddd, MMMM Do, YYYY h:mm:ss A')
@@ -39,17 +39,19 @@ const Profile = ({ navigation }) => {
   }
   
   const payment = () => {
-    navigation.navigate('PaymentInstructions')
+    navigation.navigate("Purchase")
   }
- 
+  
   useEffect( () => {
-    console.log(state)
-    getBidData(state.loginDetails.user_id)
+    const fetchBidsAndUsers = async () => {
+      const bidData = await getBidData(state.loginDetails.user_id);
+      const postBids = await postUserBids();
+    }
+    fetchBidsAndUsers()
   }, [])
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: "#FFFFFF", alignItems: "center", flexDirection: "column", justifyContent: "space-between",}}>
-    {/* {console.log(state)} */}
       <Text style={styles.title}>Hello, {state.userInfo.first_name}</Text>
       <Text style={styles.title}>Your Bidding History:</Text>
         <FlatList data={bidHistory}
@@ -78,10 +80,10 @@ const Profile = ({ navigation }) => {
                           {!item.winner && (
                             <View>
                               {item.status === 'available' && (
-                                <Text style={styles.normal}>Result: Auction Ongoing. Ends: {timeConvert(item.auctionEnd)}</Text>
+                                <Text style={styles.normal}>Status: Auction Ongoing. Ends: {timeConvert(item.auctionEnd)}</Text>
                               )}
-                              {item.status === 'sold' && (
-                                <Text style={styles.normal}>Result: Lost Auction</Text>
+                              {item.status === 'pending' && (
+                                <Text style={styles.normal}>Status: Lost Auction</Text>
                               )}
                             </View> 
                           )}

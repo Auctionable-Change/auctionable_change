@@ -36,12 +36,13 @@ const Login = ({ navigation }) => {
     let completeUserData = await fetchUserInfo(userData.user_id)
    
     if (userData.message === "Successfully logged in.") {
-        navigation.navigate("Home");
+      navigation.navigate("Home");
         dispatch({
           type: "SET_USER",
           loginDetails: userData,
           userInfo: completeUserData
         })
+       
     } 
     else {
       Alert.alert(
@@ -57,6 +58,10 @@ const Login = ({ navigation }) => {
       dispatch({
         type: "SET_USER",
         registrationDetails: registerDetails,
+        loginDetails: {
+          email: registerDetails.email,
+          password: registerDetails.password,
+        }
       });
       navigation.navigate("Home");
     } else {
@@ -97,6 +102,10 @@ const Login = ({ navigation }) => {
       dispatch({
         type: "SET_USER",
         registrationDetails: registerDetails,
+        userInfo: {
+          email: registerDetails.email,
+          password: registerDetails.password
+        }
       });
       
     } else {

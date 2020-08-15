@@ -128,7 +128,7 @@ const updateItemStatus = async (itemId) => {
 
 export const submitPurchase = async (buyerInfo) => {
   try {
-    console.log(buyerInfo);
+    
     const response = await fetch(
       `https://auctionable-change-api.herokuapp.com/bids`,
         {

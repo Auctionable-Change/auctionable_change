@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { StyleSheet, View, Image, Alert } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { Text, Button, Body, CardItem, Card } from "native-base";
+import { Text, Button } from "native-base";
 import { useStore } from "../../store";
 import { ScrollView } from "react-native-gesture-handler";
 import NavBar from "../../components/NavBar/NavBar";
@@ -24,16 +24,15 @@ const BidConfirmation = ({ navigation }) => {
     }
   }
 
-  return(
+  return (
     <SafeAreaView style={styles.container}>
-      <ScrollView contentContainerStyle={{ flex: 1, alignItems: "center", width: "100%", marginBottom: 25 }}>
-      <View>
-        <Text style={styles.title}>Please Confirm Your Bid:</Text>
-        <Text style={styles.subtitle}>Item: {state.currentListing.title}</Text>
-        <Text style={styles.subtitle}>Description: {state.currentListing.description}</Text>
-        <Text style={styles.subtitle}>Your bid: ${state.currentBid}</Text>
-      </View>
-      <Image
+      <ScrollView contentContainerStyle={{ width: "100%" }}>
+        <View>
+          <Text style={styles.title}>Please Confirm Your Bid:</Text>
+          <Text style={styles.subtitle}>{state.currentListing.title}</Text>
+          <Text style={styles.subtitle}>Your bid: ${state.currentBid}</Text>
+        </View>
+        <Image
           style={styles.image}
           source={
             state.currentListing.image
@@ -42,16 +41,21 @@ const BidConfirmation = ({ navigation }) => {
           }
         />
         <Button
-          block
+          rounded
           success
-          style={{ backgroundColor: "#2cb833", margin: 5 }}
+          style={{
+            backgroundColor: "#2cb833",
+            marginBottom: 80,
+            alignSelf: "center",
+            marginTop: 20,
+          }}
           onPress={() => confirmBid()}
         >
           <Text
             style={{
               color: "white",
               fontFamily: "quicksand-bold",
-              fontSize: 20,
+              fontSize: 15,
             }}
           >
             Place Bid
@@ -64,54 +68,30 @@ const BidConfirmation = ({ navigation }) => {
 };
 
 const styles = StyleSheet.create({
-container: {
-  flex: 1,
-  backgroundColor: "#FFFFFF",
-  display: "flex",
-},
-subtitle: {
-  fontSize: 20,
-  fontFamily: "quicksand",
-  margin: 10,
-  textAlign: "center",
-},
-title: {
-  fontSize: 25,
-  textAlign: "center",
-  margin: 5,
-  fontFamily: "quicksand-bold",
-},
-listItem: {
-  fontSize: 15,
-  marginLeft: 20,
-  marginRight: 20,
-  marginTop: 5,
-  marginBottom: 5,
-  fontFamily: "quicksand",
-},
-stepOne: {
-  flexDirection: "row",
-  flexWrap: "wrap",
-  marginTop: 5,
-},
-cardItem: {
-  shadowOffset: {
-    width: 0,
-    height: 1,
+  container: {
+    flex: 1,
+    backgroundColor: "#FFFFFF",
+    display: "flex",
   },
-  shadowOpacity: 0.18,
-  shadowRadius: 1.0,
-  borderRadius: 3,
-},
-image: {
-  width: "100%",
-  height: 300,
-  resizeMode: "cover",
-  alignSelf: "center",
-  margin: 10,
-  borderColor: 'black',
-  borderWidth: 5,
-},
+  subtitle: {
+    fontSize: 20,
+    fontFamily: "quicksand",
+    margin: 5,
+    textAlign: "center",
+  },
+  title: {
+    fontSize: 25,
+    textAlign: "center",
+    margin: 5,
+    fontFamily: "quicksand-bold",
+  },
+  image: {
+    width: "100%",
+    height: 350,
+    resizeMode: "cover",
+    alignSelf: "center",
+    margin: 10,
+  },
 });
 
 export default BidConfirmation;

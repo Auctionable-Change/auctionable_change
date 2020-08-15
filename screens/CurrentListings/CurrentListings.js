@@ -150,7 +150,7 @@ const CurrentListings = ({ navigation }) => {
               </Button>
             </CardItem>
             <CardItem>
-              <Text style={{ fontFamily: "quicksand-bold", color: 'red', justifySelf: 'center' }}>
+              <Text style={{ fontFamily: "quicksand-bold", color: 'red' }}>
                 Auction Ends in {timeConvert(item.auction_end)}
               </Text>
             </CardItem>

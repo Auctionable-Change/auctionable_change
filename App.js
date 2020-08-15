@@ -72,11 +72,11 @@ export default function App() {
               },
             }}
           />
-           <Stack.Screen
+          <Stack.Screen
             name="Bid Confirmation"
             component={BidConfirmation}
             options={{
-              headerTitle: false,
+              headerTitle: () => <LogoTitle />,
               headerBackTitleVisible: false,
               ...backButtonStyle,
               headerStyle: {

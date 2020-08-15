@@ -8,8 +8,6 @@ const initialState = {
     title: "",
     description: "",
     price: null,
-    donor: "",
-    donor_email: "",
     status: "",
     category: "",
     charity: "",
@@ -31,6 +29,9 @@ const initialState = {
     receipt: "",
   },
   listingToPost: {},
+  userInfo: {
+    id: null
+  }
 };
 
 const reducer = (state, action) => {

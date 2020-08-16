@@ -25,12 +25,12 @@ const Profile = ({ navigation }) => {
             status: info.status,
             id: bid.id,
             winner: bid.winner,
-          }
-        })
+        }
       })
+    })
     Promise.all(promises).then(bidsInfo => setBidHistory(bidsInfo))
   })
-  }
+}
 
   const timeConvert = (timestamp) => {
     let date = moment.unix(timestamp).format('dddd, MMMM Do, YYYY h:mm:ss A')
@@ -38,12 +38,15 @@ const Profile = ({ navigation }) => {
   }
   
   const payment = () => {
-    navigation.navigate('PaymentInstructions')
+    navigation.navigate("Purchase")
   }
- 
+  
   useEffect( () => {
-    console.log(state)
-    getBidData(state.loginDetails.user_id)
+    const fetchBidsAndUsers = async () => {
+      const bidData = await getBidData(state.loginDetails.user_id);
+      const postBids = await postUserBids();
+    }
+    fetchBidsAndUsers()
   }, [])
 
   return (
@@ -101,7 +104,7 @@ const Profile = ({ navigation }) => {
                       </Text>
                     </>
                   )}
-                  {item.status === "sold" && (
+                  {item.status === "pending" && (
                     <Text style={styles.normal}>Result: Lost Auction</Text>
                   )}
                 </View>
